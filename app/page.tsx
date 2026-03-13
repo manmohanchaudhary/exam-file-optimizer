@@ -1,6 +1,7 @@
 import { FileUp, Image as ImageIcon, FileText, Settings, Download, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import AdBanner from '@/components/AdBanner';
 
 export default function Home() {
   return (
@@ -39,9 +40,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* AdSense Placeholder */}
-          <div className="max-w-4xl mx-auto bg-slate-100 border border-slate-200 rounded-lg h-24 flex items-center justify-center text-slate-400 text-sm">
-            Advertisement Space (Google AdSense)
+          {/* AdSense Banner */}
+          <div className="max-w-4xl mx-auto my-8">
+            <AdBanner dataAdSlot="YOUR_AD_SLOT_ID" />
           </div>
         </section>
 
