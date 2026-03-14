@@ -11,6 +11,16 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
+import { GoogleGenAI } from '@google/genai';
+
+const fileToBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = error => reject(error);
+  });
+};
 
 export default function AppContainer() {
   const [file, setFile] = useState<File | null>(null);
@@ -23,6 +33,9 @@ export default function AppContainer() {
   const [customMinSize, setCustomMinSize] = useState<string>('');
   const [customMaxSize, setCustomMaxSize] = useState<string>('50');
   const [customFormat, setCustomFormat] = useState<string>('jpg');
+
+  const [useAiEnhance, setUseAiEnhance] = useState(false);
+  const [aiImageSize, setAiImageSize] = useState('1K');
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
@@ -71,8 +84,63 @@ export default function AppContainer() {
     setResult(null);
 
     try {
+      let fileToProcess = file;
+
+      if (fileType === 'signature' && useAiEnhance) {
+        toast.info('Enhancing signature with AI...');
+        // @ts-ignore
+        if (window.aistudio && !(await window.aistudio.hasSelectedApiKey())) {
+          // @ts-ignore
+          await window.aistudio.openSelectKey();
+        }
+
+        const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY || process.env.API_KEY || '' });
+        const base64Data = await fileToBase64(file);
+        const mimeType = file.type;
+        const data = base64Data.split(',')[1];
+
+        const response = await ai.models.generateContent({
+          model: 'gemini-3-pro-image-preview',
+          contents: {
+            parts: [
+              {
+                inlineData: {
+                  data: data,
+                  mimeType: mimeType,
+                },
+              },
+              {
+                text: 'Remove the background to make it pure white, make the signature black and white, and enhance the image quality.',
+              },
+            ],
+          },
+          config: {
+            imageConfig: {
+              imageSize: aiImageSize as "1K" | "2K" | "4K",
+            }
+          }
+        });
+
+        let enhancedBase64 = null;
+        for (const part of response.candidates?.[0]?.content?.parts || []) {
+          if (part.inlineData) {
+            enhancedBase64 = `data:${part.inlineData.mimeType || 'image/png'};base64,${part.inlineData.data}`;
+            break;
+          }
+        }
+
+        if (enhancedBase64) {
+          const res = await fetch(enhancedBase64);
+          const blob = await res.blob();
+          fileToProcess = new File([blob], 'enhanced_signature.png', { type: 'image/png' });
+          toast.success('AI enhancement complete!');
+        } else {
+          throw new Error('AI enhancement failed to return an image.');
+        }
+      }
+
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', fileToProcess);
       
       const isCustom = selectedPresetId.startsWith('custom-');
       const preset = PRESETS.find(p => p.id === selectedPresetId);
@@ -244,6 +312,43 @@ export default function AppContainer() {
                       </p>
                     )}
                   </div>
+
+                  {fileType === 'signature' && (
+                    <div className="space-y-4 pt-4 border-t border-slate-100">
+                      <div className="flex items-center space-x-2">
+                        <input 
+                          type="checkbox" 
+                          id="aiEnhance" 
+                          checked={useAiEnhance} 
+                          onChange={(e) => setUseAiEnhance(e.target.checked)} 
+                          className="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500"
+                        />
+                        <Label htmlFor="aiEnhance" className="font-medium cursor-pointer">
+                          ✨ AI Enhance (Nano Banana Pro)
+                        </Label>
+                      </div>
+                      {useAiEnhance && (
+                        <div className="pl-6 space-y-3">
+                          <p className="text-sm text-slate-500">
+                            Removes background, converts to black & white, and improves quality.
+                          </p>
+                          <div className="space-y-2">
+                            <Label htmlFor="aiSize">AI Image Size</Label>
+                            <Select value={aiImageSize} onValueChange={(v) => v && setAiImageSize(v)}>
+                              <SelectTrigger id="aiSize">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="1K">1K (Standard)</SelectItem>
+                                <SelectItem value="2K">2K (High Quality)</SelectItem>
+                                <SelectItem value="4K">4K (Ultra Quality)</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {isCustom && (
                     <div className="space-y-4 pt-4 border-t border-slate-100">

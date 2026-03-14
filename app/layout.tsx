@@ -10,6 +10,35 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 export const metadata: Metadata = {
   title: 'Exam File Optimizer | Resize Photos & Signatures for Forms',
   description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
+  keywords: ['exam photo resizer', 'signature resize', 'ssc photo resize', 'upsc photo resize', 'banking exam photo converter', '20kb photo converter', '50kb photo converter'],
+  authors: [{ name: 'Exam File Optimizer' }],
+  openGraph: {
+    title: 'Exam File Optimizer | Resize Photos & Signatures for Forms',
+    description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
+    url: 'https://examresize.online',
+    siteName: 'Exam File Optimizer',
+    locale: 'en_US',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://examresize.online',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Exam File Optimizer | Resize Photos & Signatures for Forms',
+    description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
