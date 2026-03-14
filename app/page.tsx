@@ -15,7 +15,7 @@ export default function Home() {
         <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
             Instantly Convert Photos & Documents <br className="hidden md:block" />
-            <span className="text-indigo-600">for Exam Forms</span>
+            <span className="text-[#28a745]">for Exam Forms</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
             Never get your application rejected again. Resize, compress, and format your photos, signatures, and PDFs to meet strict government and competitive exam requirements.
@@ -44,21 +44,21 @@ export default function Home() {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6">
-                <div className="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-blue-100 text-[#0056b3] rounded-full flex items-center justify-center mx-auto mb-6">
                   <FileUp className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">1. Upload File</h3>
                 <p className="text-slate-600">Drag and drop your photo, signature, or PDF document. Max 10MB.</p>
               </div>
               <div className="text-center p-6">
-                <div className="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-blue-100 text-[#0056b3] rounded-full flex items-center justify-center mx-auto mb-6">
                   <Settings className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">2. Select Preset</h3>
                 <p className="text-slate-600">Choose from SSC, UPSC, Banking, NEET, or enter custom dimensions and size.</p>
               </div>
               <div className="text-center p-6">
-                <div className="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-blue-100 text-[#0056b3] rounded-full flex items-center justify-center mx-auto mb-6">
                   <Download className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">3. Download</h3>

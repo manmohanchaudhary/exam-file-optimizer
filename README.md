@@ -1,4 +1,4 @@
-# Exam File Optimizer
+# ExamResize
 
 Instantly convert photos and documents for exam forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.
 

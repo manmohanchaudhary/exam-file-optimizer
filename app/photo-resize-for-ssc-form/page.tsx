@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Photo Resize for SSC Form | Exam File Optimizer',
+  title: 'Photo Resize for SSC Form | ExamResize',
   description: 'Easily resize and compress your photo for SSC exams. Get the exact 200x230 pixels and 20KB-50KB size required for SSC applications.',
 };
 

@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Passport Photo for Exam Forms | Exam File Optimizer',
+  title: 'Passport Photo for Exam Forms | ExamResize',
   description: 'Create a standard passport photo for exam forms. Automatically crop, resize, and compress your photo to 3.5cm x 4.5cm at 300 DPI.',
 };
 

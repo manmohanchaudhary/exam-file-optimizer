@@ -1,8 +1,8 @@
 import { Header, Footer } from '@/components/Navigation';
 
 export const metadata = {
-  title: 'Privacy Policy | ExamFileOptimizer',
-  description: 'Privacy Policy for ExamFileOptimizer - Learn how we handle your data securely.',
+  title: 'Privacy Policy | ExamResize',
+  description: 'Privacy Policy for ExamResize - Learn how we handle your data securely.',
 };
 
 export default function PrivacyPolicy() {
@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
               <p>
                 Information is processed solely to provide the requested file optimization tools, maintain service functionality and security, diagnose technical issues, improve performance and reliability, and comply with legal obligations where applicable.
               </p>
-              <p className="mt-4 font-medium text-indigo-600">
+              <p className="mt-4 font-medium text-[#0056b3]">
                 We do not sell, rent, or trade personal data.
               </p>
             </section>
@@ -130,7 +130,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-xl font-bold text-slate-900 mb-4">11. Contact Information</h2>
               <p>
-                If you have any questions regarding this Privacy Policy, you may contact us through the website at <a href="https://examresize.online" className="text-indigo-600 hover:underline">https://examresize.online</a>.
+                If you have any questions regarding this Privacy Policy, you may contact us through the website at <a href="https://examresize.online" className="text-[#0056b3] hover:underline">https://examresize.online</a>.
               </p>
             </section>
           </div>

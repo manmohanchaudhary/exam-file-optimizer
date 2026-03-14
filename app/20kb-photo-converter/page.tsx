@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '20KB Photo Converter | Exam File Optimizer',
+  title: '20KB Photo Converter | ExamResize',
   description: 'Convert your photo to exactly 20KB or any custom size. Perfect for online applications, exam forms, and government portals.',
 };
 

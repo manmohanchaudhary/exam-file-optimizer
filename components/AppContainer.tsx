@@ -223,10 +223,10 @@ export default function AppContainer() {
         <div 
           {...getRootProps()} 
           className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-colors
-            ${isDragActive ? 'border-indigo-500 bg-indigo-50' : 'border-slate-300 hover:border-indigo-400 hover:bg-slate-50'}`}
+            ${isDragActive ? 'border-blue-500 bg-blue-50' : 'border-slate-300 hover:border-blue-400 hover:bg-slate-50'}`}
         >
           <input {...getInputProps()} />
-          <div className="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-blue-100 text-[#0056b3] rounded-full flex items-center justify-center mx-auto mb-4">
             <UploadCloud className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-semibold text-slate-900 mb-2">Drag & drop your file here</h3>
@@ -321,7 +321,7 @@ export default function AppContainer() {
                           id="aiEnhance" 
                           checked={useAiEnhance} 
                           onChange={(e) => setUseAiEnhance(e.target.checked)} 
-                          className="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500"
+                          className="w-4 h-4 text-[#0056b3] rounded border-slate-300 focus:ring-[#0056b3]"
                         />
                         <Label htmlFor="aiEnhance" className="font-medium cursor-pointer">
                           ✨ AI Enhance (Nano Banana Pro)
@@ -393,7 +393,7 @@ export default function AppContainer() {
                 </CardContent>
                 <CardFooter>
                   <Button 
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white h-12 text-lg" 
+                    className="w-full bg-[#0056b3] hover:bg-blue-800 text-white h-12 text-lg" 
                     onClick={handleProcess}
                     disabled={isProcessing}
                   >
@@ -411,7 +411,7 @@ export default function AppContainer() {
               <Card className="border-green-200 bg-green-50/50">
                 <CardHeader>
                   <CardTitle className="text-green-800 flex items-center gap-2">
-                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                    <CheckCircle2 className="w-6 h-6 text-[#28a745]" />
                     Ready for Upload!
                   </CardTitle>
                   <CardDescription className="text-green-700">
@@ -436,7 +436,7 @@ export default function AppContainer() {
                   <a 
                     href={result.url} 
                     download={result.filename}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white h-12 text-lg inline-flex items-center justify-center rounded-md font-medium transition-colors"
+                    className="w-full bg-[#28a745] hover:bg-green-700 text-white h-12 text-lg inline-flex items-center justify-center rounded-md font-medium transition-colors"
                   >
                     <Download className="w-5 h-5 mr-2" /> Download File
                   </a>

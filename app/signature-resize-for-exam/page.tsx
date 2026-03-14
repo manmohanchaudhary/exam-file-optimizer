@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Signature Resize for Exam | Exam File Optimizer',
+  title: 'Signature Resize for Exam | ExamResize',
   description: 'Optimize your signature image for exam forms. Automatically convert background to white, increase contrast, and compress to 10KB-20KB.',
 };
 

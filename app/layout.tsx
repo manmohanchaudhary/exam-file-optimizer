@@ -8,15 +8,15 @@ import Script from 'next/script';
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  title: 'Exam File Optimizer | Resize Photos & Signatures for Forms',
+  title: 'ExamResize | Resize Photos & Signatures for Forms',
   description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
   keywords: ['exam photo resizer', 'signature resize', 'ssc photo resize', 'upsc photo resize', 'banking exam photo converter', '20kb photo converter', '50kb photo converter'],
-  authors: [{ name: 'Exam File Optimizer' }],
+  authors: [{ name: 'ExamResize' }],
   openGraph: {
-    title: 'Exam File Optimizer | Resize Photos & Signatures for Forms',
+    title: 'ExamResize | Resize Photos & Signatures for Forms',
     description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
     url: 'https://examresize.online',
-    siteName: 'Exam File Optimizer',
+    siteName: 'ExamResize',
     locale: 'en_US',
     type: 'website',
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Exam File Optimizer | Resize Photos & Signatures for Forms',
+    title: 'ExamResize | Resize Photos & Signatures for Forms',
     description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
   },
   robots: {

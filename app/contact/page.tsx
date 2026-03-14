@@ -78,7 +78,7 @@ export default function ContactPage() {
             
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="bg-indigo-100 p-3 rounded-xl text-indigo-600">
+                <div className="bg-blue-100 p-3 rounded-xl text-[#0056b3]">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
@@ -88,12 +88,12 @@ export default function ContactPage() {
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="bg-indigo-100 p-3 rounded-xl text-indigo-600">
+                <div className="bg-blue-100 p-3 rounded-xl text-[#0056b3]">
                   <MessageSquare className="w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">Website</h3>
-                  <a href="https://examresize.online" className="text-indigo-600 hover:underline">https://examresize.online</a>
+                  <a href="https://examresize.online" className="text-[#0056b3] hover:underline">https://examresize.online</a>
                 </div>
               </div>
             </div>
@@ -123,13 +123,13 @@ export default function ContactPage() {
                   id="message" 
                   name="message"
                   rows={5} 
-                  className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0056b3] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="How can we help you?"
                   required
                 ></textarea>
               </div>
               
-              <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 h-11" disabled={isSubmitting}>
+              <Button type="submit" className="w-full bg-[#0056b3] hover:bg-blue-800 h-11" disabled={isSubmitting}>
                 {isSubmitting ? (
                   "Sending..."
                 ) : (

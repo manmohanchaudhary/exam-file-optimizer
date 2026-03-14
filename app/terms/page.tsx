@@ -1,8 +1,8 @@
 import { Header, Footer } from '@/components/Navigation';
 
 export const metadata = {
-  title: 'Terms of Service | ExamFileOptimizer',
-  description: 'Terms of Service for ExamFileOptimizer - Read our rules and guidelines.',
+  title: 'Terms of Service | ExamResize',
+  description: 'Terms of Service for ExamResize - Read our rules and guidelines.',
 };
 
 export default function TermsOfService() {
@@ -95,7 +95,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl font-bold text-slate-900 mb-4">11. Contact</h2>
               <p>
-                For questions regarding these Terms, you may contact us through the website at <a href="https://examresize.online" className="text-indigo-600 hover:underline">https://examresize.online</a>.
+                For questions regarding these Terms, you may contact us through the website at <a href="https://examresize.online" className="text-[#0056b3] hover:underline">https://examresize.online</a>.
               </p>
             </section>
           </div>
