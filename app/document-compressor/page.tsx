@@ -3,9 +3,29 @@ import AdBanner from '@/components/AdBanner';
 import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
 
+export const metadata = {
+  title: 'Document Compressor | Compress PDF for Exam Forms | ExamResize',
+  description: 'Compress your PDF documents to meet strict file size limits for online applications without losing quality.',
+};
+
 export default function DocumentCompressorPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Document Compressor",
+    "description": "Compress your PDF documents to meet strict file size limits for online applications without losing quality.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Header />
 
       <main className="flex-grow">

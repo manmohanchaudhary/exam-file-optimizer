@@ -6,6 +6,36 @@ import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
 import { EXAMS } from '@/lib/presets';
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  
+  const isResizer = slug.endsWith('-photo-resizer');
+  const isGuide = slug.endsWith('-photo-size-guide');
+
+  if (!isResizer && !isGuide) {
+    return {};
+  }
+
+  const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
+  const exam = EXAMS.find(e => e.id === examId);
+
+  if (!exam) {
+    return {};
+  }
+
+  if (isGuide) {
+    return {
+      title: `${exam.name} Photo & Signature Size Guide | ExamResize`,
+      description: `Complete guide to ${exam.name} photo and signature size requirements. Learn how to resize your images to exact dimensions and file sizes.`,
+    };
+  }
+
+  return {
+    title: `${exam.name} Photo & Signature Resizer | ExamResize`,
+    description: `Automatically resize and compress your photo and signature for ${exam.name} exams. Ensure your application is accepted with our free tool.`,
+  };
+}
+
 export default async function ExamPresetPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
@@ -24,8 +54,20 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
   }
 
   if (isGuide) {
+    const guideSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": `${exam.name} Photo & Signature Size Guide`,
+      "description": `Ensure your ${exam.name} application is not rejected due to incorrect image dimensions or file sizes. Follow this complete guide to format your photo and signature perfectly.`,
+      "author": {
+        "@type": "Organization",
+        "name": "ExamResize"
+      }
+    };
+
     return (
       <div className="min-h-screen flex flex-col bg-slate-50">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSchema) }} />
         <Header />
         <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
@@ -83,8 +125,23 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
     );
   }
 
+  const resizerSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": `${exam.name} Photo & Signature Resizer`,
+    "description": `Automatically apply the correct dimensions and file size limits for ${exam.name}. Upload your photo or signature below.`,
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(resizerSchema) }} />
       <Header />
 
       <main className="flex-grow">
@@ -135,6 +192,46 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">3. Download</h3>
                 <p className="text-slate-600">Get your optimized file instantly. 100% secure, files are deleted immediately.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-slate-50 border-t border-slate-200">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">{exam.name} Photo & Signature Requirements</h2>
+            
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Photo Requirements</h3>
+              <ul className="space-y-3 text-slate-700">
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.photo.width} x {exam.photo.height} pixels</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.photo.minSizeKb}KB to {exam.photo.maxSizeKb}KB</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.photo.format.toUpperCase()}</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.photo.description}</span></li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Signature Requirements</h3>
+              <ul className="space-y-3 text-slate-700">
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.signature.width} x {exam.signature.height} pixels</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.signature.minSizeKb}KB to {exam.signature.maxSizeKb}KB</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.signature.format.toUpperCase()}</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.signature.description}</span></li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Frequently Asked Questions</h3>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-bold text-slate-900">How do I resize my photo for {exam.name}?</h4>
+                  <p className="text-slate-600">Simply upload your photo using the tool above. It will automatically resize and compress your image to meet the exact requirements for {exam.name}.</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">Is my data safe?</h4>
+                  <p className="text-slate-600">Yes, all processing is done securely. Your images are not stored on our servers and are deleted immediately after you download them.</p>
+                </div>
               </div>
             </div>
           </div>

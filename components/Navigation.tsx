@@ -24,6 +24,7 @@ export function Header() {
           <Link href="/upsc-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">UPSC</Link>
           <Link href="/neet-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">NEET</Link>
           <Link href="/jee-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">JEE</Link>
+          <Link href="/blog" className="text-sm font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
         </nav>
       </div>
     </header>
@@ -81,6 +82,7 @@ export function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Support & Legal</h4>
           <ul className="space-y-2 text-sm">
+            <li><Link href="/blog" className="hover:text-white transition-colors">Blog & Updates</Link></li>
             <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>

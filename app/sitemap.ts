@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { blogPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://examresize.online'
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/privacy',
     '/terms',
+    '/blog',
     '/20kb-photo-converter',
     '/exam-photo-size-converter',
     '/passport-photo-for-exam-forms',
@@ -23,6 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/upsc-photo-resizer',
     '/neet-photo-resizer',
     '/jee-photo-resizer',
+    '/ssc-photo-size-guide',
+    '/rrb-photo-size-guide',
+    '/ibps-photo-size-guide',
+    '/sbi-photo-size-guide',
+    '/rbi-photo-size-guide',
+    '/upsc-photo-size-guide',
+    '/neet-photo-size-guide',
+    '/jee-photo-size-guide',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: lastModifiedDate,
@@ -30,5 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  return routes
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...routes, ...blogRoutes]
 }
