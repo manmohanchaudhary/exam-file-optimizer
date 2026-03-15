@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://examresize.online'
+  const lastModifiedDate = '2026-03-15'
   
   const routes = [
     '',
@@ -14,9 +15,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/passport-photo-for-exam-forms',
     '/photo-resize-for-ssc-form',
     '/signature-resize-for-exam',
+    '/ssc-photo-resizer',
+    '/rrb-photo-resizer',
+    '/ibps-photo-resizer',
+    '/sbi-photo-resizer',
+    '/rbi-photo-resizer',
+    '/upsc-photo-resizer',
+    '/neet-photo-resizer',
+    '/jee-photo-resizer',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: lastModifiedDate,
     changeFrequency: 'monthly' as const,
     priority: route === '' ? 1 : 0.8,
   }))

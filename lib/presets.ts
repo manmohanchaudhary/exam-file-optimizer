@@ -1,137 +1,168 @@
 export type FileType = 'photo' | 'signature' | 'document';
 
-export interface Preset {
-  id: string;
-  name: string;
-  type: FileType;
+export interface ExamRequirement {
   width?: number;
   height?: number;
   minSizeKb?: number;
   maxSizeKb: number;
   format: 'jpg' | 'jpeg' | 'png' | 'pdf';
-  dpi?: number;
   description: string;
 }
 
-export const PRESETS: Preset[] = [
+export interface Exam {
+  id: string;
+  name: string;
+  photo: ExamRequirement;
+  signature: ExamRequirement;
+}
+
+export const EXAMS: Exam[] = [
   {
-    id: 'ssc-photo',
-    name: 'SSC Photo',
-    type: 'photo',
-    width: 200,
-    height: 230,
-    minSizeKb: 20,
-    maxSizeKb: 50,
-    format: 'jpg',
-    description: 'Standard photo for SSC exams (20KB - 50KB, 200x230px)',
+    id: 'ssc',
+    name: 'SSC (CGL / CHSL / MTS / GD)',
+    photo: {
+      width: 413, // ~3.5cm at 300dpi
+      height: 531, // ~4.5cm at 300dpi
+      minSizeKb: 20,
+      maxSizeKb: 50,
+      format: 'jpg',
+      description: 'Photo: ~3.5 × 4.5 cm (20–50 KB)',
+    },
+    signature: {
+      width: 708, // ~6cm at 300dpi
+      height: 236, // ~2cm at 300dpi
+      minSizeKb: 10,
+      maxSizeKb: 20,
+      format: 'jpg',
+      description: 'Signature: ~6 × 2 cm (10–20 KB)',
+    }
   },
   {
-    id: 'ssc-signature',
-    name: 'SSC Signature',
-    type: 'signature',
-    width: 140,
-    height: 60,
-    minSizeKb: 10,
-    maxSizeKb: 20,
-    format: 'jpg',
-    description: 'Standard signature for SSC exams (10KB - 20KB, 140x60px)',
+    id: 'rrb',
+    name: 'RRB (NTPC / Group-D / ALP)',
+    photo: {
+      width: 320,
+      height: 240,
+      minSizeKb: 30,
+      maxSizeKb: 70,
+      format: 'jpg',
+      description: 'Photo: 35 × 45 mm or 320 × 240 px (30–70 KB)',
+    },
+    signature: {
+      width: 140,
+      height: 60,
+      minSizeKb: 30,
+      maxSizeKb: 70,
+      format: 'jpg',
+      description: 'Signature: 140 × 60 px (30–70 KB)',
+    }
   },
   {
-    id: 'upsc-photo',
-    name: 'UPSC Photo',
-    type: 'photo',
-    width: 350,
-    height: 350,
-    minSizeKb: 20,
-    maxSizeKb: 300,
-    format: 'jpg',
-    description: 'Standard photo for UPSC exams (20KB - 300KB, Min 350x350px)',
+    id: 'ibps',
+    name: 'IBPS (PO / Clerk / RRB / SO)',
+    photo: {
+      width: 200,
+      height: 230,
+      minSizeKb: 20,
+      maxSizeKb: 50,
+      format: 'jpg',
+      description: 'Photo: 200 × 230 px (20–50 KB)',
+    },
+    signature: {
+      width: 140,
+      height: 60,
+      minSizeKb: 10,
+      maxSizeKb: 20,
+      format: 'jpg',
+      description: 'Signature: 140 × 60 px (10–20 KB)',
+    }
   },
   {
-    id: 'upsc-signature',
-    name: 'UPSC Signature',
-    type: 'signature',
-    width: 350,
-    height: 350,
-    minSizeKb: 20,
-    maxSizeKb: 300,
-    format: 'jpg',
-    description: 'Standard signature for UPSC exams (20KB - 300KB, Min 350x350px)',
+    id: 'sbi',
+    name: 'SBI (PO / Clerk)',
+    photo: {
+      width: 200,
+      height: 230,
+      minSizeKb: 20,
+      maxSizeKb: 50,
+      format: 'jpg',
+      description: 'Photo: 200 × 230 px (20–50 KB)',
+    },
+    signature: {
+      width: 140,
+      height: 60,
+      minSizeKb: 10,
+      maxSizeKb: 20,
+      format: 'jpg',
+      description: 'Signature: 140 × 60 px (10–20 KB)',
+    }
   },
   {
-    id: 'banking-photo',
-    name: 'Banking Exam Photo',
-    type: 'photo',
-    width: 200,
-    height: 230,
-    minSizeKb: 20,
-    maxSizeKb: 50,
-    format: 'jpg',
-    description: 'IBPS/SBI Banking photo (20KB - 50KB, 200x230px)',
+    id: 'rbi',
+    name: 'RBI Grade-B / RBI Assistant',
+    photo: {
+      width: 200,
+      height: 230,
+      minSizeKb: 20,
+      maxSizeKb: 50,
+      format: 'jpg',
+      description: 'Photo: 200 × 230 px (20–50 KB)',
+    },
+    signature: {
+      width: 140,
+      height: 60,
+      minSizeKb: 10,
+      maxSizeKb: 20,
+      format: 'jpg',
+      description: 'Signature: 140 × 60 px (10–20 KB)',
+    }
   },
   {
-    id: 'banking-signature',
-    name: 'Banking Signature',
-    type: 'signature',
-    width: 140,
-    height: 60,
-    minSizeKb: 10,
-    maxSizeKb: 20,
-    format: 'jpg',
-    description: 'IBPS/SBI Banking signature (10KB - 20KB, 140x60px)',
+    id: 'upsc',
+    name: 'UPSC Civil Services (CSE)',
+    photo: {
+      minSizeKb: 20,
+      maxSizeKb: 300,
+      format: 'jpg',
+      description: 'Photo: JPG image between 20–300 KB',
+    },
+    signature: {
+      minSizeKb: 20,
+      maxSizeKb: 300,
+      format: 'jpg',
+      description: 'Signature: JPG image between 20–300 KB',
+    }
   },
   {
-    id: 'neet-photo',
-    name: 'NEET Passport Photo',
-    type: 'photo',
-    width: 200,
-    height: 250,
-    minSizeKb: 10,
-    maxSizeKb: 200,
-    format: 'jpg',
-    description: 'NEET UG Passport size photo (10KB - 200KB)',
+    id: 'neet',
+    name: 'NEET (UG)',
+    photo: {
+      minSizeKb: 10,
+      maxSizeKb: 200,
+      format: 'jpg',
+      description: 'Photo: JPG, 10–200 KB',
+    },
+    signature: {
+      minSizeKb: 4,
+      maxSizeKb: 30,
+      format: 'jpg',
+      description: 'Signature: JPG, 4–30 KB',
+    }
   },
   {
-    id: 'passport-photo',
-    name: 'Standard Passport Photo',
-    type: 'photo',
-    width: 413, // 3.5cm at 300dpi
-    height: 531, // 4.5cm at 300dpi
-    maxSizeKb: 100,
-    format: 'jpg',
-    dpi: 300,
-    description: 'Standard 3.5cm x 4.5cm passport photo',
-  },
-  {
-    id: 'document-pdf',
-    name: 'Standard Document (PDF)',
-    type: 'document',
-    maxSizeKb: 1000, // 1MB
-    format: 'pdf',
-    description: 'Compress PDF document under 1MB',
-  },
-  {
-    id: 'custom-photo',
-    name: 'Custom Photo',
-    type: 'photo',
-    maxSizeKb: 50,
-    format: 'jpg',
-    description: 'Enter your own dimensions and size limits',
-  },
-  {
-    id: 'custom-signature',
-    name: 'Custom Signature',
-    type: 'signature',
-    maxSizeKb: 20,
-    format: 'jpg',
-    description: 'Enter your own dimensions and size limits',
-  },
-  {
-    id: 'custom-document',
-    name: 'Custom Document',
-    type: 'document',
-    maxSizeKb: 500,
-    format: 'pdf',
-    description: 'Enter your own size limit for PDF',
+    id: 'jee',
+    name: 'JEE Main',
+    photo: {
+      minSizeKb: 10,
+      maxSizeKb: 200,
+      format: 'jpg',
+      description: 'Photo: JPG, 10–200 KB',
+    },
+    signature: {
+      minSizeKb: 4,
+      maxSizeKb: 30,
+      format: 'jpg',
+      description: 'Signature: JPG, 4–30 KB',
+    }
   }
 ];

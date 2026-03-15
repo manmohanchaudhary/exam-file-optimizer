@@ -7,54 +7,50 @@ import { Label } from '@/components/ui/label';
 import { Mail, MessageSquare, Send } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { db } from '@/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-
-enum OperationType {
-  CREATE = 'create',
-  UPDATE = 'update',
-  DELETE = 'delete',
-  LIST = 'list',
-  GET = 'get',
-  WRITE = 'write',
-}
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleFirestoreError = (error: unknown, operationType: OperationType, path: string | null) => {
-    const errInfo = {
-      error: error instanceof Error ? error.message : String(error),
-      operationType,
-      path
-    };
-    console.error('Firestore Error: ', JSON.stringify(errInfo));
-    throw new Error(JSON.stringify(errInfo));
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      subject: formData.get('subject') as string,
-      message: formData.get('message') as string,
-      createdAt: serverTimestamp(),
-    };
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
 
-    const path = 'contact_messages';
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast.error("Please fill in all required fields.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (message.length > 2000) {
+      toast.error("Message is too long. Please limit to 2000 characters.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      await addDoc(collection(db, path), data);
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      (e.target as HTMLFormElement).reset();
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast.error(data.error || "Failed to send message. Please try again later.");
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
-      if (error instanceof Error && error.message.includes('permission-denied')) {
-        handleFirestoreError(error, OperationType.CREATE, path);
-      }
       toast.error("Failed to send message. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -110,11 +106,6 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <Label htmlFor="email">Email Address</Label>
                 <Input id="email" name="email" type="email" placeholder="Enter your email" required />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" name="subject" placeholder="What is this about?" required />
               </div>
               
               <div className="space-y-2">
