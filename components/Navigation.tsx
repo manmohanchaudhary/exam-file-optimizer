@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Image as ImageIcon } from 'lucide-react';
 
 export function Header() {
@@ -9,10 +10,14 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex items-center">
-            <span className="font-bold text-2xl tracking-tight">
-              <span className="text-[#0056b3]">Exam</span>
-              <span className="text-[#28a745]">Resize</span>
-            </span>
+            <Image 
+              src="/logo.png" 
+              alt="ExamResize Logo" 
+              width={540} 
+              height={120} 
+              className="h-12 md:h-14 w-auto"
+              priority
+            />
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
@@ -37,10 +42,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
         <div className="lg:col-span-2">
           <div className="flex items-center mb-4">
-            <span className="font-bold text-2xl tracking-tight">
-              <span className="text-[#0056b3]">Exam</span>
-              <span className="text-[#28a745]">Resize</span>
-            </span>
+            <Image 
+              src="/logo.png" 
+              alt="ExamResize Logo" 
+              width={540} 
+              height={120} 
+              className="h-12 md:h-14 w-auto brightness-0 invert"
+            />
           </div>
           <p className="text-sm max-w-md">
             The fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms.
