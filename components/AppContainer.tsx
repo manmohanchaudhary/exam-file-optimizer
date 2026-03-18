@@ -87,13 +87,20 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
         if (customMinSize) formData.append('minSizeKb', customMinSize);
         if (customMaxSize) formData.append('maxSizeKb', customMaxSize);
       } else if (exam) {
-        const req = fileType === 'photo' ? exam.photo : exam.signature;
-        formData.append('type', fileType);
-        formData.append('format', req.format);
-        if (req.width) formData.append('width', req.width.toString());
-        if (req.height) formData.append('height', req.height.toString());
-        if (req.minSizeKb) formData.append('minSizeKb', req.minSizeKb.toString());
-        if (req.maxSizeKb) formData.append('maxSizeKb', req.maxSizeKb.toString());
+        const req = fileType === 'photo' ? exam.photo : 
+                    fileType === 'signature' ? exam.signature :
+                    fileType === 'left_thumb' ? exam.left_thumb :
+                    fileType === 'right_thumb' ? exam.right_thumb : null;
+        
+        if (req) {
+          formData.append('type', fileType);
+          formData.append('format', req.format);
+          if (req.width) formData.append('width', req.width.toString());
+          if (req.height) formData.append('height', req.height.toString());
+          if (req.minSizeKb) formData.append('minSizeKb', req.minSizeKb.toString());
+          if (req.maxSizeKb) formData.append('maxSizeKb', req.maxSizeKb.toString());
+          if (req.dpi) formData.append('dpi', req.dpi.toString());
+        }
       }
 
       const response = await fetch('/api/optimize', {
@@ -155,7 +162,12 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
 
   const isCustom = selectedExamId === 'custom';
   const currentExam = EXAMS.find(e => e.id === selectedExamId);
-  const currentReq = currentExam ? (fileType === 'photo' ? currentExam.photo : currentExam.signature) : null;
+  const currentReq = currentExam ? (
+    fileType === 'photo' ? currentExam.photo : 
+    fileType === 'signature' ? currentExam.signature :
+    fileType === 'left_thumb' ? currentExam.left_thumb :
+    fileType === 'right_thumb' ? currentExam.right_thumb : null
+  ) : null;
 
   return (
     <div className="space-y-8">
@@ -227,10 +239,17 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                       setCustomFormat('jpg');
                     }
                   }}>
-                    <TabsList className="grid w-full grid-cols-3">
+                    <TabsList className={`grid w-full ${selectedExamId === 'dsssb' ? 'grid-cols-4' : 'grid-cols-3'}`}>
                       <TabsTrigger value="photo">Photo</TabsTrigger>
                       <TabsTrigger value="signature">Signature</TabsTrigger>
-                      <TabsTrigger value="document">Document</TabsTrigger>
+                      {selectedExamId === 'dsssb' ? (
+                        <>
+                          <TabsTrigger value="left_thumb">L. Thumb</TabsTrigger>
+                          <TabsTrigger value="right_thumb">R. Thumb</TabsTrigger>
+                        </>
+                      ) : (
+                        <TabsTrigger value="document">Document</TabsTrigger>
+                      )}
                     </TabsList>
                   </Tabs>
 
@@ -259,6 +278,8 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                           <ul className="list-disc pl-4 space-y-1">
                             <li>{currentExam.photo.description}</li>
                             <li>{currentExam.signature.description}</li>
+                            {currentExam.left_thumb && <li>{currentExam.left_thumb.description}</li>}
+                            {currentExam.right_thumb && <li>{currentExam.right_thumb.description}</li>}
                           </ul>
                           <p className="text-xs text-slate-500 mt-2 italic">
                             Image specifications are based on commonly used exam requirements. Always verify the latest instructions from the official exam notification.
@@ -343,6 +364,13 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                       <div className="text-slate-500">Format:</div>
                       <div className="font-semibold text-slate-900 uppercase">{result.format}</div>
                       
+                      {currentReq?.dpi && (
+                        <>
+                          <div className="text-slate-500">DPI:</div>
+                          <div className="font-semibold text-slate-900">{currentReq.dpi} ✅</div>
+                        </>
+                      )}
+
                       <div className="text-slate-500">Filename:</div>
                       <div className="font-semibold text-slate-900 truncate" title={result.filename}>{result.filename}</div>
                     </div>

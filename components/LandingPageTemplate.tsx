@@ -7,12 +7,16 @@ export default function LandingPageTemplate({
   title,
   description,
   keyword,
-  faqs
+  faqs,
+  initialExamId = 'ssc',
+  relatedTools = []
 }: {
   title: string;
   description: string;
   keyword: string;
   faqs: { q: string; a: string }[];
+  initialExamId?: string;
+  relatedTools?: { title: string; link: string; desc: string }[];
 }) {
   const schema = {
     "@context": "https://schema.org",
@@ -49,7 +53,32 @@ export default function LandingPageTemplate({
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <section className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+          {/* Breadcrumbs */}
+          <nav className="flex justify-center text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+            <ol className="inline-flex items-center space-x-1 md:space-x-3">
+              <li className="inline-flex items-center">
+                <Link href="/" className="inline-flex items-center hover:text-slate-900 transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <span className="mx-2 text-slate-400">/</span>
+                  <Link href="/#how-it-works" className="hover:text-slate-900 transition-colors">
+                    Tools
+                  </Link>
+                </div>
+              </li>
+              <li aria-current="page">
+                <div className="flex items-center">
+                  <span className="mx-2 text-slate-400">/</span>
+                  <span className="text-slate-900 font-medium">{title}</span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
             {title}
           </h1>
@@ -60,7 +89,7 @@ export default function LandingPageTemplate({
           {/* Main App Container */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-4xl mx-auto overflow-hidden mb-12">
             <div className="p-6 md:p-8">
-              <AppContainer />
+              <AppContainer initialExamId={initialExamId} />
             </div>
           </div>
 
@@ -120,6 +149,28 @@ export default function LandingPageTemplate({
             </div>
           </div>
         </section>
+
+        {/* Related Tools Section */}
+        {relatedTools.length > 0 && (
+          <section className="py-20 bg-white border-t border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">Related Tools</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedTools.map((tool, idx) => (
+                  <div key={idx} className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow flex flex-col">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{tool.title}</h3>
+                    <p className="text-sm text-slate-600 mb-6 flex-grow">{tool.desc}</p>
+                    <Link href={tool.link} className="inline-flex items-center text-sm font-semibold text-[#0056b3] hover:text-[#004494]">
+                      Open Tool <span className="ml-1">→</span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />

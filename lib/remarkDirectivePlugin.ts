@@ -8,24 +8,35 @@ export default function remarkDirectivePlugin() {
         node.type === 'leafDirective' ||
         node.type === 'containerDirective'
       ) {
+        const hName = node.type === 'textDirective' ? 'span' : 'div';
+        
         if (node.name === 'tip') {
           const data = node.data || (node.data = {});
-          data.hName = 'div';
-          data.hProperties = { className: 'custom-tip-box' };
+          data.hName = hName;
+          data.hProperties = { 
+            className: 'custom-tip-box',
+            'data-title': node.attributes?.title
+          };
         }
         if (node.name === 'warning') {
           const data = node.data || (node.data = {});
-          data.hName = 'div';
-          data.hProperties = { className: 'custom-warning-box' };
+          data.hName = hName;
+          data.hProperties = { 
+            className: 'custom-warning-box',
+            'data-title': node.attributes?.title
+          };
         }
         if (node.name === 'note') {
           const data = node.data || (node.data = {});
-          data.hName = 'div';
-          data.hProperties = { className: 'custom-note-box' };
+          data.hName = hName;
+          data.hProperties = { 
+            className: 'custom-note-box',
+            'data-title': node.attributes?.title
+          };
         }
         if (node.name === 'step') {
           const data = node.data || (node.data = {});
-          data.hName = 'div';
+          data.hName = hName;
           data.hProperties = { 
             className: 'custom-step-block',
             'data-number': node.attributes?.number || '1',
@@ -34,7 +45,7 @@ export default function remarkDirectivePlugin() {
         }
         if (node.name === 'cta') {
           const data = node.data || (node.data = {});
-          data.hName = 'div';
+          data.hName = hName;
           data.hProperties = { 
             className: 'custom-cta-block',
             'data-title': node.attributes?.title || 'Ready?',

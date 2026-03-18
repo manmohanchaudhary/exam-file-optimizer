@@ -26,6 +26,18 @@ export default function PassportPhoto() {
           a: 'While you can use a selfie, it is highly recommended to use a photo taken by someone else against a plain background. Ensure your face is clearly visible, well-lit, and centered.'
         }
       ]}
+      relatedTools={[
+        {
+          title: 'DSSSB Image Optimizer',
+          link: '/dsssb-image-optimizer',
+          desc: 'Format your photo, signature, and thumb impressions for DSSSB exams with exact 96 DPI requirement.'
+        },
+        {
+          title: 'Photo Resize for SSC Form',
+          link: '/photo-resize-for-ssc-form',
+          desc: 'Easily resize and compress your photo for SSC exams. Get the exact 200x230 pixels and 20KB-50KB size.'
+        }
+      ]}
     />
   );
 }

@@ -20,6 +20,7 @@ export async function POST(req: NextRequest) {
     const height = formData.get('height') ? parseInt(formData.get('height') as string, 10) : undefined;
     const minSizeKb = formData.get('minSizeKb') ? parseInt(formData.get('minSizeKb') as string, 10) : undefined;
     const maxSizeKb = formData.get('maxSizeKb') ? parseInt(formData.get('maxSizeKb') as string, 10) : undefined;
+    const dpi = formData.get('dpi') ? parseInt(formData.get('dpi') as string, 10) : undefined;
 
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
@@ -264,6 +265,10 @@ export async function POST(req: NextRequest) {
         image = image.resize(width, null);
       } else if (height) {
         image = image.resize(null, height);
+      }
+
+      if (dpi) {
+        image = image.withMetadata({ density: dpi });
       }
 
       // Format and Compression

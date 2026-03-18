@@ -26,6 +26,18 @@ export default function ExamPhotoConverter() {
           a: 'Our tool is designed to handle large photos up to 10MB. We use advanced compression algorithms to reduce the file size while maintaining the visual quality required for exam forms.'
         }
       ]}
+      relatedTools={[
+        {
+          title: 'DSSSB Image Optimizer',
+          link: '/dsssb-image-optimizer',
+          desc: 'Format your photo, signature, and thumb impressions for DSSSB exams with exact 96 DPI requirement.'
+        },
+        {
+          title: 'Signature Resize for Exam',
+          link: '/signature-resize-for-exam',
+          desc: 'Resize your signature to 10KB-20KB with 140x60 pixels for SSC and other exams.'
+        }
+      ]}
     />
   );
 }

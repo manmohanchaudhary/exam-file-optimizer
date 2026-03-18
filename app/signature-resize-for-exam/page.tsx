@@ -26,6 +26,18 @@ export default function SignatureResize() {
           a: 'Yes! Just upload the photo of your signature. Our tool will automatically clean up the background and enhance the contrast to make it look like a scanned document.'
         }
       ]}
+      relatedTools={[
+        {
+          title: 'DSSSB Image Optimizer',
+          link: '/dsssb-image-optimizer',
+          desc: 'Format your photo, signature, and thumb impressions for DSSSB exams with exact 96 DPI requirement.'
+        },
+        {
+          title: 'Photo Resize for SSC Form',
+          link: '/photo-resize-for-ssc-form',
+          desc: 'Easily resize and compress your photo for SSC exams. Get the exact 200x230 pixels and 20KB-50KB size.'
+        }
+      ]}
     />
   );
 }

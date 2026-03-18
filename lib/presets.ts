@@ -1,4 +1,4 @@
-export type FileType = 'photo' | 'signature' | 'document';
+export type FileType = 'photo' | 'signature' | 'document' | 'left_thumb' | 'right_thumb';
 
 export interface ExamRequirement {
   width?: number;
@@ -7,6 +7,7 @@ export interface ExamRequirement {
   maxSizeKb: number;
   format: 'jpg' | 'jpeg' | 'png' | 'pdf';
   description: string;
+  dpi?: number;
 }
 
 export interface Exam {
@@ -14,9 +15,45 @@ export interface Exam {
   name: string;
   photo: ExamRequirement;
   signature: ExamRequirement;
+  left_thumb?: ExamRequirement;
+  right_thumb?: ExamRequirement;
 }
 
 export const EXAMS: Exam[] = [
+  {
+    id: 'dsssb',
+    name: 'DSSSB',
+    photo: {
+      width: 480,
+      height: 672,
+      minSizeKb: 50,
+      maxSizeKb: 300,
+      format: 'jpg',
+      description: 'Photo: 480 × 672 px, 96 DPI (50–300 KB)',
+      dpi: 96
+    },
+    signature: {
+      width: 140,
+      height: 110,
+      maxSizeKb: 40,
+      format: 'jpg',
+      description: 'Signature: 140 × 110 px (Max 40 KB)',
+    },
+    left_thumb: {
+      width: 110,
+      height: 140,
+      maxSizeKb: 40,
+      format: 'jpg',
+      description: 'Left Thumb: 110 × 140 px (Max 40 KB)',
+    },
+    right_thumb: {
+      width: 110,
+      height: 140,
+      maxSizeKb: 40,
+      format: 'jpg',
+      description: 'Right Thumb: 110 × 140 px (Max 40 KB)',
+    }
+  },
   {
     id: 'ssc',
     name: 'SSC (CGL / CHSL / MTS / GD)',

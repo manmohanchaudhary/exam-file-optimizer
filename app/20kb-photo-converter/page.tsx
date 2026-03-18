@@ -26,6 +26,18 @@ export default function PhotoConverter20kb() {
           a: 'We support JPG, JPEG, and PNG formats. The output file will be a highly optimized JPG, which is the standard format required by most portals.'
         }
       ]}
+      relatedTools={[
+        {
+          title: 'DSSSB Image Optimizer',
+          link: '/dsssb-image-optimizer',
+          desc: 'Format your photo, signature, and thumb impressions for DSSSB exams with exact 96 DPI requirement.'
+        },
+        {
+          title: 'Signature Resize for Exam',
+          link: '/signature-resize-for-exam',
+          desc: 'Resize your signature to 10KB-20KB with 140x60 pixels for SSC and other exams.'
+        }
+      ]}
     />
   );
 }

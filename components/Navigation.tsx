@@ -2,11 +2,14 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Image as ImageIcon } from 'lucide-react';
+import { Image as ImageIcon, Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 export function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex items-center">
@@ -15,11 +18,13 @@ export function Header() {
               alt="ExamResize Logo" 
               width={540} 
               height={120} 
-              className="h-12 md:h-14 w-auto"
+              className="h-9 md:h-10 w-auto"
               priority
             />
           </div>
         </Link>
+        
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/ssc-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">SSC</Link>
           <Link href="/rrb-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">RRB</Link>
@@ -31,7 +36,33 @@ export function Header() {
           <Link href="/jee-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">JEE</Link>
           <Link href="/blog" className="text-sm font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg">
+          <nav className="flex flex-col px-4 py-4 space-y-4">
+            <Link href="/ssc-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">SSC</Link>
+            <Link href="/rrb-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">RRB</Link>
+            <Link href="/ibps-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">IBPS</Link>
+            <Link href="/sbi-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">SBI</Link>
+            <Link href="/rbi-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">RBI</Link>
+            <Link href="/upsc-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">UPSC</Link>
+            <Link href="/neet-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">NEET</Link>
+            <Link href="/jee-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">JEE</Link>
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
@@ -47,7 +78,7 @@ export function Footer() {
               alt="ExamResize Logo" 
               width={540} 
               height={120} 
-              className="h-12 md:h-14 w-auto brightness-0 invert"
+              className="h-9 md:h-10 w-auto brightness-0 invert"
             />
           </div>
           <p className="text-sm max-w-md">

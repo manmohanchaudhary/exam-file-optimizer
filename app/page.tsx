@@ -8,6 +8,7 @@ import { blogPosts } from '@/lib/blog';
 
 export default function Home() {
   const tools = [
+    { title: 'DSSSB Image Optimizer', desc: 'Resize photo, signature & thumb for DSSSB form.', link: '/dsssb-image-optimizer' },
     { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/ssc-photo-resizer' },
     { title: 'UPSC Photo Resizer', desc: 'Format images for UPSC civil services.', link: '/upsc-photo-resizer' },
     { title: 'NEET Photo Resizer', desc: 'Prepare your NEET application photos.', link: '/neet-photo-resizer' },

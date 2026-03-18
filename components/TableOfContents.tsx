@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { ChevronDown, ChevronRight, List } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { ChevronDown, ChevronRight, List } from "lucide-react";
 
 interface TOCItem {
   id: string;
@@ -10,22 +10,16 @@ interface TOCItem {
 }
 
 export function TableOfContents({ content }: { content: string }) {
-  const [headings, setHeadings] = useState<TOCItem[]>([]);
-  const [activeId, setActiveId] = useState<string>('');
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    // Extract headings from markdown content
+  const headings = React.useMemo(() => {
     const headingRegex = /^(#{2,3})\s+(.+)$/gm;
     const extractedHeadings: TOCItem[] = [];
     let match;
-    
-    // Simple slugify function matching rehype-slug
+
     const slugify = (text: string) => {
       return text
         .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)+/g, '');
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)+/g, "");
     };
 
     while ((match = headingRegex.exec(content)) !== null) {
@@ -34,24 +28,32 @@ export function TableOfContents({ content }: { content: string }) {
       const id = slugify(text);
       extractedHeadings.push({ id, text, level });
     }
+    return extractedHeadings;
+  }, [content]);
 
-    setHeadings(extractedHeadings);
+  const [activeId, setActiveId] = useState<string>("");
+  const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
     // Set up intersection observer to highlight active heading
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
+        // Find all intersecting entries
+        const intersecting = entries.filter((entry) => entry.isIntersecting);
+        if (intersecting.length > 0) {
+          // If multiple are visible, pick the first one
+          setActiveId(intersecting[0].target.id);
+        }
       },
-      { rootMargin: '0px 0px -80% 0px' }
+      {
+        rootMargin: "-100px 0px -60% 0px",
+        threshold: 1.0,
+      },
     );
 
     // Wait a bit for the DOM to render the markdown
     setTimeout(() => {
-      extractedHeadings.forEach((heading) => {
+      headings.forEach((heading) => {
         const element = document.getElementById(heading.id);
         if (element) {
           observer.observe(element);
@@ -60,53 +62,67 @@ export function TableOfContents({ content }: { content: string }) {
     }, 500);
 
     return () => observer.disconnect();
-  }, [content]);
+  }, [headings]);
 
   if (headings.length === 0) return null;
 
   return (
-    <div className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden sticky top-24">
-      <button 
+    <div className="md:sticky md:top-28 md:bg-slate-50/50 md:border md:border-slate-200 md:rounded-2xl md:p-6 md:shadow-sm">
+      {/* Mobile Toggle */}
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 bg-white text-slate-900 font-bold hover:bg-slate-50 transition-colors md:cursor-default"
+        className="w-full flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-200 text-slate-900 font-bold hover:bg-slate-100 transition-colors md:hidden mb-6"
       >
         <div className="flex items-center gap-2">
           <List className="w-5 h-5 text-blue-600" />
           <span>Table of Contents</span>
         </div>
-        <div className="md:hidden">
-          {isOpen ? <ChevronDown className="w-5 h-5 text-slate-500" /> : <ChevronRight className="w-5 h-5 text-slate-500" />}
+        <div>
+          {isOpen ? (
+            <ChevronDown className="w-5 h-5 text-slate-500" />
+          ) : (
+            <ChevronRight className="w-5 h-5 text-slate-500" />
+          )}
         </div>
       </button>
-      
-      <div className={`p-4 border-t border-slate-200 ${isOpen ? 'block' : 'hidden md:block'}`}>
-        <ul className="space-y-3 text-sm">
-          {headings.map((heading, index) => (
-            <li 
-              key={`${heading.id}-${index}`}
-              className={`${heading.level === 3 ? 'ml-4' : ''}`}
-            >
-              <a 
-                href={`#${heading.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById(heading.id);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                    setIsOpen(false);
-                  }
-                }}
-                className={`block transition-colors hover:text-blue-600 ${
-                  activeId === heading.id 
-                    ? 'text-blue-600 font-semibold' 
-                    : 'text-slate-600'
-                }`}
-              >
-                {heading.text}
-              </a>
-            </li>
-          ))}
-        </ul>
+
+      {/* Desktop & Expanded Mobile Content */}
+      <div className={`${isOpen ? "block mb-8" : "hidden md:block"}`}>
+        <h4 className="hidden md:block text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
+          On this page
+        </h4>
+        <nav className="border-l border-slate-200">
+          <ul className="space-y-0">
+            {headings.map((heading, index) => (
+              <li key={`${heading.id}-${index}`}>
+                <a
+                  href={`#${heading.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById(heading.id);
+                    if (element) {
+                      // Account for sticky header
+                      const y =
+                        element.getBoundingClientRect().top +
+                        window.scrollY -
+                        100;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                      setIsOpen(false);
+                      setActiveId(heading.id);
+                    }
+                  }}
+                  className={`block py-2 -ml-px border-l-2 transition-all text-sm leading-tight ${
+                    activeId === heading.id
+                      ? "border-blue-600 text-blue-600 font-semibold"
+                      : "border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-900"
+                  } ${heading.level === 3 ? "pl-8" : "pl-4"}`}
+                >
+                  {heading.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );

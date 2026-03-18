@@ -8,6 +8,237 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'dsssb-advertisement-02-2026-candidate-guide',
+    title: 'DSSSB Advertisement No. 02/2026: A Candidate-Focused Guide',
+    excerpt: 'Delhi Subordinate Services Selection Board (DSSSB) released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments.',
+    date: '2026-03-18',
+    content: `Delhi Subordinate Services Selection Board (DSSSB) released **Advertisement No. 02/2026** on **25 February 2026**, inviting **online applications** for **20 post codes** across different departments, local bodies, and autonomous bodies of the Govt. of NCT of Delhi. The notice covers **216 tentative vacancies** in total, with the application window open from **27 February 2026 (12:00 noon)** to **28 March 2026 (11:59 PM)**. The category-wise vacancy breakup is **124 UR, 40 OBC, 17 SC, 16 ST, and 19 EWS**, along with **14 PwBD, 5 ESM, and 8 MSP** slots.
+
+:::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
+:::
+
+---
+
+## 🎯 Why this recruitment matters
+
+This is a **multi-post recruitment**, not a single job notification. It includes:
+
+- **Management / Corporate Roles**
+  - Assistant Manager (Tourism)
+  - Assistant Manager (General)
+  - Assistant Manager (Accounts)
+  - Assistant Manager (Legal)
+  - Assistant Manager (Air Ticketing)
+  - Assistant Manager (Public Relation)
+
+- **Technical & Healthcare Roles**
+  - Radiographer
+  - Optometrist
+  - Junior Radiographer
+  - Junior Laboratory Assistant
+  - Chemical Assistant
+  - Meter & Relay Tester Grade-II
+
+- **Administrative / Support Roles**
+  - Reporter
+  - Katib (Calligrapher)
+  - Patwari
+  - Junior Law Officer
+  - Stenographer Grade-I
+  - Book Binder
+  - Assistant Microphotographist
+
+👉 **Important Insight:**  
+Each post has **different eligibility, age limits, and exam schemes**. Treat each post separately.
+
+---
+
+## 📊 Vacancy Analysis (Very Important)
+
+Major vacancy distribution:
+
+- **Radiographer – 96 vacancies**
+- **Meter & Relay Tester Grade-II – 34 vacancies**
+- **Patwari – 15 vacancies**
+- **Optometrist – 15 vacancies**
+- **Reporter – 10 vacancies**
+- **Junior Radiographer – 10 vacancies**
+
+Smaller vacancy posts:
+- Assistant Manager (Tourism, General) – 6 each  
+- Assistant Manager (Accounts) – 3  
+- Others – 1 each (high specialization)
+
+👉 **Student Strategy Insight:**
+- High vacancies = **high competition + more selection chances**
+- Low vacancies = **lower competition but stricter eligibility**
+
+---
+
+## 📅 Important Dates (Do NOT Ignore)
+
+- **Start Date:** 27 February 2026 (12:00 Noon)
+- **Last Date:** 28 March 2026 (11:59 PM)
+
+👉 **Golden Rule:**  
+Eligibility (age, degree, experience) must be valid **on 28 March 2026**.
+
+---
+
+## ✅ Eligibility Rules (Critical Section)
+
+- Must be **Indian citizen**
+- Must meet **Recruitment Rules of the department**
+- Qualification & experience must be completed **before cut-off date**
+
+⚠️ **Common Mistake:**
+- Waiting for result/degree → NOT allowed if not completed before cutoff
+
+---
+
+## 📝 Application Process (Avoid These Mistakes)
+
+- Apply **only online**
+- One-time registration system
+- Use same ID for future DSSSB exams
+
+❌ Multiple registrations → **Disqualification / Debarment**
+
+⚠️ No correction allowed after submission  
+⚠️ Category cannot be changed later  
+
+👉 **Best Practice:** Apply early (server issues on last day are common)
+
+:::note{title="Important for Applicants"}
+DSSSB has strict image requirements including exact dimensions and 96 DPI for photos. Use our [DSSSB Image Optimizer](/dsssb-image-optimizer) to format your photo, signature, and thumb impressions perfectly in seconds.
+:::
+
+:::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
+:::
+
+---
+
+## 💰 Application Fee
+
+- **₹100 for General candidates**
+- **FREE for:**
+  - Women
+  - SC / ST
+  - PwBD
+  - Ex-Servicemen
+
+⚠️ ESM already in govt job → NOT eligible for fee exemption
+
+- Payment via **SBI e-pay only**
+- Fee is **non-refundable**
+
+---
+
+## 🧠 Exam Pattern (Most Important for Preparation)
+
+### 🔹 One Tier (General Posts)
+- 200 Questions
+- 200 Marks
+- Duration: 2 Hours
+
+Subjects:
+- General Awareness
+- Reasoning
+- Numerical Ability
+- Hindi
+- English
+
+---
+
+### 🔹 One Tier (Technical Posts)
+
+- **Section A (General Aptitude)**
+- **Section B (Domain Subject)**
+
+👉 **Important Insight:**  
+Section B (subject knowledge) is often **decisive**
+
+---
+
+### 🔹 Two Tier Exams
+
+- **Tier I:** Qualifying
+- **Tier II:** Final merit (includes descriptive for some posts)
+
+👉 Final selection based on **combined performance**
+
+---
+
+## ⚖️ Marking & Evaluation Rules
+
+- Normalization may be applied
+- Invalid questions → marks adjusted (prorata basis)
+- ❌ No rechecking / reevaluation allowed
+
+---
+
+## 🎯 Age Relaxation
+
+- SC/ST → 5 years  
+- OBC → 3 years  
+- PwBD → 10 years  
+- PwBD + SC/ST → 15 years  
+- PwBD + OBC → 13 years  
+
+Additional relaxation:
+- Ex-Servicemen
+- Govt employees
+- Sportspersons
+- Special female categories (widow/divorced)
+
+---
+
+## ♿ PwBD Candidates (Very Important)
+
+- Not all posts are suitable for all disabilities
+- Must check **post-specific suitability**
+
+👉 Example:
+- Some posts allow OH (Orthopedic)
+- Some allow VH (Visual)
+- Some allow HH (Hearing)
+
+---
+
+## 🧾 Smart Candidate Checklist
+
+Before applying:
+
+- ✅ Check correct **Post Code**
+- ✅ Verify **eligibility & experience**
+- ✅ Confirm **category eligibility**
+- ✅ Understand **exam pattern**
+- ✅ Apply before last date
+
+---
+
+## 🔥 Final Takeaway
+
+DSSSB 02/2026 is a **high-opportunity recruitment** with:
+
+- **216 vacancies**
+- Multiple departments
+- Mix of technical + administrative + managerial roles
+
+👉 **Success depends on:**
+- Choosing the right post
+- Understanding eligibility properly
+- Preparing according to exam pattern (especially domain section)
+
+:::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
+:::
+
+---
+
+💡 **Pro Tip for Serious Aspirants:**
+Focus on **one post + one exam pattern** instead of applying blindly to multiple posts.`
+  },
+  {
     slug: 'rrb-alp-2026-recruitment-cen-01-2026',
     title: 'RRB ALP 2026 Recruitment (CEN 01/2026): Everything You Need to Know',
     excerpt: 'The Railway Recruitment Board has announced one of the biggest technical recruitment drives in Indian Railways. The RRB ALP Notification 2026 CEN 01/2026 has been released for 11,127 Assistant Loco Pilot vacancies.',
