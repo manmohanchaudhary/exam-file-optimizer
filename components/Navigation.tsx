@@ -35,6 +35,8 @@ export function Header() {
           <Link href="/neet-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">NEET</Link>
           <Link href="/jee-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">JEE</Link>
           <Link href="/blog" className="text-sm font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
+          <Link href="/about" className="text-sm font-medium text-slate-600 hover:text-slate-900">About</Link>
+          <Link href="/contact" className="text-sm font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -60,6 +62,8 @@ export function Header() {
             <Link href="/neet-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">NEET</Link>
             <Link href="/jee-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">JEE</Link>
             <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">About</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
           </nav>
         </div>
       )}

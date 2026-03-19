@@ -23,6 +23,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
   const [customMinSize, setCustomMinSize] = useState<string>('');
   const [customMaxSize, setCustomMaxSize] = useState<string>('50');
   const [customFormat, setCustomFormat] = useState<string>(initialFileType === 'document' ? 'pdf' : 'jpg');
+  const [isGovExamMode, setIsGovExamMode] = useState<boolean>(false);
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
@@ -113,27 +114,39 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
         throw new Error(errorData.error || 'Failed to process file');
       }
 
-      const blob = await response.blob();
-      const downloadUrl = URL.createObjectURL(blob);
-      const contentDisposition = response.headers.get('Content-Disposition');
-      let filename = `examresize_optimized_${fileType}.jpg`;
+      let blob = await response.blob();
       
-      if (contentDisposition) {
-        const filenameMatch = contentDisposition.match(/filename="(.+)"/);
-        if (filenameMatch && filenameMatch.length === 2) {
-          const ext = filenameMatch[1].split('.').pop() || 'jpg';
-          filename = `examresize_optimized_${fileType}.${ext}`;
+      if (isGovExamMode && blob.type.startsWith('image/')) {
+        const isCustom = selectedExamId === 'custom';
+        const exam = EXAMS.find(e => e.id === selectedExamId);
+        let minSizeKb: number | undefined;
+        let maxSizeKb: number | undefined;
+
+        if (isCustom || fileType === 'document') {
+           minSizeKb = customMinSize ? parseInt(customMinSize) : undefined;
+           maxSizeKb = customMaxSize ? parseInt(customMaxSize) : undefined;
+        } else if (exam) {
+           const req = fileType === 'photo' ? exam.photo : 
+                       fileType === 'signature' ? exam.signature :
+                       fileType === 'left_thumb' ? exam.left_thumb :
+                       fileType === 'right_thumb' ? exam.right_thumb : null;
+           if (req) {
+             minSizeKb = req.minSizeKb;
+             maxSizeKb = req.maxSizeKb;
+           }
         }
-      } else {
-        const ext = blob.type.split('/')[1] || 'jpg';
-        filename = `examresize_optimized_${fileType}.${ext}`;
+        blob = await processImage(blob, minSizeKb, maxSizeKb);
       }
 
+      const downloadUrl = URL.createObjectURL(blob);
+      const contentDisposition = response.headers.get('Content-Disposition');
+      let filename = `photo.jpg`; // Enforce simple filename as requested
+      
       setResult({
         url: downloadUrl,
         filename,
         size: blob.size,
-        format: blob.type.split('/')[1] || 'unknown'
+        format: 'jpg'
       });
       
       toast.success('File optimized successfully!');
@@ -158,6 +171,56 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
     const sizes = ['Bytes', 'KB', 'MB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  };
+
+  const processImage = async (blob: Blob, minSizeKb?: number, maxSizeKb?: number): Promise<Blob> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx?.drawImage(img, 0, 0);
+
+        const tryBlob = (quality: number): Promise<Blob> => {
+          return new Promise((res) => {
+            canvas.toBlob((b) => res(b!), "image/jpeg", quality);
+          });
+        };
+
+        const adjust = async () => {
+          let quality = 0.9;
+          let b = await tryBlob(quality);
+          
+          const minBytes = minSizeKb ? minSizeKb * 1024 : 0;
+          const maxBytes = maxSizeKb ? maxSizeKb * 1024 : Infinity;
+
+          for (let i = 0; i < 10; i++) {
+            if (b.size < minBytes && quality < 0.95) {
+              quality = Math.min(quality + 0.05, 0.95);
+              b = await tryBlob(quality);
+            } else if (b.size > maxBytes && quality > 0.15) {
+              quality = Math.max(quality - 0.05, 0.15);
+              b = await tryBlob(quality);
+            } else {
+              break;
+            }
+          }
+
+          if (b.size < minBytes) {
+            const paddingSize = minBytes - b.size + 1024;
+            const padding = new Uint8Array(paddingSize);
+            const newBlob = new Blob([b, padding], { type: 'image/jpeg' });
+            resolve(newBlob);
+          } else {
+            resolve(b);
+          }
+        };
+        adjust();
+      };
+      img.src = URL.createObjectURL(blob);
+    });
   };
 
   const isCustom = selectedExamId === 'custom';
@@ -290,6 +353,17 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                   )}
 
                   <div className="space-y-4 pt-4 border-t border-slate-100">
+                    <div className="flex items-center space-x-2">
+                      <input 
+                        type="checkbox" 
+                        id="govExamMode" 
+                        checked={isGovExamMode} 
+                        onChange={(e) => setIsGovExamMode(e.target.checked)}
+                        className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500"
+                      />
+                      <Label htmlFor="govExamMode" className="font-medium text-slate-900">Fix Upload Error (Gov Exam Mode)</Label>
+                    </div>
+                    <p className="text-xs text-slate-500">Automatically converts your image into DSSSB-compatible format (like MS Paint) by removing hidden metadata and fixing encoding issues.</p>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="width">Width (px)</Label>
