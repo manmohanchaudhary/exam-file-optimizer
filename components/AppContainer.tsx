@@ -363,7 +363,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                       />
                       <Label htmlFor="govExamMode" className="font-medium text-slate-900">Fix Upload Error (Gov Exam Mode)</Label>
                     </div>
-                    <p className="text-xs text-slate-500">Automatically converts your image into DSSSB-compatible format (like MS Paint) by removing hidden metadata and fixing encoding issues.</p>
+                    <p className="text-xs text-slate-500">Automatically converts your image into exam-compatible format (like MS Paint) by removing hidden metadata and fixing encoding issues.</p>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="width">Width (px)</Label>
