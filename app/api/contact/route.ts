@@ -1,10 +1,17 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for') || 'anonymous';
+    const isAllowed = checkRateLimit(`contact_${ip}`, 5, 60 * 1000); // 5 requests per minute
+    if (!isAllowed) {
+      return NextResponse.json({ success: false, error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
+
     const body = await request.json();
     const { name, email, message } = body;
 
@@ -14,6 +21,19 @@ export async function POST(request: Request) {
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
+    }
+
+    if (name.length > 100) {
+      return NextResponse.json({ success: false, error: 'Name is too long (max 100 characters).' }, { status: 400 });
+    }
+
+    if (email.length > 100) {
+      return NextResponse.json({ success: false, error: 'Email is too long (max 100 characters).' }, { status: 400 });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ success: false, error: 'Invalid email format.' }, { status: 400 });
     }
 
     if (message.length > 2000) {

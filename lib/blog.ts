@@ -502,5 +502,381 @@ These tools help quickly adjust images to the required format for exam applicati
 ## Final Thoughts
 
 The RRB Group D recruitment offers a great opportunity for candidates seeking a stable government job in Indian Railways. Interested applicants should carefully read the official notification and ensure that all uploaded documents meet the required specifications.`
+  },
+  {
+    slug: 'neet-photo-signature-upload-problem-fix',
+    title: 'How to Upload Photo, Signature, and Thumb Impression for NTA NEET Form Without Rejection',
+    excerpt: 'Struggling with NTA NEET image uploads? Learn the exact size, format, and background rules for passport photos, postcard photos, signatures, and thumb impressions to avoid form rejection.',
+    date: '2026-03-19',
+    content: `# How to Upload Photo, Signature, and Thumb Impression for NTA NEET Form Without Rejection
+
+You’ve spent countless hours studying physics, chemistry, and biology, but right now, the hardest part of clearing NEET seems to be uploading your documents. You try to upload your passport photo, and the portal says *"File size must be between 10 KB and 200 KB."* You try your signature, and it says *"Invalid Image Format."* 
+
+If you are stuck on the NTA NEET document upload stage, take a deep breath. The National Testing Agency (NTA) has very specific, multi-layered requirements for different types of images—including a unique "Postcard Size" photo rule that confuses thousands of students every year. In this guide, we will break down exactly why your files are failing and how to fix them instantly.
+
+## Quick Answer / TL;DR
+To fix your NEET upload problems: your **Passport Photo** must be 10-200 KB, **Postcard Photo (4x6)** must be 10-200 KB, **Signature** must be 4-30 KB, and **Left/Right Thumb Impression** must be 10-200 KB. All must be in JPG/JPEG format with a white background. Don't risk manual compression; [use the NEET preset](/neet-photo-resizer) on our tool to automatically resize and format all your documents to NTA's exact rules.
+
+## Why Candidates Face Upload Problems in NEET Forms
+The NTA uses automated software to verify candidate identity. Because of past impersonation issues, their image guidelines are incredibly strict. If your ears aren't visible, if the background isn't pure white, or if the file size is off by even 1 KB, the system rejects it. 
+
+Furthermore, NEET requires *four* different image uploads, each with different KB limits. Candidates often mix up the size limits for the signature (max 30 KB) and the thumb impression (max 200 KB), leading to instant upload failures.
+
+## Official Upload Requirements for NTA NEET
+Before uploading, ensure your files match the latest official NTA Information Bulletin. *(Always verify with the current year's brochure as rules can update).*
+
+### 1. Passport Size Photograph
+*   **File Size:** 10 KB to 200 KB.
+*   **Format:** JPG or JPEG only.
+*   **Background:** Strictly **White**.
+*   **Details:** 80% face coverage, ears clearly visible. Name and date of taking the photograph must be printed at the bottom. No caps or goggles.
+
+### 2. Postcard Size Photograph
+*   **Dimensions:** 4 inches x 6 inches.
+*   **File Size:** 10 KB to 200 KB.
+*   **Format:** JPG or JPEG only.
+*   **Details:** Same rules as the passport photo (white background, 80% face, name/date printed).
+
+### 3. Signature
+*   **File Size:** 4 KB to 30 KB.
+*   **Format:** JPG or JPEG only.
+*   **Details:** Must be signed with a black pen on white paper. **Do not sign in ALL CAPS** (it will be rejected).
+
+### 4. Left and Right Hand Fingers and Thumb Impression
+*   **File Size:** 10 KB to 200 KB.
+*   **Format:** JPG or JPEG only.
+*   **Details:** Impressions of all fingers and thumbs of both hands on a single white paper using blue ink.
+
+## Common Errors Candidates See
+*   **"File size too large":** Usually happens with the signature, which has a tiny 30 KB maximum limit.
+*   **"Invalid format":** You uploaded a PDF or PNG. NTA only accepts JPG/JPEG for images.
+*   **"Image too blurred":** You used a generic compressor that ruined the quality of your thumb impression, making the ridges unreadable.
+*   **Postcard Photo Rejection:** Candidates often upload a standard passport photo instead of resizing the canvas to the required 4x6 inch ratio.
+
+## Step-by-Step Fix: How to Prepare Your Files
+Here is how to fix your files correctly the first time.
+
+**Step 1: Get the photos right**
+Go to a studio, get a photo with a white background, and ask them to print your name and the current date at the bottom. Ask for the digital copy. 
+
+**Step 2: Resize for NEET specifically**
+Do not use generic paint tools. Go to our [NEET Photo Resizer](/neet-photo-resizer). Upload your digital photo, and the tool will automatically generate both the Passport size (10-200 KB) and the Postcard size (4x6 inches, 10-200 KB) perfectly formatted for NTA.
+
+**Step 3: Fix the Signature and Thumb Impression**
+Sign in black ink. Press your fingers/thumbs in blue ink on white paper. Take clear photos. Use our [Signature Optimizer](/signature-resize-for-exam) to shrink the signature to under 30 KB and the thumb impressions to under 200 KB without losing clarity.
+
+## Best Practices Before Final Submit
+*   **Check the Preview:** NTA provides a preview before final submission. Ensure your name and date are readable on the photos, and the thumb ridges are visible.
+*   **Keep Physical Copies:** You will need physical prints of the exact same passport and postcard photos for the exam day attendance sheet and admit card.
+
+## Related Tools to Speed Up Your Application
+*   [NEET Photo & Document Resizer](/neet-photo-resizer)
+*   [Signature Optimizer](/signature-resize-for-exam)
+*   [20KB to 200KB Photo Converter](/20kb-photo-converter)
+
+***
+
+## FAQ: NEET Photo & Signature Uploads
+
+**Why is my photo rejected in the NEET form?**
+Usually, it's because the background isn't white, the file isn't a JPG, the size is outside the 10-200 KB range, or the candidate's name and date are missing from the bottom of the photo.
+
+**How do I resize my signature for NEET?**
+Your signature must be between 4 KB and 30 KB. Use a dedicated exam resizer tool to compress the JPG file without making the black ink blurry or illegible.
+
+**What to do if my thumb impression is not accepted?**
+Ensure the file is between 10 KB and 200 KB in JPG format. If it's blurry, retake the photo in bright light. The NTA needs to see the ridges of your fingerprints clearly.
+
+**Can I use a blue background for the NEET photo?**
+No. The official NTA guidelines strictly mandate a pure white background for both passport and postcard-size photographs.
+
+***
+
+## Conclusion
+Don't let a simple KB limit stop your medical career before it starts. By understanding NTA's specific rules for white backgrounds, postcard dimensions, and strict file sizes, you can upload your documents flawlessly. Follow the official instructions, use the correct preset tools, and get back to studying!`
+  },
+  {
+    slug: 'upsc-photo-signature-upload-problem-fix',
+    title: 'Fix UPSC Photo and Signature Upload Errors: Exact Dimensions & Size Guide',
+    excerpt: 'Getting an invalid format or dimension error on your UPSC application? Learn how to resize your photo and signature to meet the strict 350x350 pixel and 20KB-300KB limits.',
+    date: '2026-03-19',
+    content: `# Fix UPSC Photo and Signature Upload Errors: Exact Dimensions & Size Guide
+
+You are applying for one of the most prestigious exams in the country—the UPSC Civil Services Examination (CSE), NDA, or CDS. You’ve carefully filled out Part-I of the registration, but when you reach Part-II to upload your photo and signature, the portal blocks you. 
+
+You see errors like *"Image dimensions must be greater than 350x350 pixels"* or *"File size must be between 20 KB and 300 KB."* No matter how you crop or compress the image on your phone, the UPSC portal keeps rejecting it.
+
+If you are frustrated by the UPSC document upload stage, you are not alone. The Union Public Service Commission has some of the most unique and rigid pixel dimension requirements of any government exam. In this guide, we will explain exactly why your files are failing and how to fix them in seconds.
+
+## Quick Answer / TL;DR
+To fix your UPSC upload problem, your **Photo and Signature** must both be in JPG format, with a file size between **20 KB and 300 KB**. Crucially, the **pixel dimensions must be a minimum of 350 x 350 pixels and a maximum of 1000 x 1000 pixels**. Don't struggle with manual resizing; [use the UPSC preset](/upsc-photo-resizer) on our tool to automatically adjust the pixels and KB size to UPSC's exact requirements.
+
+## Why Candidates Face Upload Problems in UPSC Forms
+Unlike other exams that only care about file size (KB), the UPSC portal runs a strict check on **Image Resolution (Pixels)**. 
+
+If your photo is 50 KB (which is valid) but its dimensions are 300 x 400 pixels, the server will reject it because the width is under the 350-pixel minimum. Conversely, if you take a high-res photo with your smartphone, the dimensions might be 4000 x 3000 pixels, which violates the 1000-pixel maximum limit. Balancing the KB size *and* the pixel dimensions simultaneously is what causes 99% of candidate upload failures.
+
+## Official Upload Requirements for UPSC
+Before uploading, ensure your files match the latest official UPSC notification. *(Always verify with the current year's notice as rules can update, especially regarding recent photo dates).*
+
+### 1. Photograph Requirements
+*   **File Size:** 20 KB to 300 KB.
+*   **Format:** JPG or JPEG only.
+*   **Dimensions (Resolution):** Minimum 350 x 350 pixels. Maximum 1000 x 1000 pixels.
+*   **Recent Photo Rule:** For recent exams, UPSC mandates that the photo must not be older than 10 days from the start of the application. 
+*   **Name and Date:** The name of the candidate and the date the photo was taken must be clearly printed at the bottom of the photograph.
+*   **Face Coverage:** The face should occupy 3/4th (75%) of the space.
+
+### 2. Signature Requirements
+*   **File Size:** 20 KB to 300 KB.
+*   **Format:** JPG or JPEG only.
+*   **Dimensions (Resolution):** Minimum 350 x 350 pixels. Maximum 1000 x 1000 pixels.
+*   **Clarity:** Must be signed clearly on white paper with a black pen.
+
+### 3. Photo ID Proof (PDF)
+*   **File Size:** 20 KB to 300 KB.
+*   **Format:** **PDF only** (JPG will be rejected).
+*   **Details:** Scanned copy of Aadhaar, PAN, Passport, Driving License, or Voter ID.
+
+## Common Errors Candidates See
+*   **"Invalid Dimensions":** Your image is either smaller than 350x350 pixels or larger than 1000x1000 pixels.
+*   **"File too large / too small":** Your file is outside the 20 KB – 300 KB range.
+*   **"Invalid format for ID proof":** You tried to upload your Aadhaar card as a JPG. UPSC requires the ID proof to be in PDF format.
+*   **Photo Rejected Later:** If your photo does not have your name and the date printed on it (as per new rules), your application may be rejected during scrutiny.
+
+## Step-by-Step Fix: How to Prepare Your Files
+Here is how to fix your files correctly the first time.
+
+**Step 1: Prepare the Source Images**
+Get a recent photo (within 10 days) with your name and date printed at the bottom. Sign on plain white paper with a black pen. Take clear pictures of both.
+
+**Step 2: Fix the Pixels and KB simultaneously**
+Go to our [UPSC Photo Resizer](/upsc-photo-resizer). Upload your photo and signature. The tool is specifically programmed to force the dimensions to fit within the 350px - 1000px range while keeping the file size between 20 KB and 300 KB. 
+
+**Step 3: Convert ID Proof to PDF**
+Take a photo of your ID card. Use a [PDF / Document Compressor](/document-compressor) tool to convert that JPG into a PDF file that is strictly under 300 KB.
+
+## Best Practices Before Final Submit
+*   **Appearance Match:** UPSC strictly notes that your appearance on the day of the exam (e.g., beard, spectacles) must match the photograph uploaded.
+*   **Check the Preview:** Ensure the signature is not stretched or squashed. If you force a wide signature into a square 350x350 box manually, it gets distorted. Our tool pads the image to prevent distortion.
+
+## Related Tools to Speed Up Your Application
+*   [UPSC Photo & Signature Resizer](/upsc-photo-resizer)
+*   [PDF Document Compressor](/document-compressor)
+*   [Signature Optimizer](/signature-resize-for-exam)
+
+***
+
+## FAQ: UPSC Photo & Signature Uploads
+
+**Why does the UPSC portal say invalid image dimensions?**
+UPSC requires both the photo and signature to have a minimum resolution of 350 x 350 pixels and a maximum of 1000 x 1000 pixels. If your image falls outside this exact pixel range, it will be rejected, regardless of the KB size.
+
+**How do I resize my signature for UPSC?**
+You need to adjust both the file size (20-300 KB) and the pixel dimensions (350px to 1000px). Use a dedicated UPSC resizer tool that adjusts both parameters simultaneously without distorting your signature.
+
+**Can I upload my Aadhaar card as a JPG for UPSC?**
+No. The Photo ID proof (Aadhaar, PAN, etc.) must be uploaded strictly in PDF format, and the file size must be between 20 KB and 300 KB.
+
+**Do I need to print my name and date on the UPSC photo?**
+Yes, according to recent UPSC notifications, the candidate's name and the date the photograph was taken must be clearly printed at the bottom of the photo.
+
+***
+
+## Conclusion
+The UPSC application process is rigorous, and the technical requirements for document uploads are no exception. By understanding the strict 350x350 pixel rule and the new name/date requirements, you can bypass the frustrating upload errors. Use the correct preset tools to format your files instantly, and focus your energy back on your exam preparation!`
+  },
+  {
+    slug: 'ibps-sbi-photo-signature-upload-problem-fix',
+    title: 'How to Upload Photo, Signature, and Left Thumb Impression for IBPS & SBI Bank Exams',
+    excerpt: 'Bank exam form rejecting your thumb impression or handwritten declaration? Discover the exact KB size and dimensions needed for IBPS and SBI application forms.',
+    date: '2026-03-19',
+    content: `# How to Upload Photo, Signature, and Left Thumb Impression for IBPS & SBI Bank Exams
+
+Applying for a bank job through IBPS (PO, Clerk, RRB) or SBI can be a stressful experience, especially when the application portal keeps rejecting your documents. 
+
+You try to upload your Left Thumb Impression (LTI), and the screen flashes *"File size must be between 20 KB and 50 KB."* You try to upload your Handwritten Declaration, and it says *"Invalid Image Format or Size."* You compress the files, and suddenly your signature is so blurry you fear your application will be cancelled.
+
+If you are stuck on the IBPS or SBI document upload stage, don't panic. Banking exams have a very specific, four-part document upload process with strict rules for ink color, file size, and dimensions. In this guide, we will break down exactly why your files are failing and how to fix them instantly.
+
+## Quick Answer / TL;DR
+To fix your IBPS/SBI upload problems: your **Photo** must be 20-50 KB (200x230 pixels), **Signature** must be 10-20 KB (140x60 pixels, **black ink only**), **Left Thumb Impression** must be 20-50 KB (240x240 pixels, blue/black ink), and **Handwritten Declaration** must be 50-100 KB (800x400 pixels, English only, black ink). Don't risk manual compression; [use the IBPS/SBI preset](/ibps-photo-resizer) on our tool to automatically resize and format all four documents to the exact banking rules.
+
+## Why Candidates Face Upload Problems in Bank Forms
+IBPS and SBI use a standardized but highly rigid application portal. The system checks both the file size (KB) and the pixel dimensions. 
+
+The biggest reason candidates fail here is the sheer number of rules. For example, signing in blue ink is a common habit, but IBPS strictly requires the signature and declaration to be in **black ink**. Furthermore, candidates often mix up the KB limits—trying to compress a large handwritten paragraph into the 20 KB limit meant for the signature, resulting in an unreadable blur.
+
+## Official Upload Requirements for IBPS & SBI
+Before uploading, ensure your files match the latest official IBPS/SBI notification. *(Always verify with the current year's notice as minor details can change).*
+
+### 1. Photograph Requirements
+*   **File Size:** 20 KB to 50 KB.
+*   **Dimensions:** 200 x 230 pixels (preferred).
+*   **Format:** JPG or JPEG only.
+*   **Details:** Recent passport-style color picture against a light-colored, preferably white, background. No dark glasses.
+
+### 2. Signature Requirements
+*   **File Size:** 10 KB to 20 KB.
+*   **Dimensions:** 140 x 60 pixels (preferred).
+*   **Format:** JPG or JPEG only.
+*   **Ink Color:** Strictly **Black Ink** on white paper.
+*   **Crucial Rule:** Signature in CAPITAL LETTERS will NOT be accepted.
+
+### 3. Left Thumb Impression (LTI)
+*   **File Size:** 20 KB to 50 KB.
+*   **Dimensions:** 240 x 240 pixels (preferred).
+*   **Format:** JPG or JPEG only.
+*   **Ink Color:** Black or Blue ink on white paper.
+
+### 4. Handwritten Declaration
+*   **File Size:** 50 KB to 100 KB.
+*   **Dimensions:** 800 x 400 pixels (preferred).
+*   **Format:** JPG or JPEG only.
+*   **Ink Color:** Strictly **Black Ink** on white paper.
+*   **Crucial Rule:** Must be written in English only. Writing in CAPITAL LETTERS will NOT be accepted.
+
+## Common Errors Candidates See
+*   **"File size too large / too small":** You are likely confusing the limits. Remember: Signature is 10-20KB, Photo/Thumb is 20-50KB, Declaration is 50-100KB.
+*   **"Invalid dimensions":** The portal is detecting that your image is too wide or too tall compared to their preferred pixel ratios.
+*   **Signature Rejected Later:** If you signed in blue ink or in ALL CAPS, the portal might accept the upload, but your application can be rejected during document verification.
+*   **Blurry Declaration:** Trying to fit a whole paragraph into a tiny file size using generic compressors makes the text unreadable.
+
+## Step-by-Step Fix: How to Prepare Your Files
+Here is how to fix your files correctly the first time.
+
+**Step 1: Write and Sign Correctly**
+Get plain white paper. Use a **black pen** for your signature and handwritten declaration. Use a blue or black ink pad for your left thumb. Take clear, well-lit photos of each.
+
+**Step 2: Resize for IBPS/SBI specifically**
+Do not use generic paint tools. Go to our [IBPS Photo Resizer](/ibps-photo-resizer) or [SBI Photo Resizer](/sbi-photo-resizer). Upload your images one by one. The tool will automatically crop them to the correct pixel dimensions (e.g., 800x400 for the declaration) and compress them to the exact KB range required.
+
+**Step 3: Check Readability**
+Before downloading, ensure the text in your declaration and the ridges in your thumb impression are clearly visible. Our tools enhance contrast to keep ink crisp even at low file sizes.
+
+## Best Practices Before Final Submit
+*   **Read the Declaration Text Carefully:** Every year, the exact text of the handwritten declaration is provided in the notification. Copy it exactly. Do not add or remove words.
+*   **Check the Preview:** The IBPS portal shows a preview of your uploads. If the thumb impression looks like a solid black smudge, do not submit. Redo the impression with less ink and resize it again.
+
+## Related Tools to Speed Up Your Application
+*   [IBPS Photo & Document Resizer](/ibps-photo-resizer)
+*   [SBI Photo & Document Resizer](/sbi-photo-resizer)
+*   [Signature Optimizer](/signature-resize-for-exam)
+*   [20KB to 50KB Photo Converter](/20kb-photo-converter)
+
+***
+
+## FAQ: IBPS & SBI Document Uploads
+
+**Why is my signature rejected in the IBPS/SBI form?**
+The most common reasons are: the file size is not between 10 KB and 20 KB, the signature is in CAPITAL letters, or it was signed in blue ink instead of the required black ink.
+
+**How do I resize my handwritten declaration for bank exams?**
+The declaration must be between 50 KB and 100 KB, ideally 800x400 pixels. Use a dedicated bank exam resizer tool to compress the image without making the handwritten text blurry and unreadable.
+
+**What to do if my left thumb impression is not accepted?**
+Ensure the file size is exactly between 20 KB and 50 KB in JPG format. If the portal complains about dimensions, crop the image to a square (roughly 240x240 pixels) before uploading.
+
+**Can I write the IBPS declaration in capital letters?**
+No. The official notification strictly states that the handwritten declaration and the signature must NOT be in capital letters. Doing so will lead to rejection.
+
+***
+
+## Conclusion
+Banking exams require attention to detail, and that starts with the application form. By strictly following the rules for black ink, avoiding capital letters, and adhering to the specific KB limits for each of the four documents, you can ensure your application is accepted smoothly. Use the correct preset tools to format your files instantly, and focus your energy on clearing the prelims!`
+  },
+  {
+    slug: 'ssc-photo-signature-upload-problem-fix',
+    title: 'How to Upload Photo and Signature for SSC Form Without Rejection',
+    excerpt: 'Getting an upload error on your SSC form? Learn the exact SSC image size requirements and how to resize your photo and signature to 10-20KB without blurring.',
+    date: '2026-03-19',
+    content: `# How to Upload Photo and Signature for SSC Form Without Rejection
+
+You’ve spent months preparing for your SSC exams, filled out all your educational details in the One Time Registration (OTR) portal, and you are finally on the last step. But when you try to upload your signature, the portal throws a red error: *"File size must be between 10 KB and 20 KB."* 
+
+You compress the image, try again, and now it says *"Invalid Image Format"* or the signature looks so blurry you are terrified your application will be rejected. 
+
+If you are stuck on the SSC photo and signature upload stage, you are not alone. Thousands of candidates face SSC form fill errors every year due to strict file size and dimension rules. In this guide, we will break down exactly why your files are being rejected and how to fix them instantly so you can submit your application with confidence.
+
+## Quick Answer / TL;DR
+To fix your SSC upload problem, your **signature must be exactly between 10 KB and 20 KB** in JPG/JPEG format, with dimensions of 4.0 cm x 2.0 cm. If you are uploading a manual **photograph, it must be between 20 KB and 50 KB**. Don't try to compress files manually and risk blurring them; [use the SSC preset](/ssc-photo-resizer) on our tool to automatically crop, resize, and compress your files to the exact SSC guidelines in one click.
+
+## Why Candidates Face Upload Problems in SSC Forms
+The Staff Selection Commission (SSC) uses automated software to scan millions of applications. If an image is even 1 KB over the limit, or saved as a PNG instead of a JPG, the server will automatically reject it. 
+
+Furthermore, SSC has recently updated its website (ssc.gov.in) and introduced a live photo capture feature via webcam or the "My SSC" app. This has caused massive confusion, as candidates try to upload old scanned photos into a system that now requires live capture, while the signature still requires a highly compressed manual upload. When candidates try to shrink their signature to under 20 KB using basic phone tools, the image loses quality, leading to a "blurred signature" rejection later on.
+
+## Official Upload Requirements for SSC Exams
+Before you upload anything, you must ensure your files match the latest official notice from the SSC. *(Note: Always cross-check with your specific exam's latest notification, as minor details can change).*
+
+### 1. Photograph Requirements (Live Capture vs. Manual Upload)
+For most new SSC applications (CGL, CHSL, MTS), you are now required to take a **live photograph** using a webcam or the official SSC app. 
+*   **Background:** Must be plain and light-colored (preferably white).
+*   **Lighting:** Good lighting on your face; no shadows.
+*   **Accessories:** Strictly **NO spectacles/glasses**, NO caps, and NO masks. Both ears must be clearly visible.
+*   *If your specific form still requires a manual photo upload:* It must be **20 KB to 50 KB**, in JPEG/JPG format, with dimensions of about 3.5 cm (width) x 4.5 cm (height).
+
+### 2. Signature Requirements
+This is where 90% of candidates get stuck.
+*   **File Size:** Strictly between **10 KB and 20 KB**.
+*   **Format:** JPEG or JPG only (PDF or PNG will be rejected).
+*   **Dimensions:** 4.0 cm (width) x 2.0 cm (height).
+*   **Clarity:** Must be signed in black or blue ink on white paper. It cannot be blurred, illegible, or miniature. 
+
+## Common Errors Candidates See
+*   **"File size is too large / too small":** Your signature is likely over 20 KB or under 10 KB.
+*   **"Invalid image format":** You are trying to upload a PNG, WebP, or PDF. The SSC portal only accepts JPG/JPEG.
+*   **"Face not detected":** During live photo capture, your room is too dark, you are wearing glasses, or the background is too cluttered.
+*   **Blurry Image Warning:** You compressed the signature too much, making the ink unreadable. SSC will reject your admit card if the signature is illegible.
+
+## Step-by-Step Fix: How to Prepare Your Files
+Here is how to fix your files correctly the first time and avoid last-minute server issues.
+
+**Step 1: Sign on plain white paper**
+Use a thick black or blue pen. Do not sign on ruled/lined notebook paper. Take a clear photo of it in bright daylight.
+
+**Step 2: Compress your signature correctly**
+Do not use generic compressors that destroy image quality. Go to our [Signature Optimizer](/signature-resize-for-exam) and upload your photo. The tool will automatically remove the grayish background, enhance the ink contrast, and [convert the photo to the required KB](/20kb-photo-converter) (between 10-20 KB) without making it blurry.
+
+**Step 3: Fix the format**
+Ensure the final downloaded file ends in \`.jpg\` or \`.jpeg\`. Our tools automatically output the correct format for government portals.
+
+**Step 4: Live Photo Preparation**
+If doing the live photo, sit facing a window so light hits your face. Stand against a blank wall. Take off your glasses—even if you wear them daily, SSC will reject your form if you wear them in the photo.
+
+## Best Practices Before Final Submit
+*   **Check the Preview:** Before you hit "Submit," look at the preview screen. If your signature looks like a tiny dot or a blurry smudge, **do not submit**. Go back and [resize your exam photo](/ssc-photo-resizer) properly.
+*   **Don't wait for the last day:** The SSC servers notoriously crash in the last 48 hours. Get your documents resized and uploaded at least a week before the deadline.
+*   **Keep a backup:** Save your perfectly sized 10-20KB signature on your phone and laptop for future SSC forms.
+
+## Related Tools to Speed Up Your Application
+Don't let technical glitches ruin your hard work. Use our free, privacy-friendly tools to get your files ready instantly:
+*   [SSC Photo & Signature Resizer](/ssc-photo-resizer)
+*   [Signature Optimizer & Background Cleaner](/signature-resize-for-exam)
+*   [20KB Photo Converter](/20kb-photo-converter)
+
+***
+
+## FAQ: SSC Photo & Signature Uploads
+
+**Why is my photo rejected in the SSC form?**
+Photos are usually rejected because the candidate is wearing spectacles/glasses, wearing a cap, the background is not plain, or the face is too dark. For manual uploads, it happens if the file is not between 20 KB and 50 KB.
+
+**How do I resize my signature for SSC to 10KB-20KB?**
+You can use a dedicated exam signature resizer. Simply upload your signature photo, and the tool will automatically crop it to 4.0 cm x 2.0 cm and compress the file size to strictly between 10 KB and 20 KB while keeping the ink clear.
+
+**Why does the SSC portal show "invalid image format"?**
+The SSC portal only accepts images in \`.jpg\` or \`.jpeg\` format. If your phone saved the image as a \`.png\`, \`.heic\` (iPhone), or \`.pdf\`, the portal will block it. You must convert it to JPG.
+
+**What should I do if my signature looks blurry after compressing?**
+Basic compression tools reduce quality to reduce file size. Instead, use a tool that increases ink contrast and removes the background shadow before compressing. This keeps the signature crisp even at 15 KB.
+
+**Can I wear glasses in my SSC live photo?**
+No. The official SSC notification strictly prohibits wearing spectacles or sunglasses in the photograph. Your application will be rejected if you wear them.
+
+***
+
+## Conclusion
+Dealing with SSC image size requirements doesn't have to be a nightmare. By understanding the exact 10KB to 20KB limits and the strict "no glasses" rule for photos, you can avoid the dreaded rejection list. Always read the latest official SSC notification, prepare your documents in advance, and use the correct preset tools to ensure a smooth, error-free application process. Good luck with your exams!`
   }
 ];

@@ -7,11 +7,20 @@ import fs from 'fs/promises';
 import path from 'path';
 import os from 'os';
 import crypto from 'crypto';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 const execAsync = promisify(exec);
 
+const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MB
+
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get('x-forwarded-for') || 'anonymous';
+    const isAllowed = checkRateLimit(`optimize_${ip}`, 20, 60 * 1000); // 20 requests per minute
+    if (!isAllowed) {
+      return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
+
     const formData = await req.formData();
     const file = formData.get('file') as File;
     const type = formData.get('type') as string; // 'photo', 'signature', 'document'
@@ -24,6 +33,10 @@ export async function POST(req: NextRequest) {
 
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json({ error: 'File size exceeds the 20MB limit.' }, { status: 400 });
     }
 
     const arrayBuffer = await file.arrayBuffer();
