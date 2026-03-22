@@ -7,6 +7,7 @@ import { blogPosts } from "@/lib/blog";
 import { ChevronRight, Calendar, Clock, Crop } from "lucide-react";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
+import rehypeRaw from "rehype-raw";
 import remarkDirective from "remark-directive";
 import remarkDirectivePlugin from "@/lib/remarkDirectivePlugin";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -129,7 +130,7 @@ export default async function BlogPostPage({
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white relative">
+    <div className="min-h-screen flex flex-col bg-white relative overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
@@ -144,40 +145,40 @@ export default async function BlogPostPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             {/* Main Content (70%) */}
-            <article className="lg:w-[70%] max-w-[720px] mx-auto lg:mx-0">
+            <article className="lg:w-[70%] max-w-[720px] w-full min-w-0 mx-auto lg:mx-0 overflow-hidden">
               {/* Hero Section (Integrated) */}
-              <header className="mb-12">
+              <header className="mb-12 w-full">
                 {/* Breadcrumb */}
-                <nav className="flex items-center text-sm text-slate-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
+                <nav className="flex items-center text-sm text-slate-500 mb-8 overflow-x-auto whitespace-nowrap pb-2 w-full scrollbar-hide">
                   <Link
                     href="/"
-                    className="hover:text-blue-600 transition-colors"
+                    className="hover:text-blue-600 transition-colors shrink-0"
                   >
                     Home
                   </Link>
-                  <ChevronRight className="w-4 h-4 mx-2 flex-shrink-0" />
+                  <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
                   <Link
                     href="/blog"
-                    className="hover:text-blue-600 transition-colors"
+                    className="hover:text-blue-600 transition-colors shrink-0"
                   >
                     Blog
                   </Link>
-                  <ChevronRight className="w-4 h-4 mx-2 flex-shrink-0" />
-                  <span className="text-slate-900 font-medium truncate">
+                  <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
+                  <span className="text-slate-900 font-medium truncate shrink-0">
                     {post.title}
                   </span>
                 </nav>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight break-words">
                   {post.title}
                 </h1>
 
-                <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
+                <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed break-words">
                   {post.excerpt}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium border-b border-slate-200 pb-8">
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-slate-500 font-medium border-b border-slate-200 pb-8">
+                  <div className="flex items-center gap-2 shrink-0">
                     <Calendar className="w-4 h-4 text-blue-600" />
                     <time dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString("en-US", {
@@ -187,7 +188,8 @@ export default async function BlogPostPage({
                       })}
                     </time>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <span className="hidden sm:inline-block text-slate-300 shrink-0">•</span>
+                  <div className="flex items-center gap-2 shrink-0">
                     <Clock className="w-4 h-4 text-emerald-600" />
                     <span>{readingTime} min read</span>
                   </div>
@@ -196,18 +198,20 @@ export default async function BlogPostPage({
 
               {/* Markdown Content */}
               <div
-                className="prose prose-slate md:prose-lg max-w-none 
-                prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight prose-headings:scroll-mt-28
+                className="prose prose-slate prose-lg max-w-none break-words
+                prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight prose-headings:scroll-mt-28 prose-headings:break-words
                 prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-2 prose-h2:border-b prose-h2:border-slate-200
                 prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-6
-                prose-a:text-blue-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+                prose-p:text-[#333333] prose-p:leading-[1.7] prose-p:mb-6 prose-p:break-words
+                prose-a:text-blue-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-a:break-words
                 prose-ul:my-6 prose-ul:list-disc prose-ul:pl-5
                 prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-5
-                prose-li:text-slate-700 prose-li:mb-2 prose-li:leading-relaxed
+                prose-li:text-[#333333] prose-li:mb-6 prose-li:leading-[1.7] prose-li:break-words
                 prose-strong:text-slate-900 prose-strong:font-semibold
-                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
-                prose-hr:my-10 prose-hr:border-slate-200"
+                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8 prose-img:max-w-full
+                prose-hr:my-10 prose-hr:border-slate-200
+                prose-pre:max-w-full prose-pre:overflow-x-auto
+                prose-table:max-w-full prose-table:overflow-x-auto prose-table:block"
               >
                 <Markdown
                   remarkPlugins={[
@@ -215,10 +219,25 @@ export default async function BlogPostPage({
                     remarkDirective,
                     remarkDirectivePlugin,
                   ]}
-                  rehypePlugins={[rehypeSlug]}
+                  rehypePlugins={[rehypeRaw, rehypeSlug]}
                   components={{
                     p: ({ node, children, ...props }: any) => {
-                      return <div className="mb-6 leading-relaxed text-slate-700" {...props}>{children}</div>;
+                      return <div className="mb-6 leading-[1.7] text-[#333333]" {...props}>{children}</div>;
+                    },
+                    a: ({ node, href, children, ...props }: any) => {
+                      const isInternal = href?.startsWith('/');
+                      if (isInternal) {
+                        return (
+                          <Link 
+                            href={href} 
+                            className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-md font-semibold border border-blue-100 hover:bg-blue-100 transition-colors my-1 no-underline" 
+                            {...props}
+                          >
+                            {children}
+                          </Link>
+                        );
+                      }
+                      return <a href={href} className="text-blue-600 font-medium hover:underline" {...props}>{children}</a>;
                     },
                     div: ({ node, className, children, ...props }: any) => {
                       if (className === "custom-tip-box")

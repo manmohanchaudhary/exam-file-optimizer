@@ -46,14 +46,14 @@ export const StepBlock = ({ number, title, children }: { number: number, title: 
 );
 
 export const CTABlock = ({ title, link, buttonText }: { title: string, link: string, buttonText: string }) => (
-  <div className="bg-slate-900 rounded-2xl p-8 my-10 text-center sm:text-left sm:flex sm:items-center sm:justify-between shadow-xl shadow-slate-900/10">
-    <div className="mb-6 sm:mb-0 sm:mr-8">
-      <h4 className="text-xl font-bold text-white mb-2">{title}</h4>
-      <p className="text-slate-300 text-sm md:text-base leading-relaxed">Free, fast, and secure online tool. No registration required.</p>
+  <div className="bg-slate-900 rounded-2xl p-8 my-10 text-center sm:text-left sm:flex sm:items-center sm:justify-between shadow-xl shadow-slate-900/10 overflow-hidden">
+    <div className="mb-6 sm:mb-0 sm:mr-8 min-w-0">
+      <h4 className="text-xl font-bold text-white mb-2 break-words">{title}</h4>
+      <p className="text-slate-300 text-sm md:text-base leading-relaxed break-words">Free, fast, and secure online tool. No registration required.</p>
     </div>
     <a 
       href={link} 
-      className="inline-flex items-center justify-center px-6 py-3.5 border border-transparent text-base font-bold rounded-xl text-slate-900 bg-emerald-400 hover:bg-emerald-300 transition-all hover:scale-105 hover:shadow-lg w-full sm:w-auto flex-shrink-0"
+      className="flex items-center justify-center px-6 py-3.5 border border-transparent text-base font-bold rounded-xl text-slate-900 bg-emerald-400 hover:bg-emerald-300 transition-all hover:scale-105 hover:shadow-lg w-full sm:w-auto flex-shrink-0 text-center break-words whitespace-normal"
     >
       {buttonText}
     </a>

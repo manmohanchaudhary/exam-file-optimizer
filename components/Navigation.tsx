@@ -2,11 +2,22 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Image as ImageIcon, Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const exams = [
+    { name: 'SSC', href: '/ssc-photo-resizer' },
+    { name: 'RRB', href: '/rrb-photo-resizer' },
+    { name: 'IBPS', href: '/ibps-photo-resizer' },
+    { name: 'SBI', href: '/sbi-photo-resizer' },
+    { name: 'RBI', href: '/rbi-photo-resizer' },
+    { name: 'UPSC', href: '/upsc-photo-resizer' },
+    { name: 'NEET', href: '/neet-photo-resizer' },
+    { name: 'JEE', href: '/jee-photo-resizer' },
+  ];
 
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -26,14 +37,18 @@ export function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/ssc-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">SSC</Link>
-          <Link href="/rrb-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">RRB</Link>
-          <Link href="/ibps-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">IBPS</Link>
-          <Link href="/sbi-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">SBI</Link>
-          <Link href="/rbi-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">RBI</Link>
-          <Link href="/upsc-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">UPSC</Link>
-          <Link href="/neet-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">NEET</Link>
-          <Link href="/jee-photo-resizer" className="text-sm font-medium text-slate-600 hover:text-slate-900">JEE</Link>
+          <div className="relative group">
+            <button className="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1 py-2">
+              Exams <ChevronDown className="w-4 h-4" />
+            </button>
+            <div className="absolute top-full left-0 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 flex flex-col py-2 translate-y-2 group-hover:translate-y-0">
+              {exams.map((exam) => (
+                <Link key={exam.name} href={exam.href} className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                  {exam.name}
+                </Link>
+              ))}
+            </div>
+          </div>
           <Link href="/blog" className="text-sm font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
           <Link href="/about" className="text-sm font-medium text-slate-600 hover:text-slate-900">About</Link>
           <Link href="/contact" className="text-sm font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
@@ -53,17 +68,24 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg">
           <nav className="flex flex-col px-4 py-4 space-y-4">
-            <Link href="/ssc-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">SSC</Link>
-            <Link href="/rrb-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">RRB</Link>
-            <Link href="/ibps-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">IBPS</Link>
-            <Link href="/sbi-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">SBI</Link>
-            <Link href="/rbi-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">RBI</Link>
-            <Link href="/upsc-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">UPSC</Link>
-            <Link href="/neet-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">NEET</Link>
-            <Link href="/jee-photo-resizer" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">JEE</Link>
-            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">About</Link>
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
+            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Exams</div>
+            <div className="flex overflow-x-auto pb-2 gap-3 hide-scrollbar -mx-4 px-4">
+              {exams.map((exam) => (
+                <Link 
+                  key={exam.name} 
+                  href={exam.href} 
+                  onClick={() => setIsMobileMenuOpen(false)} 
+                  className="whitespace-nowrap px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors"
+                >
+                  {exam.name}
+                </Link>
+              ))}
+            </div>
+            <div className="border-t border-slate-100 pt-4 flex flex-col space-y-4">
+              <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
+              <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">About</Link>
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
+            </div>
           </nav>
         </div>
       )}

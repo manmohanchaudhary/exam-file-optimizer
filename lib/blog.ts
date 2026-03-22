@@ -12,102 +12,76 @@ export const blogPosts: BlogPost[] = [
     title: 'DSSSB Advertisement No. 02/2026: A Candidate-Focused Guide',
     excerpt: 'Delhi Subordinate Services Selection Board (DSSSB) released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments.',
     date: '2026-03-18',
-    content: `Delhi Subordinate Services Selection Board (DSSSB) released **Advertisement No. 02/2026** on **25 February 2026**, inviting **online applications** for **20 post codes** across different departments, local bodies, and autonomous bodies of the Govt. of NCT of Delhi. The notice covers **216 tentative vacancies** in total, with the application window open from **27 February 2026 (12:00 noon)** to **28 March 2026 (11:59 PM)**. The category-wise vacancy breakup is **124 UR, 40 OBC, 17 SC, 16 ST, and 19 EWS**, along with **14 PwBD, 5 ESM, and 8 MSP** slots.
+    content: `Delhi Subordinate Services Selection Board (DSSSB) released **Advertisement No. 02/2026** on **25 February 2026**, inviting **online applications** for **20 post codes** across different departments, local bodies, and autonomous bodies of the Govt. of NCT of Delhi. 
+
+The notice covers **216 tentative vacancies** in total, with the application window open from **27 February 2026 (12:00 noon)** to **28 March 2026 (11:59 PM)**. The category-wise vacancy breakup is **124 UR, 40 OBC, 17 SC, 16 ST, and 19 EWS**, along with **14 PwBD, 5 ESM, and 8 MSP** slots.
 
 :::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
 :::
 
----
+## Why This Recruitment Matters
 
-## 🎯 Why this recruitment matters
+This is a multi-post recruitment, not a single job notification. It includes various roles across different domains, making it a significant opportunity for candidates with diverse educational backgrounds.
 
-This is a **multi-post recruitment**, not a single job notification. It includes:
+### Management and Corporate Roles
+The notification includes several managerial positions such as Assistant Manager (Tourism), Assistant Manager (General), Assistant Manager (Accounts), Assistant Manager (Legal), Assistant Manager (Air Ticketing), and Assistant Manager (Public Relation).
 
-- **Management / Corporate Roles**
-  - Assistant Manager (Tourism)
-  - Assistant Manager (General)
-  - Assistant Manager (Accounts)
-  - Assistant Manager (Legal)
-  - Assistant Manager (Air Ticketing)
-  - Assistant Manager (Public Relation)
+### Technical and Healthcare Roles
+For candidates with technical and medical backgrounds, the available posts include Radiographer, Optometrist, Junior Radiographer, Junior Laboratory Assistant, Chemical Assistant, and Meter & Relay Tester Grade-II.
 
-- **Technical & Healthcare Roles**
-  - Radiographer
-  - Optometrist
-  - Junior Radiographer
-  - Junior Laboratory Assistant
-  - Chemical Assistant
-  - Meter & Relay Tester Grade-II
+### Administrative and Support Roles
+The administrative and support vacancies include Reporter, Katib (Calligrapher), Patwari, Junior Law Officer, Stenographer Grade-I, Book Binder, and Assistant Microphotographist.
 
-- **Administrative / Support Roles**
-  - Reporter
-  - Katib (Calligrapher)
-  - Patwari
-  - Junior Law Officer
-  - Stenographer Grade-I
-  - Book Binder
-  - Assistant Microphotographist
+**Important Insight:** Each post has different eligibility criteria, age limits, and exam schemes. Candidates must treat each post separately and carefully review the specific requirements before applying.
 
-👉 **Important Insight:**  
-Each post has **different eligibility, age limits, and exam schemes**. Treat each post separately.
+## Vacancy Analysis
 
----
+Understanding the distribution of vacancies is crucial for a smart application strategy.
 
-## 📊 Vacancy Analysis (Very Important)
+### Major Vacancy Distribution
+The bulk of the vacancies are concentrated in a few specific roles:
+- Radiographer: 96 vacancies
+- Meter & Relay Tester Grade-II: 34 vacancies
+- Patwari: 15 vacancies
+- Optometrist: 15 vacancies
+- Reporter: 10 vacancies
+- Junior Radiographer: 10 vacancies
 
-Major vacancy distribution:
+### Smaller Vacancy Posts
+Other roles have fewer openings, such as Assistant Manager (Tourism, General) with 6 vacancies each, Assistant Manager (Accounts) with 3 vacancies, and various highly specialized roles with 1 vacancy each.
 
-- **Radiographer – 96 vacancies**
-- **Meter & Relay Tester Grade-II – 34 vacancies**
-- **Patwari – 15 vacancies**
-- **Optometrist – 15 vacancies**
-- **Reporter – 10 vacancies**
-- **Junior Radiographer – 10 vacancies**
+**Student Strategy Insight:** Posts with high vacancies generally mean higher competition but offer more chances of selection. Conversely, posts with low vacancies might have lower competition due to stricter, highly specialized eligibility requirements.
 
-Smaller vacancy posts:
-- Assistant Manager (Tourism, General) – 6 each  
-- Assistant Manager (Accounts) – 3  
-- Others – 1 each (high specialization)
+## Important Dates
 
-👉 **Student Strategy Insight:**
-- High vacancies = **high competition + more selection chances**
-- Low vacancies = **lower competition but stricter eligibility**
-
----
-
-## 📅 Important Dates (Do NOT Ignore)
+Candidates must keep track of the following crucial dates to ensure they do not miss the opportunity:
 
 - **Start Date:** 27 February 2026 (12:00 Noon)
 - **Last Date:** 28 March 2026 (11:59 PM)
 
-👉 **Golden Rule:**  
-Eligibility (age, degree, experience) must be valid **on 28 March 2026**.
+**Golden Rule:** All eligibility criteria, including age, educational degree, and experience, must be valid and completed on or before the cut-off date of 28 March 2026.
 
----
+## Eligibility Rules
 
-## ✅ Eligibility Rules (Critical Section)
+To be eligible for the DSSSB Advertisement No. 02/2026, candidates must adhere to the following critical rules:
 
-- Must be **Indian citizen**
-- Must meet **Recruitment Rules of the department**
-- Qualification & experience must be completed **before cut-off date**
+- The candidate must be an Indian citizen.
+- The candidate must meet the specific Recruitment Rules of the respective department for the post they are applying for.
+- All qualifications and required experience must be completed before the cut-off date.
 
-⚠️ **Common Mistake:**
-- Waiting for result/degree → NOT allowed if not completed before cutoff
+**Common Mistake:** Candidates waiting for their final results or degrees are not allowed to apply if their qualifications are not completed before the cutoff date.
 
----
+## Application Process
 
-## 📝 Application Process (Avoid These Mistakes)
+The application process is strictly online. Candidates must follow these guidelines to avoid rejection:
 
-- Apply **only online**
-- One-time registration system
-- Use same ID for future DSSSB exams
+- Applications must be submitted only through the official online portal.
+- DSSSB uses a one-time registration system. Candidates must use the same ID for all future DSSSB exams.
+- Multiple registrations by the same candidate will lead to disqualification and potential debarment.
+- No corrections are allowed after the final submission of the application.
+- The category selected during the application cannot be changed later under any circumstances.
 
-❌ Multiple registrations → **Disqualification / Debarment**
-
-⚠️ No correction allowed after submission  
-⚠️ Category cannot be changed later  
-
-👉 **Best Practice:** Apply early (server issues on last day are common)
+**Best Practice:** Apply as early as possible to avoid server issues that are common on the last day of submission.
 
 :::note{title="Important for Applicants"}
 DSSSB has strict image requirements including exact dimensions and 96 DPI for photos. Use our [DSSSB Image Optimizer](/dsssb-image-optimizer) to format your photo, signature, and thumb impressions perfectly in seconds.
@@ -116,127 +90,84 @@ DSSSB has strict image requirements including exact dimensions and 96 DPI for ph
 :::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
 :::
 
----
+## Application Fee
 
-## 💰 Application Fee
+The application fee structure is as follows:
 
-- **₹100 for General candidates**
-- **FREE for:**
-  - Women
-  - SC / ST
-  - PwBD
-  - Ex-Servicemen
+- **General Candidates:** ₹100
+- **Exempted Categories (FREE):** Women, SC, ST, PwBD, and Ex-Servicemen.
 
-⚠️ ESM already in govt job → NOT eligible for fee exemption
+Note that Ex-Servicemen who are already employed in a government job are not eligible for the fee exemption. Payment must be made via SBI e-pay only, and the fee is strictly non-refundable.
 
-- Payment via **SBI e-pay only**
-- Fee is **non-refundable**
+## Exam Pattern
 
----
+Understanding the exam pattern is the most important step for effective preparation. The scheme varies based on the post.
 
-## 🧠 Exam Pattern (Most Important for Preparation)
-
-### 🔹 One Tier (General Posts)
-- 200 Questions
-- 200 Marks
+### One Tier (General Posts)
+For general administrative posts, the exam consists of a single tier:
+- Total Questions: 200
+- Total Marks: 200
 - Duration: 2 Hours
+- Subjects: General Awareness, Reasoning, Numerical Ability, Hindi, and English.
 
-Subjects:
-- General Awareness
-- Reasoning
-- Numerical Ability
-- Hindi
-- English
+### One Tier (Technical Posts)
+For technical and specialized posts, the single-tier exam is divided into two sections:
+- **Section A:** General Aptitude
+- **Section B:** Domain Subject
 
----
+**Important Insight:** Section B, which tests subject-specific knowledge, is often the decisive factor in the final selection.
 
-### 🔹 One Tier (Technical Posts)
+### Two Tier Exams
+Certain posts require a two-tier examination process:
+- **Tier I:** Qualifying in nature.
+- **Tier II:** Determines the final merit and may include a descriptive paper for some posts.
 
-- **Section A (General Aptitude)**
-- **Section B (Domain Subject)**
+Final selection for these posts is based on the combined performance as per the specific post rules.
 
-👉 **Important Insight:**  
-Section B (subject knowledge) is often **decisive**
+## Marking and Evaluation Rules
 
----
+- Normalization may be applied if the exam is conducted in multiple shifts.
+- If any questions are found to be invalid, marks will be adjusted on a prorata basis.
+- There is no provision for rechecking or reevaluation of the answer sheets.
 
-### 🔹 Two Tier Exams
+## Age Relaxation
 
-- **Tier I:** Qualifying
-- **Tier II:** Final merit (includes descriptive for some posts)
+Age relaxation is provided to various reserved categories as per government norms:
 
-👉 Final selection based on **combined performance**
+- **SC/ST:** 5 years
+- **OBC:** 3 years
+- **PwBD:** 10 years
+- **PwBD + SC/ST:** 15 years
+- **PwBD + OBC:** 13 years
 
----
+Additional age relaxation is also available for Ex-Servicemen, government employees, sportspersons, and special female categories (such as widows or divorced women).
 
-## ⚖️ Marking & Evaluation Rules
+## PwBD Candidates
 
-- Normalization may be applied
-- Invalid questions → marks adjusted (prorata basis)
-- ❌ No rechecking / reevaluation allowed
+It is very important for Persons with Benchmark Disabilities (PwBD) to note that not all posts are suitable for all types of disabilities. Candidates must check the post-specific suitability in the official notification. 
 
----
+For example, some posts may only allow Orthopedic Handicap (OH) candidates, while others may allow Visual Handicap (VH) or Hearing Handicap (HH) candidates.
 
-## 🎯 Age Relaxation
+## Smart Candidate Checklist
 
-- SC/ST → 5 years  
-- OBC → 3 years  
-- PwBD → 10 years  
-- PwBD + SC/ST → 15 years  
-- PwBD + OBC → 13 years  
+Before submitting your application, ensure you have checked the following:
 
-Additional relaxation:
-- Ex-Servicemen
-- Govt employees
-- Sportspersons
-- Special female categories (widow/divorced)
+- Verified the correct Post Code for your desired role.
+- Confirmed your eligibility and experience details.
+- Checked your category eligibility and required certificates.
+- Understood the specific exam pattern for your post.
+- Planned to apply well before the last date.
 
----
+## Final Takeaway
 
-## ♿ PwBD Candidates (Very Important)
+DSSSB Advertisement No. 02/2026 is a high-opportunity recruitment drive with 216 vacancies across multiple departments, offering a mix of technical, administrative, and managerial roles. 
 
-- Not all posts are suitable for all disabilities
-- Must check **post-specific suitability**
+Success in this recruitment depends on choosing the right post, understanding the eligibility criteria properly, and preparing strictly according to the exam pattern, especially the domain-specific section.
 
-👉 Example:
-- Some posts allow OH (Orthopedic)
-- Some allow VH (Visual)
-- Some allow HH (Hearing)
-
----
-
-## 🧾 Smart Candidate Checklist
-
-Before applying:
-
-- ✅ Check correct **Post Code**
-- ✅ Verify **eligibility & experience**
-- ✅ Confirm **category eligibility**
-- ✅ Understand **exam pattern**
-- ✅ Apply before last date
-
----
-
-## 🔥 Final Takeaway
-
-DSSSB 02/2026 is a **high-opportunity recruitment** with:
-
-- **216 vacancies**
-- Multiple departments
-- Mix of technical + administrative + managerial roles
-
-👉 **Success depends on:**
-- Choosing the right post
-- Understanding eligibility properly
-- Preparing according to exam pattern (especially domain section)
+**Pro Tip for Serious Aspirants:** Focus your preparation on one specific post and its corresponding exam pattern instead of applying blindly to multiple posts with entirely different syllabi.
 
 :::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
-:::
-
----
-
-💡 **Pro Tip for Serious Aspirants:**
-Focus on **one post + one exam pattern** instead of applying blindly to multiple posts.`
+:::`
   },
   {
     slug: 'rrb-alp-2026-recruitment-cen-01-2026',
@@ -823,6 +754,21 @@ This is where 90% of candidates get stuck.
 *   **Dimensions:** 4.0 cm (width) x 2.0 cm (height).
 *   **Clarity:** Must be signed in black or blue ink on white paper. It cannot be blurred, illegible, or miniature. 
 
+<div className="flex flex-col sm:flex-row gap-4 my-8">
+  <div className="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+    <div className="h-32 bg-red-100 rounded-lg mb-3 flex items-center justify-center text-red-400 font-medium border-2 border-dashed border-red-300">
+      [Blurry Signature Image]
+    </div>
+    <p className="text-red-700 font-semibold text-sm m-0">❌ Common Mistake (Blurry/Low Contrast)</p>
+  </div>
+  <div className="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+    <div className="h-32 bg-emerald-100 rounded-lg mb-3 flex items-center justify-center text-emerald-500 font-medium border-2 border-dashed border-emerald-300">
+      [Clear Signature Image]
+    </div>
+    <p className="text-emerald-700 font-semibold text-sm m-0">✅ Perfect Result (Crisp & Clear)</p>
+  </div>
+</div>
+
 ## Common Errors Candidates See
 *   **"File size is too large / too small":** Your signature is likely over 20 KB or under 10 KB.
 *   **"Invalid image format":** You are trying to upload a PNG, WebP, or PDF. The SSC portal only accepts JPG/JPEG.
@@ -950,6 +896,21 @@ This is a terrible idea. Screenshots are usually saved as PNG files, they have t
 
 ### Over-Compressing the Signature
 Signatures are tricky. They are usually black ink on white paper. When you compress them too much, the white background turns gray and pixelated, and the black ink fades. This requires a specific signature upload rejected solution: you need a tool that enhances contrast while reducing size.
+
+<div className="flex flex-col sm:flex-row gap-4 my-8">
+  <div className="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+    <div className="h-32 bg-red-100 rounded-lg mb-3 flex items-center justify-center text-red-400 font-medium border-2 border-dashed border-red-300">
+      [Blurry Signature Image]
+    </div>
+    <p className="text-red-700 font-semibold text-sm m-0">❌ Common Mistake (Blurry/Low Contrast)</p>
+  </div>
+  <div className="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+    <div className="h-32 bg-emerald-100 rounded-lg mb-3 flex items-center justify-center text-emerald-500 font-medium border-2 border-dashed border-emerald-300">
+      [Clear Signature Image]
+    </div>
+    <p className="text-emerald-700 font-semibold text-sm m-0">✅ Perfect Result (Crisp & Clear)</p>
+  </div>
+</div>
 
 ---
 
