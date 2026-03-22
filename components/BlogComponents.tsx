@@ -59,3 +59,32 @@ export const CTABlock = ({ title, link, buttonText }: { title: string, link: str
     </a>
   </div>
 );
+
+export const ResponsiveTable = ({ headers, rows }: { headers: string[], rows: (string | React.ReactNode)[][] }) => (
+  <div className="my-8 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+    <div className="overflow-x-auto">
+      <table className="w-full text-left border-collapse min-w-[600px]">
+        <thead>
+          <tr className="bg-slate-50 border-b border-slate-200">
+            {headers.map((header, i) => (
+              <th key={i} className="py-4 px-6 font-semibold text-slate-900 text-sm whitespace-nowrap">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100 bg-white">
+          {rows.map((row, rowIndex) => (
+            <tr key={rowIndex} className="hover:bg-slate-50/50 transition-colors">
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="py-4 px-6 text-sm text-slate-700">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);

@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isExamsMenuOpen, setIsExamsMenuOpen] = useState(false);
 
   const exams = [
     { name: 'SSC', href: '/ssc-photo-resizer' },
@@ -37,17 +39,42 @@ export function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <div className="relative group">
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsExamsMenuOpen(true)}
+            onMouseLeave={() => setIsExamsMenuOpen(false)}
+          >
             <button className="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1 py-2">
-              Exams <ChevronDown className="w-4 h-4" />
+              Exams 
+              <motion.div
+                animate={{ rotate: isExamsMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ChevronDown className="w-4 h-4" />
+              </motion.div>
             </button>
-            <div className="absolute top-full left-0 w-48 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 flex flex-col py-2 translate-y-2 group-hover:translate-y-0">
-              {exams.map((exam) => (
-                <Link key={exam.name} href={exam.href} className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">
-                  {exam.name}
-                </Link>
-              ))}
-            </div>
+            <AnimatePresence>
+              {isExamsMenuOpen && (
+                <motion.div 
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="absolute top-full left-0 w-48 bg-white border border-slate-200 rounded-xl shadow-xl z-50 flex flex-col py-2 overflow-hidden"
+                >
+                  {exams.map((exam) => (
+                    <Link 
+                      key={exam.name} 
+                      href={exam.href} 
+                      onClick={() => setIsExamsMenuOpen(false)}
+                      className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      {exam.name}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <Link href="/blog" className="text-sm font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
           <Link href="/about" className="text-sm font-medium text-slate-600 hover:text-slate-900">About</Link>
@@ -56,39 +83,71 @@ export function Header() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none"
+          className="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none relative w-10 h-10 flex items-center justify-center"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <AnimatePresence mode="wait">
+            {isMobileMenuOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute"
+              >
+                <X className="w-6 h-6" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute"
+              >
+                <Menu className="w-6 h-6" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </button>
       </div>
 
       {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg">
-          <nav className="flex flex-col px-4 py-4 space-y-4">
-            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Exams</div>
-            <div className="flex overflow-x-auto pb-2 gap-3 hide-scrollbar -mx-4 px-4">
-              {exams.map((exam) => (
-                <Link 
-                  key={exam.name} 
-                  href={exam.href} 
-                  onClick={() => setIsMobileMenuOpen(false)} 
-                  className="whitespace-nowrap px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors"
-                >
-                  {exam.name}
-                </Link>
-              ))}
-            </div>
-            <div className="border-t border-slate-100 pt-4 flex flex-col space-y-4">
-              <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
-              <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">About</Link>
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
-            </div>
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg overflow-hidden"
+          >
+            <nav className="flex flex-col px-4 py-4 space-y-4">
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Exams</div>
+              <div className="flex overflow-x-auto pb-2 gap-3 hide-scrollbar -mx-4 px-4">
+                {exams.map((exam) => (
+                  <Link 
+                    key={exam.name} 
+                    href={exam.href} 
+                    onClick={() => setIsMobileMenuOpen(false)} 
+                    className="whitespace-nowrap px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors"
+                  >
+                    {exam.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="border-t border-slate-100 pt-4 flex flex-col space-y-4">
+                <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
+                <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">About</Link>
+                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">Contact Us</Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

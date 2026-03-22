@@ -9,8 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw } from 'lucide-react';
+import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown } from 'lucide-react';
 import { toast } from 'sonner';
+import { motion, AnimatePresence } from 'motion/react';
 
 export default function AppContainer({ initialExamId = 'ssc', initialFileType = 'photo' }: { initialExamId?: string, initialFileType?: FileType }) {
   const [file, setFile] = useState<File | null>(null);
@@ -24,6 +25,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
   const [customMaxSize, setCustomMaxSize] = useState<string>('50');
   const [customFormat, setCustomFormat] = useState<string>(initialFileType === 'document' ? 'pdf' : 'jpg');
   const [isGovExamMode, setIsGovExamMode] = useState<boolean>(false);
+  const [isPresetMenuOpen, setIsPresetMenuOpen] = useState<boolean>(false);
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
@@ -319,21 +321,68 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                   {fileType !== 'document' && (
                     <div className="space-y-3">
                       <Label htmlFor="exam">Select Exam</Label>
-                      <Select value={selectedExamId} onValueChange={(v) => v && setSelectedExamId(v)}>
-                        <SelectTrigger id="exam">
-                          <SelectValue placeholder="Select an exam">
-                            {selectedExamId === 'custom' ? 'Custom' : EXAMS.find(e => e.id === selectedExamId)?.name}
-                          </SelectValue>
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="custom">Custom</SelectItem>
-                          {EXAMS.map(exam => (
-                            <SelectItem key={exam.id} value={exam.id}>
-                              {exam.name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setIsPresetMenuOpen(!isPresetMenuOpen)}
+                          className="flex h-9 w-full items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent py-2 pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                        >
+                          <span className="line-clamp-1">
+                            {selectedExamId === 'custom' ? 'Custom' : EXAMS.find(e => e.id === selectedExamId)?.name || 'Select an exam'}
+                          </span>
+                          <motion.div
+                            animate={{ rotate: isPresetMenuOpen ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="shrink-0"
+                          >
+                            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                          </motion.div>
+                        </button>
+                        <AnimatePresence>
+                          {isPresetMenuOpen && (
+                            <>
+                              <div 
+                                className="fixed inset-0 z-40" 
+                                onClick={() => setIsPresetMenuOpen(false)} 
+                              />
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                className="absolute left-0 top-full z-50 mt-1 w-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md"
+                              >
+                                <div className="flex max-h-60 flex-col overflow-y-auto p-1 relative z-50">
+                                  {EXAMS.map(exam => (
+                                    <button
+                                      key={exam.id}
+                                      type="button"
+                                      onClick={() => {
+                                        setSelectedExamId(exam.id);
+                                        setIsPresetMenuOpen(false);
+                                      }}
+                                      className={`relative flex w-full cursor-default items-center rounded-md py-1.5 px-2 text-sm outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === exam.id ? 'bg-slate-100 text-slate-900 font-medium' : 'text-slate-700'}`}
+                                    >
+                                      {exam.name}
+                                    </button>
+                                  ))}
+                                  <div className="my-1 h-px bg-slate-100" />
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      setSelectedExamId('custom');
+                                      setIsPresetMenuOpen(false);
+                                    }}
+                                    className={`relative flex w-full cursor-default items-center rounded-md py-1.5 px-2 text-sm font-bold outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === 'custom' ? 'bg-slate-100 text-slate-900' : 'text-slate-900'}`}
+                                  >
+                                    Custom
+                                  </button>
+                                </div>
+                              </motion.div>
+                            </>
+                          )}
+                        </AnimatePresence>
+                      </div>
                       
                       {selectedExamId !== 'custom' && currentExam && (
                         <div className="text-sm text-slate-700 bg-blue-50 p-4 rounded-md border border-blue-100 space-y-2">

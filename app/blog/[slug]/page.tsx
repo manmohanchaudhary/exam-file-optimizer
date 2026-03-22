@@ -11,12 +11,14 @@ import rehypeRaw from "rehype-raw";
 import remarkDirective from "remark-directive";
 import remarkDirectivePlugin from "@/lib/remarkDirectivePlugin";
 import { TableOfContents } from "@/components/TableOfContents";
+import { ShareButtons } from "@/components/ShareButtons";
 import {
   TipBox,
   WarningBox,
   NoteBox,
   StepBlock,
   CTABlock,
+  ResponsiveTable,
 } from "@/components/BlogComponents";
 
 export async function generateStaticParams() {
@@ -73,6 +75,8 @@ export default async function BlogPostPage({
   // Calculate reading time
   const words = post.content.split(/\s+/).length;
   const readingTime = Math.ceil(words / 200); // Assuming 200 words per minute
+  
+  const url = `https://examresize.online/blog/${slug}`;
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -265,6 +269,17 @@ export default async function BlogPostPage({
                           />
                         );
                       }
+                      if (className === "custom-responsive-table") {
+                        let headers: string[] = [];
+                        let rows: any[][] = [];
+                        try {
+                          headers = JSON.parse(props["data-headers"] || "[]");
+                          rows = JSON.parse(props["data-rows"] || "[]");
+                        } catch (e) {
+                          console.error("Failed to parse table data", e);
+                        }
+                        return <ResponsiveTable headers={headers} rows={rows} />;
+                      }
                       return (
                         <div className={className} {...props}>
                           {children}
@@ -306,6 +321,8 @@ export default async function BlogPostPage({
                   {post.content}
                 </Markdown>
               </div>
+
+              <ShareButtons url={url} title={post.title} />
 
               {/* In-Article CTA */}
               {detectedExam && (
