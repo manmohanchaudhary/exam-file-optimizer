@@ -42,7 +42,7 @@ export async function generateMetadata({
     title: `${post.title} | ExamResize`,
     description: post.excerpt,
     alternates: {
-      canonical: url,
+      canonical: `/blog/${slug}`,
     },
     openGraph: {
       title: post.title,

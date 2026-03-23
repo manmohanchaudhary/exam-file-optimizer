@@ -27,12 +27,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: `${exam.name} Photo & Signature Size Guide | ExamResize`,
       description: `Complete guide to ${exam.name} photo and signature size requirements. Learn how to resize your images to exact dimensions and file sizes.`,
+      alternates: {
+        canonical: `/${slug}`,
+      },
     };
   }
 
   return {
     title: `${exam.name} Photo & Signature Resizer | ExamResize`,
     description: `Automatically resize and compress your photo and signature for ${exam.name} exams. Ensure your application is accepted with our free tool.`,
+    alternates: {
+      canonical: `/${slug}`,
+    },
   };
 }
 

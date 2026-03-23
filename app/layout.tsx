@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://examresize.online'),
   title: 'ExamResize | Resize Photos & Signatures for Forms',
   description: 'Instantly Convert Photos & Documents for Exam Forms. Optimize file size, dimensions, and format for SSC, UPSC, Banking, and other exams.',
   keywords: ['exam photo resizer', 'signature resize', 'ssc photo resize', 'upsc photo resize', 'banking exam photo converter', '20kb photo converter', '50kb photo converter'],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://examresize.online',
+    canonical: '/',
   },
   twitter: {
     card: 'summary_large_image',

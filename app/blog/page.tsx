@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Blog | Exam Notifications & Updates | ExamResize',
   description: 'Stay updated with the latest government exam notifications, eligibility criteria, and application processes.',
   alternates: {
-    canonical: 'https://examresize.online/blog',
+    canonical: '/blog',
   },
   openGraph: {
     title: 'Blog | Exam Notifications & Updates | ExamResize',

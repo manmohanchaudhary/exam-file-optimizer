@@ -1,4 +1,13 @@
 import { Header, Footer } from '@/components/Navigation';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About ExamResize | Resize Photos & Signatures for Forms',
+  description: 'Learn more about ExamResize, the fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms.',
+  alternates: {
+    canonical: '/about',
+  },
+};
 
 export default function AboutPage() {
   return (
