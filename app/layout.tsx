@@ -51,6 +51,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
@@ -77,9 +79,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         </Script>
       </head>
       <body suppressHydrationWarning>
-        {children}
-        <Analytics />
-        <Toaster position="top-center" />
+        <TooltipProvider>
+          {children}
+          <Analytics />
+          <Toaster position="top-center" />
+        </TooltipProvider>
       </body>
     </html>
   );

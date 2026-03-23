@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "Which file formats are supported?",
-    answer: "You can upload JPG, PNG, and PDF files for processing."
+    answer: "You can upload JPG, PNG, HEIC, and PDF files for processing."
   },
   {
     question: "What is the maximum file size I can upload?",

@@ -5,21 +5,20 @@ import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { EXAMS, Exam } from '@/lib/presets';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isExamsMenuOpen, setIsExamsMenuOpen] = useState(false);
 
-  const exams = [
-    { name: 'SSC', href: '/ssc-photo-resizer' },
-    { name: 'RRB', href: '/rrb-photo-resizer' },
-    { name: 'IBPS', href: '/ibps-photo-resizer' },
-    { name: 'SBI', href: '/sbi-photo-resizer' },
-    { name: 'RBI', href: '/rbi-photo-resizer' },
-    { name: 'UPSC', href: '/upsc-photo-resizer' },
-    { name: 'NEET', href: '/neet-photo-resizer' },
-    { name: 'JEE', href: '/jee-photo-resizer' },
-  ];
+  const groupedExams = EXAMS.reduce((acc, exam) => {
+    const category = exam.category || 'Other';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(exam);
+    return acc;
+  }, {} as Record<string, Exam[]>);
 
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -60,18 +59,30 @@ export function Header() {
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className="absolute top-full left-0 w-48 bg-white border border-slate-200 rounded-xl shadow-xl z-50 flex flex-col py-2 overflow-hidden"
+                  className="absolute top-full left-1/2 -translate-x-1/2 w-[480px] lg:w-[600px] bg-white border border-slate-200 rounded-xl shadow-xl z-50 flex py-4 px-4 lg:px-6 overflow-hidden"
                 >
-                  {exams.map((exam) => (
-                    <Link 
-                      key={exam.name} 
-                      href={exam.href} 
-                      onClick={() => setIsExamsMenuOpen(false)}
-                      className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      {exam.name}
-                    </Link>
-                  ))}
+                  <div className="grid grid-cols-3 gap-4 lg:gap-6 w-full">
+                    {Object.entries(groupedExams).map(([category, exams]) => (
+                      <div key={category} className="flex flex-col">
+                        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 border-b border-slate-100 pb-2">
+                          {category.replace(/_/g, ' ')}
+                        </h3>
+                        <div className="flex flex-col space-y-1">
+                          {exams.map((exam) => (
+                            <Link 
+                              key={exam.id} 
+                              href={`/${exam.id}-photo-resizer`} 
+                              onClick={() => setIsExamsMenuOpen(false)}
+                              className="py-1.5 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors break-words"
+                              title={exam.name}
+                            >
+                              {exam.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -123,22 +134,30 @@ export function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg overflow-hidden"
+            className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
-            <nav className="flex flex-col px-4 py-4 space-y-4">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Exams</div>
-              <div className="flex overflow-x-auto pb-2 gap-3 hide-scrollbar -mx-4 px-4">
-                {exams.map((exam) => (
-                  <Link 
-                    key={exam.name} 
-                    href={exam.href} 
-                    onClick={() => setIsMobileMenuOpen(false)} 
-                    className="whitespace-nowrap px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors"
-                  >
-                    {exam.name}
-                  </Link>
-                ))}
-              </div>
+            <nav className="flex flex-col px-4 py-4 space-y-6">
+              {Object.entries(groupedExams).map(([category, exams]) => (
+                <div key={category} className="flex flex-col">
+                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                    {category.replace(/_/g, ' ')}
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {exams.map((exam) => (
+                      <Link 
+                        key={exam.id} 
+                        href={`/${exam.id}-photo-resizer`} 
+                        onClick={() => setIsMobileMenuOpen(false)} 
+                        className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors break-words"
+                        title={exam.name}
+                      >
+                        {exam.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              
               <div className="border-t border-slate-100 pt-4 flex flex-col space-y-4">
                 <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[#0056b3] hover:text-[#004494]">Blog</Link>
                 <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-600 hover:text-slate-900">About</Link>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { EXAMS, Exam, FileType } from '@/lib/presets';
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown } from 'lucide-react';
+import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -30,7 +30,21 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  useEffect(() => {
+    if (isPresetMenuOpen && selectedExamId) {
+      // Small timeout to allow the dropdown to render before scrolling
+      setTimeout(() => {
+        const container = document.getElementById('preset-menu-container');
+        const el = document.getElementById(`preset-${selectedExamId}`);
+        if (container && el) {
+          // Scroll container to the element, minus some padding to show the category header
+          container.scrollTop = el.offsetTop - 30;
+        }
+      }, 50);
+    }
+  }, [isPresetMenuOpen, selectedExamId]);
+
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const selectedFile = acceptedFiles[0];
     if (!selectedFile) return;
 
@@ -39,17 +53,50 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
       return;
     }
 
-    setFile(selectedFile);
+    let fileToUse = selectedFile;
+
+    // Check if it's a HEIC file
+    const isHeic = selectedFile.name.toLowerCase().endsWith('.heic') || 
+                   selectedFile.name.toLowerCase().endsWith('.heif') || 
+                   selectedFile.type === 'image/heic' || 
+                   selectedFile.type === 'image/heif';
+
+    if (isHeic) {
+      const toastId = toast.loading('Converting HEIC image...');
+      try {
+        const heic2any = (await import('heic2any')).default;
+        const convertedBlob = await heic2any({
+          blob: selectedFile,
+          toType: 'image/jpeg',
+          quality: 0.8
+        });
+        
+        const blob = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
+        fileToUse = new File([blob], selectedFile.name.replace(/\.heic$|\.heif$/i, '.jpg'), {
+          type: 'image/jpeg',
+          lastModified: new Date().getTime()
+        });
+        toast.dismiss(toastId);
+        toast.success('HEIC image converted successfully');
+      } catch (error) {
+        console.error('HEIC conversion error:', error);
+        toast.dismiss(toastId);
+        toast.error('Failed to convert HEIC image. Please try another format.');
+        return;
+      }
+    }
+
+    setFile(fileToUse);
     setResult(null);
 
     // Auto-detect file type
-    if (selectedFile.type === 'application/pdf') {
+    if (fileToUse.type === 'application/pdf') {
       setFileType('document');
       setCustomFormat('pdf');
     } else {
       setFileType('photo');
       setSelectedExamId(prev => prev === 'custom' ? initialExamId : prev);
-      const objectUrl = URL.createObjectURL(selectedFile);
+      const objectUrl = URL.createObjectURL(fileToUse);
       setPreviewUrl(objectUrl);
     }
   }, [initialExamId]);
@@ -59,6 +106,8 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
     accept: {
       'image/jpeg': ['.jpg', '.jpeg'],
       'image/png': ['.png'],
+      'image/heic': ['.heic'],
+      'image/heif': ['.heif'],
       'application/pdf': ['.pdf']
     },
     maxFiles: 1,
@@ -82,7 +131,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
       const isCustom = selectedExamId === 'custom';
       const exam = EXAMS.find(e => e.id === selectedExamId);
 
-      if (isCustom || fileType === 'document') {
+      if (isCustom || (fileType === 'document' && exam && !exam.document)) {
         formData.append('type', fileType);
         formData.append('format', customFormat);
         if (customWidth) formData.append('width', customWidth);
@@ -93,7 +142,9 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
         const req = fileType === 'photo' ? exam.photo : 
                     fileType === 'signature' ? exam.signature :
                     fileType === 'left_thumb' ? exam.left_thumb :
-                    fileType === 'right_thumb' ? exam.right_thumb : null;
+                    fileType === 'right_thumb' ? exam.right_thumb :
+                    fileType === 'document' ? exam.document :
+                    fileType === 'declaration' ? exam.declaration : null;
         
         if (req) {
           formData.append('type', fileType);
@@ -124,14 +175,16 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
         let minSizeKb: number | undefined;
         let maxSizeKb: number | undefined;
 
-        if (isCustom || fileType === 'document') {
+        if (isCustom || (fileType === 'document' && exam && !exam.document)) {
            minSizeKb = customMinSize ? parseInt(customMinSize) : undefined;
            maxSizeKb = customMaxSize ? parseInt(customMaxSize) : undefined;
         } else if (exam) {
            const req = fileType === 'photo' ? exam.photo : 
                        fileType === 'signature' ? exam.signature :
                        fileType === 'left_thumb' ? exam.left_thumb :
-                       fileType === 'right_thumb' ? exam.right_thumb : null;
+                       fileType === 'right_thumb' ? exam.right_thumb :
+                       fileType === 'document' ? exam.document :
+                       fileType === 'declaration' ? exam.declaration : null;
            if (req) {
              minSizeKb = req.minSizeKb;
              maxSizeKb = req.maxSizeKb;
@@ -142,13 +195,13 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
 
       const downloadUrl = URL.createObjectURL(blob);
       const contentDisposition = response.headers.get('Content-Disposition');
-      let filename = `photo.jpg`; // Enforce simple filename as requested
+      let filename = `${fileType}.${blob.type === 'application/pdf' ? 'pdf' : 'jpg'}`; // Enforce simple filename as requested
       
       setResult({
         url: downloadUrl,
         filename,
         size: blob.size,
-        format: 'jpg'
+        format: blob.type === 'application/pdf' ? 'pdf' : 'jpg'
       });
       
       toast.success('File optimized successfully!');
@@ -231,8 +284,27 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
     fileType === 'photo' ? currentExam.photo : 
     fileType === 'signature' ? currentExam.signature :
     fileType === 'left_thumb' ? currentExam.left_thumb :
-    fileType === 'right_thumb' ? currentExam.right_thumb : null
+    fileType === 'right_thumb' ? currentExam.right_thumb :
+    fileType === 'document' ? currentExam.document :
+    fileType === 'declaration' ? currentExam.declaration : null
   ) : null;
+
+  const minSizeKb = isCustom ? (customMinSize ? parseInt(customMinSize) : undefined) : currentReq?.minSizeKb;
+  const maxSizeKb = isCustom ? (customMaxSize ? parseInt(customMaxSize) : undefined) : currentReq?.maxSizeKb;
+
+  const isSizeValid = result ? (
+    (!minSizeKb || result.size >= minSizeKb * 1024) &&
+    (!maxSizeKb || result.size <= maxSizeKb * 1024)
+  ) : false;
+
+  const groupedExams = EXAMS.reduce((acc, exam) => {
+    const category = exam.category || 'Other';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(exam);
+    return acc;
+  }, {} as Record<string, Exam[]>);
 
   return (
     <div className="space-y-8">
@@ -249,7 +321,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
           <h3 className="text-xl font-semibold text-slate-900 mb-2">Drag & drop your file here</h3>
           <p className="text-slate-500 mb-4">or click to browse from your device</p>
           <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
-            <span className="flex items-center gap-1"><FileImage className="w-4 h-4" /> JPG, PNG</span>
+            <span className="flex items-center gap-1"><FileImage className="w-4 h-4" /> JPG, PNG, HEIC</span>
             <span className="flex items-center gap-1"><FileText className="w-4 h-4" /> PDF</span>
             <span>Max 10MB</span>
           </div>
@@ -304,30 +376,31 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                       setCustomFormat('jpg');
                     }
                   }}>
-                    <TabsList className={`grid w-full ${selectedExamId === 'dsssb' ? 'grid-cols-4' : 'grid-cols-3'}`}>
-                      <TabsTrigger value="photo">Photo</TabsTrigger>
-                      <TabsTrigger value="signature">Signature</TabsTrigger>
-                      {selectedExamId === 'dsssb' ? (
+                    <TabsList className="flex flex-wrap h-auto w-full justify-start gap-1 p-1">
+                      <TabsTrigger value="photo" className="flex-1 min-w-[80px]">Photo</TabsTrigger>
+                      <TabsTrigger value="signature" className="flex-1 min-w-[80px]">Signature</TabsTrigger>
+                      {selectedExamId === 'dsssb' && (
                         <>
-                          <TabsTrigger value="left_thumb">L. Thumb</TabsTrigger>
-                          <TabsTrigger value="right_thumb">R. Thumb</TabsTrigger>
+                          <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px]">L. Thumb</TabsTrigger>
+                          <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px]">R. Thumb</TabsTrigger>
                         </>
-                      ) : (
-                        <TabsTrigger value="document">Document</TabsTrigger>
+                      )}
+                      <TabsTrigger value="document" className="flex-1 min-w-[80px]">Document</TabsTrigger>
+                      {(currentExam?.declaration || selectedExamId === 'custom') && (
+                        <TabsTrigger value="declaration" className="flex-1 min-w-[80px]">Declaration</TabsTrigger>
                       )}
                     </TabsList>
                   </Tabs>
 
-                  {fileType !== 'document' && (
-                    <div className="space-y-3">
-                      <Label htmlFor="exam">Select Exam</Label>
+                  <div className="space-y-3">
+                    <Label htmlFor="exam">Select Exam</Label>
                       <div className="relative">
                         <button
                           type="button"
                           onClick={() => setIsPresetMenuOpen(!isPresetMenuOpen)}
-                          className="flex h-9 w-full items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent py-2 pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                          className="flex min-h-10 w-full items-center justify-between gap-2 rounded-lg border border-input bg-transparent py-2 pr-3 pl-3 text-sm transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 text-left"
                         >
-                          <span className="line-clamp-1">
+                          <span className="line-clamp-2 flex-1">
                             {selectedExamId === 'custom' ? 'Custom' : EXAMS.find(e => e.id === selectedExamId)?.name || 'Select an exam'}
                           </span>
                           <motion.div
@@ -352,28 +425,40 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                 className="absolute left-0 top-full z-50 mt-1 w-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md"
                               >
-                                <div className="flex max-h-60 flex-col overflow-y-auto p-1 relative z-50">
-                                  {EXAMS.map(exam => (
-                                    <button
-                                      key={exam.id}
-                                      type="button"
-                                      onClick={() => {
-                                        setSelectedExamId(exam.id);
-                                        setIsPresetMenuOpen(false);
-                                      }}
-                                      className={`relative flex w-full cursor-default items-center rounded-md py-1.5 px-2 text-sm outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === exam.id ? 'bg-slate-100 text-slate-900 font-medium' : 'text-slate-700'}`}
-                                    >
-                                      {exam.name}
-                                    </button>
+                                <div id="preset-menu-container" className="flex max-h-60 flex-col overflow-y-auto p-1 relative z-50">
+                                  {Object.entries(groupedExams).map(([category, exams]) => (
+                                    <div key={category} className="mb-2">
+                                      <div className="px-2 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider bg-white sticky top-0 z-10">
+                                        {category.replace(/_/g, ' ')}
+                                      </div>
+                                      {exams.map(exam => (
+                                        <div
+                                          key={exam.id}
+                                          id={`preset-${exam.id}`}
+                                          role="button"
+                                          tabIndex={0}
+                                          onClick={() => {
+                                            setSelectedExamId(exam.id);
+                                            setIsPresetMenuOpen(false);
+                                            if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
+                                            if ((fileType === 'left_thumb' || fileType === 'right_thumb') && exam.id !== 'dsssb') setFileType('photo');
+                                          }}
+                                          className={`relative flex w-full cursor-default items-start rounded-md py-2 px-2 text-sm outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === exam.id ? 'bg-slate-100 text-slate-900 font-medium' : 'text-slate-700'}`}
+                                        >
+                                          <span className="text-left break-words">{exam.name}</span>
+                                        </div>
+                                      ))}
+                                    </div>
                                   ))}
                                   <div className="my-1 h-px bg-slate-100" />
                                   <button
                                     type="button"
+                                    id="preset-custom"
                                     onClick={() => {
                                       setSelectedExamId('custom');
                                       setIsPresetMenuOpen(false);
                                     }}
-                                    className={`relative flex w-full cursor-default items-center rounded-md py-1.5 px-2 text-sm font-bold outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === 'custom' ? 'bg-slate-100 text-slate-900' : 'text-slate-900'}`}
+                                    className={`relative flex w-full cursor-default items-center rounded-md py-2 px-2 text-sm font-bold outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === 'custom' ? 'bg-slate-100 text-slate-900' : 'text-slate-900'}`}
                                   >
                                     Custom
                                   </button>
@@ -392,14 +477,21 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                             <li>{currentExam.signature.description}</li>
                             {currentExam.left_thumb && <li>{currentExam.left_thumb.description}</li>}
                             {currentExam.right_thumb && <li>{currentExam.right_thumb.description}</li>}
+                            {currentExam.document && <li>{currentExam.document.description}</li>}
+                            {currentExam.declaration && <li>{currentExam.declaration.description}</li>}
                           </ul>
+                          {currentExam.notes && (
+                            <div className="flex items-start gap-2 mt-3 p-3 bg-amber-50 border border-amber-200 rounded-md text-amber-800">
+                              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                              <p className="text-sm font-medium">{currentExam.notes}</p>
+                            </div>
+                          )}
                           <p className="text-xs text-slate-500 mt-2 italic">
                             Image specifications are based on commonly used exam requirements. Always verify the latest instructions from the official exam notification.
                           </p>
                         </div>
                       )}
                     </div>
-                  )}
 
                   <div className="space-y-4 pt-4 border-t border-slate-100">
                     <div className="flex items-center space-x-2">
@@ -416,27 +508,27 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="width">Width (px)</Label>
-                        <Input id="width" type="number" placeholder="e.g. 200" value={isCustom || fileType === 'document' ? customWidth : currentReq?.width || ''} onChange={e => setCustomWidth(e.target.value)} disabled={!isCustom && fileType !== 'document'} />
+                        <Input id="width" type="number" placeholder="e.g. 200" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customWidth : currentReq?.width || ''} onChange={e => setCustomWidth(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="height">Height (px)</Label>
-                        <Input id="height" type="number" placeholder="e.g. 230" value={isCustom || fileType === 'document' ? customHeight : currentReq?.height || ''} onChange={e => setCustomHeight(e.target.value)} disabled={!isCustom && fileType !== 'document'} />
+                        <Input id="height" type="number" placeholder="e.g. 230" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customHeight : currentReq?.height || ''} onChange={e => setCustomHeight(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="minSize">Min Size (KB)</Label>
-                        <Input id="minSize" type="number" placeholder="e.g. 20" value={isCustom || fileType === 'document' ? customMinSize : currentReq?.minSizeKb || ''} onChange={e => setCustomMinSize(e.target.value)} disabled={!isCustom && fileType !== 'document'} />
+                        <Input id="minSize" type="number" placeholder="e.g. 20" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMinSize : currentReq?.minSizeKb || ''} onChange={e => setCustomMinSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="maxSize">Max Size (KB)</Label>
-                        <Input id="maxSize" type="number" placeholder="e.g. 50" value={isCustom || fileType === 'document' ? customMaxSize : currentReq?.maxSizeKb || ''} onChange={e => setCustomMaxSize(e.target.value)} disabled={!isCustom && fileType !== 'document'} />
+                        <Input id="maxSize" type="number" placeholder="e.g. 50" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMaxSize : currentReq?.maxSizeKb || ''} onChange={e => setCustomMaxSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="format">Format</Label>
-                        <Select value={isCustom || fileType === 'document' ? customFormat : currentReq?.format || 'jpg'} onValueChange={(v) => v && setCustomFormat(v)} disabled={!isCustom && fileType !== 'document'}>
+                        <Select value={isCustom || (fileType === 'document' && !currentExam?.document) ? customFormat : currentReq?.format || 'jpg'} onValueChange={(v) => v && setCustomFormat(v)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)}>
                           <SelectTrigger id="format">
                             <SelectValue />
                           </SelectTrigger>
@@ -444,7 +536,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                             <SelectItem value="jpg">JPG</SelectItem>
                             <SelectItem value="jpeg">JPEG</SelectItem>
                             <SelectItem value="png">PNG</SelectItem>
-                            {fileType === 'document' && <SelectItem value="pdf">PDF</SelectItem>}
+                            {(fileType === 'document' || fileType === 'declaration') && <SelectItem value="pdf">PDF</SelectItem>}
                           </SelectContent>
                         </Select>
                       </div>
@@ -468,21 +560,30 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                 </CardFooter>
               </Card>
             ) : (
-              <Card className="border-green-200 bg-green-50/50">
+              <Card className={`border ${isSizeValid ? 'border-green-200 bg-green-50/50' : 'border-amber-200 bg-amber-50/50'}`}>
                 <CardHeader>
-                  <CardTitle className="text-green-800 flex items-center gap-2">
-                    <CheckCircle2 className="w-6 h-6 text-[#28a745]" />
-                    Ready for Upload!
+                  <CardTitle className={`flex items-center gap-2 ${isSizeValid ? 'text-green-800' : 'text-amber-800'}`}>
+                    {isSizeValid ? (
+                      <CheckCircle2 className="w-6 h-6 text-[#28a745]" />
+                    ) : (
+                      <AlertCircle className="w-6 h-6 text-amber-500" />
+                    )}
+                    {isSizeValid ? 'Ready for Upload!' : 'Size Warning'}
                   </CardTitle>
-                  <CardDescription className="text-green-700">
-                    Your file has been optimized to meet the requirements.
+                  <CardDescription className={isSizeValid ? 'text-green-700' : 'text-amber-700'}>
+                    {isSizeValid 
+                      ? 'Your file has been optimized to meet the requirements.' 
+                      : `The optimized file size (${formatBytes(result.size)}) is outside the required range (${minSizeKb || 0}KB - ${maxSizeKb || '∞'}KB). You may need to adjust settings or try a different source image.`}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="bg-white p-4 rounded-lg border border-green-100 shadow-sm">
+                  <div className={`bg-white p-4 rounded-lg border shadow-sm ${isSizeValid ? 'border-green-100' : 'border-amber-100'}`}>
                     <div className="grid grid-cols-2 gap-y-2 text-sm">
                       <div className="text-slate-500">Final Size:</div>
-                      <div className="font-semibold text-slate-900">{formatBytes(result.size)}</div>
+                      <div className={`font-semibold ${!isSizeValid ? 'text-amber-600' : 'text-slate-900'}`}>
+                        {formatBytes(result.size)}
+                        {!isSizeValid && ' ⚠️'}
+                      </div>
                       
                       <div className="text-slate-500">Format:</div>
                       <div className="font-semibold text-slate-900 uppercase">{result.format}</div>
@@ -500,13 +601,22 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                   </div>
                 </CardContent>
                 <CardFooter className="flex-col gap-3">
-                  <a 
-                    href={result.url} 
-                    download={result.filename}
-                    className="w-full bg-[#28a745] hover:bg-green-700 text-white h-12 text-lg inline-flex items-center justify-center rounded-md font-medium transition-colors"
-                  >
-                    <Download className="w-5 h-5 mr-2" /> Download File
-                  </a>
+                  {isSizeValid ? (
+                    <a 
+                      href={result.url} 
+                      download={result.filename}
+                      className="w-full bg-[#28a745] hover:bg-green-700 text-white h-12 text-lg inline-flex items-center justify-center rounded-md font-medium transition-colors"
+                    >
+                      <Download className="w-5 h-5 mr-2" /> Download File
+                    </a>
+                  ) : (
+                    <Button 
+                      disabled
+                      className="w-full bg-slate-300 text-slate-500 h-12 text-lg inline-flex items-center justify-center rounded-md font-medium cursor-not-allowed"
+                    >
+                      <Download className="w-5 h-5 mr-2" /> Download File
+                    </Button>
+                  )}
                   <Button variant="outline" className="w-full" onClick={() => setResult(null)}>
                     Adjust Settings
                   </Button>

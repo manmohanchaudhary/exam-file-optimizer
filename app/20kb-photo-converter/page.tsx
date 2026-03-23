@@ -23,7 +23,7 @@ export default function PhotoConverter20kb() {
         },
         {
           q: 'What formats are supported?',
-          a: 'We support JPG, JPEG, and PNG formats. The output file will be a highly optimized JPG, which is the standard format required by most portals.'
+          a: 'We support JPG, JPEG, PNG, and HEIC formats. The output file will be a highly optimized JPG, which is the standard format required by most portals.'
         }
       ]}
       relatedTools={[

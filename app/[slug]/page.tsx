@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { FileUp, Settings, Download, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { FileUp, Settings, Download, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '@/components/AdBanner';
 import AppContainer from '@/components/AppContainer';
@@ -227,16 +227,44 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
               </ul>
             </div>
 
+            {exam.notes && (
+              <div className="bg-amber-50 rounded-2xl shadow-sm border border-amber-200 p-8 mb-8">
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="text-xl font-bold text-amber-900 mb-2">Important Note</h3>
+                    <p className="text-amber-800">{exam.notes}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
               <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Frequently Asked Questions</h3>
-              <div className="space-y-4">
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-bold text-slate-900">What if my photo background is not white?</h4>
+                  <p className="text-slate-600 mt-1">Most exams (like SSC, UP Police) strictly reject non-white backgrounds. Ensure you use a photo with a plain white or light-colored background before resizing.</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">Can I upload a selfie?</h4>
+                  <p className="text-slate-600 mt-1">No. Selfies are rejected by all commissions (UPSC, Bihar Police, etc.). Ensure a straight-facing, professionally clicked photo.</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">How do I add my Name and Date to the photo?</h4>
+                  <p className="text-slate-600 mt-1">Exams like MP Police and IBPS require this. You should add your name and the date of the photo using a photo editor before uploading it to our resizer to apply the final preset.</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">My signature is getting blurry. What should I do?</h4>
+                  <p className="text-slate-600 mt-1">Sign on plain white paper with a thick black/blue pen. Crop it closely before uploading to our resizer to maintain clarity within the KB limit.</p>
+                </div>
                 <div>
                   <h4 className="font-bold text-slate-900">How do I resize my photo for {exam.name}?</h4>
-                  <p className="text-slate-600">Simply upload your photo using the tool above. It will automatically resize and compress your image to meet the exact requirements for {exam.name}.</p>
+                  <p className="text-slate-600 mt-1">Simply upload your photo using the tool above. It will automatically resize and compress your image to meet the exact requirements for {exam.name}.</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">Is my data safe?</h4>
-                  <p className="text-slate-600">Yes, all processing is done securely. Your images are not stored on our servers and are deleted immediately after you download them.</p>
+                  <p className="text-slate-600 mt-1">Yes, all processing is done securely. Your images are not stored on our servers and are deleted immediately after you download them.</p>
                 </div>
               </div>
             </div>

@@ -302,6 +302,7 @@ export default async function BlogPostPage({
                     img: ({ node, src, alt, ...props }: any) => {
                       return (
                         <figure className="my-8">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={src}
                             alt={alt}
