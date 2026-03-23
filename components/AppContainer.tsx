@@ -306,6 +306,14 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
     return acc;
   }, {} as Record<string, Exam[]>);
 
+  const sortedCategories = Object.entries(groupedExams).sort(([catA], [catB]) => {
+    if (catA === 'All India Exams') return -1;
+    if (catB === 'All India Exams') return 1;
+    if (catA === 'Other') return 1;
+    if (catB === 'Other') return -1;
+    return catA.localeCompare(catB);
+  });
+
   return (
     <div className="space-y-8">
       {!file ? (
@@ -426,7 +434,7 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
                                 className="absolute left-0 top-full z-50 mt-1 w-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md"
                               >
                                 <div id="preset-menu-container" className="flex max-h-60 flex-col overflow-y-auto p-1 relative z-50">
-                                  {Object.entries(groupedExams).map(([category, exams]) => (
+                                  {sortedCategories.map(([category, exams]) => (
                                     <div key={category} className="mb-2">
                                       <div className="px-2 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider bg-white sticky top-0 z-10">
                                         {category.replace(/_/g, ' ')}

@@ -20,6 +20,14 @@ export function Header() {
     return acc;
   }, {} as Record<string, Exam[]>);
 
+  const sortedCategories = Object.entries(groupedExams).sort(([catA], [catB]) => {
+    if (catA === 'All India Exams') return -1;
+    if (catB === 'All India Exams') return 1;
+    if (catA === 'Other') return 1;
+    if (catB === 'Other') return -1;
+    return catA.localeCompare(catB);
+  });
+
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -61,9 +69,9 @@ export function Header() {
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="absolute top-full left-1/2 -translate-x-1/2 w-[480px] lg:w-[600px] bg-white border border-slate-200 rounded-xl shadow-xl z-50 flex py-4 px-4 lg:px-6 overflow-hidden"
                 >
-                  <div className="grid grid-cols-3 gap-4 lg:gap-6 w-full">
-                    {Object.entries(groupedExams).map(([category, exams]) => (
-                      <div key={category} className="flex flex-col">
+                  <div className="columns-2 lg:columns-3 gap-4 lg:gap-6 w-full">
+                    {sortedCategories.map(([category, exams]) => (
+                      <div key={category} className="flex flex-col mb-6 break-inside-avoid">
                         <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 border-b border-slate-100 pb-2">
                           {category.replace(/_/g, ' ')}
                         </h3>
@@ -137,7 +145,7 @@ export function Header() {
             className="md:hidden bg-white border-b border-slate-200 absolute top-16 left-0 w-full shadow-lg overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             <nav className="flex flex-col px-4 py-4 space-y-6">
-              {Object.entries(groupedExams).map(([category, exams]) => (
+              {sortedCategories.map(([category, exams]) => (
                 <div key={category} className="flex flex-col">
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
                     {category.replace(/_/g, ' ')}
