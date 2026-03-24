@@ -1,10 +1,32 @@
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import Link from "next/link";
-import Image from "next/image";
 import { Header, Footer } from "@/components/Navigation";
 import { blogPosts } from "@/lib/blog";
-import { ChevronRight, Calendar, Clock, Crop } from "lucide-react";
+import { 
+  ChevronRight, 
+  Calendar, 
+  Clock, 
+  Crop, 
+  Info, 
+  AlertTriangle, 
+  CheckCircle2, 
+  ArrowRight,
+  Globe,
+  FileText,
+  ListChecks,
+  BarChart3,
+  AlertCircle,
+  Lightbulb,
+  Brain,
+  Target,
+  Bell,
+  Zap,
+  MessageSquare,
+  Link as LinkIcon,
+  Megaphone,
+  Sparkles
+} from "lucide-react";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeRaw from "rehype-raw";
@@ -20,6 +42,52 @@ import {
   CTABlock,
   ResponsiveTable,
 } from "@/components/BlogComponents";
+
+const emojiMap: Record<string, any> = {
+  "📅": Calendar,
+  "🌐": Globe,
+  "🧾": FileText,
+  "⚠️": AlertTriangle,
+  "📊": BarChart3,
+  "🚨": AlertCircle,
+  "💡": Lightbulb,
+  "🧠": Brain,
+  "🎯": Target,
+  "❗": Bell,
+  "✨": Sparkles,
+  "📢": Megaphone,
+  "⚡": Zap,
+  "🗣️": MessageSquare,
+  "🔗": LinkIcon,
+  "👉": ArrowRight,
+  "✅": CheckCircle2,
+  "ℹ️": Info,
+};
+
+function IconHeading({ level, children }: { level: number, children: any }) {
+  const text = typeof children === 'string' ? children : 
+               Array.isArray(children) ? children.map(c => typeof c === 'string' ? c : '').join('') : '';
+  
+  let icon = null;
+  let cleanText = text;
+
+  for (const [emoji, IconComp] of Object.entries(emojiMap)) {
+    if (text.includes(emoji)) {
+      icon = <IconComp className="w-6 h-6 md:w-8 md:h-8 text-blue-600 shrink-0" />;
+      cleanText = text.replace(emoji, '').trim();
+      break;
+    }
+  }
+
+  const Tag = level === 2 ? 'h2' : level === 3 ? 'h3' : 'h4';
+  
+  return (
+    <Tag className="flex items-center gap-3 md:gap-4 group">
+      {icon}
+      <span className="flex-grow">{cleanText}</span>
+    </Tag>
+  );
+}
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -201,126 +269,166 @@ export default async function BlogPostPage({
               </header>
 
               {/* Markdown Content */}
-              <div
-                className="prose prose-slate prose-lg max-w-none break-words
-                prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight prose-headings:scroll-mt-28 prose-headings:break-words
-                prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-2 prose-h2:border-b prose-h2:border-slate-200
-                prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-[#333333] prose-p:leading-[1.7] prose-p:mb-6 prose-p:break-words
-                prose-a:text-blue-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-a:break-words
-                prose-ul:my-6 prose-ul:list-disc prose-ul:pl-5
-                prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-5
-                prose-li:text-[#333333] prose-li:mb-6 prose-li:leading-[1.7] prose-li:break-words
-                prose-strong:text-slate-900 prose-strong:font-semibold
-                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8 prose-img:max-w-full
-                prose-hr:my-10 prose-hr:border-slate-200
-                prose-pre:max-w-full prose-pre:overflow-x-auto
-                prose-table:max-w-full prose-table:overflow-x-auto prose-table:block"
-              >
-                <Markdown
-                  remarkPlugins={[
-                    remarkGfm,
-                    remarkDirective,
-                    remarkDirectivePlugin,
-                  ]}
-                  rehypePlugins={[rehypeRaw, rehypeSlug]}
-                  components={{
-                    p: ({ node, children, ...props }: any) => {
-                      return <div className="mb-6 leading-[1.7] text-[#333333]" {...props}>{children}</div>;
-                    },
-                    a: ({ node, href, children, ...props }: any) => {
-                      const isInternal = href?.startsWith('/');
-                      if (isInternal) {
-                        return (
-                          <Link 
-                            href={href} 
-                            className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-md font-semibold border border-blue-100 hover:bg-blue-100 transition-colors my-1 no-underline" 
-                            {...props}
-                          >
-                            {children}
-                          </Link>
-                        );
-                      }
-                      return <a href={href} className="text-blue-600 font-medium hover:underline" {...props}>{children}</a>;
-                    },
-                    div: ({ node, className, children, ...props }: any) => {
-                      if (className === "custom-tip-box")
-                        return <TipBox title={props["data-title"]}>{children}</TipBox>;
-                      if (className === "custom-warning-box")
-                        return <WarningBox title={props["data-title"]}>{children}</WarningBox>;
-                      if (className === "custom-note-box")
-                        return <NoteBox title={props["data-title"]}>{children}</NoteBox>;
-                      if (className === "custom-step-block") {
-                        return (
-                          <StepBlock
-                            number={props["data-number"]}
-                            title={props["data-title"]}
-                          >
-                            {children}
-                          </StepBlock>
-                        );
-                      }
-                      if (className === "custom-cta-block") {
-                        return (
-                          <CTABlock
-                            title={props["data-title"]}
-                            link={props["data-link"]}
-                            buttonText={props["data-button"]}
-                          />
-                        );
-                      }
-                      if (className === "custom-responsive-table") {
-                        let headers: string[] = [];
-                        let rows: any[][] = [];
-                        try {
-                          headers = JSON.parse(props["data-headers"] || "[]");
-                          rows = JSON.parse(props["data-rows"] || "[]");
-                        } catch (e) {
-                          console.error("Failed to parse table data", e);
-                        }
-                        return <ResponsiveTable headers={headers} rows={rows} />;
-                      }
-                      return (
-                        <div className={className} {...props}>
-                          {children}
-                        </div>
-                      );
-                    },
-                    span: ({ node, className, children, ...props }: any) => {
-                      if (className === "custom-tip-box")
-                        return <span className="bg-emerald-50 text-emerald-900 px-2 py-0.5 rounded-md border border-emerald-200 text-sm font-medium">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
-                      if (className === "custom-warning-box")
-                        return <span className="bg-amber-50 text-amber-900 px-2 py-0.5 rounded-md border border-amber-200 text-sm font-medium">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
-                      if (className === "custom-note-box")
-                        return <span className="bg-blue-50 text-blue-900 px-2 py-0.5 rounded-md border border-blue-200 text-sm font-medium">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
-                      return (
-                        <span className={className} {...props}>
-                          {children}
-                        </span>
-                      );
-                    },
-                    img: ({ node, src, alt, ...props }: any) => {
-                      return (
-                        <figure className="my-8">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={src}
-                            alt={alt}
-                            className="w-full rounded-xl shadow-md"
-                            {...props}
-                          />
-                          {alt && (
-                            <figcaption className="text-center text-sm text-slate-500 mt-3">
-                              {alt}
-                            </figcaption>
-                          )}
-                        </figure>
-                      );
-                    },
-                  }}
-                >
-                  {post.content}
-                </Markdown>
+              <div className="space-y-12">
+                {post.content.split(/\n---\n/).map((section, index) => {
+                  const isFinalThoughts = section.toLowerCase().includes("final thoughts") || section.toLowerCase().includes("final thought");
+                  const isIntro = index === 0 && !section.startsWith("#");
+
+                  return (
+                    <section 
+                      key={index} 
+                      className={`
+                        ${isIntro ? '' : 'bg-slate-50/50 rounded-3xl p-6 md:p-10 border border-slate-100 shadow-sm'}
+                        ${isFinalThoughts ? 'bg-blue-50/50 border-blue-100 !shadow-blue-100/20' : ''}
+                      `}
+                    >
+                      <div
+                        className="prose prose-slate prose-lg max-w-none break-words
+                        prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight prose-headings:scroll-mt-28 prose-headings:break-words
+                        prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-0 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b prose-h2:border-slate-200/60
+                        prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-6
+                        prose-p:text-slate-700 prose-p:leading-[1.8] prose-p:mb-6 prose-p:break-words prose-p:text-[17px]
+                        prose-a:text-blue-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline prose-a:break-words
+                        prose-ul:my-8 prose-ul:list-none prose-ul:pl-0
+                        prose-ol:my-8 prose-ol:list-decimal prose-ol:pl-6
+                        prose-li:text-slate-700 prose-li:mb-4 prose-li:leading-[1.8] prose-li:break-words prose-li:text-[17px]
+                        prose-strong:text-slate-900 prose-strong:font-bold
+                        prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-10 prose-img:max-w-full
+                        prose-hr:hidden
+                        prose-pre:max-w-full prose-pre:overflow-x-auto
+                        prose-table:max-w-full prose-table:overflow-x-auto prose-table:block"
+                      >
+                        <Markdown
+                          remarkPlugins={[
+                            remarkGfm,
+                            remarkDirective,
+                            remarkDirectivePlugin,
+                          ]}
+                          rehypePlugins={[rehypeRaw, rehypeSlug]}
+                          components={{
+                            h2: ({ node, children, ...props }: any) => <IconHeading level={2} {...props}>{children}</IconHeading>,
+                            h3: ({ node, children, ...props }: any) => <IconHeading level={3} {...props}>{children}</IconHeading>,
+                            p: ({ node, children, ...props }: any) => {
+                              const text = typeof children === 'string' ? children : '';
+                              if (text.startsWith('👉')) {
+                                return (
+                                  <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-100 shadow-sm mb-6 group hover:border-blue-200 transition-colors">
+                                    <ArrowRight className="w-5 h-5 text-blue-600 mt-1 shrink-0 group-hover:translate-x-1 transition-transform" />
+                                    <span className="text-slate-700 font-medium leading-[1.7]">{text.replace('👉', '').trim()}</span>
+                                  </div>
+                                );
+                              }
+                              return <p className="mb-6 leading-[1.8] text-slate-700 text-[17px]" {...props}>{children}</p>;
+                            },
+                            ul: ({ node, children, ...props }: any) => (
+                              <ul className="space-y-4 my-8" {...props}>
+                                {children}
+                              </ul>
+                            ),
+                            li: ({ node, children, ...props }: any) => (
+                              <li className="flex items-start gap-3 group" {...props}>
+                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 group-hover:scale-125 transition-transform" />
+                                <span className="text-slate-700 leading-[1.8] text-[17px]">{children}</span>
+                              </li>
+                            ),
+                            a: ({ node, href, children, ...props }: any) => {
+                              const isInternal = href?.startsWith('/');
+                              if (isInternal) {
+                                return (
+                                  <Link 
+                                    href={href} 
+                                    className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-lg font-bold border border-blue-100 hover:bg-blue-100 transition-all my-1 no-underline shadow-sm hover:shadow-md" 
+                                    {...props}
+                                  >
+                                    {children}
+                                    <ArrowRight className="w-4 h-4" />
+                                  </Link>
+                                );
+                              }
+                              return <a href={href} className="text-blue-600 font-bold hover:underline decoration-2 underline-offset-4" {...props}>{children}</a>;
+                            },
+                            div: ({ node, className, children, ...props }: any) => {
+                              if (className === "custom-tip-box")
+                                return <TipBox title={props["data-title"]}>{children}</TipBox>;
+                              if (className === "custom-warning-box")
+                                return <WarningBox title={props["data-title"]}>{children}</WarningBox>;
+                              if (className === "custom-note-box")
+                                return <NoteBox title={props["data-title"]}>{children}</NoteBox>;
+                              if (className === "custom-step-block") {
+                                return (
+                                  <StepBlock
+                                    number={props["data-number"]}
+                                    title={props["data-title"]}
+                                  >
+                                    {children}
+                                  </StepBlock>
+                                );
+                              }
+                              if (className === "custom-cta-block") {
+                                return (
+                                  <CTABlock
+                                    title={props["data-title"]}
+                                    link={props["data-link"]}
+                                    buttonText={props["data-button"]}
+                                  />
+                                );
+                              }
+                              if (className === "custom-responsive-table") {
+                                let headers: string[] = [];
+                                let rows: any[][] = [];
+                                try {
+                                  headers = JSON.parse(props["data-headers"] || "[]");
+                                  rows = JSON.parse(props["data-rows"] || "[]");
+                                } catch (e) {
+                                  console.error("Failed to parse table data", e);
+                                }
+                                return <ResponsiveTable headers={headers} rows={rows} />;
+                              }
+                              return (
+                                <div className={className} {...props}>
+                                  {children}
+                                </div>
+                              );
+                            },
+                            span: ({ node, className, children, ...props }: any) => {
+                              if (className === "custom-tip-box")
+                                return <span className="bg-emerald-50 text-emerald-900 px-2.5 py-1 rounded-lg border border-emerald-200 text-sm font-bold shadow-sm">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
+                              if (className === "custom-warning-box")
+                                return <span className="bg-amber-50 text-amber-900 px-2.5 py-1 rounded-lg border border-amber-200 text-sm font-bold shadow-sm">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
+                              if (className === "custom-note-box")
+                                return <span className="bg-blue-50 text-blue-900 px-2.5 py-1 rounded-lg border border-blue-200 text-sm font-bold shadow-sm">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
+                              return (
+                                <span className={className} {...props}>
+                                  {children}
+                                </span>
+                              );
+                            },
+                            img: ({ node, src, alt, ...props }: any) => {
+                              return (
+                                <figure className="my-10">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={src}
+                                    alt={alt}
+                                    className="w-full rounded-2xl shadow-lg border border-slate-100"
+                                    {...props}
+                                  />
+                                  {alt && (
+                                    <figcaption className="text-center text-sm text-slate-500 mt-4 font-medium italic">
+                                      {alt}
+                                    </figcaption>
+                                  )}
+                                </figure>
+                              );
+                            },
+                          }}
+                        >
+                          {section}
+                        </Markdown>
+                      </div>
+                    </section>
+                  );
+                })}
               </div>
 
               <ShareButtons url={url} title={post.title} />

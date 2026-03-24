@@ -8,6 +8,282 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'bihar-board-10th-result-2026-date-time-updates',
+    title: 'Bihar Board 10th Result 2026 – Date, Time & Latest Updates',
+    excerpt: 'The Bihar Board Class 10 Result 2026 is expected to be released very soon. Stay updated with the latest news on result date, time, and how to check your marksheet online.',
+    date: '2026-03-24',
+    content: `# 📢 Bihar Board 10th Result 2026 – Date, Time & Latest Updates
+
+The Bihar Board Class 10 Result 2026 is expected to be released very soon, and students across the state are eagerly waiting for the official announcement.
+
+As per the latest updates, the result is likely to be declared in the **last week of March 2026**, possibly between **25 to 31 March**.
+
+---
+
+## **⚡ Latest Update**
+
+- 📅 **Expected Result Window:** 25 – 31 March 2026  
+- 👥 **Students Appeared:** Around 16–17 lakh  
+- 🏢 **Board:** Bihar School Examination Board (BSEB)  
+- 📢 **Result Mode:** Online  
+
+The evaluation process is almost complete, and the board is currently working on topper verification before releasing the final result.
+
+---
+
+## **🗣️ How Will Result Be Announced?**
+
+The result will first be declared through an official press conference. After that, the result link will be activated on the official websites for students to check their scores.
+
+---
+
+## **🔗 Where to Check Bihar Board 10th Result**
+
+Students can check their result on:
+
+👉 **biharboardonline.bihar.gov.in**  
+👉 **results.biharboardonline.com**  
+
+You will need your **roll number and roll code** to access the result.
+
+---
+
+## **🧠 Simple Steps to Check Result**
+
+Follow these steps once the result is out:
+
+👉 Visit the official website  
+👉 Click on “Bihar Board 10th Result 2026”  
+👉 Enter your roll number & roll code  
+👉 Click submit  
+👉 Your result will appear on the screen  
+👉 Download or screenshot for future use  
+
+---
+
+## **🎯 What Happens After Result?**
+
+Once the result is declared:
+
+- Students can apply for **Class 11 admission**  
+- Choose your stream: Science / Commerce / Arts  
+- Start planning for your future career path  
+
+---
+
+## **❗ Important Notes**
+
+- Result date & time will be officially confirmed soon  
+- Keep checking updates regularly  
+- Online marksheet will be provisional  
+- Original marksheet will be provided by schools later  
+
+---
+
+## **🚨 If You Fail or Want Improvement**
+
+Don’t worry 👇
+
+- Apply for compartment exams  
+- Prepare and reappear  
+- Focus on improvement, not just results  
+
+---
+
+## **💡 Smart Tip for Students**
+
+While filling admission or exam forms, many students face rejection due to incorrect image size or format.
+
+👉 Use **examresize.online** to quickly resize your photo and signature as per requirements—simple, fast, and accurate.
+
+---
+
+## **✨ Final Thought**
+
+The Bihar Board 10th result is just the beginning of your journey. Stay calm, stay confident, and choose your next step wisely.
+
+:::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
+:::
+`
+  },
+  {
+    slug: 'bihar-board-class-12-result-2026-check-online',
+    title: 'Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet',
+    excerpt: 'The Bihar Board Class 12 Result 2026 has been announced. Students from all streams—Science, Commerce, and Arts—can now check their results online using their roll number and roll code.',
+    date: '2026-03-24',
+    content: `# Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet
+
+The Bihar Board Class 12 Result 2026 has been announced, bringing relief and excitement to lakhs of students across the state. Students who appeared for the Intermediate exams can now check their results online through official websites.
+
+Every year, the Bihar School Examination Board (BSEB) releases Class 12 results in March, and this year is no different. Students from all streams—Science, Commerce, and Arts—can access their marks using their roll number and roll code.
+
+---
+
+## **📅 Result Announcement**
+
+The Class 12 results were declared in March 2026 through an official press conference. Along with the results, key details like pass percentage, toppers list, and overall performance statistics have also been shared.
+
+---
+
+## **🌐 Official Websites to Check Result**
+
+Students can check their Bihar Board 12th result on the following websites:
+
+- [bsebexam.com](https://www.bsebexam.com/)
+- [interbiharboard.com](https://interbiharboard.com/)
+
+If the websites are slow due to heavy traffic, students can try again after some time or use alternative platforms.
+
+---
+
+## **🧾 Steps to Check Bihar Board 12th Result**
+
+Follow these steps to check your result easily:
+
+1. Visit the official result website  
+2. Click on the “Bihar Board 12th Result 2026” link  
+3. Enter your roll number and roll code  
+4. Click on submit  
+5. Your result will appear on the screen  
+6. Download or take a screenshot for future reference  
+
+---
+
+## **📊 Details Mentioned on Marksheet**
+
+The online marksheet will include:
+
+- Student’s name  
+- Roll number and roll code  
+- Subject-wise marks  
+- Total marks  
+- Division (First/Second/Third)  
+- Pass/Fail status  
+
+---
+
+## **⚠️ Important Points to Remember**
+
+- The online result is provisional; original marksheets will be distributed by schools  
+- Students must secure at least 33% marks to pass  
+- In case of any discrepancy, contact your school authorities immediately  
+- Keep your login details ready to avoid delays  
+
+---
+
+## **🚨 What If Website Is Not Working?**
+
+Due to high traffic, result websites may become slow or unresponsive. In such cases:
+
+- Wait for some time and try again  
+- Use alternative result portals  
+- Check if results are available via SMS or DigiLocker  
+
+---
+
+## **💡 Final Thoughts**
+
+The Bihar Board Class 12 result is a major milestone for students. Whether you are planning for higher studies, competitive exams, or career opportunities, this result is just the beginning of your next journey.
+
+---
+
+### **💡 Pro Tip (For Your Webapp Integration)**
+
+While filling out college or exam forms, many students face issues with photo and signature uploads. To avoid rejection, you can use tools like **examresize.online** to quickly resize and format your images as per requirements.
+
+:::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
+:::
+`
+  },
+  {
+    slug: 'rajasthan-board-10th-result-2026-out-today',
+    title: 'Rajasthan Board 10th Result 2026 Out Today – Check Your Marksheet Easily',
+    excerpt: 'The Rajasthan Board Class 10 Result 2026 has been officially announced today. Lakhs of students who appeared for the exam can now check their results online without any hassle.',
+    date: '2026-03-24',
+    content: `# Rajasthan Board 10th Result 2026 Out Today – Check Your Marksheet Easily
+
+Good news for students! The Rajasthan Board Class 10 Result 2026 has been officially announced today. Lakhs of students who appeared for the exam can now check their results online without any hassle.
+
+This year, more than 10 lakh students were eagerly waiting for their scores, and the wait is finally over.
+
+---
+
+## **📅 Result Date & Time**
+
+The Rajasthan Board (RBSE) released the Class 10 results on 24 March 2026, around the afternoon via an official announcement.
+
+---
+
+## **🌐 Where to Check Your Result**
+
+Students can check their marksheet on the official websites:
+
+- rajeduboard.rajasthan.gov.in  
+- rajresults.nic.in  
+
+You can also use alternative platforms like DigiLocker if the website is slow due to heavy traffic.
+
+---
+
+## **🧾 How to Check RBSE 10th Result (Step-by-Step)**
+
+Follow these simple steps:
+
+1. Visit the official result website  
+2. Click on the “RBSE 10th Result 2026” link  
+3. Enter your roll number  
+4. Click on submit  
+5. Your result will appear on the screen  
+6. Download or take a screenshot for future use  
+
+---
+
+## **⚠️ Important Tips for Students**
+
+- Keep your roll number ready before checking  
+- Due to heavy traffic, the website may be slow—don’t panic  
+- The online marksheet is provisional, original will be provided by your school later  
+- Minimum 33% marks are required to pass the exam  
+
+---
+
+## **📊 What Your Marksheet Will Show**
+
+Your result will include:
+
+- Student name  
+- Roll number  
+- Subject-wise marks  
+- Total marks  
+- Pass/Fail status  
+
+---
+
+## **🚨 If Website Is Not Working**
+
+Don’t worry if the official site crashes (which often happens due to high traffic). You can:
+
+- Try again after some time  
+- Use alternative result websites  
+- Check via DigiLocker or SMS  
+
+---
+
+## **💡 Final Thoughts**
+
+The RBSE Class 10 result is an important milestone, but remember—it’s just one step in your journey. Whether your score is high or low, there are always multiple paths ahead.
+
+---
+
+### **💡 Pro Tip (For Your Webapp Integration)**
+
+If you’re uploading documents for exams or results and facing issues (like image size errors), you can quickly fix them using tools like your webapp—keep it handy for future forms.
+
+:::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
+:::
+`
+  },
+  {
     slug: 'how-to-compress-pdf-to-200kb-for-upsc-ssc-ibps-rrb-exams',
     title: 'How to Compress PDF to 200KB for UPSC, SSC, IBPS, & RRB Exams (2026 Guide)',
     excerpt: 'Struggling with the strict document upload limits for government exams? Learn how to shrink your PDF to under 200KB or 500KB while keeping it 100% legible for official verification.',
