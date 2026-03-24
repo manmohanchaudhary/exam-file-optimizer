@@ -319,19 +319,47 @@ export default function AppContainer({ initialExamId = 'ssc', initialFileType = 
       {!file ? (
         <div 
           {...getRootProps()} 
-          className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-colors
-            ${isDragActive ? 'border-blue-500 bg-blue-50' : 'border-slate-300 hover:border-blue-400 hover:bg-slate-50'}`}
+          className={`relative group rounded-xl p-12 text-center cursor-pointer transition-colors overflow-hidden
+            ${isDragActive ? 'bg-blue-50' : 'bg-white hover:bg-slate-50'}`}
         >
+          {/* Animated Dashed Border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none rounded-xl">
+            <motion.rect
+              width="100%" height="100%"
+              fill="none"
+              rx="12" ry="12"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeDasharray="10 10"
+              animate={{ strokeDashoffset: [0, -20] }}
+              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              className={`transition-colors duration-300 ${isDragActive ? 'text-blue-500' : 'text-slate-300 group-hover:text-blue-400'}`}
+            />
+          </svg>
+
           <input {...getInputProps()} />
-          <div className="w-16 h-16 bg-blue-100 text-[#0056b3] rounded-full flex items-center justify-center mx-auto mb-4">
-            <UploadCloud className="w-8 h-8" />
-          </div>
-          <h3 className="text-xl font-semibold text-slate-900 mb-2">Drag & drop your file here</h3>
-          <p className="text-slate-500 mb-4">or click to browse from your device</p>
-          <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
-            <span className="flex items-center gap-1"><FileImage className="w-4 h-4" /> JPG, PNG, HEIC</span>
-            <span className="flex items-center gap-1"><FileText className="w-4 h-4" /> PDF</span>
-            <span>Max 10MB</span>
+          
+          <div className="relative z-10">
+            <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-colors duration-300
+              ${isDragActive ? 'bg-blue-600 text-white shadow-md shadow-blue-200' : 'bg-blue-100 text-[#0056b3]'}`}>
+              <motion.div
+                animate={isDragActive ? { y: [0, -6, 0] } : { y: [0, -3, 0] }}
+                transition={{ repeat: Infinity, duration: isDragActive ? 1 : 2, ease: "easeInOut" }}
+              >
+                <UploadCloud className="w-8 h-8" />
+              </motion.div>
+            </div>
+            
+            <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              {isDragActive ? 'Drop your file now!' : 'Drag & drop your file here'}
+            </h3>
+            <p className="text-slate-500 mb-4">or click to browse from your device</p>
+            
+            <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
+              <span className="flex items-center gap-1"><FileImage className="w-4 h-4" /> JPG, PNG, HEIC</span>
+              <span className="flex items-center gap-1"><FileText className="w-4 h-4" /> PDF</span>
+              <span>Max 10MB</span>
+            </div>
           </div>
         </div>
       ) : (
