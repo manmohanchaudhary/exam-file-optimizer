@@ -13,7 +13,7 @@ import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, Refr
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 
-export default function AppContainer({ initialExamId = 'ssc', initialFileType = 'photo' }: { initialExamId?: string, initialFileType?: FileType }) {
+export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo' }: { initialExamId?: string, initialFileType?: FileType }) {
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [fileType, setFileType] = useState<FileType>(initialFileType);

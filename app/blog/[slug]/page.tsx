@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import Link from "next/link";
 import { Header, Footer } from "@/components/Navigation";
 import { blogPosts } from "@/lib/blog";
+import { EXAMS } from "@/lib/presets";
 import { 
   ChevronRight, 
   Calendar, 
@@ -195,20 +196,22 @@ export default async function BlogPostPage({
     ],
   };
 
-  const examMapping: Record<string, { name: string, url: string }> = {
-    rrb: { name: "RRB", url: "/rrb-photo-resizer" },
-    ssc: { name: "SSC", url: "/ssc-photo-resizer" },
-    upsc: { name: "UPSC", url: "/upsc-photo-resizer" },
-    neet: { name: "NEET", url: "/neet-photo-resizer" },
-    jee: { name: "JEE", url: "/jee-photo-resizer" },
-    ibps: { name: "IBPS", url: "/ibps-photo-resizer" },
-    sbi: { name: "SBI", url: "/sbi-photo-resizer" },
-    rbi: { name: "RBI", url: "/rbi-photo-resizer" },
-    otet: { name: "OTET", url: "/otet-photo-resize-2026" },
-  };
+  const detectedExamPreset = EXAMS.find((exam) => slug.includes(exam.id) || slug.includes(exam.id.replace('-2026', '')));
   
-  const detectedExamKey = Object.keys(examMapping).find((exam) => slug.includes(exam));
-  const detectedExam = detectedExamKey ? examMapping[detectedExamKey] : null;
+  let detectedExam = null;
+  if (detectedExamPreset) {
+    let url = `/${detectedExamPreset.id}-photo-resizer`;
+    if (detectedExamPreset.id === 'otet-2026') {
+      url = '/otet-photo-resize-2026';
+    } else if (detectedExamPreset.id === 'dsssb') {
+      url = '/dsssb-image-optimizer';
+    }
+    
+    detectedExam = {
+      name: detectedExamPreset.name,
+      url: url
+    };
+  }
 
   // Get related posts
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);

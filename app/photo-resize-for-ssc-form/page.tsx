@@ -12,6 +12,7 @@ export default function SSCPhotoResize() {
       title="Photo Resize for SSC Form"
       description="Easily resize and compress your photo for SSC exams. Get the exact 200x230 pixels and 20KB-50KB size required for SSC applications."
       keyword="SSC photo resizer"
+      initialExamId="ssc"
       faqs={[
         {
           q: 'What is the required photo size for SSC forms?',

@@ -8,7 +8,8 @@ export default function LandingPageTemplate({
   description,
   keyword,
   faqs,
-  initialExamId = 'ssc',
+  initialExamId = 'custom',
+  initialFileType = 'photo',
   relatedTools = []
 }: {
   title: string;
@@ -16,6 +17,7 @@ export default function LandingPageTemplate({
   keyword: string;
   faqs: { q: string; a: string }[];
   initialExamId?: string;
+  initialFileType?: any;
   relatedTools?: { title: string; link: string; desc: string }[];
 }) {
   const schema = {
@@ -89,7 +91,7 @@ export default function LandingPageTemplate({
           {/* Main App Container */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-4xl mx-auto overflow-hidden mb-12">
             <div className="p-6 md:p-8">
-              <AppContainer initialExamId={initialExamId} />
+              <AppContainer initialExamId={initialExamId} initialFileType={initialFileType} />
             </div>
           </div>
 

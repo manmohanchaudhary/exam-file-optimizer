@@ -12,6 +12,7 @@ export default function SignatureResize() {
       title="Signature Resize for Exam"
       description="Optimize your signature image for exam forms. Automatically convert background to white, increase contrast, and compress to 10KB-20KB."
       keyword="signature resizer"
+      initialFileType="signature"
       faqs={[
         {
           q: 'What is the required signature size for most exams?',
