@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/passport-photo-for-exam-forms',
     '/photo-resize-for-ssc-form',
     '/signature-resize-for-exam',
+    '/otet-photo-resize-2026',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: lastModifiedDate,

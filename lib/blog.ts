@@ -184,6 +184,9 @@ Before you start:
 
 - Scanned **passport-size photograph** (as per size and format mentioned in the notification)  
 - Scanned **signature**  
+
+👉 **Need help resizing your images?** Use our free [OTET 2026 Photo & Signature Resize Tool](/otet-photo-resize-2026) to automatically format your images to the exact required dimensions and file sizes.
+
 - Educational certificates and mark sheets  
 - Category certificate (if applicable)  
 

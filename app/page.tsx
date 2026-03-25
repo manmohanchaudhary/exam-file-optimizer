@@ -8,6 +8,7 @@ import { blogPosts } from '@/lib/blog';
 
 export default function Home() {
   const tools = [
+    { title: 'OTET 2026 Resizer', desc: 'Resize photo and signature for OTET 2026.', link: '/otet-photo-resize-2026' },
     { title: 'DSSSB Image Optimizer', desc: 'Resize photo, signature & thumb for DSSSB form.', link: '/dsssb-image-optimizer' },
     { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/ssc-photo-resizer' },
     { title: 'UPSC Photo Resizer', desc: 'Format images for UPSC civil services.', link: '/upsc-photo-resizer' },

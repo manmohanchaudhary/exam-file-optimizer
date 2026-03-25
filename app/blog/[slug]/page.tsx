@@ -195,8 +195,20 @@ export default async function BlogPostPage({
     ],
   };
 
-  const exams = ["rrb", "ssc", "upsc", "neet", "jee", "ibps", "sbi", "rbi"];
-  const detectedExam = exams.find((exam) => slug.includes(exam))?.toUpperCase();
+  const examMapping: Record<string, { name: string, url: string }> = {
+    rrb: { name: "RRB", url: "/rrb-photo-resizer" },
+    ssc: { name: "SSC", url: "/ssc-photo-resizer" },
+    upsc: { name: "UPSC", url: "/upsc-photo-resizer" },
+    neet: { name: "NEET", url: "/neet-photo-resizer" },
+    jee: { name: "JEE", url: "/jee-photo-resizer" },
+    ibps: { name: "IBPS", url: "/ibps-photo-resizer" },
+    sbi: { name: "SBI", url: "/sbi-photo-resizer" },
+    rbi: { name: "RBI", url: "/rbi-photo-resizer" },
+    otet: { name: "OTET", url: "/otet-photo-resize-2026" },
+  };
+  
+  const detectedExamKey = Object.keys(examMapping).find((exam) => slug.includes(exam));
+  const detectedExam = detectedExamKey ? examMapping[detectedExamKey] : null;
 
   // Get related posts
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
@@ -446,15 +458,13 @@ export default async function BlogPostPage({
               <ShareButtons url={url} title={post.title} />
 
               {/* In-Article CTA */}
-              {detectedExam && (
-                <div className="mt-16 pt-8 border-t border-slate-200">
-                  <CTABlock
-                    title={`Ready to apply for ${detectedExam}?`}
-                    link={`/${detectedExam.toLowerCase()}-photo-resizer`}
-                    buttonText={`Resize ${detectedExam} Photo Now`}
-                  />
-                </div>
-              )}
+              <div className="mt-16 pt-8 border-t border-slate-200">
+                <CTABlock
+                  title={detectedExam ? `Ready to apply for ${detectedExam.name}?` : "Need a specific photo size for your exam?"}
+                  link={detectedExam ? detectedExam.url : "/exam-photo-size-converter"}
+                  buttonText={detectedExam ? `Resize ${detectedExam.name} Photo Now` : "Open Custom Photo Resizer"}
+                />
+              </div>
             </article>
 
             {/* Sidebar (30%) */}
@@ -472,18 +482,18 @@ export default async function BlogPostPage({
                       <Crop className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">
-                      Need to resize a photo?
+                      {detectedExam ? `Resize ${detectedExam.name} Photo` : 'Need to resize a photo?'}
                     </h3>
                     <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                      Use our free online tool to compress and resize your
-                      photos to exactly 20KB, 50KB, or any size required by exam
-                      portals.
+                      {detectedExam 
+                        ? `Use our free online tool to compress and resize your photos to the exact dimensions and size required for ${detectedExam.name}.`
+                        : 'Use our free online tool to compress and resize your photos to any custom dimensions and file size required by exam portals.'}
                     </p>
                     <Link
-                      href="/20kb-photo-converter"
+                      href={detectedExam ? detectedExam.url : "/exam-photo-size-converter"}
                       className="flex items-center justify-center w-full bg-blue-600 text-white font-semibold px-4 py-3.5 rounded-xl hover:bg-blue-700 transition-all hover:shadow-md hover:-translate-y-0.5"
                     >
-                      Open Photo Converter
+                      {detectedExam ? `Open ${detectedExam.name} Resizer` : 'Open Custom Photo Resizer'}
                     </Link>
                   </div>
                 </div>
@@ -536,16 +546,14 @@ export default async function BlogPostPage({
       <Footer />
 
       {/* Mobile Sticky Bottom Bar */}
-      {detectedExam && (
-        <div className="md:hidden sticky bottom-0 w-full bg-blue-600 text-white text-center py-4 z-50 shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
-          <Link
-            href={`/${detectedExam.toLowerCase()}-photo-resizer`}
-            className="block w-full font-bold text-lg"
-          >
-            Resize Photo for {detectedExam} →
-          </Link>
-        </div>
-      )}
+      <div className="md:hidden sticky bottom-0 w-full bg-blue-600 text-white text-center py-4 z-50 shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
+        <Link
+          href={detectedExam ? detectedExam.url : "/exam-photo-size-converter"}
+          className="block w-full font-bold text-lg"
+        >
+          {detectedExam ? `Resize Photo for ${detectedExam.name} →` : "Open Custom Photo Resizer →"}
+        </Link>
+      </div>
     </div>
   );
 }
