@@ -318,6 +318,18 @@ export default async function BlogPostPage({
                                   </div>
                                 );
                               }
+                              
+                              const checkHasImage = (n: any): boolean => {
+                                if (n?.tagName === 'img') return true;
+                                if (n?.children) return n.children.some(checkHasImage);
+                                return false;
+                              };
+                              const hasImage = checkHasImage(node);
+                              
+                              if (hasImage) {
+                                return <div className="mb-6 leading-[1.8] text-slate-700 text-[17px]" {...props}>{children}</div>;
+                              }
+
                               return <p className="mb-6 leading-[1.8] text-slate-700 text-[17px]" {...props}>{children}</p>;
                             },
                             ul: ({ node, children, ...props }: any) => (
