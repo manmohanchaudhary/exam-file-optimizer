@@ -76,17 +76,24 @@ export function Header() {
                           {category.replace(/_/g, ' ')}
                         </h3>
                         <div className="flex flex-col space-y-1">
-                          {exams.map((exam) => (
-                            <Link 
-                              key={exam.id} 
-                              href={`/${exam.id}-photo-resizer`} 
-                              onClick={() => setIsExamsMenuOpen(false)}
-                              className="py-1.5 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors break-words"
-                              title={exam.name}
-                            >
-                              {exam.name}
-                            </Link>
-                          ))}
+                          {exams.map((exam) => {
+                            let href = `/${exam.id}-photo-resizer`;
+                            if (exam.id === 'ssc') href = '/photo-resize-for-ssc-form';
+                            if (exam.id === 'otet-2026') href = '/otet-photo-resize-2026';
+                            if (exam.id === 'dsssb') href = '/dsssb-image-optimizer';
+                            
+                            return (
+                              <Link 
+                                key={exam.id} 
+                                href={href} 
+                                onClick={() => setIsExamsMenuOpen(false)}
+                                className="py-1.5 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors break-words"
+                                title={exam.name}
+                              >
+                                {exam.name}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     ))}
@@ -151,17 +158,24 @@ export function Header() {
                     {category.replace(/_/g, ' ')}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {exams.map((exam) => (
-                      <Link 
-                        key={exam.id} 
-                        href={`/${exam.id}-photo-resizer`} 
-                        onClick={() => setIsMobileMenuOpen(false)} 
-                        className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors break-words"
-                        title={exam.name}
-                      >
-                        {exam.name}
-                      </Link>
-                    ))}
+                    {exams.map((exam) => {
+                      let href = `/${exam.id}-photo-resizer`;
+                      if (exam.id === 'ssc') href = '/photo-resize-for-ssc-form';
+                      if (exam.id === 'otet-2026') href = '/otet-photo-resize-2026';
+                      if (exam.id === 'dsssb') href = '/dsssb-image-optimizer';
+
+                      return (
+                        <Link 
+                          key={exam.id} 
+                          href={href} 
+                          onClick={() => setIsMobileMenuOpen(false)} 
+                          className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors break-words"
+                          title={exam.name}
+                        >
+                          {exam.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -200,7 +214,7 @@ export function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Tools</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/ssc-photo-resizer" className="hover:text-white transition-colors">SSC Photo Resizer</Link></li>
+            <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC Photo Resizer</Link></li>
             <li><Link href="/signature-resize-for-exam" className="hover:text-white transition-colors">Signature Optimizer</Link></li>
             <li><Link href="/20kb-photo-converter" className="hover:text-white transition-colors">20KB Photo Resizer</Link></li>
             <li><Link href="/passport-photo-for-exam-forms" className="hover:text-white transition-colors">Passport Photo Maker</Link></li>
@@ -210,7 +224,7 @@ export function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Popular Exams</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/ssc-photo-resizer" className="hover:text-white transition-colors">SSC</Link></li>
+            <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC</Link></li>
             <li><Link href="/rrb-photo-resizer" className="hover:text-white transition-colors">RRB</Link></li>
             <li><Link href="/ibps-photo-resizer" className="hover:text-white transition-colors">IBPS</Link></li>
             <li><Link href="/sbi-photo-resizer" className="hover:text-white transition-colors">SBI</Link></li>

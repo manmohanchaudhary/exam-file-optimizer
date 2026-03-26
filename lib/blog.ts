@@ -382,7 +382,7 @@ The Bihar Board 10th result is just the beginning of your journey. Stay calm, st
   {
     slug: 'bihar-board-class-12-result-2026-check-online',
     title: 'Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet',
-    excerpt: 'The Bihar Board Class 12 Result 2026 has been announced. Students from all streams—Science, Commerce, and Arts—can now check their results online using their roll number and roll code.',
+    excerpt: 'The Bihar Board Class 12 Result 2026 is out. Students from Science, Commerce, and Arts streams can now check their results online using their roll number and code.',
     date: '2026-03-24',
     content: `# Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet
 
@@ -471,7 +471,7 @@ While filling out college or exam forms, many students face issues with photo an
   {
     slug: 'rajasthan-board-10th-result-2026-out-today',
     title: 'Rajasthan Board 10th Result 2026 Out Today – Check Your Marksheet Easily',
-    excerpt: 'The Rajasthan Board Class 10 Result 2026 has been officially announced today. Lakhs of students who appeared for the exam can now check their results online without any hassle.',
+    excerpt: 'The Rajasthan Board Class 10 Result 2026 is officially announced. Students who appeared for the exam can now check their results online easily without any hassle.',
     date: '2026-03-24',
     content: `# Rajasthan Board 10th Result 2026 Out Today – Check Your Marksheet Easily
 
@@ -559,7 +559,7 @@ If you’re uploading documents for exams or results and facing issues (like ima
   {
     slug: 'how-to-compress-pdf-to-200kb-for-upsc-ssc-ibps-rrb-exams',
     title: 'How to Compress PDF to 200KB for UPSC, SSC, IBPS, & RRB Exams (2026 Guide)',
-    excerpt: 'Struggling with the strict document upload limits for government exams? Learn how to shrink your PDF to under 200KB or 500KB while keeping it 100% legible for official verification.',
+    excerpt: 'Struggling with document upload limits for government exams? Learn how to shrink your PDF to under 200KB or 500KB while keeping it legible for official verification.',
     date: '2026-03-22',
     content: `# How to Compress PDF to 200KB for UPSC, SSC, IBPS, & RRB Exams (2026 Guide)
 
@@ -627,7 +627,7 @@ A: **ExamResize.online** processes files locally in your browser, ensuring your 
   {
     slug: 'dsssb-advertisement-02-2026-candidate-guide',
     title: 'DSSSB Advertisement No. 02/2026: A Candidate-Focused Guide',
-    excerpt: 'Delhi Subordinate Services Selection Board (DSSSB) released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments.',
+    excerpt: 'DSSSB released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments. Read our complete guide.',
     date: '2026-03-18',
     content: `Delhi Subordinate Services Selection Board (DSSSB) released **Advertisement No. 02/2026** on **25 February 2026**, inviting **online applications** for **20 post codes** across different departments, local bodies, and autonomous bodies of the Govt. of NCT of Delhi. 
 
@@ -789,7 +789,7 @@ Success in this recruitment depends on choosing the right post, understanding th
   {
     slug: 'rrb-alp-2026-recruitment-cen-01-2026',
     title: 'RRB ALP 2026 Recruitment (CEN 01/2026): Everything You Need to Know',
-    excerpt: 'The Railway Recruitment Board has announced one of the biggest technical recruitment drives in Indian Railways. The RRB ALP Notification 2026 CEN 01/2026 has been released for 11,127 Assistant Loco Pilot vacancies.',
+    excerpt: 'Railway Recruitment Board announced a major technical recruitment drive. The RRB ALP Notification 2026 CEN 01/2026 is out for 11,127 Assistant Loco Pilot vacancies.',
     date: '2026-03-16',
     content: `The Railway Recruitment Board has announced one of the biggest technical recruitment drives in Indian Railways. The RRB ALP Notification 2026 CEN 01/2026 has been released on 16th March 2026 for **11,127 Assistant Loco Pilot vacancies**, making this an exceptional opportunity for aspiring railway professionals. 
 
@@ -1347,7 +1347,7 @@ You compress the image, try again, and now it says *"Invalid Image Format"* or t
 If you are stuck on the SSC photo and signature upload stage, you are not alone. Thousands of candidates face SSC form fill errors every year due to strict file size and dimension rules. In this guide, we will break down exactly why your files are being rejected and how to fix them instantly so you can submit your application with confidence.
 
 ## Quick Answer / TL;DR
-To fix your SSC upload problem, your **signature must be exactly between 10 KB and 20 KB** in JPG/JPEG format, with dimensions of 4.0 cm x 2.0 cm. If you are uploading a manual **photograph, it must be between 20 KB and 50 KB**. Don't try to compress files manually and risk blurring them; [use the SSC preset](/ssc-photo-resizer) on our tool to automatically crop, resize, and compress your files to the exact SSC guidelines in one click.
+To fix your SSC upload problem, your **signature must be exactly between 10 KB and 20 KB** in JPG/JPEG format, with dimensions of 4.0 cm x 2.0 cm. If you are uploading a manual **photograph, it must be between 20 KB and 50 KB**. Don't try to compress files manually and risk blurring them; [use the SSC preset](/photo-resize-for-ssc-form) on our tool to automatically crop, resize, and compress your files to the exact SSC guidelines in one click.
 
 ## Why Candidates Face Upload Problems in SSC Forms
 The Staff Selection Commission (SSC) uses automated software to scan millions of applications. If an image is even 1 KB over the limit, or saved as a PNG instead of a JPG, the server will automatically reject it. 
@@ -1408,13 +1408,13 @@ Ensure the final downloaded file ends in \`.jpg\` or \`.jpeg\`. Our tools automa
 If doing the live photo, sit facing a window so light hits your face. Stand against a blank wall. Take off your glasses—even if you wear them daily, SSC will reject your form if you wear them in the photo.
 
 ## Best Practices Before Final Submit
-*   **Check the Preview:** Before you hit "Submit," look at the preview screen. If your signature looks like a tiny dot or a blurry smudge, **do not submit**. Go back and [resize your exam photo](/ssc-photo-resizer) properly.
+*   **Check the Preview:** Before you hit "Submit," look at the preview screen. If your signature looks like a tiny dot or a blurry smudge, **do not submit**. Go back and [resize your exam photo](/photo-resize-for-ssc-form) properly.
 *   **Don't wait for the last day:** The SSC servers notoriously crash in the last 48 hours. Get your documents resized and uploaded at least a week before the deadline.
 *   **Keep a backup:** Save your perfectly sized 10-20KB signature on your phone and laptop for future SSC forms.
 
 ## Related Tools to Speed Up Your Application
 Don't let technical glitches ruin your hard work. Use our free, privacy-friendly tools to get your files ready instantly:
-*   [SSC Photo & Signature Resizer](/ssc-photo-resizer)
+*   [SSC Photo & Signature Resizer](/photo-resize-for-ssc-form)
 *   [Signature Optimizer & Background Cleaner](/signature-resize-for-exam)
 *   [20KB Photo Converter](/20kb-photo-converter)
 

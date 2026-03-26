@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (isGuide) {
     return {
       title: `${exam.name} Photo & Signature Size Guide | ExamResize`,
-      description: `Complete guide to ${exam.name} photo and signature size requirements. Learn how to resize your images to exact dimensions and file sizes.`,
+      description: `Complete guide to ${exam.name} photo and signature size requirements. Learn how to resize your images to the exact dimensions and file sizes required for ${exam.name} applications.`,
       alternates: {
         canonical: `/${slug}`,
       },
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `${exam.name} Photo & Signature Resizer | ExamResize`,
-    description: `Automatically resize and compress your photo and signature for ${exam.name} exams. Ensure your application is accepted with our free tool.`,
+    description: `Automatically resize and compress your photo and signature for ${exam.name} exams. Ensure your application is accepted with our free tool that applies the correct dimensions.`,
     alternates: {
       canonical: `/${slug}`,
     },
@@ -117,7 +117,12 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
 
               <div className="mt-10 pt-8 border-t text-center">
                 <Link 
-                  href={`/${exam.id}-photo-resizer`}
+                  href={
+                    exam.id === 'ssc' ? '/photo-resize-for-ssc-form' :
+                    exam.id === 'otet-2026' ? '/otet-photo-resize-2026' :
+                    exam.id === 'dsssb' ? '/dsssb-image-optimizer' :
+                    `/${exam.id}-photo-resizer`
+                  }
                   className="inline-flex items-center justify-center gap-2 bg-[#0056b3] hover:bg-[#004494] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors shadow-md"
                 >
                   Use the {exam.name} Photo Resizer Tool <ArrowRight className="w-5 h-5" />
@@ -278,9 +283,11 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
 }
 
 export function generateStaticParams() {
-  const resizerParams = EXAMS.map(exam => ({
-    slug: `${exam.id}-photo-resizer`,
-  }));
+  const resizerParams = EXAMS
+    .filter(exam => exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb')
+    .map(exam => ({
+      slug: `${exam.id}-photo-resizer`,
+    }));
   const guideParams = EXAMS.map(exam => ({
     slug: `${exam.id}-photo-size-guide`,
   }));

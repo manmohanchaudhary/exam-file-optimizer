@@ -6,7 +6,7 @@ import { Header, Footer } from '@/components/Navigation';
 
 export const metadata: Metadata = {
   title: 'OTET 2026 Photo & Signature Resize Tool – Free Online',
-  description: 'Resize photo and signature for OTET 2026 form using correct size, format and aspect ratio as per latest guidelines.',
+  description: 'Easily resize your photo and signature for the OTET 2026 application form. Our tool automatically applies the correct size, format, and aspect ratio limits.',
   alternates: {
     canonical: '/otet-photo-resize-2026',
   },

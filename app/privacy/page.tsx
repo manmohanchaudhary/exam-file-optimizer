@@ -1,8 +1,13 @@
 import { Header, Footer } from '@/components/Navigation';
 
-export const metadata = {
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Privacy Policy | ExamResize',
-  description: 'Privacy Policy for ExamResize - Learn how we handle your data securely.',
+  description: 'Read the ExamResize Privacy Policy to understand how we securely handle, process, and protect your photos, signatures, and documents for exam applications.',
+  alternates: {
+    canonical: '/privacy',
+  },
 };
 
 export default function PrivacyPolicy() {

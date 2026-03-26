@@ -19,6 +19,25 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/ssc-photo-resizer',
+        destination: '/photo-resize-for-ssc-form',
+        permanent: true,
+      },
+      {
+        source: '/otet-2026-photo-resizer',
+        destination: '/otet-photo-resize-2026',
+        permanent: true,
+      },
+      {
+        source: '/dsssb-photo-resizer',
+        destination: '/dsssb-image-optimizer',
+        permanent: true,
+      }
+    ];
+  },
   async headers() {
     return [
       {

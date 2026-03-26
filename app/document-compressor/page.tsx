@@ -3,9 +3,14 @@ import AdBanner from '@/components/AdBanner';
 import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
 
-export const metadata = {
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Document Compressor | Compress PDF for Exam Forms | ExamResize',
-  description: 'Compress your PDF documents to meet strict file size limits for online applications without losing quality.',
+  description: 'Compress your PDF documents to meet strict file size limits for online applications without losing quality. Perfect for Aadhaar, marksheets, and certificates.',
+  alternates: {
+    canonical: '/document-compressor',
+  },
 };
 
 export default function DocumentCompressorPage() {

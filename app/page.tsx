@@ -5,12 +5,21 @@ import AdBanner from '@/components/AdBanner';
 import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
 import { blogPosts } from '@/lib/blog';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ExamResize | Resize Photo & Signature for Online Exam Forms',
+  description: 'The fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms like SSC, UPSC, Banking, NEET, and JEE applications.',
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default function Home() {
   const tools = [
     { title: 'OTET 2026 Resizer', desc: 'Resize photo and signature for OTET 2026.', link: '/otet-photo-resize-2026' },
     { title: 'DSSSB Image Optimizer', desc: 'Resize photo, signature & thumb for DSSSB form.', link: '/dsssb-image-optimizer' },
-    { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/ssc-photo-resizer' },
+    { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/photo-resize-for-ssc-form' },
     { title: 'UPSC Photo Resizer', desc: 'Format images for UPSC civil services.', link: '/upsc-photo-resizer' },
     { title: 'NEET Photo Resizer', desc: 'Prepare your NEET application photos.', link: '/neet-photo-resizer' },
     { title: 'IBPS Photo Resizer', desc: 'Resize photos for banking exams.', link: '/ibps-photo-resizer' },
@@ -146,11 +155,16 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Supported Exams</h2>
             <p className="text-slate-600 max-w-2xl mx-auto mb-12">We provide exact presets for all major competitive exams in India.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              {['SSC', 'UPSC', 'IBPS', 'SBI', 'RRB', 'RBI', 'NEET', 'JEE'].map((exam) => (
-                <Link key={exam} href={`/${exam.toLowerCase()}-photo-resizer`} className="px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-full hover:bg-slate-200 transition-colors">
-                  {exam}
-                </Link>
-              ))}
+              {['SSC', 'UPSC', 'IBPS', 'SBI', 'RRB', 'RBI', 'NEET', 'JEE'].map((exam) => {
+                let href = `/${exam.toLowerCase()}-photo-resizer`;
+                if (exam === 'SSC') href = '/photo-resize-for-ssc-form';
+                
+                return (
+                  <Link key={exam} href={href} className="px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-full hover:bg-slate-200 transition-colors">
+                    {exam}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

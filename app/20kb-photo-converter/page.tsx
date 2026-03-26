@@ -3,7 +3,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '20KB Photo Converter | ExamResize',
-  description: 'Convert your photo to exactly 20KB or any custom size. Perfect for online applications, exam forms, and government portals.',
+  description: 'Convert your photo to exactly 20KB or any custom size required. Our free tool is perfect for online applications, exam forms, and government portals.',
+  alternates: {
+    canonical: '/20kb-photo-converter',
+  },
 };
 
 export default function PhotoConverter20kb() {

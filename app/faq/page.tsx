@@ -3,7 +3,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions (FAQ) | ExamResize',
-  description: 'Find answers to common questions about ExamResize, supported file formats, size limits, data security, and more.',
+  description: 'Find answers to frequently asked questions about ExamResize. Learn about supported file formats, size limits, data security, and how to use our tools.',
+  alternates: {
+    canonical: '/faq',
+  },
 };
 
 const faqs = [

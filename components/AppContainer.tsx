@@ -379,7 +379,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                 {previewUrl ? (
                   <div className="aspect-square relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={previewUrl} alt="Preview" className="max-w-full max-h-full object-contain" />
+                    <img src={previewUrl} alt="Preview" className="max-w-full max-h-full object-contain" loading="lazy" />
                   </div>
                 ) : (
                   <div className="aspect-square rounded-lg bg-slate-100 border border-slate-200 flex flex-col items-center justify-center text-slate-400">

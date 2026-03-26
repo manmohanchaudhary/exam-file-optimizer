@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   const staticRoutes = [
     '',
+    '/about',
     '/faq',
     '/contact',
     '/privacy',
@@ -19,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/photo-resize-for-ssc-form',
     '/signature-resize-for-exam',
     '/otet-photo-resize-2026',
+    '/document-compressor',
+    '/dsssb-image-optimizer',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: lastModifiedDate,
@@ -26,20 +29,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  const examRoutes = EXAMS.flatMap((exam) => [
-    {
-      url: `${baseUrl}/${exam.id}-photo-resizer`,
-      lastModified: lastModifiedDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
+  const examRoutes = EXAMS.flatMap((exam) => {
+    const routes = [];
+    
+    // Only add dynamic resizer route if it doesn't have a static equivalent
+    if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb') {
+      routes.push({
+        url: `${baseUrl}/${exam.id}-photo-resizer`,
+        lastModified: lastModifiedDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.9,
+      });
+    }
+
+    // Always add the guide route
+    routes.push({
       url: `${baseUrl}/${exam.id}-photo-size-guide`,
       lastModified: lastModifiedDate,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
-    }
-  ])
+    });
+
+    return routes;
+  })
 
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,

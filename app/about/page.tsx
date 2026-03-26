@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About ExamResize | Resize Photos & Signatures for Forms',
-  description: 'Learn more about ExamResize, the fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms.',
+  description: 'Learn about ExamResize, the most secure tool to resize and compress photos, signatures, and documents for Indian government and competitive exam applications.',
   alternates: {
     canonical: '/about',
   },

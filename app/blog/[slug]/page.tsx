@@ -205,6 +205,8 @@ export default async function BlogPostPage({
       url = '/otet-photo-resize-2026';
     } else if (detectedExamPreset.id === 'dsssb') {
       url = '/dsssb-image-optimizer';
+    } else if (detectedExamPreset.id === 'ssc') {
+      url = '/photo-resize-for-ssc-form';
     }
     
     detectedExam = {
@@ -438,6 +440,7 @@ export default async function BlogPostPage({
                                     src={src}
                                     alt={alt}
                                     className="w-full rounded-2xl shadow-lg border border-slate-100"
+                                    loading="lazy"
                                     {...props}
                                   />
                                   {alt && (
