@@ -403,33 +403,38 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                   <CardTitle>Optimization Settings</CardTitle>
                   <CardDescription>Select a preset or enter custom requirements</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <Tabs value={fileType} onValueChange={(v) => {
-                    setFileType(v as FileType);
-                    if (v === 'document') {
-                      setCustomFormat('pdf');
-                    } else if (customFormat === 'pdf') {
-                      setCustomFormat('jpg');
-                    }
-                  }}>
-                    <TabsList className="flex flex-wrap h-auto w-full justify-start gap-1 p-1">
-                      <TabsTrigger value="photo" className="flex-1 min-w-[80px]">Photo</TabsTrigger>
-                      <TabsTrigger value="signature" className="flex-1 min-w-[80px]">Signature</TabsTrigger>
-                      {selectedExamId === 'dsssb' && (
-                        <>
-                          <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px]">L. Thumb</TabsTrigger>
-                          <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px]">R. Thumb</TabsTrigger>
-                        </>
-                      )}
-                      <TabsTrigger value="document" className="flex-1 min-w-[80px]">Document</TabsTrigger>
-                      {(currentExam?.declaration || selectedExamId === 'custom') && (
-                        <TabsTrigger value="declaration" className="flex-1 min-w-[80px]">Declaration</TabsTrigger>
-                      )}
-                    </TabsList>
-                  </Tabs>
-
+                <CardContent className="space-y-6 sm:space-y-8">
+                  {/* Tabs Section */}
                   <div className="space-y-3">
-                    <Label htmlFor="exam">Select Exam</Label>
+                    <Label className="text-sm font-medium text-slate-700">File Type</Label>
+                    <Tabs value={fileType} onValueChange={(v) => {
+                      setFileType(v as FileType);
+                      if (v === 'document') {
+                        setCustomFormat('pdf');
+                      } else if (customFormat === 'pdf') {
+                        setCustomFormat('jpg');
+                      }
+                    }}>
+                      <TabsList className="flex flex-wrap !h-auto w-full justify-start gap-2 p-1.5 bg-slate-100/80 rounded-xl">
+                        <TabsTrigger value="photo" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Photo</TabsTrigger>
+                        <TabsTrigger value="signature" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Signature</TabsTrigger>
+                        {selectedExamId === 'dsssb' && (
+                          <>
+                            <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">L. Thumb</TabsTrigger>
+                            <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">R. Thumb</TabsTrigger>
+                          </>
+                        )}
+                        <TabsTrigger value="document" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Document</TabsTrigger>
+                        {(currentExam?.declaration || selectedExamId === 'custom') && (
+                          <TabsTrigger value="declaration" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Declaration</TabsTrigger>
+                        )}
+                      </TabsList>
+                    </Tabs>
+                  </div>
+
+                  {/* Exam Selection Section */}
+                  <div className="space-y-3 pt-4">
+                    <Label htmlFor="exam" className="text-sm font-medium text-slate-700">Select Exam</Label>
                       <div className="relative">
                         <button
                           type="button"
@@ -506,7 +511,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       </div>
                       
                       {selectedExamId !== 'custom' && currentExam && (
-                        <div className="text-sm text-slate-700 bg-blue-50 p-4 rounded-md border border-blue-100 space-y-2">
+                        <div className="text-sm text-slate-700 bg-blue-50 p-4 sm:p-5 rounded-xl border border-blue-100 space-y-2">
                           <p className="font-semibold text-blue-900">{currentExam.name} Requirements</p>
                           <ul className="list-disc pl-4 space-y-1">
                             <li>{currentExam.photo.description}</li>
@@ -529,52 +534,58 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       )}
                     </div>
 
-                  <div className="space-y-4 pt-4 border-t border-slate-100">
-                    <div className="flex items-center space-x-2">
-                      <input 
-                        type="checkbox" 
-                        id="govExamMode" 
-                        checked={isGovExamMode} 
-                        onChange={(e) => setIsGovExamMode(e.target.checked)}
-                        className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500"
-                      />
-                      <Label htmlFor="govExamMode" className="font-medium text-slate-900">Fix Upload Error (Gov Exam Mode)</Label>
+                  <div className="space-y-6 pt-6 border-t border-slate-100">
+                    <div className="bg-blue-50/50 border border-blue-100 p-4 sm:p-5 rounded-xl space-y-2">
+                      <div className="flex items-start sm:items-center space-x-3">
+                        <input 
+                          type="checkbox" 
+                          id="govExamMode" 
+                          checked={isGovExamMode} 
+                          onChange={(e) => setIsGovExamMode(e.target.checked)}
+                          className="w-5 h-5 mt-0.5 sm:mt-0 text-blue-600 rounded border-slate-300 focus:ring-blue-500 shrink-0"
+                        />
+                        <Label htmlFor="govExamMode" className="font-semibold text-slate-900 cursor-pointer text-sm sm:text-base">Fix Upload Error (Gov Exam Mode)</Label>
+                      </div>
+                      <p className="text-sm text-slate-600 pl-8 leading-relaxed">Automatically converts your image into exam-compatible format (like MS Paint) by removing hidden metadata and fixing encoding issues.</p>
                     </div>
-                    <p className="text-xs text-slate-500">Automatically converts your image into exam-compatible format (like MS Paint) by removing hidden metadata and fixing encoding issues.</p>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="width">Width (px)</Label>
-                        <Input id="width" type="number" placeholder="e.g. 200" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customWidth : currentReq?.width || ''} onChange={e => setCustomWidth(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+
+                    <div className="space-y-5 pt-2">
+                      <h4 className="text-sm font-semibold text-slate-900">Dimensions & Size</h4>
+                      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                        <div className="space-y-2.5">
+                          <Label htmlFor="width" className="text-slate-700 text-sm">Width (px)</Label>
+                          <Input id="width" type="number" placeholder="e.g. 200" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customWidth : currentReq?.width || ''} onChange={e => setCustomWidth(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                        </div>
+                        <div className="space-y-2.5">
+                          <Label htmlFor="height" className="text-slate-700 text-sm">Height (px)</Label>
+                          <Input id="height" type="number" placeholder="e.g. 230" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customHeight : currentReq?.height || ''} onChange={e => setCustomHeight(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                        </div>
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="height">Height (px)</Label>
-                        <Input id="height" type="number" placeholder="e.g. 230" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customHeight : currentReq?.height || ''} onChange={e => setCustomHeight(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                        <div className="space-y-2.5">
+                          <Label htmlFor="minSize" className="text-slate-700 text-sm">Min Size (KB)</Label>
+                          <Input id="minSize" type="number" placeholder="e.g. 20" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMinSize : currentReq?.minSizeKb || ''} onChange={e => setCustomMinSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                        </div>
+                        <div className="space-y-2.5">
+                          <Label htmlFor="maxSize" className="text-slate-700 text-sm">Max Size (KB)</Label>
+                          <Input id="maxSize" type="number" placeholder="e.g. 50" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMaxSize : currentReq?.maxSizeKb || ''} onChange={e => setCustomMaxSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                        </div>
                       </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="minSize">Min Size (KB)</Label>
-                        <Input id="minSize" type="number" placeholder="e.g. 20" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMinSize : currentReq?.minSizeKb || ''} onChange={e => setCustomMinSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="maxSize">Max Size (KB)</Label>
-                        <Input id="maxSize" type="number" placeholder="e.g. 50" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMaxSize : currentReq?.maxSizeKb || ''} onChange={e => setCustomMaxSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="format">Format</Label>
-                        <Select value={isCustom || (fileType === 'document' && !currentExam?.document) ? customFormat : currentReq?.format || 'jpg'} onValueChange={(v) => v && setCustomFormat(v)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)}>
-                          <SelectTrigger id="format">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="jpg">JPG</SelectItem>
-                            <SelectItem value="jpeg">JPEG</SelectItem>
-                            <SelectItem value="png">PNG</SelectItem>
-                            {(fileType === 'document' || fileType === 'declaration') && <SelectItem value="pdf">PDF</SelectItem>}
-                          </SelectContent>
-                        </Select>
+                      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                        <div className="space-y-2.5">
+                          <Label htmlFor="format" className="text-slate-700 text-sm">Format</Label>
+                          <Select value={isCustom || (fileType === 'document' && !currentExam?.document) ? customFormat : currentReq?.format || 'jpg'} onValueChange={(v) => v && setCustomFormat(v)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)}>
+                            <SelectTrigger id="format" className="h-11">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="jpg">JPG</SelectItem>
+                              <SelectItem value="jpeg">JPEG</SelectItem>
+                              <SelectItem value="png">PNG</SelectItem>
+                              {(fileType === 'document' || fileType === 'declaration') && <SelectItem value="pdf">PDF</SelectItem>}
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
                     </div>
                   </div>

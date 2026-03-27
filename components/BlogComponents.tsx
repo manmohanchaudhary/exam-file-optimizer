@@ -62,8 +62,9 @@ export const CTABlock = ({ title, link, buttonText }: { title: string, link: str
 
 export const ResponsiveTable = ({ headers, rows }: { headers: string[], rows: (string | React.ReactNode)[][] }) => (
   <div className="my-8 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm">
-    <div className="overflow-x-auto">
-      <table className="w-full text-left border-collapse min-w-[600px]">
+    {/* Desktop Table View */}
+    <div className="hidden md:block overflow-x-auto">
+      <table className="w-full text-left border-collapse">
         <thead>
           <tr className="bg-slate-50 border-b border-slate-200">
             {headers.map((header, i) => (
@@ -77,7 +78,7 @@ export const ResponsiveTable = ({ headers, rows }: { headers: string[], rows: (s
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex} className="hover:bg-slate-50/50 transition-colors">
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="py-4 px-6 text-sm text-slate-700">
+                <td key={cellIndex} className={`py-4 px-6 text-sm ${cellIndex === 0 ? 'font-bold text-slate-900' : 'text-slate-700'}`}>
                   {cell}
                 </td>
               ))}
@@ -85,6 +86,24 @@ export const ResponsiveTable = ({ headers, rows }: { headers: string[], rows: (s
           ))}
         </tbody>
       </table>
+    </div>
+
+    {/* Mobile Stacked View */}
+    <div className="md:hidden bg-white divide-y divide-slate-100">
+      {rows.map((row, rowIndex) => (
+        <div key={rowIndex} className="p-5 space-y-4">
+          {row.map((cell, cellIndex) => (
+            <div key={cellIndex} className="flex flex-col gap-1">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                {headers[cellIndex]}
+              </span>
+              <div className={`text-sm leading-relaxed ${cellIndex === 0 ? 'font-bold text-slate-900' : 'text-slate-700'}`}>
+                {cell}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   </div>
 );
