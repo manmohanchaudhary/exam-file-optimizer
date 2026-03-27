@@ -8,7 +8,7 @@ import { blogPosts } from '@/lib/blog';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ExamResize | Resize Photo & Signature for Online Exam Forms',
+  title: 'Exam Form Photo & Signature Size Converter | ExamResize',
   description: 'The fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms like SSC, UPSC, Banking, NEET, and JEE applications.',
   alternates: {
     canonical: '/',

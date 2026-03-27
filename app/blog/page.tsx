@@ -4,13 +4,13 @@ import { blogPosts } from '@/lib/blog';
 import { ChevronRight, Calendar } from 'lucide-react';
 
 export const metadata = {
-  title: 'Blog | Exam Notifications & Updates | ExamResize',
+  title: 'Exam Notifications & Updates Blog | ExamResize',
   description: 'Stay updated with the latest government exam notifications, eligibility criteria, application processes, and tips for resizing your exam photos and documents.',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'Blog | Exam Notifications & Updates | ExamResize',
+    title: 'Exam Notifications & Updates Blog | ExamResize',
     description: 'Stay updated with the latest government exam notifications, eligibility criteria, and application processes.',
     url: 'https://examresize.online/blog',
     type: 'website',

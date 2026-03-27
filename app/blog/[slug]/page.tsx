@@ -108,7 +108,7 @@ export async function generateMetadata({
   const url = `https://examresize.online/blog/${slug}`;
 
   return {
-    title: `${post.title} | ExamResize`,
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: `/blog/${slug}`,

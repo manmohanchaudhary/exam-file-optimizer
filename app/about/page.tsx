@@ -2,7 +2,7 @@ import { Header, Footer } from '@/components/Navigation';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About ExamResize | Resize Photos & Signatures for Forms',
+  title: 'About ExamResize | Secure Photo & Signature Converter',
   description: 'Learn about ExamResize, the most secure tool to resize and compress photos, signatures, and documents for Indian government and competitive exam applications.',
   alternates: {
     canonical: '/about',

@@ -2,7 +2,7 @@ import { Header, Footer } from '@/components/Navigation';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions (FAQ) | ExamResize',
+  title: 'Exam Form Photo Resize FAQs | Answers to Common Questions',
   description: 'Find answers to frequently asked questions about ExamResize. Learn about supported file formats, size limits, data security, and how to use our tools.',
   alternates: {
     canonical: '/faq',

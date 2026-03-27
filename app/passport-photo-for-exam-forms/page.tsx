@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Passport Photo for Exam Forms | ExamResize',
+  title: 'Passport Photo Maker | Create Exam Form Photos Instantly',
   description: 'Create a standard passport photo for exam forms instantly. Our tool automatically crops, resizes, and compresses your photo to 3.5cm x 4.5cm at 300 DPI.',
   alternates: {
     canonical: '/passport-photo-for-exam-forms',

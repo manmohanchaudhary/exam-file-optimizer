@@ -23,9 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {};
   }
 
+  const shortName = exam.id.replace('-', ' ').toUpperCase();
+
   if (isGuide) {
     return {
-      title: `${exam.name} Photo & Signature Size Guide | ExamResize`,
+      title: `${shortName} Photo & Signature Size Guide | Exact Dimensions`,
       description: `Complete guide to ${exam.name} photo and signature size requirements. Learn how to resize your images to the exact dimensions and file sizes required for ${exam.name} applications.`,
       alternates: {
         canonical: `/${slug}`,
@@ -34,10 +36,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${exam.name} Photo & Signature Resizer | ExamResize`,
+    title: `${shortName} Photo Resizer | Resize for Exam Form`,
     description: `Automatically resize and compress your photo and signature for ${exam.name} exams. Ensure your application is accepted with our free tool that applies the correct dimensions.`,
     alternates: {
-      canonical: `/${slug}`,
+        canonical: `/${slug}`,
     },
   };
 }

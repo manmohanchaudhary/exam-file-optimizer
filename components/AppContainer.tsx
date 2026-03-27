@@ -405,7 +405,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                 </CardHeader>
                 <CardContent className="space-y-6 sm:space-y-8">
                   {/* Tabs Section */}
-                  <div className="space-y-3">
+                  <div className="flex flex-col gap-3 pb-4 border-b border-slate-100">
                     <Label className="text-sm font-medium text-slate-700">File Type</Label>
                     <Tabs value={fileType} onValueChange={(v) => {
                       setFileType(v as FileType);
@@ -415,25 +415,25 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                         setCustomFormat('jpg');
                       }
                     }}>
-                      <TabsList className="flex flex-wrap !h-auto w-full justify-start gap-2 p-1.5 bg-slate-100/80 rounded-xl">
-                        <TabsTrigger value="photo" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Photo</TabsTrigger>
-                        <TabsTrigger value="signature" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Signature</TabsTrigger>
+                      <TabsList className="flex flex-wrap !h-auto min-h-[48px] w-full justify-start gap-2 p-1.5 bg-slate-100/80 rounded-xl">
+                        <TabsTrigger value="photo" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Photo</TabsTrigger>
+                        <TabsTrigger value="signature" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Signature</TabsTrigger>
                         {selectedExamId === 'dsssb' && (
                           <>
-                            <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">L. Thumb</TabsTrigger>
-                            <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">R. Thumb</TabsTrigger>
+                            <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">L. Thumb</TabsTrigger>
+                            <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">R. Thumb</TabsTrigger>
                           </>
                         )}
-                        <TabsTrigger value="document" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Document</TabsTrigger>
+                        <TabsTrigger value="document" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Document</TabsTrigger>
                         {(currentExam?.declaration || selectedExamId === 'custom') && (
-                          <TabsTrigger value="declaration" className="flex-1 min-w-[80px] h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Declaration</TabsTrigger>
+                          <TabsTrigger value="declaration" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Declaration</TabsTrigger>
                         )}
                       </TabsList>
                     </Tabs>
                   </div>
 
                   {/* Exam Selection Section */}
-                  <div className="space-y-3 pt-4">
+                  <div className="flex flex-col gap-3 pt-2">
                     <Label htmlFor="exam" className="text-sm font-medium text-slate-700">Select Exam</Label>
                       <div className="relative">
                         <button

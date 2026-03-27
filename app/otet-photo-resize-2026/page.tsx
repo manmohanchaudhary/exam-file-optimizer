@@ -5,7 +5,7 @@ import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
 
 export const metadata: Metadata = {
-  title: 'OTET 2026 Photo & Signature Resize Tool – Free Online',
+  title: 'OTET 2026 Photo Resizer | Resize for Exam Form',
   description: 'Easily resize your photo and signature for the OTET 2026 application form. Our tool automatically applies the correct size, format, and aspect ratio limits.',
   alternates: {
     canonical: '/otet-photo-resize-2026',

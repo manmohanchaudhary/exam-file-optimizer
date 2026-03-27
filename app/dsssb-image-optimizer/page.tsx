@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'DSSSB Image Optimizer | Resize Photo, Signature & Thumb',
+  title: 'DSSSB Image Optimizer | Resize Photo & Signature',
   description: 'Resize and compress your photo, signature, and thumb impressions for DSSSB exams. Ensure exactly 96 DPI and correct dimensions for your DSSSB application.',
   alternates: {
     canonical: '/dsssb-image-optimizer',

@@ -2,7 +2,7 @@ import LandingPageTemplate from '@/components/LandingPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Exam Photo Size Converter | ExamResize',
+  title: 'Exam Photo Size Converter | Resize Images for Exam Forms',
   description: 'Convert your photo to the exact dimensions and file size required for any exam form. Support for SSC, UPSC, Banking, NEET, and custom size requirements.',
   alternates: {
     canonical: '/exam-photo-size-converter',

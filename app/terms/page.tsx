@@ -3,7 +3,7 @@ import { Header, Footer } from '@/components/Navigation';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | ExamResize',
+  title: 'Terms of Service | ExamResize User Guidelines',
   description: 'Review the ExamResize Terms of Service to understand the rules, guidelines, and user responsibilities when using our photo and document resizing tools.',
   alternates: {
     canonical: '/terms',

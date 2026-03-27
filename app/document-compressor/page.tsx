@@ -6,7 +6,7 @@ import { Header, Footer } from '@/components/Navigation';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Document Compressor | Compress PDF for Exam Forms | ExamResize',
+  title: 'Compress PDF Documents for Exam Forms | Reduce File Size',
   description: 'Compress your PDF documents to meet strict file size limits for online applications without losing quality. Perfect for Aadhaar, marksheets, and certificates.',
   alternates: {
     canonical: '/document-compressor',

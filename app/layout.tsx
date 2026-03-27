@@ -10,12 +10,12 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://examresize.online'),
-  title: 'ExamResize | Resize Photos & Signatures for Forms',
+  title: 'Exam Form Photo & Signature Resizer | ExamResize',
   description: 'Instantly resize and compress photos, signatures, and documents for online exam forms. Optimize dimensions and file size for SSC, UPSC, Banking, and NEET.',
   keywords: ['exam photo resizer', 'signature resize', 'ssc photo resize', 'upsc photo resize', 'banking exam photo converter', '20kb photo converter', '50kb photo converter'],
   authors: [{ name: 'ExamResize' }],
   openGraph: {
-    title: 'ExamResize | Resize Photos & Signatures for Forms',
+    title: 'Exam Form Photo & Signature Resizer | ExamResize',
     description: 'The most reliable tool to resize and compress photos for government exam forms. Support for SSC, UPSC, Banking, and other competitive exams in India.',
     siteName: 'ExamResize',
     locale: 'en_US',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ExamResize | Resize Photos & Signatures for Forms',
+    title: 'Exam Form Photo & Signature Resizer | ExamResize',
     description: 'Quickly resize and compress your photos and documents for online exam applications. Ensure your application is accepted with correct image dimensions.',
   },
   robots: {
