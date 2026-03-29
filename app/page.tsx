@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const tools = [
+    { title: 'Document Compressor', desc: 'Compress PDF files to specific KB sizes.', link: '/document-compressor' },
     { title: 'OTET 2026 Resizer', desc: 'Resize photo and signature for OTET 2026.', link: '/otet-photo-resize-2026' },
     { title: 'DSSSB Image Optimizer', desc: 'Resize photo, signature & thumb for DSSSB form.', link: '/dsssb-image-optimizer' },
     { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/photo-resize-for-ssc-form' },
