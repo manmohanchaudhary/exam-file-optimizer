@@ -67,9 +67,25 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
       "@type": "Article",
       "headline": `${exam.name} Photo & Signature Size Guide`,
       "description": `Ensure your ${exam.name} application is not rejected due to incorrect image dimensions or file sizes. Follow this complete guide to format your photo and signature perfectly.`,
+      "image": "https://examresize.online/apple-touch-icon.png",
+      "datePublished": "2024-01-01T08:00:00+08:00",
+      "dateModified": new Date().toISOString(),
       "author": {
         "@type": "Organization",
-        "name": "ExamResize"
+        "name": "ExamResize",
+        "url": "https://examresize.online"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ExamResize",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://examresize.online/apple-touch-icon.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://examresize.online/${slug}`
       }
     };
 
@@ -145,6 +161,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
     "description": `Automatically apply the correct dimensions and file size limits for ${exam.name}. Upload your photo or signature below.`,
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "All",
+    "url": `https://examresize.online/${slug}`,
     "offers": {
       "@type": "Offer",
       "price": "0",

@@ -21,6 +21,7 @@ export default function DocumentCompressorPage() {
     "description": "Compress PDF files and reduce document sizes to 50KB, 100KB, or 200KB instantly. The perfect online document compressor for government exam applications.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "All",
+    "url": "https://examresize.online/document-compressor",
     "offers": {
       "@type": "Offer",
       "price": "0",

@@ -4,14 +4,14 @@ import Link from "next/link";
 import { Header, Footer } from "@/components/Navigation";
 import { blogPosts } from "@/lib/blog";
 import { EXAMS } from "@/lib/presets";
-import { 
-  ChevronRight, 
-  Calendar, 
-  Clock, 
-  Crop, 
-  Info, 
-  AlertTriangle, 
-  CheckCircle2, 
+import {
+  ChevronRight,
+  Calendar,
+  Clock,
+  Crop,
+  Info,
+  AlertTriangle,
+  CheckCircle2,
   ArrowRight,
   Globe,
   FileText,
@@ -26,7 +26,7 @@ import {
   MessageSquare,
   Link as LinkIcon,
   Megaphone,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -42,6 +42,7 @@ import {
   StepBlock,
   CTABlock,
   ResponsiveTable,
+  BlogChart,
 } from "@/components/BlogComponents";
 
 const emojiMap: Record<string, any> = {
@@ -62,26 +63,32 @@ const emojiMap: Record<string, any> = {
   "🔗": LinkIcon,
   "👉": ArrowRight,
   "✅": CheckCircle2,
-  "ℹ️": Info,
+  ℹ️: Info,
 };
 
-function IconHeading({ level, children }: { level: number, children: any }) {
-  const text = typeof children === 'string' ? children : 
-               Array.isArray(children) ? children.map(c => typeof c === 'string' ? c : '').join('') : '';
-  
+function IconHeading({ level, children }: { level: number; children: any }) {
+  const text =
+    typeof children === "string"
+      ? children
+      : Array.isArray(children)
+        ? children.map((c) => (typeof c === "string" ? c : "")).join("")
+        : "";
+
   let icon = null;
   let cleanText = text;
 
   for (const [emoji, IconComp] of Object.entries(emojiMap)) {
     if (text.includes(emoji)) {
-      icon = <IconComp className="w-6 h-6 md:w-8 md:h-8 text-blue-600 shrink-0" />;
-      cleanText = text.replace(emoji, '').trim();
+      icon = (
+        <IconComp className="w-6 h-6 md:w-8 md:h-8 text-blue-600 shrink-0" />
+      );
+      cleanText = text.replace(emoji, "").trim();
       break;
     }
   }
 
-  const Tag = level === 2 ? 'h2' : level === 3 ? 'h3' : 'h4';
-  
+  const Tag = level === 2 ? "h2" : level === 3 ? "h3" : "h4";
+
   return (
     <Tag className="flex items-center gap-3 md:gap-4 group">
       {icon}
@@ -144,7 +151,7 @@ export default async function BlogPostPage({
   // Calculate reading time
   const words = post.content.split(/\s+/).length;
   const readingTime = Math.ceil(words / 200); // Assuming 200 words per minute
-  
+
   const url = `https://examresize.online/blog/${slug}`;
 
   const blogSchema = {
@@ -152,7 +159,9 @@ export default async function BlogPostPage({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
+    image: "https://examresize.online/apple-touch-icon.png",
     datePublished: post.date,
+    dateModified: post.date,
     author: {
       "@type": "Organization",
       name: "ExamResize",
@@ -196,22 +205,25 @@ export default async function BlogPostPage({
     ],
   };
 
-  const detectedExamPreset = EXAMS.find((exam) => slug.includes(exam.id) || slug.includes(exam.id.replace('-2026', '')));
-  
+  const detectedExamPreset = EXAMS.find(
+    (exam) =>
+      slug.includes(exam.id) || slug.includes(exam.id.replace("-2026", "")),
+  );
+
   let detectedExam = null;
   if (detectedExamPreset) {
     let url = `/${detectedExamPreset.id}-photo-resizer`;
-    if (detectedExamPreset.id === 'otet-2026') {
-      url = '/otet-photo-resize-2026';
-    } else if (detectedExamPreset.id === 'dsssb') {
-      url = '/dsssb-image-optimizer';
-    } else if (detectedExamPreset.id === 'ssc') {
-      url = '/photo-resize-for-ssc-form';
+    if (detectedExamPreset.id === "otet-2026") {
+      url = "/otet-photo-resize-2026";
+    } else if (detectedExamPreset.id === "dsssb") {
+      url = "/dsssb-image-optimizer";
+    } else if (detectedExamPreset.id === "ssc") {
+      url = "/photo-resize-for-ssc-form";
     }
-    
+
     detectedExam = {
       name: detectedExamPreset.name,
-      url: url
+      url: url,
     };
   }
 
@@ -277,7 +289,9 @@ export default async function BlogPostPage({
                       })}
                     </time>
                   </div>
-                  <span className="hidden sm:inline-block text-slate-300 shrink-0">•</span>
+                  <span className="hidden sm:inline-block text-slate-300 shrink-0">
+                    •
+                  </span>
                   <div className="flex items-center gap-2 shrink-0">
                     <Clock className="w-4 h-4 text-emerald-600" />
                     <span>{readingTime} min read</span>
@@ -288,15 +302,17 @@ export default async function BlogPostPage({
               {/* Markdown Content */}
               <div className="space-y-12">
                 {post.content.split(/\n---\n/).map((section, index) => {
-                  const isFinalThoughts = section.toLowerCase().includes("final thoughts") || section.toLowerCase().includes("final thought");
+                  const isFinalThoughts =
+                    section.toLowerCase().includes("final thoughts") ||
+                    section.toLowerCase().includes("final thought");
                   const isIntro = index === 0 && !section.startsWith("#");
 
                   return (
-                    <section 
-                      key={index} 
+                    <section
+                      key={index}
                       className={`
-                        ${isIntro ? '' : 'bg-slate-50/50 rounded-3xl p-6 md:p-10 border border-slate-100 shadow-sm'}
-                        ${isFinalThoughts ? 'bg-blue-50/50 border-blue-100 !shadow-blue-100/20' : ''}
+                        ${isIntro ? "" : "bg-slate-50/50 rounded-3xl p-6 md:p-10 border border-slate-100 shadow-sm"}
+                        ${isFinalThoughts ? "bg-blue-50/50 border-blue-100 !shadow-blue-100/20" : ""}
                       `}
                     >
                       <div
@@ -323,31 +339,57 @@ export default async function BlogPostPage({
                           ]}
                           rehypePlugins={[rehypeRaw, rehypeSlug]}
                           components={{
-                            h2: ({ node, children, ...props }: any) => <IconHeading level={2} {...props}>{children}</IconHeading>,
-                            h3: ({ node, children, ...props }: any) => <IconHeading level={3} {...props}>{children}</IconHeading>,
+                            h2: ({ node, children, ...props }: any) => (
+                              <IconHeading level={2} {...props}>
+                                {children}
+                              </IconHeading>
+                            ),
+                            h3: ({ node, children, ...props }: any) => (
+                              <IconHeading level={3} {...props}>
+                                {children}
+                              </IconHeading>
+                            ),
                             p: ({ node, children, ...props }: any) => {
-                              const text = typeof children === 'string' ? children : '';
-                              if (text.startsWith('👉')) {
+                              const text =
+                                typeof children === "string" ? children : "";
+                              if (text.startsWith("👉")) {
                                 return (
                                   <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-100 shadow-sm mb-6 group hover:border-blue-200 transition-colors">
                                     <ArrowRight className="w-5 h-5 text-blue-600 mt-1 shrink-0 group-hover:translate-x-1 transition-transform" />
-                                    <span className="text-slate-700 font-medium leading-[1.7]">{text.replace('👉', '').trim()}</span>
+                                    <span className="text-slate-700 font-medium leading-[1.7]">
+                                      {text.replace("👉", "").trim()}
+                                    </span>
                                   </div>
                                 );
                               }
-                              
+
                               const checkHasImage = (n: any): boolean => {
-                                if (n?.tagName === 'img') return true;
-                                if (n?.children) return n.children.some(checkHasImage);
+                                if (n?.tagName === "img") return true;
+                                if (n?.children)
+                                  return n.children.some(checkHasImage);
                                 return false;
                               };
                               const hasImage = checkHasImage(node);
-                              
+
                               if (hasImage) {
-                                return <div className="mb-6 leading-[1.8] text-slate-700 text-[17px]" {...props}>{children}</div>;
+                                return (
+                                  <div
+                                    className="mb-6 leading-[1.8] text-slate-700 text-[17px]"
+                                    {...props}
+                                  >
+                                    {children}
+                                  </div>
+                                );
                               }
 
-                              return <p className="mb-6 leading-[1.8] text-slate-700 text-[17px]" {...props}>{children}</p>;
+                              return (
+                                <p
+                                  className="mb-6 leading-[1.8] text-slate-700 text-[17px]"
+                                  {...props}
+                                >
+                                  {children}
+                                </p>
+                              );
                             },
                             ul: ({ node, children, ...props }: any) => (
                               <ul className="space-y-4 my-8" {...props}>
@@ -355,18 +397,23 @@ export default async function BlogPostPage({
                               </ul>
                             ),
                             li: ({ node, children, ...props }: any) => (
-                              <li className="flex items-start gap-3 group" {...props}>
+                              <li
+                                className="flex items-start gap-3 group"
+                                {...props}
+                              >
                                 <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 group-hover:scale-125 transition-transform" />
-                                <span className="text-slate-700 leading-[1.8] text-[17px]">{children}</span>
+                                <span className="text-slate-700 leading-[1.8] text-[17px]">
+                                  {children}
+                                </span>
                               </li>
                             ),
                             a: ({ node, href, children, ...props }: any) => {
-                              const isInternal = href?.startsWith('/');
+                              const isInternal = href?.startsWith("/");
                               if (isInternal) {
                                 return (
-                                  <Link 
-                                    href={href} 
-                                    className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-lg font-bold border border-blue-100 hover:bg-blue-100 transition-all my-1 no-underline shadow-sm hover:shadow-md" 
+                                  <Link
+                                    href={href}
+                                    className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-lg font-bold border border-blue-100 hover:bg-blue-100 transition-all my-1 no-underline shadow-sm hover:shadow-md"
                                     {...props}
                                   >
                                     {children}
@@ -374,15 +421,40 @@ export default async function BlogPostPage({
                                   </Link>
                                 );
                               }
-                              return <a href={href} className="text-blue-600 font-bold hover:underline decoration-2 underline-offset-4" {...props}>{children}</a>;
+                              return (
+                                <a
+                                  href={href}
+                                  className="text-blue-600 font-bold hover:underline decoration-2 underline-offset-4"
+                                  {...props}
+                                >
+                                  {children}
+                                </a>
+                              );
                             },
-                            div: ({ node, className, children, ...props }: any) => {
+                            div: ({
+                              node,
+                              className,
+                              children,
+                              ...props
+                            }: any) => {
                               if (className === "custom-tip-box")
-                                return <TipBox title={props["data-title"]}>{children}</TipBox>;
+                                return (
+                                  <TipBox title={props["data-title"]}>
+                                    {children}
+                                  </TipBox>
+                                );
                               if (className === "custom-warning-box")
-                                return <WarningBox title={props["data-title"]}>{children}</WarningBox>;
+                                return (
+                                  <WarningBox title={props["data-title"]}>
+                                    {children}
+                                  </WarningBox>
+                                );
                               if (className === "custom-note-box")
-                                return <NoteBox title={props["data-title"]}>{children}</NoteBox>;
+                                return (
+                                  <NoteBox title={props["data-title"]}>
+                                    {children}
+                                  </NoteBox>
+                                );
                               if (className === "custom-step-block") {
                                 return (
                                   <StepBlock
@@ -406,12 +478,37 @@ export default async function BlogPostPage({
                                 let headers: string[] = [];
                                 let rows: any[][] = [];
                                 try {
-                                  headers = JSON.parse(props["data-headers"] || "[]");
+                                  headers = JSON.parse(
+                                    props["data-headers"] || "[]",
+                                  );
                                   rows = JSON.parse(props["data-rows"] || "[]");
                                 } catch (e) {
-                                  console.error("Failed to parse table data", e);
+                                  console.error(
+                                    "Failed to parse table data",
+                                    e,
+                                  );
                                 }
-                                return <ResponsiveTable headers={headers} rows={rows} />;
+                                return (
+                                  <ResponsiveTable
+                                    headers={headers}
+                                    rows={rows}
+                                  />
+                                );
+                              }
+                              if (className === "custom-blog-chart") {
+                                let data: any[] = [];
+                                try {
+                                  data = JSON.parse(props["data-data"] || "[]");
+                                } catch (e) {
+                                  console.error("Failed to parse chart data", e);
+                                }
+                                return (
+                                  <BlogChart
+                                    type={props["data-type"] as 'bar' | 'pie'}
+                                    data={data}
+                                    title={props["data-title"]}
+                                  />
+                                );
                               }
                               return (
                                 <div className={className} {...props}>
@@ -419,13 +516,39 @@ export default async function BlogPostPage({
                                 </div>
                               );
                             },
-                            span: ({ node, className, children, ...props }: any) => {
+                            span: ({
+                              node,
+                              className,
+                              children,
+                              ...props
+                            }: any) => {
                               if (className === "custom-tip-box")
-                                return <span className="bg-emerald-50 text-emerald-900 px-2.5 py-1 rounded-lg border border-emerald-200 text-sm font-bold shadow-sm">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
+                                return (
+                                  <span className="bg-emerald-50 text-emerald-900 px-2.5 py-1 rounded-lg border border-emerald-200 text-sm font-bold shadow-sm">
+                                    {props["data-title"]
+                                      ? `${props["data-title"]}: `
+                                      : ""}
+                                    {children}
+                                  </span>
+                                );
                               if (className === "custom-warning-box")
-                                return <span className="bg-amber-50 text-amber-900 px-2.5 py-1 rounded-lg border border-amber-200 text-sm font-bold shadow-sm">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
+                                return (
+                                  <span className="bg-amber-50 text-amber-900 px-2.5 py-1 rounded-lg border border-amber-200 text-sm font-bold shadow-sm">
+                                    {props["data-title"]
+                                      ? `${props["data-title"]}: `
+                                      : ""}
+                                    {children}
+                                  </span>
+                                );
                               if (className === "custom-note-box")
-                                return <span className="bg-blue-50 text-blue-900 px-2.5 py-1 rounded-lg border border-blue-200 text-sm font-bold shadow-sm">{props["data-title"] ? `${props["data-title"]}: ` : ''}{children}</span>;
+                                return (
+                                  <span className="bg-blue-50 text-blue-900 px-2.5 py-1 rounded-lg border border-blue-200 text-sm font-bold shadow-sm">
+                                    {props["data-title"]
+                                      ? `${props["data-title"]}: `
+                                      : ""}
+                                    {children}
+                                  </span>
+                                );
                               return (
                                 <span className={className} {...props}>
                                   {children}
@@ -466,9 +589,21 @@ export default async function BlogPostPage({
               {/* In-Article CTA */}
               <div className="mt-16 pt-8 border-t border-slate-200">
                 <CTABlock
-                  title={detectedExam ? `Ready to apply for ${detectedExam.name}?` : "Need a specific photo size for your exam?"}
-                  link={detectedExam ? detectedExam.url : "/exam-photo-size-converter"}
-                  buttonText={detectedExam ? `Resize ${detectedExam.name} Photo Now` : "Open Custom Photo Resizer"}
+                  title={
+                    detectedExam
+                      ? `Ready to apply for ${detectedExam.name}?`
+                      : "Need a specific photo size for your exam?"
+                  }
+                  link={
+                    detectedExam
+                      ? detectedExam.url
+                      : "/exam-photo-size-converter"
+                  }
+                  buttonText={
+                    detectedExam
+                      ? `Resize ${detectedExam.name} Photo Now`
+                      : "Open Custom Photo Resizer"
+                  }
                 />
               </div>
             </article>
@@ -488,18 +623,26 @@ export default async function BlogPostPage({
                       <Crop className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">
-                      {detectedExam ? `Resize ${detectedExam.name} Photo` : 'Need to resize a photo?'}
+                      {detectedExam
+                        ? `Resize ${detectedExam.name} Photo`
+                        : "Need to resize a photo?"}
                     </h3>
                     <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                      {detectedExam 
+                      {detectedExam
                         ? `Use our free online tool to compress and resize your photos to the exact dimensions and size required for ${detectedExam.name}.`
-                        : 'Use our free online tool to compress and resize your photos to any custom dimensions and file size required by exam portals.'}
+                        : "Use our free online tool to compress and resize your photos to any custom dimensions and file size required by exam portals."}
                     </p>
                     <Link
-                      href={detectedExam ? detectedExam.url : "/exam-photo-size-converter"}
+                      href={
+                        detectedExam
+                          ? detectedExam.url
+                          : "/exam-photo-size-converter"
+                      }
                       className="flex items-center justify-center w-full bg-blue-600 text-white font-semibold px-4 py-3.5 rounded-xl hover:bg-blue-700 transition-all hover:shadow-md hover:-translate-y-0.5"
                     >
-                      {detectedExam ? `Open ${detectedExam.name} Resizer` : 'Open Custom Photo Resizer'}
+                      {detectedExam
+                        ? `Open ${detectedExam.name} Resizer`
+                        : "Open Custom Photo Resizer"}
                     </Link>
                   </div>
                 </div>
@@ -557,7 +700,9 @@ export default async function BlogPostPage({
           href={detectedExam ? detectedExam.url : "/exam-photo-size-converter"}
           className="block w-full font-bold text-lg"
         >
-          {detectedExam ? `Resize Photo for ${detectedExam.name} →` : "Open Custom Photo Resizer →"}
+          {detectedExam
+            ? `Resize Photo for ${detectedExam.name} →`
+            : "Open Custom Photo Resizer →"}
         </Link>
       </div>
     </div>

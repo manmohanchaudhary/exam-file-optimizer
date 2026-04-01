@@ -8,10 +8,122 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'bseb-10th-result-2026-comprehensive-guide',
-    title: 'BSEB 10th Result 2026: Comprehensive Guide to Bihar Board Matric Results Released Today',
-    excerpt: 'The Bihar School Examination Board (BSEB) has officially declared the Class 10 Matric results for 2026 today, March 29. Check your results, toppers list, and pass percentage.',
-    date: '2026-03-29',
+    slug: "ctet-february-2026-results-guide",
+    title: "A Complete Guide to the CTET February 2026 Results: Performance, Trends, and What's Next",
+    excerpt: "The CTET February 2026 results are out. Explore a detailed analysis of pass percentages, performance trends between Paper 1 and Paper 2, and what aspiring teachers should expect next.",
+    date: "2026-04-01",
+    content: `The Central Teacher Eligibility Test (CTET) is India’s biggest gateway for aspiring teachers. Set up under the Right to Education (RTE) Act, it ensures that anyone applying to teach Classes 1 through 8 in central government schools (like Kendriya Vidyalayas and Navodaya Vidyalayas) meets a minimum standard of quality.
+
+The Central Board of Secondary Education (CBSE) conducts this massive exam. Passing the CTET isn't just about getting a certificate; it’s proof that a teacher has the right mix of subject knowledge and child psychology skills to shape young minds. The February 2026 cycle—the 21st edition of the exam—gives us a fascinating look at the current state of India's future teachers.
+
+---
+
+## 🧠 How the Exam is Structured
+
+To test the right skills for the right age groups, the CTET is split into two parts:
+
+* **Paper 1 (Primary Stage):** For teachers of Classes 1 to 5. It focuses heavily on early childhood development, basic math, environmental science, and foundational reading skills.
+* **Paper 2 (Elementary Stage):** For teachers of Classes 6 to 8. This paper is much harder. It requires deep, specialized knowledge in either Math & Science or Social Studies, alongside an understanding of adolescent psychology.
+
+Both papers put a huge emphasis on Child Development and Pedagogy (CDP). The core philosophy here is simple: knowing your subject doesn't matter if you don't know how to teach it to children.
+
+---
+
+## 📅 Timeline of the February 2026 Exam
+
+Organizing an exam for over 2.5 million people is a logistical marathon. Here is how the February 2026 cycle played out:
+
+* **Nov 27 – Dec 18, 2025:** Official notification released and regular registration window opened.
+* **Late Dec 2025:** Correction windows and a final chance for candidates to complete unfinished applications.
+* **Feb 5, 2026:** Final admit cards issued.
+* **Feb 7 & 8, 2026:** The main exam was held offline (using OMR sheets) across 1,803 centers in 140 cities.
+
+---
+
+## 🚨 The Bihar Re-exam
+
+Running an exam this size rarely happens without a glitch. During the main testing window, CBSE had to cancel Paper 2 at two specific centers in Vaishali (Hajipur), Bihar (St. John's Academy and Lakshya International Academy) due to "unavoidable circumstances."
+
+CBSE acted quickly. They organized a special re-exam for the affected students on March 1, 2026, ensuring no one lost their chance to qualify.
+
+---
+
+## 🧾 Answer Keys and How Challenges Work
+
+CBSE is known for being very transparent about how it grades the CTET:
+
+* **OMR Sheets Released:** On March 12, 2026, CBSE uploaded everyone's scanned answer sheets and the provisional answer key.
+* **Raising Objections:** Candidates had until March 15 to challenge any answer they felt was graded incorrectly.
+* **The ₹1,000 Fee:** To stop people from guessing or spamming the system, CBSE charges a non-refundable ₹1,000 for every question a candidate challenges. You have to be very confident (and usually armed with an NCERT textbook as proof) to challenge the board!
+* **Final Results:** After experts reviewed the challenges, the final scores were calculated. CBSE declared the final results on March 30, 2026.
+
+---
+
+## 📊 The Numbers: How Did Everyone Do?
+
+The statistics for the February 2026 cycle show just how tough this exam is. Out of the millions who applied, only a fraction passed.
+
+<div className="custom-responsive-table" data-headers='["Metric", "Number of Candidates", "Percentage"]' data-rows='[["Registered", "26,49,129", "100%"], ["Appeared for the Exam", "23,24,625", "87.75% of Registered"], ["Passed (Qualified)", "5,97,061", "25.68% of Appeared"]]'></div>
+
+<div className="custom-blog-chart" data-type="bar" data-title="CTET Feb 2026 Overall Statistics" data-data='[{"name": "Candidates", "Registered": 2649129, "Appeared": 2324625, "Passed": 597061}]'></div>
+
+What does this mean? Nearly 3 out of every 4 aspiring teachers failed the exam. While 25.68% sounds low, this strict pass rate is intentional—it acts as a strong filter to ensure only fully prepared teachers enter the classroom.
+
+---
+
+## 📈 Primary vs. Middle School: A Big Difference
+
+When we break the numbers down by paper, a huge gap appears:
+
+<div className="custom-responsive-table" data-headers='["Exam Paper", "Appeared", "Passed", "Pass Percentage"]' data-rows='[["Paper 1 (Classes 1-5)", "10,65,410", "3,58,937", "33.69%"], ["Paper 2 (Classes 6-8)", "18,67,428", "3,46,738", "18.56%"]]'></div>
+
+<div className="custom-blog-chart" data-type="bar" data-title="Pass Percentage: Paper 1 vs Paper 2" data-data='[{"name": "Paper 1", "Pass Percentage": 33.69}, {"name": "Paper 2", "Pass Percentage": 18.56}]'></div>
+
+* **Primary Teachers are doing well:** A 33.69% pass rate for Paper 1 shows a healthy pipeline of teachers ready for early education.
+* **Middle School Teachers are struggling:** Only 18.56% of candidates passed Paper 2. Even though way more people applied for Paper 2, the vast majority failed. This suggests that the colleges training our middle-school teachers (B.Ed. programs) need to seriously improve how they teach advanced subjects.
+
+---
+
+## ✅ Passing Marks and Fair Grading
+
+Unlike competitive exams like the JEE or NEET (where you are ranked against others), the CTET is a qualifying exam. You just have to hit a specific target score to pass.
+
+There is no normalization of scores. You get exactly the raw marks you earned. The passing marks are:
+
+<div className="custom-responsive-table" data-headers='["Category", "Minimum Required Percentage", "Minimum Marks (Out of 150)"]' data-rows='[["General", "60%", "90"], ["OBC / SC / ST / PwD", "55%", "82"]]'></div>
+
+:::note{title="Note"}
+CBSE keeps standards perfectly equal across genders. There are no lowered cutoffs for female candidates.
+:::
+
+---
+
+## 🌐 Digital Certificates Valid for Life
+
+Gone are the days of waiting for a paper certificate in the mail.
+
+* **DigiLocker:** CBSE automatically creates a DigiLocker account for every candidate using their registered mobile number. Both your marksheet and your final qualifying certificate are sent directly to this app.
+* **QR Code Security:** The digital certificates feature an encrypted QR code, meaning schools can scan it and instantly verify that you are a legitimate, qualified teacher.
+* **Lifetime Validity:** The biggest perk? Once you pass the CTET, your certificate is valid for life. You never have to take the exam again just to keep your eligibility active.
+
+---
+
+## ✨ Looking Ahead: The July 2026 Cycle
+
+Now that the February cycle is fully wrapped up, attention is turning to the next exam.
+
+Candidates can check their February scorecards on the official portal (ctet.nic.in) by logging in with their Roll Number and Date of Birth.
+
+For the roughly 1.7 million candidates who didn't pass, preparation starts now. Historically, the CTET happens twice a year. Based on past trends, the notification for the July 2026 cycle is expected to drop very soon—likely between April and May 2026. If you are planning to take it, grab your Class 3 to 8 NCERT books and start studying!
+`
+  },
+  {
+    slug: "bseb-10th-result-2026-comprehensive-guide",
+    title:
+      "BSEB 10th Result 2026: Comprehensive Guide to Bihar Board Matric Results Released Today",
+    excerpt:
+      "The Bihar School Examination Board (BSEB) has officially declared the Class 10 Matric results for 2026 today, March 29. Check your results, toppers list, and pass percentage.",
+    date: "2026-03-29",
     content: `The Bihar School Examination Board (BSEB) has officially declared the Class 10 Matric results for 2026 today, March 29, at approximately 1:15 PM IST following a press conference in Patna. This announcement marks the culmination of exams held in February, affecting over 15 lakh students across the state. With an impressive overall pass percentage of 81.79%, the results highlight strong academic performance amid rigorous evaluations.
 
 ## Official Release Details
@@ -83,13 +195,14 @@ This comprehensive release sets the stage for students' next academic phase—ch
 
 :::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
 :::
-`
+`,
   },
   {
-    slug: 'otet-2026-notification-complete-guide',
-    title: 'OTET 2026 Notification: Eligibility, Dates & Complete Guide',
-    excerpt: 'The OTET 2026 notification is finally here. Get a clear, no-nonsense guide to what this exam is, who can apply, and how to prepare for a teaching career in Odisha.',
-    date: '2026-03-25',
+    slug: "otet-2026-notification-complete-guide",
+    title: "OTET 2026 Notification: Eligibility, Dates & Complete Guide",
+    excerpt:
+      "The OTET 2026 notification is finally here. Get a clear, no-nonsense guide to what this exam is, who can apply, and how to prepare for a teaching career in Odisha.",
+    date: "2026-03-25",
     content: `
 ![OTET 2026 Notification](/otet-notification.jpg)
 
@@ -355,13 +468,14 @@ Beyond the books and mock tests, a few mindset shifts can help you:
 
 OTET 2026 is not just another exam notification; it’s a doorway to your future classroom, your future students, and the career you’ve been preparing for. The competition will be real, no doubt—but so is your chance.
 
-If you plan smart, start early, and stick to a disciplined routine—focusing on pedagogy, language skills, and past papers—you give yourself a very fair shot at clearing OTET and moving one big step closer to your teaching dream.`
+If you plan smart, start early, and stick to a disciplined routine—focusing on pedagogy, language skills, and past papers—you give yourself a very fair shot at clearing OTET and moving one big step closer to your teaching dream.`,
   },
   {
-    slug: 'bihar-board-10th-result-2026-date-time-updates',
-    title: 'Bihar Board 10th Result 2026: Check Result Online & Updates',
-    excerpt: 'The Bihar Board Class 10 Result 2026 is expected to be released very soon. Stay updated with the latest news on result date, time, and how to check your marksheet online.',
-    date: '2026-03-24',
+    slug: "bihar-board-10th-result-2026-date-time-updates",
+    title: "Bihar Board 10th Result 2026: Check Result Online & Updates",
+    excerpt:
+      "The Bihar Board Class 10 Result 2026 is expected to be released very soon. Stay updated with the latest news on result date, time, and how to check your marksheet online.",
+    date: "2026-03-24",
     content: `The Bihar Board Class 10 Result 2026 is expected to be released very soon, and students across the state are eagerly waiting for the official announcement.
 
 As per the latest updates, the result is likely to be declared in the **last week of March 2026**, possibly between **25 to 31 March**.
@@ -452,13 +566,15 @@ The Bihar Board 10th result is just the beginning of your journey. Stay calm, st
 
 :::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
 :::
-`
+`,
   },
   {
-    slug: 'bihar-board-class-12-result-2026-check-online',
-    title: 'Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet',
-    excerpt: 'The Bihar Board Class 12 Result 2026 is out. Students from Science, Commerce, and Arts streams can now check their results online using their roll number and code.',
-    date: '2026-03-24',
+    slug: "bihar-board-class-12-result-2026-check-online",
+    title:
+      "Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet",
+    excerpt:
+      "The Bihar Board Class 12 Result 2026 is out. Students from Science, Commerce, and Arts streams can now check their results online using their roll number and code.",
+    date: "2026-03-24",
     content: `The Bihar Board Class 12 Result 2026 has been announced, bringing relief and excitement to lakhs of students across the state. Students who appeared for the Intermediate exams can now check their results online through official websites.
 
 Every year, the Bihar School Examination Board (BSEB) releases Class 12 results in March, and this year is no different. Students from all streams—Science, Commerce, and Arts—can access their marks using their roll number and roll code.
@@ -539,13 +655,14 @@ While filling out college or exam forms, many students face issues with photo an
 
 :::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
 :::
-`
+`,
   },
   {
-    slug: 'rajasthan-board-10th-result-2026-out-today',
-    title: 'Rajasthan Board 10th Result 2026: Latest Updates & Guide',
-    excerpt: 'The Rajasthan Board Class 10 Result 2026 is officially announced. Students who appeared for the exam can now check their results online easily without any hassle.',
-    date: '2026-03-24',
+    slug: "rajasthan-board-10th-result-2026-out-today",
+    title: "Rajasthan Board 10th Result 2026: Latest Updates & Guide",
+    excerpt:
+      "The Rajasthan Board Class 10 Result 2026 is officially announced. Students who appeared for the exam can now check their results online easily without any hassle.",
+    date: "2026-03-24",
     content: `Good news for students! The Rajasthan Board Class 10 Result 2026 has been officially announced today. Lakhs of students who appeared for the exam can now check their results online without any hassle.
 
 This year, more than 10 lakh students were eagerly waiting for their scores, and the wait is finally over.
@@ -625,13 +742,14 @@ If you’re uploading documents for exams or results and facing issues (like ima
 
 :::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
 :::
-`
+`,
   },
   {
-    slug: 'how-to-compress-pdf-to-200kb-for-upsc-ssc-ibps-rrb-exams',
-    title: 'How to Compress PDF to 200KB for UPSC, SSC, and IBPS Exams',
-    excerpt: 'Struggling with document upload limits for government exams? Learn how to shrink your PDF to under 200KB or 500KB while keeping it legible for official verification.',
-    date: '2026-03-22',
+    slug: "how-to-compress-pdf-to-200kb-for-upsc-ssc-ibps-rrb-exams",
+    title: "How to Compress PDF to 200KB for UPSC, SSC, and IBPS Exams",
+    excerpt:
+      "Struggling with document upload limits for government exams? Learn how to shrink your PDF to under 200KB or 500KB while keeping it legible for official verification.",
+    date: "2026-03-22",
     content: `Struggling with the strict document upload limits for government exams? Whether you are applying for **UPSC Civil Services**, **SSC CGL**, **IBPS PO**, or **Railway (RRB)** exams, you will face a common challenge: your Aadhaar Card, Caste Certificate, or Marksheets must be in **PDF format** and strictly under **200KB or 500KB**.
 
 Uploading a file that is even 1KB over the limit results in a "File Size Exceeded" error. In this guide, we’ll show you how to shrink your PDF while keeping it 100% legible for official verification.
@@ -691,13 +809,14 @@ A: **ExamResize.online** processes files locally in your browser, ensuring your 
 
 ---
 
-**Need to resize your Photo or Signature too?** [Check out our Image Resizer Tool for SSC and IBPS here!](https://examresize.online)`
+**Need to resize your Photo or Signature too?** [Check out our Image Resizer Tool for SSC and IBPS here!](https://examresize.online)`,
   },
   {
-    slug: 'dsssb-advertisement-02-2026-candidate-guide',
-    title: 'DSSSB Advertisement No. 02/2026: Application & Photo Guide',
-    excerpt: 'DSSSB released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments. Read our complete guide.',
-    date: '2026-03-18',
+    slug: "dsssb-advertisement-02-2026-candidate-guide",
+    title: "DSSSB Advertisement No. 02/2026: Application & Photo Guide",
+    excerpt:
+      "DSSSB released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments. Read our complete guide.",
+    date: "2026-03-18",
     content: `Delhi Subordinate Services Selection Board (DSSSB) released **Advertisement No. 02/2026** on **25 February 2026**, inviting **online applications** for **20 post codes** across different departments, local bodies, and autonomous bodies of the Govt. of NCT of Delhi. 
 
 The notice covers **216 tentative vacancies** in total, with the application window open from **27 February 2026 (12:00 noon)** to **28 March 2026 (11:59 PM)**. The category-wise vacancy breakup is **124 UR, 40 OBC, 17 SC, 16 ST, and 19 EWS**, along with **14 PwBD, 5 ESM, and 8 MSP** slots.
@@ -853,13 +972,14 @@ Success in this recruitment depends on choosing the right post, understanding th
 **Pro Tip for Serious Aspirants:** Focus your preparation on one specific post and its corresponding exam pattern instead of applying blindly to multiple posts with entirely different syllabi.
 
 :::cta{title="Prepare your DSSSB images instantly using our free tool" link="/dsssb-image-optimizer" button="Optimize DSSSB Images"}
-:::`
+:::`,
   },
   {
-    slug: 'rrb-alp-2026-recruitment-cen-01-2026',
-    title: 'RRB ALP 2026 Recruitment: Eligibility, Dates & Photo Size Guide',
-    excerpt: 'Railway Recruitment Board announced a major technical recruitment drive. The RRB ALP Notification 2026 CEN 01/2026 is out for 11,127 Assistant Loco Pilot vacancies.',
-    date: '2026-03-16',
+    slug: "rrb-alp-2026-recruitment-cen-01-2026",
+    title: "RRB ALP 2026 Recruitment: Eligibility, Dates & Photo Size Guide",
+    excerpt:
+      "Railway Recruitment Board announced a major technical recruitment drive. The RRB ALP Notification 2026 CEN 01/2026 is out for 11,127 Assistant Loco Pilot vacancies.",
+    date: "2026-03-16",
     content: `The Railway Recruitment Board has announced one of the biggest technical recruitment drives in Indian Railways. The RRB ALP Notification 2026 CEN 01/2026 has been released on 16th March 2026 for **11,127 Assistant Loco Pilot vacancies**, making this an exceptional opportunity for aspiring railway professionals. 
 
 If you're interested in joining Indian Railways as an Assistant Loco Pilot, here's everything you need to know about this recruitment.
@@ -953,13 +1073,14 @@ When applying online for RRB ALP, you must upload your photograph and signature 
 
 The RRB ALP 2026 recruitment represents a genuine opportunity to build a career with Indian Railways. The salary is decent, the job security is excellent, and you're contributing to one of the country's most essential services. The eligibility criteria are straightforward, and the exam structure, while challenging, is fair. 
 
-If you've got your 10th and a relevant technical qualification, there's no reason not to give it a shot. Start preparing now, stay updated on the official RRB website, and submit your application as soon as the window opens in May. This could be your ticket to a stable, respectable career in the railways. Don't let this opportunity pass you by.`
+If you've got your 10th and a relevant technical qualification, there's no reason not to give it a shot. Start preparing now, stay updated on the official RRB website, and submit your application as soon as the window opens in May. This could be your ticket to a stable, respectable career in the railways. Don't let this opportunity pass you by.`,
   },
   {
-    slug: 'rrb-group-d-recruitment-2026',
-    title: 'RRB Group D Recruitment 2026: Latest Updates & Photo Requirements',
-    excerpt: 'Indian Railways has released the RRB Group D Recruitment Notification 2026 under Centralised Employment Notice (CEN) 09/2025. This recruitment drive offers thousands of vacancies in Level-1 posts across multiple railway zones in India.',
-    date: '2026-03-15',
+    slug: "rrb-group-d-recruitment-2026",
+    title: "RRB Group D Recruitment 2026: Latest Updates & Photo Requirements",
+    excerpt:
+      "Indian Railways has released the RRB Group D Recruitment Notification 2026 under Centralised Employment Notice (CEN) 09/2025. This recruitment drive offers thousands of vacancies in Level-1 posts across multiple railway zones in India.",
+    date: "2026-03-15",
     content: `Indian Railways has released the **RRB Group D Recruitment Notification 2026 under Centralised Employment Notice (CEN) 09/2025**. This recruitment drive offers thousands of vacancies in Level-1 posts across multiple railway zones in India.
 
 Candidates who have passed **Class 10th or ITI** can apply for these positions through the official Railway Recruitment Board portal.
@@ -1118,13 +1239,14 @@ These tools help quickly adjust images to the required format for exam applicati
 
 ## Final Thoughts
 
-The RRB Group D recruitment offers a great opportunity for candidates seeking a stable government job in Indian Railways. Interested applicants should carefully read the official notification and ensure that all uploaded documents meet the required specifications.`
+The RRB Group D recruitment offers a great opportunity for candidates seeking a stable government job in Indian Railways. Interested applicants should carefully read the official notification and ensure that all uploaded documents meet the required specifications.`,
   },
   {
-    slug: 'neet-photo-signature-upload-problem-fix',
-    title: 'NTA NEET Photo & Signature Upload Guide: Avoid Rejection',
-    excerpt: 'Struggling with NTA NEET image uploads? Learn the exact size, format, and background rules for passport photos, postcard photos, signatures, and thumb impressions to avoid form rejection.',
-    date: '2026-03-19',
+    slug: "neet-photo-signature-upload-problem-fix",
+    title: "NTA NEET Photo & Signature Upload Guide: Avoid Rejection",
+    excerpt:
+      "Struggling with NTA NEET image uploads? Learn the exact size, format, and background rules for passport photos, postcard photos, signatures, and thumb impressions to avoid form rejection.",
+    date: "2026-03-19",
     content: `You’ve spent countless hours studying physics, chemistry, and biology, but right now, the hardest part of clearing NEET seems to be uploading your documents. You try to upload your passport photo, and the portal says *"File size must be between 10 KB and 200 KB."* You try your signature, and it says *"Invalid Image Format."* 
 
 If you are stuck on the NTA NEET document upload stage, take a deep breath. The National Testing Agency (NTA) has very specific, multi-layered requirements for different types of images—including a unique "Postcard Size" photo rule that confuses thousands of students every year. In this guide, we will break down exactly why your files are failing and how to fix them instantly.
@@ -1208,13 +1330,14 @@ No. The official NTA guidelines strictly mandate a pure white background for bot
 ***
 
 ## Conclusion
-Don't let a simple KB limit stop your medical career before it starts. By understanding NTA's specific rules for white backgrounds, postcard dimensions, and strict file sizes, you can upload your documents flawlessly. Follow the official instructions, use the correct preset tools, and get back to studying!`
+Don't let a simple KB limit stop your medical career before it starts. By understanding NTA's specific rules for white backgrounds, postcard dimensions, and strict file sizes, you can upload your documents flawlessly. Follow the official instructions, use the correct preset tools, and get back to studying!`,
   },
   {
-    slug: 'upsc-photo-signature-upload-problem-fix',
-    title: 'UPSC Photo & Signature Size Guide: Exact Dimensions & Format',
-    excerpt: 'Getting an invalid format or dimension error on your UPSC application? Learn how to resize your photo and signature to meet the strict 350x350 pixel and 20KB-300KB limits.',
-    date: '2026-03-19',
+    slug: "upsc-photo-signature-upload-problem-fix",
+    title: "UPSC Photo & Signature Size Guide: Exact Dimensions & Format",
+    excerpt:
+      "Getting an invalid format or dimension error on your UPSC application? Learn how to resize your photo and signature to meet the strict 350x350 pixel and 20KB-300KB limits.",
+    date: "2026-03-19",
     content: `You are applying for one of the most prestigious exams in the country—the UPSC Civil Services Examination (CSE), NDA, or CDS. You’ve carefully filled out Part-I of the registration, but when you reach Part-II to upload your photo and signature, the portal blocks you. 
 
 You see errors like *"Image dimensions must be greater than 350x350 pixels"* or *"File size must be between 20 KB and 300 KB."* No matter how you crop or compress the image on your phone, the UPSC portal keeps rejecting it.
@@ -1297,13 +1420,15 @@ Yes, according to recent UPSC notifications, the candidate's name and the date t
 ***
 
 ## Conclusion
-The UPSC application process is rigorous, and the technical requirements for document uploads are no exception. By understanding the strict 350x350 pixel rule and the new name/date requirements, you can bypass the frustrating upload errors. Use the correct preset tools to format your files instantly, and focus your energy back on your exam preparation!`
+The UPSC application process is rigorous, and the technical requirements for document uploads are no exception. By understanding the strict 350x350 pixel rule and the new name/date requirements, you can bypass the frustrating upload errors. Use the correct preset tools to format your files instantly, and focus your energy back on your exam preparation!`,
   },
   {
-    slug: 'ibps-sbi-photo-signature-upload-problem-fix',
-    title: 'How to Upload Photo, Signature, and Left Thumb Impression for IBPS & SBI Bank Exams',
-    excerpt: 'Bank exam form rejecting your thumb impression or handwritten declaration? Discover the exact KB size and dimensions needed for IBPS and SBI application forms.',
-    date: '2026-03-19',
+    slug: "ibps-sbi-photo-signature-upload-problem-fix",
+    title:
+      "How to Upload Photo, Signature, and Left Thumb Impression for IBPS & SBI Bank Exams",
+    excerpt:
+      "Bank exam form rejecting your thumb impression or handwritten declaration? Discover the exact KB size and dimensions needed for IBPS and SBI application forms.",
+    date: "2026-03-19",
     content: `Applying for a bank job through IBPS (PO, Clerk, RRB) or SBI can be a stressful experience, especially when the application portal keeps rejecting your documents. 
 
 You try to upload your Left Thumb Impression (LTI), and the screen flashes *"File size must be between 20 KB and 50 KB."* You try to upload your Handwritten Declaration, and it says *"Invalid Image Format or Size."* You compress the files, and suddenly your signature is so blurry you fear your application will be cancelled.
@@ -1394,13 +1519,14 @@ No. The official notification strictly states that the handwritten declaration a
 ***
 
 ## Conclusion
-Banking exams require attention to detail, and that starts with the application form. By strictly following the rules for black ink, avoiding capital letters, and adhering to the specific KB limits for each of the four documents, you can ensure your application is accepted smoothly. Use the correct preset tools to format your files instantly, and focus your energy on clearing the prelims!`
+Banking exams require attention to detail, and that starts with the application form. By strictly following the rules for black ink, avoiding capital letters, and adhering to the specific KB limits for each of the four documents, you can ensure your application is accepted smoothly. Use the correct preset tools to format your files instantly, and focus your energy on clearing the prelims!`,
   },
   {
-    slug: 'ssc-photo-signature-upload-problem-fix',
-    title: 'SSC Photo & Signature Upload Guide: How to Avoid Rejection',
-    excerpt: 'Getting an upload error on your SSC form? Learn the exact SSC image size requirements and how to resize your photo and signature to 10-20KB without blurring.',
-    date: '2026-03-19',
+    slug: "ssc-photo-signature-upload-problem-fix",
+    title: "SSC Photo & Signature Upload Guide: How to Avoid Rejection",
+    excerpt:
+      "Getting an upload error on your SSC form? Learn the exact SSC image size requirements and how to resize your photo and signature to 10-20KB without blurring.",
+    date: "2026-03-19",
     content: `You’ve spent months preparing for your SSC exams, filled out all your educational details in the One Time Registration (OTR) portal, and you are finally on the last step. But when you try to upload your signature, the portal throws a red error: *"File size must be between 10 KB and 20 KB."* 
 
 You compress the image, try again, and now it says *"Invalid Image Format"* or the signature looks so blurry you are terrified your application will be rejected. 
@@ -1501,13 +1627,14 @@ No. The official SSC notification strictly prohibits wearing spectacles or sungl
 ***
 
 ## Conclusion
-Dealing with SSC image size requirements doesn't have to be a nightmare. By understanding the exact 10KB to 20KB limits and the strict "no glasses" rule for photos, you can avoid the dreaded rejection list. Always read the latest official SSC notification, prepare your documents in advance, and use the correct preset tools to ensure a smooth, error-free application process. Good luck with your exams!`
+Dealing with SSC image size requirements doesn't have to be a nightmare. By understanding the exact 10KB to 20KB limits and the strict "no glasses" rule for photos, you can avoid the dreaded rejection list. Always read the latest official SSC notification, prepare your documents in advance, and use the correct preset tools to ensure a smooth, error-free application process. Good luck with your exams!`,
   },
   {
-    slug: 'image-upload-rejected-even-after-resizing',
-    title: 'Why Your Image Upload Gets Rejected Even After Resizing',
-    excerpt: 'You resized your image, but it still gets rejected by the online form. Learn the hidden reasons why this happens and how to fix it instantly.',
-    date: '2026-03-21',
+    slug: "image-upload-rejected-even-after-resizing",
+    title: "Why Your Image Upload Gets Rejected Even After Resizing",
+    excerpt:
+      "You resized your image, but it still gets rejected by the online form. Learn the hidden reasons why this happens and how to fix it instantly.",
+    date: "2026-03-21",
     content: `You have spent hours carefully filling out a crucial exam application or job portal form. You finally reach the last step: uploading your passport-sized photograph and signature. You check the strict requirements, use a basic tool on your phone to shrink the file, and confidently click the upload button. 
 
 But instead of a green success message, you are hit with a glaring red error. 
@@ -1672,13 +1799,14 @@ Facing an **image upload rejected even after resizing** error is incredibly stre
 
 However, by understanding that portals look at pixel dimensions, file formats, and image clarity—not just the KB size—you can take control of the situation. Stop relying on generic compression apps that ruin your photos and cause endless frustration.
 
-You deserve a smooth, stress-free application process. **Try our free tool to fix this instantly.** Use ExamResize to get the exact dimensions, perfect file size, and crisp quality you need to bypass those strict portal errors and successfully submit your form today!`
+You deserve a smooth, stress-free application process. **Try our free tool to fix this instantly.** Use ExamResize to get the exact dimensions, perfect file size, and crisp quality you need to bypass those strict portal errors and successfully submit your form today!`,
   },
   {
-    slug: 'up-police-constable-photo-signature-guide-2026',
-    title: 'UP Police Constable 2026: Official Photo & Signature Requirements',
-    excerpt: 'With a massive vacancy count announced for the UP Police Constable 2026 recruitment, find out why 15% of forms get rejected due to incorrect image uploads and how to fix them.',
-    date: '2026-03-23',
+    slug: "up-police-constable-photo-signature-guide-2026",
+    title: "UP Police Constable 2026: Official Photo & Signature Requirements",
+    excerpt:
+      "With a massive vacancy count announced for the UP Police Constable 2026 recruitment, find out why 15% of forms get rejected due to incorrect image uploads and how to fix them.",
+    date: "2026-03-23",
     content: `With a massive vacancy count announced for the UP Police Constable 2026 recruitment, millions of aspirants are gearing up to apply. However, did you know that nearly 15% of application forms get rejected simply due to incorrect image uploads? Ensuring your photo and signature meet the exact official specifications is the most crucial step before submitting your form.
 
 ## Official Specifications Table
@@ -1719,13 +1847,14 @@ A: The UPPRPB explicitly asks for signatures in **Black Ink Only** on plain whit
 
 ---
 
-**Don't risk rejection!** Head over to **[ExamResize.online](https://examresize.online)** now and use our dedicated UP Police preset to get your photo and signature perfectly sized in one click.`
+**Don't risk rejection!** Head over to **[ExamResize.online](https://examresize.online)** now and use our dedicated UP Police preset to get your photo and signature perfectly sized in one click.`,
   },
   {
-    slug: 'afcat-2026-slate-photo-upload-guide',
-    title: 'AFCAT 1/2026 Image Upload Guide: How to Take the Slate Photo',
-    excerpt: 'AFCAT has the most unique photo requirement in India—the Slate Photo. Learn why it is mandatory and how to capture and resize it perfectly for your 2026 application.',
-    date: '2026-03-23',
+    slug: "afcat-2026-slate-photo-upload-guide",
+    title: "AFCAT 1/2026 Image Upload Guide: How to Take the Slate Photo",
+    excerpt:
+      "AFCAT has the most unique photo requirement in India—the Slate Photo. Learn why it is mandatory and how to capture and resize it perfectly for your 2026 application.",
+    date: "2026-03-23",
     content: `The Air Force Common Admission Test (AFCAT) is one of the most prestigious defense exams in India. It also has one of the most unique image upload requirements: the mandatory "Slate Photo." Failing to follow the strict guidelines for this specific photograph is a surefire way to get your application rejected.
 
 ## The 'Black Slate' Requirement Explained
@@ -1765,13 +1894,14 @@ A: Yes, for AFCAT, the left-thumb impression is generally required for both male
 
 ---
 
-**Ready to upload?** Make sure your slate photo, signature, and thumb impression meet the strict 10 KB to 50 KB limits. Use the AFCAT photo size converter at **[ExamResize.online](https://examresize.online)** to automatically compress and resize your images to the official dimensions!`
+**Ready to upload?** Make sure your slate photo, signature, and thumb impression meet the strict 10 KB to 50 KB limits. Use the AFCAT photo size converter at **[ExamResize.online](https://examresize.online)** to automatically compress and resize your images to the official dimensions!`,
   },
   {
-    slug: 'ignou-june-tee-2026-exam-form-guide',
-    title: 'IGNOU June TEE 2026 Exam Form: Dates, Fees & Complete Guide',
-    excerpt: 'Complete guide to IGNOU June TEE 2026 exam form. Check important dates, last date, fees, eligibility, and step-by-step application process.',
-    date: '2026-03-27',
+    slug: "ignou-june-tee-2026-exam-form-guide",
+    title: "IGNOU June TEE 2026 Exam Form: Dates, Fees & Complete Guide",
+    excerpt:
+      "Complete guide to IGNOU June TEE 2026 exam form. Check important dates, last date, fees, eligibility, and step-by-step application process.",
+    date: "2026-03-27",
     content: `
 #### **What is the IGNOU June TEE 2026 exam form?**
 The June Term-End Examination (TEE) is IGNOU’s primary semester/term exam held once a year around June–July for all ODL and Online programmes. To sit in these exams, every student must fill a separate online exam form for that specific session, even if they are already registered or re-registered in the programme. Without submitting this form and paying the exam fee, no hall ticket is generated and you cannot appear in the June 2026 TEE.
@@ -1879,6 +2009,6 @@ For filling the June 2026 TEE exam form, always use official channels only:
 
 :::cta{title="Resize Your Exam Photos Instantly" link="/" button="Resize Now"}
 :::
-`
-  }
+`,
+  },
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

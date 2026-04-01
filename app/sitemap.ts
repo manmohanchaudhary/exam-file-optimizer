@@ -4,7 +4,7 @@ import { EXAMS } from '@/lib/presets'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://examresize.online'
-  const lastModifiedDate = '2026-03-15'
+  const lastModifiedDate = new Date().toISOString().split('T')[0]
   
   const staticRoutes = [
     '',
