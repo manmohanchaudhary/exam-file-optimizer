@@ -159,12 +159,13 @@ export default async function BlogPostPage({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: "https://examresize.online/apple-touch-icon.png",
+    image: post.image || "https://examresize.online/logo.png",
     datePublished: post.date,
     dateModified: post.date,
     author: {
       "@type": "Organization",
       name: "ExamResize",
+      url: "https://examresize.online"
     },
     publisher: {
       "@type": "Organization",
@@ -172,6 +173,8 @@ export default async function BlogPostPage({
       logo: {
         "@type": "ImageObject",
         url: "https://examresize.online/logo.png",
+        width: 540,
+        height: 120
       },
     },
     mainEntityOfPage: {

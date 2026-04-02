@@ -4,6 +4,7 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   content: string;
+  image?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -12,6 +13,7 @@ export const blogPosts: BlogPost[] = [
     title: "Complete Guide: Step-by-Step Application Process for OTET 2026",
     excerpt: "Master the OTET 2026 application process with our detailed step-by-step guide. From registration and document uploads to final payment, ensure your form is error-free and compliant with official BSE Odisha guidelines.",
     date: "2026-04-02",
+    image: "https://examresize.online/otet-notification.jpg",
     content: `To begin your teaching career in Odisha, completing the OTET 2026 application correctly is your first major hurdle. Small mistakes during the online process can lead to rejection, so it's vital to follow the official BSE Odisha instructions precisely.
 
 This guide breaks down the entire process into manageable steps to help you navigate the portal with confidence.
@@ -91,7 +93,7 @@ For your personal records and future reference, make sure to download and print 
 
 The fee structure is based on the number of papers you choose and your category.
 
-<div className="custom-responsive-table" data-headers='["Category", "Single Paper", "Both Papers"]' data-rows='[["SC/ST", "₹600", "₹900"], ["Others", "₹900", "₹1400"]]'></div>
+<div class="custom-responsive-table" data-headers='["Category", "Single Paper", "Both Papers"]' data-rows='[["SC/ST", "₹600", "₹900"], ["Others", "₹900", "₹1400"]]'></div>
 
 ---
 
@@ -116,12 +118,12 @@ If you encounter any technical issues or have questions during the application p
 
 ## 🔗 Official OTET 2026 Notifications & Links
 
-<div className="my-8 p-6 bg-blue-50 border-2 border-blue-500 rounded-xl text-center shadow-lg">
-  <p className="text-blue-800 font-bold text-lg mb-3 uppercase tracking-wider">🚀 Ready to Apply?</p>
-  <a href="https://bseoexams.org/" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 px-10 rounded-full text-2xl shadow-xl hover:shadow-2xl transition-all no-underline">
+<div class="my-8 p-6 bg-blue-50 border-2 border-blue-500 rounded-xl text-center shadow-lg">
+  <p class="text-blue-800 font-bold text-lg mb-3 uppercase tracking-wider">🚀 Ready to Apply?</p>
+  <a href="https://bseoexams.org/" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 px-10 rounded-full text-2xl shadow-xl hover:shadow-2xl transition-all no-underline">
     Direct Link: Online Application 2026
   </a>
-  <p className="mt-4 text-blue-600 font-medium">Official BSE Odisha Portal</p>
+  <p class="mt-4 text-blue-600 font-medium">Official BSE Odisha Portal</p>
 </div>
 
 ### 📄 Official Documents (PDF)
@@ -148,7 +150,7 @@ With major reforms introduced in 2026, CUET is now more structured, competitive,
 
 Staying on top of the timeline is crucial for a successful application.
 
-<div className="custom-responsive-table" data-headers='["Event", "Date"]' data-rows='[["Registration Start", "January 3, 2026"], ["Last Date (Extended)", "February 4, 2026"], ["Correction Window", "Feb 9 – Feb 11, 2026"], ["Re-Open Window", "Feb 23 – Feb 26, 2026"], ["Exam Dates", "May 11 – May 31, 2026"], ["Result", "Expected July 2026"]]'></div>
+<div class="custom-responsive-table" data-headers='["Event", "Date"]' data-rows='[["Registration Start", "January 3, 2026"], ["Last Date (Extended)", "February 4, 2026"], ["Correction Window", "Feb 9 – Feb 11, 2026"], ["Re-Open Window", "Feb 23 – Feb 26, 2026"], ["Exam Dates", "May 11 – May 31, 2026"], ["Result", "Expected July 2026"]]'></div>
 
 ---
 
@@ -179,9 +181,9 @@ The 2026 cycle brings significant reforms to streamline the testing process:
 
 The exam is divided into three main sections, each designed to test different competencies.
 
-<div className="custom-responsive-table" data-headers='["Section", "Subjects", "Duration"]' data-rows='[["Languages", "13", "60 mins"], ["Domain Subjects", "23", "60 mins"], ["General Test", "1", "60 mins"]]'></div>
+<div class="custom-responsive-table" data-headers='["Section", "Subjects", "Duration"]' data-rows='[["Languages", "13", "60 mins"], ["Domain Subjects", "23", "60 mins"], ["General Test", "1", "60 mins"]]'></div>
 
-<div className="custom-blog-chart" data-type="bar" data-title="CUET 2026 Section Duration" data-data='[{"name": "Languages", "Minutes": 60}, {"name": "Domain", "Minutes": 60}, {"name": "General Test", "Minutes": 60}]'></div>
+<div class="custom-blog-chart" data-type="bar" data-title="CUET 2026 Section Duration" data-data='[{"name": "Languages", "Minutes": 60}, {"name": "Domain", "Minutes": 60}, {"name": "General Test", "Minutes": 60}]'></div>
 
 **Each paper features:**
 * 50 questions
@@ -217,10 +219,10 @@ Understanding the marking scheme is vital for managing negative marks.
 The fee structure depends on the number of subjects chosen and the candidate's category.
 
 ### Domestic Candidates
-<div className="custom-responsive-table" data-headers='["Category", "Fee (3 Subjects)", "Extra Subject"]' data-rows='[["General", "₹1000", "₹400"], ["OBC/EWS", "₹900", "₹375"], ["SC/ST", "₹800", "₹350"]]'></div>
+<div class="custom-responsive-table" data-headers='["Category", "Fee (3 Subjects)", "Extra Subject"]' data-rows='[["General", "₹1000", "₹400"], ["OBC/EWS", "₹900", "₹375"], ["SC/ST", "₹800", "₹350"]]'></div>
 
 ### International Candidates
-<div className="custom-responsive-table" data-headers='["Category", "Fee"]' data-rows='[["Outside India", "₹4500"]]'></div>
+<div class="custom-responsive-table" data-headers='["Category", "Fee"]' data-rows='[["Outside India", "₹4500"]]'></div>
 
 :::warning{title="⚠️ Hidden Costs (Important for Students)"}
 After CUET results, students must apply separately to universities. These are additional costs beyond CUET fees:
@@ -254,19 +256,19 @@ CUET is open to a wide range of candidates:
 
 CUET uses percentile-based normalization to ensure fairness across different shifts and difficulty levels.
 
-<div className="custom-step-block" data-number="1" data-title="Percentile Calculation">
+<div class="custom-step-block" data-number="1" data-title="Percentile Calculation">
 Percentile is calculated for each candidate within their specific shift.
 </div>
 
-<div className="custom-step-block" data-number="2" data-title="Data Merging">
+<div class="custom-step-block" data-number="2" data-title="Data Merging">
 Candidate data is merged across all shifts for the same subject.
 </div>
 
-<div className="custom-step-block" data-number="3" data-title="Score Adjustment">
+<div class="custom-step-block" data-number="3" data-title="Score Adjustment">
 Scores are adjusted to account for variations in paper difficulty.
 </div>
 
-<div className="custom-step-block" data-number="4" data-title="Final Normalized Score">
+<div class="custom-step-block" data-number="4" data-title="Final Normalized Score">
 A final normalized score is generated, which universities use for the merit list.
 </div>
 
@@ -290,19 +292,19 @@ CUET is accepted by over **275 universities**, including:
 
 Success in CUET requires a mix of conceptual clarity and speed.
 
-<div className="custom-step-block" data-number="1" data-title="Focus on NCERT">
+<div class="custom-step-block" data-number="1" data-title="Focus on NCERT">
 Most questions come directly from the NCERT syllabus. Master your textbooks first.
 </div>
 
-<div className="custom-step-block" data-number="2" data-title="Prioritize 4–5 Subjects">
+<div class="custom-step-block" data-number="2" data-title="Prioritize 4–5 Subjects">
 Top students often prefer focusing on 4 subjects to ensure better accuracy and depth.
 </div>
 
-<div className="custom-step-block" data-number="3" data-title="Time Management">
+<div class="custom-step-block" data-number="3" data-title="Time Management">
 Practice solving 50 questions in 60 minutes. Speed is the deciding factor.
 </div>
 
-<div className="custom-step-block" data-number="4" data-title="Avoid Guessing">
+<div class="custom-step-block" data-number="4" data-title="Avoid Guessing">
 With negative marking (-1), blind guessing can significantly reduce your final score.
 </div>
 
@@ -381,9 +383,9 @@ CBSE is known for being very transparent about how it grades the CTET:
 
 The statistics for the February 2026 cycle show just how tough this exam is. Out of the millions who applied, only a fraction passed.
 
-<div className="custom-responsive-table" data-headers='["Metric", "Number of Candidates", "Percentage"]' data-rows='[["Registered", "26,49,129", "100%"], ["Appeared for the Exam", "23,24,625", "87.75% of Registered"], ["Passed (Qualified)", "5,97,061", "25.68% of Appeared"]]'></div>
+<div class="custom-responsive-table" data-headers='["Metric", "Number of Candidates", "Percentage"]' data-rows='[["Registered", "26,49,129", "100%"], ["Appeared for the Exam", "23,24,625", "87.75% of Registered"], ["Passed (Qualified)", "5,97,061", "25.68% of Appeared"]]'></div>
 
-<div className="custom-blog-chart" data-type="bar" data-title="CTET Feb 2026 Overall Statistics" data-data='[{"name": "Candidates", "Registered": 2649129, "Appeared": 2324625, "Passed": 597061}]'></div>
+<div class="custom-blog-chart" data-type="bar" data-title="CTET Feb 2026 Overall Statistics" data-data='[{"name": "Candidates", "Registered": 2649129, "Appeared": 2324625, "Passed": 597061}]'></div>
 
 What does this mean? Nearly 3 out of every 4 aspiring teachers failed the exam. While 25.68% sounds low, this strict pass rate is intentional—it acts as a strong filter to ensure only fully prepared teachers enter the classroom.
 
@@ -393,9 +395,9 @@ What does this mean? Nearly 3 out of every 4 aspiring teachers failed the exam. 
 
 When we break the numbers down by paper, a huge gap appears:
 
-<div className="custom-responsive-table" data-headers='["Exam Paper", "Appeared", "Passed", "Pass Percentage"]' data-rows='[["Paper 1 (Classes 1-5)", "10,65,410", "3,58,937", "33.69%"], ["Paper 2 (Classes 6-8)", "18,67,428", "3,46,738", "18.56%"]]'></div>
+<div class="custom-responsive-table" data-headers='["Exam Paper", "Appeared", "Passed", "Pass Percentage"]' data-rows='[["Paper 1 (Classes 1-5)", "10,65,410", "3,58,937", "33.69%"], ["Paper 2 (Classes 6-8)", "18,67,428", "3,46,738", "18.56%"]]'></div>
 
-<div className="custom-blog-chart" data-type="bar" data-title="Pass Percentage: Paper 1 vs Paper 2" data-data='[{"name": "Paper 1", "Pass Percentage": 33.69}, {"name": "Paper 2", "Pass Percentage": 18.56}]'></div>
+<div class="custom-blog-chart" data-type="bar" data-title="Pass Percentage: Paper 1 vs Paper 2" data-data='[{"name": "Paper 1", "Pass Percentage": 33.69}, {"name": "Paper 2", "Pass Percentage": 18.56}]'></div>
 
 * **Primary Teachers are doing well:** A 33.69% pass rate for Paper 1 shows a healthy pipeline of teachers ready for early education.
 * **Middle School Teachers are struggling:** Only 18.56% of candidates passed Paper 2. Even though way more people applied for Paper 2, the vast majority failed. This suggests that the colleges training our middle-school teachers (B.Ed. programs) need to seriously improve how they teach advanced subjects.
@@ -408,7 +410,7 @@ Unlike competitive exams like the JEE or NEET (where you are ranked against othe
 
 There is no normalization of scores. You get exactly the raw marks you earned. The passing marks are:
 
-<div className="custom-responsive-table" data-headers='["Category", "Minimum Required Percentage", "Minimum Marks (Out of 150)"]' data-rows='[["General", "60%", "90"], ["OBC / SC / ST / PwD", "55%", "82"]]'></div>
+<div class="custom-responsive-table" data-headers='["Category", "Minimum Required Percentage", "Minimum Marks (Out of 150)"]' data-rows='[["General", "60%", "90"], ["OBC / SC / ST / PwD", "55%", "82"]]'></div>
 
 :::note{title="Note"}
 CBSE keeps standards perfectly equal across genders. There are no lowered cutoffs for female candidates.
@@ -456,7 +458,7 @@ Access your scorecard instantly using roll code and number—no password require
 
 ## Detailed Exam Statistics
 
-<div className="custom-responsive-table" data-headers='["Metric", "Value/Details"]' data-rows='[["Total Candidates", "~15.5 lakh registered; high attendance reported"], ["Overall Pass %", "81.79% (up slightly from prior years)"], ["Girls Pass %", "84.5% (outperformed boys)"], ["Boys Pass %", "79.2%"], ["Top Marks", "492/500 (98.4%) – Joint 1st: Pushpanjali Kumari (Jamui), Sabreen Parveen (Vaishali)"], ["Exam Duration", "3 hours 15 mins per paper; Feb 17–25"], ["Subjects Evaluated", "Hindi, English, Math, Science, Social Science, Optional"], ["Centers", "1,699 across Bihar"]]'></div>
+<div class="custom-responsive-table" data-headers='["Metric", "Value/Details"]' data-rows='[["Total Candidates", "~15.5 lakh registered; high attendance reported"], ["Overall Pass %", "81.79% (up slightly from prior years)"], ["Girls Pass %", "84.5% (outperformed boys)"], ["Boys Pass %", "79.2%"], ["Top Marks", "492/500 (98.4%) – Joint 1st: Pushpanjali Kumari (Jamui), Sabreen Parveen (Vaishali)"], ["Exam Duration", "3 hours 15 mins per paper; Feb 17–25"], ["Subjects Evaluated", "Hindi, English, Math, Science, Social Science, Optional"], ["Centers", "1,699 across Bihar"]]'></div>
 
 ## Toppers List Highlights
 After verification, joint first rank goes to Pushpanjali Kumari from Simultala Awasiya Vidyalaya, Jamui, and Sabreen Parveen (or Parveen) from Uch Madhyamik Vidyalaya, Vaishali, both with 492 marks (98.4%). Full district-wise lists feature high performers from Patna, Gaya, and Muzaffarpur. Key ranks:
@@ -479,7 +481,7 @@ Detailed toppers available on BSEB sites post-verification.
 
 ## Pass Percentage Trends
 
-<div className="custom-responsive-table" data-headers='["Year", "Overall %", "Girls %", "Boys %", "Top Marks"]' data-rows='[["2026", "81.79", "84.5", "79.2", "492"], ["2025", "82.1", "85.2", "79.5", "489"], ["2024", "80.5", "83.8", "77.4", "489"], ["2023", "81.3", "84.0", "78.9", "485"]]'></div>
+<div class="custom-responsive-table" data-headers='["Year", "Overall %", "Girls %", "Boys %", "Top Marks"]' data-rows='[["2026", "81.79", "84.5", "79.2", "492"], ["2025", "82.1", "85.2", "79.5", "489"], ["2024", "80.5", "83.8", "77.4", "489"], ["2023", "81.3", "84.0", "78.9", "485"]]'></div>
 
 This year's results follow toppers' verification processes.
 
@@ -1046,7 +1048,7 @@ Uploading a file that is even 1KB over the limit results in a "File Size Exceede
 
 Different exam boards have different "sweet spots" for file sizes. Here is a quick reference table to help you target the right size:
 
-<div className="custom-responsive-table" data-headers='["Exam Body", "Document Type", "Typical PDF Limit", "Required Format"]' data-rows='[["UPSC (IAS, NDA, CDS)", "Certificates/ID", "20KB – 300KB", "PDF Only"], ["SSC (CGL, CHSL, MTS)", "Documents", "Usually < 200KB", "PDF / JPG"], ["IBPS / SBI (Bank Exams)", "Marksheets/Handwritten", "< 500KB", "PDF"], ["RRB (Railways)", "Category Certificates", "50KB – 300KB", "PDF"], ["State PSCs (BPSC, UPPSC)", "All Documents", "100KB – 500KB", "PDF"]]'></div>
+<div class="custom-responsive-table" data-headers='["Exam Body", "Document Type", "Typical PDF Limit", "Required Format"]' data-rows='[["UPSC (IAS, NDA, CDS)", "Certificates/ID", "20KB – 300KB", "PDF Only"], ["SSC (CGL, CHSL, MTS)", "Documents", "Usually < 200KB", "PDF / JPG"], ["IBPS / SBI (Bank Exams)", "Marksheets/Handwritten", "< 500KB", "PDF"], ["RRB (Railways)", "Category Certificates", "50KB – 300KB", "PDF"], ["State PSCs (BPSC, UPPSC)", "All Documents", "100KB – 500KB", "PDF"]]'></div>
 
 ---
 
@@ -1844,18 +1846,18 @@ This is where 90% of candidates get stuck.
 *   **Dimensions:** 4.0 cm (width) x 2.0 cm (height).
 *   **Clarity:** Must be signed in black or blue ink on white paper. It cannot be blurred, illegible, or miniature. 
 
-<div className="flex flex-col sm:flex-row gap-4 my-8">
-  <div className="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
-    <div className="h-32 bg-red-100 rounded-lg mb-3 flex items-center justify-center text-red-400 font-medium border-2 border-dashed border-red-300">
+<div class="flex flex-col sm:flex-row gap-4 my-8">
+  <div class="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+    <div class="h-32 bg-red-100 rounded-lg mb-3 flex items-center justify-center text-red-400 font-medium border-2 border-dashed border-red-300">
       [Blurry Signature Image]
     </div>
-    <p className="text-red-700 font-semibold text-sm m-0">❌ Common Mistake (Blurry/Low Contrast)</p>
+    <p class="text-red-700 font-semibold text-sm m-0">❌ Common Mistake (Blurry/Low Contrast)</p>
   </div>
-  <div className="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
-    <div className="h-32 bg-emerald-100 rounded-lg mb-3 flex items-center justify-center text-emerald-500 font-medium border-2 border-dashed border-emerald-300">
+  <div class="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+    <div class="h-32 bg-emerald-100 rounded-lg mb-3 flex items-center justify-center text-emerald-500 font-medium border-2 border-dashed border-emerald-300">
       [Clear Signature Image]
     </div>
-    <p className="text-emerald-700 font-semibold text-sm m-0">✅ Perfect Result (Crisp & Clear)</p>
+    <p class="text-emerald-700 font-semibold text-sm m-0">✅ Perfect Result (Crisp & Clear)</p>
   </div>
 </div>
 
@@ -1986,18 +1988,18 @@ This is a terrible idea. Screenshots are usually saved as PNG files, they have t
 ### Over-Compressing the Signature
 Signatures are tricky. They are usually black ink on white paper. When you compress them too much, the white background turns gray and pixelated, and the black ink fades. This requires a specific signature upload rejected solution: you need a tool that enhances contrast while reducing size.
 
-<div className="flex flex-col sm:flex-row gap-4 my-8">
-  <div className="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
-    <div className="h-32 bg-red-100 rounded-lg mb-3 flex items-center justify-center text-red-400 font-medium border-2 border-dashed border-red-300">
+<div class="flex flex-col sm:flex-row gap-4 my-8">
+  <div class="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+    <div class="h-32 bg-red-100 rounded-lg mb-3 flex items-center justify-center text-red-400 font-medium border-2 border-dashed border-red-300">
       [Blurry Signature Image]
     </div>
-    <p className="text-red-700 font-semibold text-sm m-0">❌ Common Mistake (Blurry/Low Contrast)</p>
+    <p class="text-red-700 font-semibold text-sm m-0">❌ Common Mistake (Blurry/Low Contrast)</p>
   </div>
-  <div className="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
-    <div className="h-32 bg-emerald-100 rounded-lg mb-3 flex items-center justify-center text-emerald-500 font-medium border-2 border-dashed border-emerald-300">
+  <div class="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+    <div class="h-32 bg-emerald-100 rounded-lg mb-3 flex items-center justify-center text-emerald-500 font-medium border-2 border-dashed border-emerald-300">
       [Clear Signature Image]
     </div>
-    <p className="text-emerald-700 font-semibold text-sm m-0">✅ Perfect Result (Crisp & Clear)</p>
+    <p class="text-emerald-700 font-semibold text-sm m-0">✅ Perfect Result (Crisp & Clear)</p>
   </div>
 </div>
 
@@ -2099,7 +2101,7 @@ You deserve a smooth, stress-free application process. **Try our free tool to fi
 
 Here are the exact requirements mandated by the UP Police Recruitment and Promotion Board (UPPRPB):
 
-<div className="custom-responsive-table" data-headers='["Requirement", "Photo Specification", "Signature Specification"]' data-rows='[["Dimensions", "3.5 cm x 4.5 cm", "3.5 cm x 1.5 cm"], ["File Size", "20 KB to 50 KB", "5.4 KB to 20 KB"], ["File Format", "JPEG / JPG", "JPEG / JPG"], ["Background", "Plain White or Light Grey", "Plain White Paper"], ["Ink Color", "N/A", "Black Ink Only"]]'></div>
+<div class="custom-responsive-table" data-headers='["Requirement", "Photo Specification", "Signature Specification"]' data-rows='[["Dimensions", "3.5 cm x 4.5 cm", "3.5 cm x 1.5 cm"], ["File Size", "20 KB to 50 KB", "5.4 KB to 20 KB"], ["File Format", "JPEG / JPG", "JPEG / JPG"], ["Background", "Plain White or Light Grey", "Plain White Paper"], ["Ink Color", "N/A", "Black Ink Only"]]'></div>
 
 ## Critical "Do Not Reject" Rules for UP Police
 
@@ -2155,7 +2157,7 @@ Unlike standard passport photos, AFCAT requires male and female candidates to ho
 
 Beyond the slate, the digital files you upload must meet precise technical criteria:
 
-<div className="custom-responsive-table" data-headers='["Document", "Width x Height", "File Size (KB)"]' data-rows='[["Passport Photo", "200 x 230 px", "10 KB to 50 KB"], ["Signature", "140 x 60 px", "10 KB to 50 KB"], ["Thumb Impression", "200 x 230 px", "10 KB to 50 KB"]]'></div>
+<div class="custom-responsive-table" data-headers='["Document", "Width x Height", "File Size (KB)"]' data-rows='[["Passport Photo", "200 x 230 px", "10 KB to 50 KB"], ["Signature", "140 x 60 px", "10 KB to 50 KB"], ["Thumb Impression", "200 x 230 px", "10 KB to 50 KB"]]'></div>
 
 ## Step-by-Step: Capturing the Perfect AFCAT Photo
 
@@ -2197,7 +2199,7 @@ The June Term-End Examination (TEE) is IGNOU’s primary semester/term exam held
 #### **Key Dates for June TEE 2026 Exam Form**
 The following timeline is based on official notices and consistent summaries from education portals:
 
-<div className="custom-responsive-table" data-headers='["Event", "Date / Window"]' data-rows='[["Exam form start", "From 10–11 March 2026 (effectively from 10 March onwards)"], ["Last date (no late fee)", "10 April 2026"], ["With late fee window", "11 April 2026 to 24 April 2026"], ["Late fee amount", "₹1,100 (flat)"], ["Exam period (tentative)", "1 June 2026 to 15 July 2026"], ["Exam shifts", "10:00 am–1:00 pm & 2:00 pm–5:00 pm"], ["Expected hall ticket release", "Last week of May 2026"]]'></div>
+<div class="custom-responsive-table" data-headers='["Event", "Date / Window"]' data-rows='[["Exam form start", "From 10–11 March 2026 (effectively from 10 March onwards)"], ["Last date (no late fee)", "10 April 2026"], ["With late fee window", "11 April 2026 to 24 April 2026"], ["Late fee amount", "₹1,100 (flat)"], ["Exam period (tentative)", "1 June 2026 to 15 July 2026"], ["Exam shifts", "10:00 am–1:00 pm & 2:00 pm–5:00 pm"], ["Expected hall ticket release", "Last week of May 2026"]]'></div>
 
 IGNOU and multiple guides advise students **not to wait till the last day**, because centres fill on a first-come-first-served basis and the portal often slows down near the deadline.
 
