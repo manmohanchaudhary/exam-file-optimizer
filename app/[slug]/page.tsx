@@ -106,7 +106,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
               <section>
                 <h2 className="text-2xl font-bold text-slate-900 mb-4 border-b pb-2">1. {exam.name} Photo Size Requirements</h2>
                 <ul className="space-y-3 text-slate-700">
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.photo.width} x {exam.photo.height} pixels</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.photo.dimensionsDescription || (exam.photo.width && exam.photo.height ? `${exam.photo.width} x ${exam.photo.height} pixels` : 'Not specified')}</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.photo.minSizeKb}KB to {exam.photo.maxSizeKb}KB</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.photo.format.toUpperCase()}</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.photo.description}</span></li>
@@ -116,7 +116,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
               <section>
                 <h2 className="text-2xl font-bold text-slate-900 mb-4 border-b pb-2">2. {exam.name} Signature Size Requirements</h2>
                 <ul className="space-y-3 text-slate-700">
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.signature.width} x {exam.signature.height} pixels</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.signature.dimensionsDescription || (exam.signature.width && exam.signature.height ? `${exam.signature.width} x ${exam.signature.height} pixels` : 'Not specified')}</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.signature.minSizeKb}KB to {exam.signature.maxSizeKb}KB</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.signature.format.toUpperCase()}</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.signature.description}</span></li>
@@ -214,7 +214,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
                   <Settings className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">2. Verify Settings</h3>
-                <p className="text-slate-600">The correct dimensions and file size limits for {exam.name} are already applied.</p>
+                <p className="text-slate-600">The correct dimensions and file size limits for {exam.name} are already applied. {exam.id === 'upsc' && <strong>Important: Remember to rename your PDF documents exactly as UPSC instructs (e.g., id_card.pdf) before final upload. Photos and signatures are named automatically.</strong>}</p>
               </div>
               <div className="text-center p-6">
                 <div className="w-16 h-16 bg-blue-100 text-[#0056b3] rounded-full flex items-center justify-center mx-auto mb-6">
@@ -234,7 +234,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
               <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Photo Requirements</h3>
               <ul className="space-y-3 text-slate-700">
-                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.photo.width} x {exam.photo.height} pixels</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.photo.dimensionsDescription || (exam.photo.width && exam.photo.height ? `${exam.photo.width} x ${exam.photo.height} pixels` : 'Not specified')}</span></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.photo.minSizeKb}KB to {exam.photo.maxSizeKb}KB</span></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.photo.format.toUpperCase()}</span></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.photo.description}</span></li>
@@ -244,12 +244,23 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
               <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Signature Requirements</h3>
               <ul className="space-y-3 text-slate-700">
-                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.signature.width} x {exam.signature.height} pixels</span></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> {exam.signature.dimensionsDescription || (exam.signature.width ? `${exam.signature.width} x ${exam.signature.height} pixels` : 'Not specified')}</span></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.signature.minSizeKb}KB to {exam.signature.maxSizeKb}KB</span></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.signature.format.toUpperCase()}</span></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.signature.description}</span></li>
               </ul>
             </div>
+
+            {exam.document && (
+              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
+                <h3 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">Document Requirements (PDF)</h3>
+                <ul className="space-y-3 text-slate-700">
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> {exam.document.format.toUpperCase()}</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> {exam.document.minSizeKb}KB to {exam.document.maxSizeKb}KB</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Additional Info:</strong> {exam.document.description}</span></li>
+                </ul>
+              </div>
+            )}
 
             {exam.notes && (
               <div className="bg-amber-50 rounded-2xl shadow-sm border border-amber-200 p-8 mb-8">
@@ -268,7 +279,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
               <div className="space-y-6">
                 <div>
                   <h4 className="font-bold text-slate-900">What if my photo background is not white?</h4>
-                  <p className="text-slate-600 mt-1">Most exams (like SSC, UP Police) strictly reject non-white backgrounds. Ensure you use a photo with a plain white or light-colored background before resizing.</p>
+                  <p className="text-slate-600 mt-1">Most exams (like SSC, UP Police) strictly reject non-white backgrounds. {exam.id === 'upsc' && <strong>UPSC strictly requires a plain white background and 75% face coverage.</strong>} Ensure you use a photo with a plain white or light-colored background before resizing.</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">Can I upload a selfie?</h4>
@@ -280,7 +291,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">My signature is getting blurry. What should I do?</h4>
-                  <p className="text-slate-600 mt-1">Sign on plain white paper with a thick black/blue pen. Crop it closely before uploading to our resizer to maintain clarity within the KB limit.</p>
+                  <p className="text-slate-600 mt-1">Sign on plain white paper with a thick BLACK pen. Crop it closely before uploading to our resizer to maintain clarity within the KB limit.</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">How do I resize my photo for {exam.name}?</h4>

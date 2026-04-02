@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
     const minSizeKb = formData.get('minSizeKb') ? parseInt(formData.get('minSizeKb') as string, 10) : undefined;
     const maxSizeKb = formData.get('maxSizeKb') ? parseInt(formData.get('maxSizeKb') as string, 10) : undefined;
     const dpi = formData.get('dpi') ? parseInt(formData.get('dpi') as string, 10) : undefined;
+    const examId = formData.get('examId') as string;
 
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
@@ -248,6 +249,7 @@ export async function POST(req: NextRequest) {
         if (type === 'signature') {
           // We want to fit the trimmed signature into the box, but add a small padding (e.g., 5%)
           // so it doesn't touch the absolute edges.
+          
           const padX = Math.max(1, Math.floor(width * 0.05));
           const padY = Math.max(1, Math.floor(height * 0.05));
           

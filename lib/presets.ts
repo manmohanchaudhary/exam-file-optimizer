@@ -3,6 +3,7 @@ export type FileType = 'photo' | 'signature' | 'document' | 'left_thumb' | 'righ
 export interface ExamRequirement {
   width?: number;
   height?: number;
+  dimensionsDescription?: string;
   minSizeKb?: number;
   maxSizeKb: number;
   format: 'jpg' | 'jpeg' | 'png' | 'pdf';
@@ -171,15 +172,24 @@ export const EXAMS: Exam[] = [
     category: 'All India Exams',
     photo: {
       minSizeKb: 20,
-      maxSizeKb: 300,
+      maxSizeKb: 200,
       format: 'jpg',
-      description: 'Photo: JPG image between 20–300 KB',
+      description: "Photo: JPG image between 20–200 KB. Must be named exactly 'photo.jpg'. Background must be plain white. Both ears must be clearly visible. No shadows, dark glasses, or uneven lighting. Face must cover at least 75% (3/4th) of the image area.",
     },
     signature: {
+      width: 450,
+      height: 350,
+      dimensionsDescription: 'Width between 350 px and 500 px',
       minSizeKb: 20,
-      maxSizeKb: 300,
+      maxSizeKb: 100,
       format: 'jpg',
-      description: 'Signature: JPG image between 20–300 KB',
+      description: "Signature: JPG image between 20–100 KB. Must be named exactly 'signature.jpg'. Sign THREE times, one below the other, using black ink on plain white paper with adequate spacing. Scan all three into a single image. Width must be between 350px to 500px.",
+    },
+    document: {
+      minSizeKb: 50,
+      maxSizeKb: 300,
+      format: 'pdf',
+      description: "Document: All uploaded PDFs must strictly follow UPSC's exact file naming nomenclature (e.g., id_card.pdf, board_certificate.pdf, caste_certificate.pdf). The UPSC portal will reject incorrectly named files.",
     }
   },
   {

@@ -127,6 +127,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
       const formData = new FormData();
       formData.append('file', fileToProcess);
+      formData.append('examId', selectedExamId);
       
       const isCustom = selectedExamId === 'custom';
       const exam = EXAMS.find(e => e.id === selectedExamId);
@@ -195,7 +196,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
       const downloadUrl = URL.createObjectURL(blob);
       const contentDisposition = response.headers.get('Content-Disposition');
-      let filename = `${fileType}.${blob.type === 'application/pdf' ? 'pdf' : 'jpg'}`; // Enforce simple filename as requested
+      let filename = `${fileType}.${blob.type === 'application/pdf' ? 'pdf' : 'jpg'}`;
+      if (selectedExamId === 'upsc') {
+        if (fileType === 'photo') filename = 'photo.jpg';
+        if (fileType === 'signature') filename = 'signature.jpg';
+      }
       
       setResult({
         url: downloadUrl,
@@ -205,6 +210,10 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
       });
       
       toast.success('File optimized successfully!');
+      
+      setTimeout(() => {
+        document.getElementById('results-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
 
     } catch (error) {
       console.error(error);
@@ -559,11 +568,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       <div className="grid grid-cols-2 gap-4 sm:gap-6">
                         <div className="space-y-2.5">
                           <Label htmlFor="width" className="text-slate-700 text-sm">Width (px)</Label>
-                          <Input id="width" type="number" placeholder="e.g. 200" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customWidth : currentReq?.width || ''} onChange={e => setCustomWidth(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                          <Input id="width" type={isCustom || (fileType === 'document' && !currentExam?.document) ? "number" : "text"} placeholder="Auto" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customWidth : currentReq?.width || 'Auto'} onChange={e => setCustomWidth(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                         </div>
                         <div className="space-y-2.5">
                           <Label htmlFor="height" className="text-slate-700 text-sm">Height (px)</Label>
-                          <Input id="height" type="number" placeholder="e.g. 230" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customHeight : currentReq?.height || ''} onChange={e => setCustomHeight(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                          <Input id="height" type={isCustom || (fileType === 'document' && !currentExam?.document) ? "number" : "text"} placeholder="Auto" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customHeight : currentReq?.height || 'Auto'} onChange={e => setCustomHeight(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -616,7 +625,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                 </CardFooter>
               </Card>
             ) : (
-              <Card className={`border ${isSizeValid ? 'border-green-200 bg-green-50/50' : 'border-amber-200 bg-amber-50/50'}`}>
+              <Card id="results-section" className={`border ${isSizeValid ? 'border-green-200 bg-green-50/50' : 'border-amber-200 bg-amber-50/50'}`}>
                 <CardHeader>
                   <CardTitle className={`flex items-center gap-2 ${isSizeValid ? 'text-green-800' : 'text-amber-800'}`}>
                     {isSizeValid ? (
@@ -624,7 +633,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     ) : (
                       <AlertCircle className="w-6 h-6 text-amber-500" />
                     )}
-                    {isSizeValid ? 'Valid as per OTET guidelines' : 'File too large/small'}
+                    {isSizeValid ? `Valid as per ${currentExam ? currentExam.name : 'official'} guidelines` : 'File too large/small'}
                   </CardTitle>
                   <CardDescription className={isSizeValid ? 'text-green-700' : 'text-amber-700'}>
                     {isSizeValid 
