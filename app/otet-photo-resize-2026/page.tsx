@@ -115,11 +115,15 @@ export default function OTETPhotoResize() {
             <p className="text-lg text-slate-600 mb-6">
               The Odisha Teacher Eligibility Test (OTET) is a crucial exam for aspiring teachers in Odisha. Uploading correctly formatted images is essential to ensure your application is not rejected. 
             </p>
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3 mb-4">
               <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
               <p className="text-blue-900 font-medium text-sm md:text-base">
                 This tool follows official OTET 2026 upload guidelines (10KB–40KB, JPG/PNG). No fixed dimensions are specified.
               </p>
+            </div>
+            <div className="flex items-center gap-2 text-slate-700 bg-slate-100 p-3 rounded-lg border border-slate-200">
+              <FileText className="w-5 h-5 text-blue-600" />
+              <span className="text-sm md:text-base">Need help with the application? Read our <Link href="/blog/otet-2026-application-process-guide" className="text-blue-600 font-bold hover:underline">Complete Step-by-Step OTET 2026 Application Guide</Link>.</span>
             </div>
           </div>
           
@@ -268,6 +272,15 @@ export default function OTETPhotoResize() {
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Q5. Is this tool free?</h3>
                 <p className="text-slate-600">Answer: Yes, it is completely free.</p>
               </div>
+            </div>
+
+            <div className="mt-12 p-8 bg-white rounded-2xl border border-slate-200 shadow-sm text-center">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Still have questions about the application?</h3>
+              <p className="text-slate-600 mb-6">We&apos;ve created a comprehensive guide to help you through every step of the OTET 2026 registration and submission process.</p>
+              <Link href="/blog/otet-2026-application-process-guide" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl no-underline">
+                <FileText className="w-5 h-5" />
+                Read the Complete Application Guide
+              </Link>
             </div>
           </div>
         </section>
