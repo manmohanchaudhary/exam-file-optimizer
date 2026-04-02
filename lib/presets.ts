@@ -262,9 +262,9 @@ export const EXAMS: Exam[] = [
     id: 'otet-2026',
     name: 'OTET 2026',
     category: 'Teaching',
-    notes: 'OTET does not specify fixed pixel dimensions. This tool uses standard TET guidelines (3.5×4.5 cm photo ratio) for compatibility. Always verify with official notification.',
-    photo: { width: 413, height: 531, minSizeKb: 20, maxSizeKb: 100, format: 'jpg', description: 'Photo: ~3.5x4.5 cm (20-100 KB)' },
-    signature: { width: 413, height: 177, minSizeKb: 10, maxSizeKb: 50, format: 'jpg', description: 'Signature: ~3.5x1.5 cm (10-50 KB)' }
+    notes: 'This tool follows official OTET 2026 upload guidelines (10KB–40KB, JPG/PNG). No fixed dimensions are specified.',
+    photo: { minSizeKb: 10, maxSizeKb: 40, format: 'jpg', description: 'Photo: 10KB to 40KB (JPG/PNG)' },
+    signature: { minSizeKb: 10, maxSizeKb: 40, format: 'jpg', description: 'Signature: 10KB to 40KB (JPG/PNG)' }
   },
   {
     id: 'ctet',

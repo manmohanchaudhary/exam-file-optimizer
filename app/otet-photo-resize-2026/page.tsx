@@ -17,7 +17,7 @@ export default function OTETPhotoResize() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "OTET 2026 Photo & Signature Resize Tool",
-    "description": "Resize photo and signature for OTET 2026 form using correct size, format and aspect ratio as per latest guidelines.",
+    "description": "Resize photo and signature for OTET 2026 form using official 10KB to 40KB guidelines. Supports JPG and PNG formats.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "All",
     "offers": {
@@ -33,26 +33,26 @@ export default function OTETPhotoResize() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the photo size for OTET 2026?",
+        "name": "What is the official OTET photo size?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "20 KB to 100 KB in JPG format with passport size ratio."
+          "text": "10KB to 40KB (JPG/PNG)."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the signature size for OTET 2026?",
+        "name": "What is the official OTET signature size?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "10 KB to 50 KB in JPG format."
+          "text": "10KB to 40KB (JPG/PNG)."
         }
       },
       {
         "@type": "Question",
-        "name": "Does OTET require fixed pixel dimensions?",
+        "name": "Does OTET require pixel dimensions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, OTET does not specify fixed pixel dimensions."
+          "text": "No, only file size is specified."
         }
       },
       {
@@ -60,7 +60,7 @@ export default function OTETPhotoResize() {
         "name": "Can I upload PNG images?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It is recommended to use JPG/JPEG format."
+          "text": "Yes, both JPG and PNG formats are allowed for OTET 2026."
         }
       },
       {
@@ -115,10 +115,10 @@ export default function OTETPhotoResize() {
             <p className="text-lg text-slate-600 mb-6">
               The Odisha Teacher Eligibility Test (OTET) is a crucial exam for aspiring teachers in Odisha. Uploading correctly formatted images is essential to ensure your application is not rejected. 
             </p>
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
-              <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
-              <p className="text-amber-900 font-medium text-sm md:text-base">
-                <strong>Important Note:</strong> OTET does not specify fixed pixel dimensions. This tool uses standard TET guidelines (3.5×4.5 cm photo ratio) for compatibility. Always verify with official notification.
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
+              <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
+              <p className="text-blue-900 font-medium text-sm md:text-base">
+                This tool follows official OTET 2026 upload guidelines (10KB–40KB, JPG/PNG). No fixed dimensions are specified.
               </p>
             </div>
           </div>
@@ -145,11 +145,11 @@ export default function OTETPhotoResize() {
                   <ImageIcon className="w-6 h-6 text-blue-600" /> Photo Requirements
                 </h3>
                 <ul className="space-y-4 text-slate-700">
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> 20 KB – 100 KB</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> JPG/JPEG</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Aspect Ratio:</strong> Passport size (approx 3.5:4.5 ratio)</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> 10 KB – 40 KB</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> JPG/JPEG or PNG</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> No fixed dimensions specified</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Background:</strong> White or light background</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Visibility:</strong> Face clearly visible, front-facing</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Visibility:</strong> Face clearly visible, front-facing and recent</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Restrictions:</strong> No caps or sunglasses allowed</span></li>
                 </ul>
               </div>
@@ -159,9 +159,9 @@ export default function OTETPhotoResize() {
                   <FileText className="w-6 h-6 text-blue-600" /> Signature Requirements
                 </h3>
                 <ul className="space-y-4 text-slate-700">
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> 10 KB – 50 KB</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> JPG/JPEG</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Aspect Ratio:</strong> Approx ratio 3.5:1.5</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>File Size:</strong> 10 KB – 40 KB</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Format:</strong> JPG/JPEG or PNG</span></li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Dimensions:</strong> No fixed dimensions specified</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Background:</strong> White background</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Ink:</strong> Blue or Black pen</span></li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" /> <span><strong>Restrictions:</strong> Signature should be clear and not in capital letters</span></li>
@@ -249,20 +249,20 @@ export default function OTETPhotoResize() {
             </div>
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Q1. What is the photo size for OTET 2026?</h3>
-                <p className="text-slate-600">Answer: 20 KB to 100 KB in JPG format with passport size ratio.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Q1. What is the official OTET photo size?</h3>
+                <p className="text-slate-600">Answer: 10KB to 40KB (JPG/PNG)</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Q2. What is the signature size for OTET 2026?</h3>
-                <p className="text-slate-600">Answer: 10 KB to 50 KB in JPG format.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Q2. What is the official OTET signature size?</h3>
+                <p className="text-slate-600">Answer: 10KB to 40KB (JPG/PNG)</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Q3. Does OTET require fixed pixel dimensions?</h3>
-                <p className="text-slate-600">Answer: No, OTET does not specify fixed pixel dimensions.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Q3. Does OTET require pixel dimensions?</h3>
+                <p className="text-slate-600">Answer: No, only file size is specified.</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Q4. Can I upload PNG images?</h3>
-                <p className="text-slate-600">Answer: It is recommended to use JPG/JPEG format.</p>
+                <p className="text-slate-600">Answer: Yes, both JPG and PNG formats are allowed for OTET 2026.</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Q5. Is this tool free?</h3>

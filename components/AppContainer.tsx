@@ -483,6 +483,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                                             setIsPresetMenuOpen(false);
                                             if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
                                             if ((fileType === 'left_thumb' || fileType === 'right_thumb') && exam.id !== 'dsssb') setFileType('photo');
+                                            
+                                            // Initialize custom format from preset for selectable exams like OTET
+                                            if (exam.id === 'otet-2026') {
+                                              setCustomFormat(fileType === 'photo' ? exam.photo.format : exam.signature.format);
+                                            }
                                           }}
                                           className={`relative flex w-full cursor-default items-start rounded-md py-2 px-2 text-sm outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === exam.id ? 'bg-slate-100 text-slate-900 font-medium' : 'text-slate-700'}`}
                                         >
@@ -574,7 +579,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       <div className="grid grid-cols-2 gap-4 sm:gap-6">
                         <div className="space-y-2.5">
                           <Label htmlFor="format" className="text-slate-700 text-sm">Format</Label>
-                          <Select value={isCustom || (fileType === 'document' && !currentExam?.document) ? customFormat : currentReq?.format || 'jpg'} onValueChange={(v) => v && setCustomFormat(v)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)}>
+                          <Select 
+                            value={(isCustom || (fileType === 'document' && !currentExam?.document) || selectedExamId === 'otet-2026') ? customFormat : currentReq?.format || 'jpg'} 
+                            onValueChange={(v) => v && setCustomFormat(v)} 
+                            disabled={!isCustom && !(fileType === 'document' && !currentExam?.document) && selectedExamId !== 'otet-2026'}
+                          >
                             <SelectTrigger id="format" className="h-11">
                               <SelectValue />
                             </SelectTrigger>
@@ -615,12 +624,12 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     ) : (
                       <AlertCircle className="w-6 h-6 text-amber-500" />
                     )}
-                    {isSizeValid ? 'Ready for Upload!' : 'Size Warning'}
+                    {isSizeValid ? 'Valid as per OTET guidelines' : 'File too large/small'}
                   </CardTitle>
                   <CardDescription className={isSizeValid ? 'text-green-700' : 'text-amber-700'}>
                     {isSizeValid 
-                      ? 'Your file has been optimized to meet the requirements.' 
-                      : `The optimized file size (${formatBytes(result.size)}) is outside the required range (${minSizeKb || 0}KB - ${maxSizeKb || '∞'}KB). You may need to adjust settings or try a different source image.`}
+                      ? 'Your file has been optimized to meet the official requirements.' 
+                      : `The optimized file size (${formatBytes(result.size)}) is outside the required range (${minSizeKb || 0}KB - ${maxSizeKb || '∞'}KB).`}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
