@@ -1,3 +1,4 @@
+import React from "react";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import Link from "next/link";
@@ -67,32 +68,53 @@ const emojiMap: Record<string, any> = {
 };
 
 function IconHeading({ level, children }: { level: number; children: any }) {
-  const text =
-    typeof children === "string"
-      ? children
-      : Array.isArray(children)
-        ? children.map((c) => (typeof c === "string" ? c : "")).join("")
-        : "";
+  const extractText = (node: any): string => {
+    if (typeof node === "string") return node;
+    if (typeof node === "number") return String(node);
+    if (Array.isArray(node)) return node.map(extractText).join("");
+    if (node && node.props && node.props.children) {
+      return extractText(node.props.children);
+    }
+    return "";
+  };
+
+  const text = extractText(children);
 
   let icon = null;
-  let cleanText = text;
+  let foundEmoji = "";
 
   for (const [emoji, IconComp] of Object.entries(emojiMap)) {
     if (text.includes(emoji)) {
       icon = (
         <IconComp className="w-6 h-6 md:w-8 md:h-8 text-blue-600 shrink-0" />
       );
-      cleanText = text.replace(emoji, "").trim();
+      foundEmoji = emoji;
       break;
     }
   }
 
+  const removeEmoji = (node: any, emojiToRemove: string): any => {
+    if (typeof node === "string") return node.replace(emojiToRemove, "").trim();
+    if (typeof node === "number") return node;
+    if (Array.isArray(node)) return node.map(n => removeEmoji(n, emojiToRemove));
+    if (React.isValidElement(node)) {
+      return React.cloneElement(
+        node as React.ReactElement<any>,
+        {},
+        removeEmoji((node.props as any).children, emojiToRemove)
+      );
+    }
+    return node;
+  };
+
+  const contentToRender = foundEmoji ? removeEmoji(children, foundEmoji) : children;
+
   const Tag = level === 2 ? "h2" : level === 3 ? "h3" : "h4";
 
   return (
-    <Tag className="flex items-center gap-3 md:gap-4 group">
+    <Tag className="flex items-center gap-3 md:gap-4 group font-bold mb-8 mt-10">
       {icon}
-      <span className="flex-grow">{cleanText}</span>
+      <span className="flex-grow">{contentToRender}</span>
     </Tag>
   );
 }

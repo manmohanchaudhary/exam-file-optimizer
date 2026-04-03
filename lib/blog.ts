@@ -9,11 +9,77 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "ssc-gd-2026-latest-updates-exam-dates-admit-card",
+    title: "SSC GD 2026 Latest Updates: Exam Dates, Admit Card, and New Rules Explained",
+    excerpt: "The SSC GD 2026 exam has been postponed to April. Read about the cancelled self-slot booking, admit card release stages, and the complete selection process.",
+    date: "2026-04-03",
+    content: `The **Staff Selection Commission (SSC) General Duty (GD)** exam is a massive opportunity for candidates looking to join India's paramilitary forces like the **BSF, CISF, and CRPF**. For the 2026 recruitment cycle, there are **25,487 open positions** up for grabs.
+
+If you are one of the millions of applicants waiting to take the test, stay alert—there have been major changes to the schedule and administrative rules. Here is a clear breakdown of everything you need to know right now.
+
+---
+
+### **1. Exam Dates Postponed to April**
+The online Computer-Based Test (CBT) was originally scheduled to begin on February 23, 2026. However, the SSC has officially postponed the examination due to administrative reasons.
+
+* **New Timeline:** The exams are now expected to take place in **April 2026**.
+* **Exact Schedule:** While the specific start and end dates haven't been published yet, the SSC is expected to announce the full calendar shortly on their official website: [ssc.gov.in](https://ssc.gov.in).
+
+---
+
+### **2. Self-Slot Booking is Cancelled**
+Earlier this year, rumors circulated regarding a "self-slot booking" feature that would allow candidates to choose their preferred exam date, shift, and city. 
+
+**The SSC has officially cancelled this facility.**
+
+:::warning{title="What this means for you"}
+You will not have the option to select your exam details. The SSC will automatically assign your center, date, and shift based on regional availability. These assignments are final; once your slot is set, no requests for changes will be entertained.
+:::
+
+---
+
+### **3. When Will You Get Your Admit Card?**
+To prevent server crashes and maintain high security, the SSC releases exam information in two distinct stages:
+
+### **Step 1: The City Intimation Slip (8-10 Days Before Exam)**
+About 8 to 10 days before your specific test date, the SSC will release a **City Slip**. 
+* **Purpose:** It tells you the **city** and the **shift timing** so you can arrange travel.
+* **Note:** This is *not* an admit card and cannot be used to enter the exam center.
+
+### **Step 2: The Official Admit Card (2-4 Days Before Exam)**
+Your actual Admit Card will be available for download strictly **2 to 4 days** before your test. 
+* **Details:** This document contains the exact street address of your exam venue.
+* **Requirement:** You must carry a printed copy of this card along with a **valid original photo ID** (Aadhaar Card, Voter ID, or Driving License) to the hall.
+
+---
+
+### **4. What Happens After the Written Exam?**
+The online written test is only the beginning. To secure one of the 25,487 positions, candidates must pass through several rigorous stages:
+
+1.  **Computer-Based Test (CBT):** The initial written hurdle.
+2.  **Physical Efficiency Test (PET):** A running test to measure stamina and endurance.
+3.  **Physical Standard Test (PST):** A verification of height and chest measurements against military requirements.
+4.  **Medical Exam & Document Verification:** A final health screening and a thorough check of your 10th-grade certificates and identity proofs.
+
+*Note: Physical test dates will be announced only after the CBT results are declared.*
+
+---
+
+### **Next Steps**
+Use this extra time to your advantage. Focus on high-yield topics, take regular mock tests, and keep a close watch on [ssc.gov.in](https://ssc.gov.in) for the final April date announcement. 
+
+**Good luck, aspirants!**
+
+:::cta{title="Format your SSC Photo & Signature automatically" link="/photo-resize-for-ssc-form" button="Resize for SSC Now"}
+:::
+`
+  },
+  {
     slug: "bpsc-aedo-recruitment-2026-admit-card-exam-dates",
     title: "BPSC AEDO Recruitment 2026: Exam Dates, Admit Card Download, and Selection Process",
     excerpt: "Download your BPSC AEDO Admit Card 2026 starting April 3. Check new exam dates, shift timings, exam pattern, negative marking, and salary details for Advt. No. 87/2025.",
     date: "2026-04-03",
-    content: `### 🚨 How to Download BPSC AEDO Admit Card 2026 (Advt. No. 87/2025)
+    content: `### **🚨 How to Download BPSC AEDO Admit Card 2026 (Advt. No. 87/2025)**
 The **BPSC AEDO Admit Card** is available for download starting **April 3, 2026**. Candidates must access their hall tickets via the official online portal.
 
 **Official Login Link:** [https://bpsconline.bihar.gov.in/candidate/login](https://bpsconline.bihar.gov.in/candidate/login)
@@ -32,14 +98,14 @@ Your admit card will initially show only the **Exam District**. The full address
 
 ---
 
-### 📅 BPSC AEDO Exam Schedule 2026: New Dates and Shift Timings
+### **📅 BPSC AEDO Exam Schedule 2026: New Dates and Shift Timings**
 The Assistant Education Development Officer exams, originally set for January, will now take place in **mid-April 2026**.
 
 <div class="custom-responsive-table" data-headers='["Exam Dates", "Shift 1 (Morning)", "Shift 2 (Afternoon)"]' data-rows='[["April 14, 15, 17, 18, 20, & 21", "10:00 AM to 12:00 PM", "02:30 PM to 04:30 PM"]]'></div>
 
 ---
 
-### 🛑 Essential Exam Day Rules and Entry Timings
+### **🛑 Essential Exam Day Rules and Entry Timings**
 Strict adherence to BPSC protocols is mandatory for all candidates:
 * **Reporting Time:** Arrive at the venue at least **2.5 hours** before the exam starts.
 * **Gate Closing Times:** Entry will be strictly closed at **09:00 AM** (Shift 1) and **01:30 PM** (Shift 2). 
@@ -52,7 +118,7 @@ Strict adherence to BPSC protocols is mandatory for all candidates:
 
 ---
 
-### 📖 BPSC AEDO Exam Pattern, Syllabus, and Negative Marking
+### **📖 BPSC AEDO Exam Pattern, Syllabus, and Negative Marking**
 The selection is based on a single-stage written examination consisting of three objective-type papers.
 
 <div class="custom-responsive-table" data-headers='["Paper", "Subject", "Total Marks", "Questions", "Duration"]' data-rows='[["Paper 1", "General Language (Hindi/English)", "100", "100", "2 Hours"], ["Paper 2", "General Studies", "100", "100", "2 Hours"], ["Paper 3", "General Aptitude", "100", "100", "2 Hours"]]'></div>
@@ -62,7 +128,7 @@ The selection is based on a single-stage written examination consisting of three
 
 ---
 
-### 💼 BPSC AEDO Salary Structure and Vacancy Details
+### **💼 BPSC AEDO Salary Structure and Vacancy Details**
 Joining as an Assistant Education Development Officer offers a competitive pay scale under the Bihar Government.
 
 * **Total Vacancies:** 935 Posts (including 319 seats reserved for women).
