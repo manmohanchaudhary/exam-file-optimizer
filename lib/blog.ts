@@ -9,6 +9,72 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "bpsc-aedo-recruitment-2026-admit-card-exam-dates",
+    title: "BPSC AEDO Recruitment 2026: Exam Dates, Admit Card Download, and Selection Process",
+    excerpt: "Download your BPSC AEDO Admit Card 2026 starting April 3. Check new exam dates, shift timings, exam pattern, negative marking, and salary details for Advt. No. 87/2025.",
+    date: "2026-04-03",
+    content: `### 🚨 How to Download BPSC AEDO Admit Card 2026 (Advt. No. 87/2025)
+The **BPSC AEDO Admit Card** is available for download starting **April 3, 2026**. Candidates must access their hall tickets via the official online portal.
+
+**Official Login Link:** [https://bpsconline.bihar.gov.in/candidate/login](https://bpsconline.bihar.gov.in/candidate/login)
+
+#### Step-by-Step Guide to Download Your Hall Ticket
+1. Log in using your registered Username and Password.
+2. Fill in the captcha on the next screen.
+3. Click "No" on the DigiLocker prompt.
+4. Navigate to the "My Account" section and click "View".
+5. Locate the Admit Card link for Advt. No. 87/2025 and click "View/Download".
+6. Print your admit card on an A4 sheet. Ensure the Barcode and Roll Number are clearly visible for scanning.
+
+:::warning{title="Important Update on Exam Centers"}
+Your admit card will initially show only the **Exam District**. The full address and name of your specific **Exam Center** will be revealed on your candidate dashboard **3 days before your exam date**.
+:::
+
+---
+
+### 📅 BPSC AEDO Exam Schedule 2026: New Dates and Shift Timings
+The Assistant Education Development Officer exams, originally set for January, will now take place in **mid-April 2026**.
+
+<div class="custom-responsive-table" data-headers='["Exam Dates", "Shift 1 (Morning)", "Shift 2 (Afternoon)"]' data-rows='[["April 14, 15, 17, 18, 20, & 21", "10:00 AM to 12:00 PM", "02:30 PM to 04:30 PM"]]'></div>
+
+---
+
+### 🛑 Essential Exam Day Rules and Entry Timings
+Strict adherence to BPSC protocols is mandatory for all candidates:
+* **Reporting Time:** Arrive at the venue at least **2.5 hours** before the exam starts.
+* **Gate Closing Times:** Entry will be strictly closed at **09:00 AM** (Shift 1) and **01:30 PM** (Shift 2). 
+* **Mandatory Items:** 
+    * **Extra Admit Card:** Bring an **additional printed copy** of your e-Admit Card to sign and submit to the invigilator.
+    * **Original ID:** Carry the same Photo ID used during the application process.
+    * **Pens:** Only Blue or Black ballpoint pens are allowed.
+* **Prohibited Gadgets:** Mobile phones, smartwatches, analog watches, and calculators are strictly banned.
+* **Security Clearance:** All candidates must undergo **Biometric and Facial Recognition** scanning before leaving the hall.
+
+---
+
+### 📖 BPSC AEDO Exam Pattern, Syllabus, and Negative Marking
+The selection is based on a single-stage written examination consisting of three objective-type papers.
+
+<div class="custom-responsive-table" data-headers='["Paper", "Subject", "Total Marks", "Questions", "Duration"]' data-rows='[["Paper 1", "General Language (Hindi/English)", "100", "100", "2 Hours"], ["Paper 2", "General Studies", "100", "100", "2 Hours"], ["Paper 3", "General Aptitude", "100", "100", "2 Hours"]]'></div>
+
+* **Qualifying Paper:** Paper 1 is qualifying in nature (30% minimum). Marks from Paper 1 are **not** added to the final merit list.
+* **Negative Marking:** A penalty of **1/3rd (0.33) mark** applies for every incorrect answer.
+
+---
+
+### 💼 BPSC AEDO Salary Structure and Vacancy Details
+Joining as an Assistant Education Development Officer offers a competitive pay scale under the Bihar Government.
+
+* **Total Vacancies:** 935 Posts (including 319 seats reserved for women).
+* **Pay Scale:** Level 5 (7th Pay Commission).
+* **Basic Pay:** ₹29,200 per month.
+* **In-Hand Salary:** Approximately **₹52,000 – ₹55,000 per month** (including DA at 53%, HRA, and Medical Allowances).
+
+:::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
+:::
+`
+  },
+  {
     slug: "upsc-photo-signature-guidelines-2026",
     title: "The Ultimate Guide to UPSC Photo and Signature Uploads (Updated 2026 Guidelines)",
     excerpt: "Applying for UPSC? Avoid application rejection by following the new 2026 guidelines for photo and signature uploads, including the mandatory triple-signature rule.",
