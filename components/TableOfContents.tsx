@@ -24,7 +24,11 @@ export function TableOfContents({ content }: { content: string }) {
 
     while ((match = headingRegex.exec(content)) !== null) {
       const level = match[1].length;
-      const text = match[2].trim();
+      let text = match[2].trim();
+      
+      // Remove markdown bold/italic formatting
+      text = text.replace(/\*\*/g, '').replace(/\*/g, '').replace(/__/g, '').replace(/_/g, '');
+      
       const id = slugify(text);
       extractedHeadings.push({ id, text, level });
     }

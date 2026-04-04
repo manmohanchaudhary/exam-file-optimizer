@@ -1,10 +1,13 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   date: string;
   content: string;
   image?: string;
+  faq?: { question: string; answer: string }[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -76,32 +79,54 @@ Use this extra time to your advantage. Focus on high-yield topics, take regular 
   },
   {
     slug: "bpsc-aedo-recruitment-2026-admit-card-exam-dates",
-    title: "BPSC AEDO Recruitment 2026: Exam Dates, Admit Card Download, and Selection Process",
-    excerpt: "Download your BPSC AEDO Admit Card 2026 starting April 3. Check new exam dates, shift timings, exam pattern, negative marking, and salary details for Advt. No. 87/2025.",
+    title: "BPSC AEDO Admit Card 2026 Out: Direct Link to Download Hall Ticket",
+    metaTitle: "BPSC AEDO Admit Card 2026 (Released) - Download Link & Exam Dates",
+    metaDescription: "Download BPSC AEDO Admit Card 2026 here. Check the official exam schedule (April 14-21), shift timings, and steps to login at bpsc.bihar.gov.in.",
+    excerpt: "Download BPSC AEDO Admit Card 2026 here. Check the official exam schedule (April 14-21), shift timings, and steps to login at bpsc.bihar.gov.in.",
     date: "2026-04-03",
-    content: `### **🚨 How to Download BPSC AEDO Admit Card 2026 (Advt. No. 87/2025)**
-The **BPSC AEDO Admit Card** is available for download starting **April 3, 2026**. Candidates must access their hall tickets via the official online portal.
+    faq: [
+      {
+        question: "When is the BPSC AEDO Admit Card 2026 released?",
+        answer: "The BPSC AEDO Admit Card was officially released on April 3, 2026."
+      },
+      {
+        question: "What are the exam dates for BPSC AEDO 2026?",
+        answer: "The BPSC AEDO 2026 exams are scheduled to take place from April 14 to April 21, 2026."
+      },
+      {
+        question: "How can I download the BPSC AEDO Admit Card?",
+        answer: "You can download the admit card by visiting bpsc.bihar.gov.in, logging in with your Username and Password, and clicking on the Admit Card download link."
+      }
+    ],
+    content: `The Bihar Public Service Commission (BPSC) has officially released the Assistant Director-cum-Extention Officer (AEDO) admit cards on April 3, 2026. Candidates can now download their hall tickets for the exams scheduled from April 14 to April 21.
 
-**Official Login Link:** [https://bpsconline.bihar.gov.in/candidate/login](https://bpsconline.bihar.gov.in/candidate/login)
+<a href="https://bpsconline.bihar.gov.in/candidate/login" class="inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-lg mt-4 mb-6 hover:bg-red-700 transition-colors no-underline">Download BPSC AEDO Admit Card 2026 Here</a>
 
-#### Step-by-Step Guide to Download Your Hall Ticket
-1. Log in using your registered Username and Password.
-2. Fill in the captcha on the next screen.
-3. Click "No" on the DigiLocker prompt.
-4. Navigate to the "My Account" section and click "View".
-5. Locate the Admit Card link for Advt. No. 87/2025 and click "View/Download".
-6. Print your admit card on an A4 sheet. Ensure the Barcode and Roll Number are clearly visible for scanning.
+---
+
+## **Steps to Download BPSC AEDO Admit Card 2026**
+Follow these simple steps for your **BPSC Assistant Director Admit Card download** via the official **BPSC AEDO login 2026** portal:
+
+1. Visit \`bpsc.bihar.gov.in\`.
+2. Click on the "Apply Online" or "Admit Card" tab.
+3. Enter your **Username** and **Password**.
+4. Solve the Captcha and Click Login.
+5. Download and print your AEDO Hall Ticket.
 
 :::warning{title="Important Update on Exam Centers"}
-Your admit card will initially show only the **Exam District**. The full address and name of your specific **Exam Center** will be revealed on your candidate dashboard **3 days before your exam date**.
+Your admit card will initially show only the **Exam District**. The full address and name of your specific **BPSC AEDO exam center list Bihar** will be revealed on your candidate dashboard **3 days before your exam date**.
 :::
 
 ---
 
-### **📅 BPSC AEDO Exam Schedule 2026: New Dates and Shift Timings**
-The Assistant Education Development Officer exams, originally set for January, will now take place in **mid-April 2026**.
+## **BPSC AEDO 2026 Exam Schedule**
+The Assistant Education Development Officer exams will take place in **mid-April 2026**.
 
-<div class="custom-responsive-table" data-headers='["Exam Dates", "Shift 1 (Morning)", "Shift 2 (Afternoon)"]' data-rows='[["April 14, 15, 17, 18, 20, & 21", "10:00 AM to 12:00 PM", "02:30 PM to 04:30 PM"]]'></div>
+* **April 14 & 15:** General Studies & Language / Shift 1 & 2
+* **April 17 & 18:** Domain Subjects / Shift 1 & 2
+* **April 20 & 21:** General Aptitude / Shift 1 & 2
+
+<div class="custom-responsive-table" data-headers='["Exam Dates", "Subject Name", "Shift"]' data-rows='[["April 14 & 15", "General Studies & Language", "Shift 1 & 2"], ["April 17 & 18", "Domain Subjects", "Shift 1 & 2"], ["April 20 & 21", "General Aptitude", "Shift 1 & 2"]]'></div>
 
 ---
 
@@ -109,6 +134,11 @@ The Assistant Education Development Officer exams, originally set for January, w
 Strict adherence to BPSC protocols is mandatory for all candidates:
 * **Reporting Time:** Arrive at the venue at least **2.5 hours** before the exam starts.
 * **Gate Closing Times:** Entry will be strictly closed at **09:00 AM** (Shift 1) and **01:30 PM** (Shift 2). 
+
+:::info{title="Note"}
+Remember to carry a valid ID proof along with your printed admit card. These are the mandatory **Documents required for BPSC AEDO exam**.
+:::
+
 * **Mandatory Items:** 
     * **Extra Admit Card:** Bring an **additional printed copy** of your e-Admit Card to sign and submit to the invigilator.
     * **Original ID:** Carry the same Photo ID used during the application process.
@@ -137,6 +167,9 @@ Joining as an Assistant Education Development Officer offers a competitive pay s
 * **In-Hand Salary:** Approximately **₹52,000 – ₹55,000 per month** (including DA at 53%, HRA, and Medical Allowances).
 
 :::cta{title="Fix Document Upload Issues Instantly" link="/" button="Resize Image Now"}
+:::
+\`
+  },ze Image Now"}
 :::
 `
   },

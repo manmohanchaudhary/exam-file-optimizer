@@ -110,9 +110,10 @@ function IconHeading({ level, children }: { level: number; children: any }) {
   const contentToRender = foundEmoji ? removeEmoji(children, foundEmoji) : children;
 
   const Tag = level === 2 ? "h2" : level === 3 ? "h3" : "h4";
+  const sizeClass = level === 2 ? "text-2xl md:text-3xl" : level === 3 ? "text-xl md:text-2xl" : "text-lg md:text-xl";
 
   return (
-    <Tag className="flex items-center gap-3 md:gap-4 group font-bold mb-8 mt-10">
+    <Tag className={`flex items-center gap-3 md:gap-4 group font-bold mb-8 mt-10 ${sizeClass}`}>
       {icon}
       <span className="flex-grow">{contentToRender}</span>
     </Tag>
@@ -137,14 +138,14 @@ export async function generateMetadata({
   const url = `https://examresize.online/blog/${slug}`;
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: post.metaTitle || post.title,
+    description: post.metaDescription || post.excerpt,
     alternates: {
       canonical: `/blog/${slug}`,
     },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
       url: url,
       type: "article",
       publishedTime: post.date,
@@ -152,8 +153,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
     },
   };
 }
@@ -230,6 +231,22 @@ export default async function BlogPostPage({
     ],
   };
 
+  let faqSchema = null;
+  if (post.faq && post.faq.length > 0) {
+    faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    };
+  }
+
   const detectedExamPreset = EXAMS.find(
     (exam) =>
       slug.includes(exam.id) || slug.includes(exam.id.replace("-2026", "")),
@@ -265,6 +282,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <Header />
 
       <main className="flex-grow w-full">
