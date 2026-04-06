@@ -404,137 +404,96 @@ Even with the guidelines in hand, candidates often make small errors. Double-che
 
 Preparing your documents for the UPSC application doesn't have to be stressful. By carefully following these updated 2026 guidelines—especially the new triple-signature rule and the strict file naming conventions—you can ensure a smooth, error-free application process. 
 
-For the complete, original document from the commission, you can view the [Official UPSC Photo & Signature Upload Instructions (PDF)](https://upsconline.nic.in/ngrp/assets/PDF/instruction-photo-signature-upload-upsc.pdf).
-
-:::cta{title="Format your UPSC Photo & Signature automatically" link="/upsc" button="Resize for UPSC Now"}
+For the complete, original document from the commission, you can view the [Official UPSC Photo & Signature Upload Instructions (PDF)](https://upsconline.nic.in/ngrp/assets/PDF/:::cta{title="Format your UPSC Photo & Signature automatically" link="/upsc" button="Resize for UPSC Now"}
 :::
 `
   },
   {
     slug: "otet-2026-application-process-guide",
-    title: "Complete Guide: Step-by-Step Application Process for OTET 2026",
-    excerpt: "Master the OTET 2026 application process with our detailed step-by-step guide. From registration and document uploads to final payment, ensure your form is error-free and compliant with official BSE Odisha guidelines.",
+    title: "OTET 2026 Application Process: Step-by-Step Guide, Checklist & Troubleshooting",
+    metaTitle: "OTET 2026 Application Process: Step-by-Step Guide & Checklist",
+    metaDescription: "Master the OTET 2026 application process. Avoid rejection with our complete checklist, step-by-step form guide, troubleshooting tips, and common mistakes to avoid.",
+    excerpt: "Master the OTET 2026 application process. Avoid rejection with our complete checklist, step-by-step form guide, troubleshooting tips, and common mistakes to avoid.",
     date: "2026-04-02",
     image: "https://examresize.online/otet-notification.jpg",
-    content: `To begin your teaching career in Odisha, completing the OTET 2026 application correctly is your first major hurdle. Small mistakes during the online process can lead to rejection, so it's vital to follow the official BSE Odisha instructions precisely.
+    faq: [
+      { question: "Can I edit my OTET application form after final submission?", answer: "No, BSE Odisha does not provide a correction window. Once you click 'Final Submit', no changes can be made. You must verify all details on the preview screen." },
+      { question: "What should I do if I forget my login password?", answer: "Click on the 'Forgot Password' link on the login page. You will receive a password reset link or OTP on your registered mobile number and email ID." },
+      { question: "Do I need to send a hard copy of the application to the BSE Odisha office?", answer: "No, the entire application process is strictly online. However, you should print and keep the final acknowledgment receipt for your own records." },
+      { question: "Can candidates in the final year of B.Ed/D.El.Ed apply for OTET?", answer: "Yes, appearing candidates can apply. You will need to upload a 'Continuing Certificate' in the prescribed format signed by the head of your institution." },
+      { question: "Is Aadhaar Card mandatory for OTET registration?", answer: "While a valid photo ID is required, Aadhaar is highly recommended as it simplifies identity verification at the exam center." }
+    ],
+    content: `Applying for the Odisha Teacher Eligibility Test (OTET) 2026 is your first major step toward a stable teaching career in Odisha's government schools. However, the online application portal can be unforgiving. A single mistake—like a blurry signature or a mismatched Date of Birth—can lead to outright rejection, wasting your time and effort.
 
-This guide breaks down the entire process into manageable steps to help you navigate the portal with confidence.
+This guide is designed specifically for OTET aspirants who want a smooth, error-free application experience. We move beyond the basic official instructions to provide a practical checklist, a step-by-step walkthrough, and troubleshooting tips for the most common portal glitches.
 
 ---
 
-## 1. Registration (New User)
+## 📋 Before You Start: The OTET Preparation Checklist
 
-To begin your application, visit the official portal and click on **New Registration**. You will need to provide the following details:
+Do not open the BSE Odisha portal until you have the following items ready on your desk or saved on your computer. The portal has a session timeout, so gathering these beforehand is crucial.
 
-* **Full Name:** Enter exactly as it appears on your 10th-grade certificate.
-* **Date of Birth:** Use the provided calendar to select the date matching your 10th-grade certificate.
-* **Mobile Number:** Provide a valid, active 10-digit number.
-* **Email ID:** Provide an active email address you check regularly.
-* **Password:** Create a secure password with a minimum of 5 characters.
-* **Confirmation:** Re-enter your details to confirm, complete the CAPTCHA, and click **Register** to proceed to the login page.
+*   **Active Mobile Number & Email ID:** These cannot be changed after registration. All OTPs and future communications will be sent here.
+*   **10th Class Certificate:** Your Name, Father's Name, Mother's Name, and Date of Birth must be entered *exactly* as they appear on this certificate.
+*   **Educational Details:** Keep your 12th, Graduation, and Professional Qualification (B.Ed/D.El.Ed) mark sheets handy for quick data entry.
+*   **Scanned Photograph:** Recent color passport photo (Format: JPG/PNG, Size: 10 KB to 40 KB).
+*   **Scanned Signature:** Clear signature on white paper with black/blue ink (Format: JPG/PNG, Size: 10 KB to 40 KB).
+*   **Payment Method:** Active UPI, Debit/Credit Card, or Net Banking credentials.
 
-:::warning{title="⚠️ Important"}
-Your Date of Birth, Mobile Number, and Email ID cannot be changed once registered. Ensure they are correct before submitting.
+---
+
+## 🚀 Step-by-Step OTET 2026 Application Process
+
+### Step 1: New User Registration
+Visit the official BSE Odisha portal and click **New Registration**. Enter your full name, mobile number, email ID, and create a secure password. 
+*Note: Verify your Date of Birth twice before hitting submit. It becomes locked after this step.*
+
+### Step 2: Login and Eligibility Selection
+Log in using your registered mobile number/email and password. 
+Select your **Training Status** and the **Paper** you are applying for (Paper I for Classes 1-5, Paper II for Classes 6-8, or Both). If applying for Paper II, carefully select your Optional Subject (Math & Science or Social Studies).
+
+### Step 3: Personal and Address Details
+Fill in your personal information, including category (SC/ST/SEBC/UR) and PwD status. Enter your permanent and correspondence addresses. Ensure your pin code is accurate for future postal communications.
+
+### Step 4: Qualification Details
+Enter your academic records starting from the 10th standard up to your highest qualification. You will need to input the Board/University name, maximum marks, marks secured, and your division.
+
+### Step 5: Document Uploads
+This is where most applications face issues. You must upload your photograph and signature within the strict 10 KB to 40 KB limit.
+
+:::cta{title="Struggling with the 10-40KB limit?" link="/otet-photo-resize-2026" button="Resize OTET Photo & Signature Automatically"}
 :::
 
----
-
-## 2. Account Login
-
-Once registered, log in to access your application dashboard. Enter your registered **Email ID** or **Mobile Number**, input your **Password**, solve the CAPTCHA, and click **Login**.
+### Step 6: Preview, Final Submit, and Payment
+**Stop and review.** Read every single line of the preview page. Once you click **Final Submit**, no further edits are permitted. After submission, proceed to the payment gateway to pay your application fee (₹600 for SC/ST single paper; ₹900 for Others single paper). Download the final acknowledgment receipt.
 
 ---
 
-## 3. The Application Form (4 Steps)
+## ❌ Common Mistakes That Cause Application Rejection
 
-The main application consists of four sequential steps. Ensure you have your documents ready before starting.
+Avoid these frequent candidate errors to ensure your admit card is generated without issues:
 
-### Step 1: Eligibility Details
-Select your Training Status, the Paper you are opting for (Paper I or Paper II), and your Qualification level. If applicable, choose your Optional Subject (for Paper II) and your Language for MIL. Click **Save & Next**.
-
-### Step 2: Personal Details
-* **Personal Information:** Enter the Applicant’s Name, Father’s Name, and Mother’s Name. Your DOB will be auto-filled. Select your Gender, Caste Category, PwD Status, and Applicant Category.
-* **Permanent Address:** Select your Village/Town type and provide your Block/Municipality, District, Address (AT), Post Office, and Pincode.
-* **Correspondence Address:** Choose "Same as permanent" if applicable, or fill in the new address details separately. Click **Save & Next**.
-
-### Step 3: Qualification Details
-* **General Qualification:** Enter your 10+2 (Higher Secondary) Subjects, Board, Max Marks, Marks Secured, Percentage, and Division. Do the same for Graduation and Post Graduation if applicable.
-* **Professional Qualification:** If applicable, provide your Exam Name (D.El.Ed, B.Ed, etc.), Method Subject, Institution Name, Affiliation (NCTE/RCI), University/Board, and your marks breakdown.
-* **Document Uploads:** Upload your recent **Photo** (JPG/PNG, 10–40 KB), your **Signature** (JPG/PNG, 10–40 KB), and any required **Certificates** (JPG/PNG/PDF).
-
-:::tip{title="🚀 Pro Tip: Image Resizing"}
-Don't risk rejection due to incorrect file sizes. Use our free [OTET 2026 Photo & Signature Resize Tool](/otet-photo-resize-2026) to automatically format your images to the exact 10KB–40KB requirement.
-:::
-
-### Step 4: Preview & Final Submission
-Carefully review all entered details on the preview screen. If you need to make changes, click **Back to Edit**. Once you are certain everything is accurate, click **Final Submit**.
-
-:::warning{title="⚠️ Important"}
-No edits are allowed after the final submission. Double-check every field!
-:::
+1.  **Name Mismatch:** Entering your name differently than how it appears on your matriculation (10th) certificate (e.g., adding a surname that isn't officially recorded).
+2.  **Illegible Uploads:** Uploading a signature that is too small, blurry, or photographed in bad lighting.
+3.  **Wrong Paper Selection:** Choosing Paper II when your qualifications only make you eligible for Paper I.
+4.  **Multiple Registrations:** Submitting more than one application form. The board will reject duplicate entries.
 
 ---
 
-## 4. Payment Process
+## 🛠️ Troubleshooting Portal Issues
 
-After submitting your form, proceed to the payment gateway. Select your preferred payment mode (**Debit Card, Credit Card, Net Banking, or UPI**) and complete the transaction securely.
+The BSE Odisha portal experiences heavy traffic, especially near the deadline. Here is how to handle common technical glitches:
 
-:::warning{title="⚠️ Important"}
-Do not refresh or close your browser during the transaction. Upon success, a confirmation message will appear, and a payment receipt will be generated.
-:::
-
----
-
-## 5. Download & Print
-
-For your personal records and future reference, make sure to download and print both your completed **Application Form** and your **Payment Receipt**.
+*   **OTP Not Arriving:** The SMS gateway often gets congested. Wait 5 minutes. If it still fails, try requesting the OTP during off-peak hours (early morning or late night).
+*   **Payment Deducted but Status Shows "Pending":** **Do not pay again immediately.** Wait 24 to 48 hours. The bank usually syncs with the portal within this timeframe. If it fails, the money will automatically refund to your account in 5-7 working days.
+*   **"File Size Exceeded" Error:** The portal is strictly coded to reject files over 40 KB. Use an image compressor to reduce the file size before trying again.
+*   **Session Timeout/Auto-Logout:** This happens if you stay on one page for too long. Keep your documents ready so you can type the details quickly.
 
 ---
 
-## 💰 Application Fees (OTET 2026)
+## 🏁 Conclusion
 
-The fee structure is based on the number of papers you choose and your category.
-
-<div class="custom-responsive-table" data-headers='["Category", "Single Paper", "Both Papers"]' data-rows='[["SC/ST", "₹600", "₹900"], ["Others", "₹900", "₹1400"]]'></div>
-
----
-
-## 📋 Important Instructions
-
-* All fields marked with an asterisk (*) are mandatory.
-* Ensure all entered details perfectly match your official documents.
-* Always use a valid, accessible mobile number and email address.
-* Do not submit multiple applications under any circumstances.
-* Keep your login credentials secure.
-* Incomplete applications will be automatically rejected.
-* Payment must be completed before the final deadline.
-
----
-
-## 📞 Help & Support
-
-If you encounter any technical issues or have questions during the application process, contact the official helpdesk:
-* **Email:** support.bseo@gmail.com
-
----
-
-## 🔗 Official OTET 2026 Notifications & Links
-
-<div class="my-8 p-6 bg-blue-50 border-2 border-blue-500 rounded-xl text-center shadow-lg">
-  <p class="text-blue-800 font-bold text-lg mb-3 uppercase tracking-wider">🚀 Ready to Apply?</p>
-  <a href="https://bseoexams.org/" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 px-10 rounded-full text-2xl shadow-xl hover:shadow-2xl transition-all no-underline">
-    Direct Link: Online Application 2026
-  </a>
-  <p class="mt-4 text-blue-600 font-medium">Official BSE Odisha Portal</p>
-</div>
-
-### 📄 Official Documents (PDF)
-
-*   **[Official Instruction](https://bseoexams.org/otet26/note/view-documents.php?file=Instructions.pdf)** – Complete guidelines for candidates.
-*   **[OTET Eligibility 2026](https://bseoexams.org/otet26/note/view-documents.php?file=OTET_Eligibility.pdf)** – Detailed eligibility criteria for Paper I & II.
-*   **[Syllabus & Structure for OTET 2026](https://bseoexams.org/otet26/note/view-documents.php?file=SyllabusStructure.pdf)** – Exam pattern and subject-wise syllabus.
-*   **[In Service Teacher Format](https://bseoexams.org/otet26/note/view-documents.php?file=In_service_Teacher.pdf)** – Required for in-service teacher candidates.
-*   **[Format of Continuing Certificate](https://bseoexams.org/otet26/note/view-documents.php?file=Format_of_Continuing_Cert.pdf)** – For candidates appearing in final year exams.
+Successfully submitting your OTET 2026 application is about preparation and attention to detail. Gather your documents, resize your images beforehand, and double-check every entry before the final submission. Do not wait for the last date, as server crashes are highly common. Apply early, secure your application, and shift your focus entirely to your exam preparation!
 `
   },
   {
