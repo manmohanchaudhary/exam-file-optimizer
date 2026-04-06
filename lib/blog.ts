@@ -12,6 +12,175 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "ssc-je-2025-tier-2-admit-card-out",
+    title: "SSC JE 2025 Tier 2 Admit Card Out: Download Link, Exam Guidelines, and Result Timeline",
+    metaTitle: "SSC JE 2025 Tier 2 Admit Card Out - Download Link & Guidelines",
+    metaDescription: "The SSC JE 2025 Tier 2 Admit Card is out. Download your hall ticket, check exam guidelines, and understand the result timeline for the April 7 exam.",
+    excerpt: "The Staff Selection Commission has released the Admit Card for the Junior Engineer (JE) 2025 Tier 2 Exam. Get the direct download link and exam day rules.",
+    date: "2026-04-06",
+    faq: [
+      {
+        question: "Can I change my exam center now?",
+        answer: "No, the exam center mentioned on your admit card is final and cannot be changed."
+      },
+      {
+        question: "What if my photo is not clear on the admit card?",
+        answer: "You must carry two original passport-size photographs to the center to avoid entry issues."
+      },
+      {
+        question: "Is there an interview after Tier 2?",
+        answer: "No, there is no interview; selection is based purely on Paper 1 and Paper 2 marks, followed by document verification."
+      },
+      {
+        question: "What is the reporting time?",
+        answer: "Your specific reporting time is listed on your admit card; generally, you should reach the center at least 60 minutes before the exam starts."
+      }
+    ],
+    content: `The Staff Selection Commission (SSC) has officially released the Admit Card for the **Junior Engineer (JE) 2025 Tier 2 (Paper-II) Exam**. This recruitment drive aims to fill **1,731 vacancies** in various government departments like CPWD, BRO, and MES. With the exam scheduled for **April 7, 2026**, over 15,607 candidates who cleared the Tier 1 exam are now in their final stage of preparation.
+
+This article provides the direct download link, exam day rules, and what happens once the test is over.
+
+---
+
+## Direct Link to Download SSC JE Tier 2 Admit Card
+The admit cards were released on **April 4, 2026**. You can download your hall ticket by logging into the official SSC portal using your Registration Number and Date of Birth:
+
+👉 **[https://ssc.gov.in/login](https://ssc.gov.in/login)**
+
+### Regional SSC Download Links
+If the main website is slow, you can also download your admit card from your specific regional SSC website:
+
+<div class="custom-responsive-table" data-headers='["Region", "States Covered", "Regional Website Link"]' data-rows='[["Northern (NR)", "Delhi, Rajasthan, Uttarakhand", "sscnr.nic.in"], ["Central (CR)", "Uttar Pradesh, Bihar", "ssc-cr.org"], ["Eastern (ER)", "WB, Odisha, Jharkhand, Sikkim", "sscer.org"], ["Southern (SR)", "AP, TN, Telangana, Puducherry", "sscsr.gov.in"], ["Western (WR)", "Maharashtra, Goa, Gujarat", "sscwr.net"], ["KKR", "Karnataka, Kerala", "ssckkr.kar.nic.in"], ["North Western", "Punjab, Haryana, J&K, HP", "sscnwr.org"], ["North Eastern", "Assam, Manipur, Meghalaya", "sscner.org.in"], ["MP Region", "MP, Chhattisgarh", "sscmpr.org"]]'></div>
+
+---
+
+## Before the Exam: Final Checklist
+Before you head to the exam center on April 7, ensure you have these "Beforemath" essentials ready:
+
+* **Mandatory Documents:** You must carry a printed copy of your **Admit Card** and a **valid Photo ID** (Aadhaar Card, Voter ID, PAN Card, or Passport).
+* **Date of Birth Proof:** Your ID card must show the exact same Date of Birth (Day, Month, and Year) as printed on your admit card.
+* **Discrepancy Backup:** If your ID does not match, bring an original Class 10 certificate as proof.
+* **Photographs:** Carry two recent passport-size color photos (the same ones used in your application).
+* **Scribe Details:** If you are using a scribe, ensure they have their **Scribe Entry Pass**.
+* **Scribe Registration:** Note that all scribe registrations done before November 5, 2025, were cancelled and required re-registration using Aadhaar authentication.
+
+---
+
+## Tier 2 Exam Pattern & Rules
+The Tier 2 exam is a **Computer-Based Test (CBT)** that focuses entirely on your chosen engineering branch (Civil, Electrical, or Mechanical).
+
+* **Total Questions:** 100 Multiple Choice Questions (MCQs).
+* **Total Marks:** 300 Marks (3 marks for every correct answer).
+* **Negative Marking:** Be careful—**1.0 mark** will be deducted for every wrong answer.
+* **Calculators:** You are **not** allowed to bring a physical calculator.
+* **Digital Aids:** A **scientific calculator will be provided on-screen** within the test system.
+* **Allowed Aids:** You may bring your own slide rules, log tables, or steam tables, provided they have no handwritten notes.
+
+---
+
+## The Aftermath: What Happens After April 7?
+The recruitment process doesn't end with the exam. Here is the expected timeline for the post-exam phase:
+
+* **Answer Key (Mid-April 2026):** SSC usually releases provisional answer keys within 5 to 10 days after the exam.
+* **Objections:** You will have a window to challenge any answers for a fee of ₹100 per question.
+* **Result & Merit List:** The final result is prepared by adding your scores from both Paper 1 and Paper 2.
+* **Timeline:** In previous cycles, the final result was released approximately three months after the Tier 2 exam.
+* **Document Verification (DV):** Qualified candidates will be called for Document Verification to show original engineering degrees, caste certificates, and experience certificates.
+`
+  },
+  {
+    slug: "ignou-assignment-submission-date-extended-june-2026",
+    title: "IGNOU Assignment Submission Date Extended for June 2026 TEE: Check New Deadline & Official PDF",
+    metaTitle: "IGNOU Assignment Submission Date Extended for June 2026 TEE",
+    metaDescription: "The IGNOU assignment submission deadline for the June 2026 Term End Examination has been officially extended to April 30, 2026. Check the new dates and guidelines.",
+    excerpt: "The IGNOU assignment submission deadline for the June 2026 Term End Examination has been officially extended to April 30, 2026. Check the new dates, submission guidelines, and download the official PDF.",
+    date: "2026-04-05",
+    content: `Are you an Indira Gandhi National Open University (IGNOU) student currently preparing for the **June 2026 Term End Examination (TEE)**? If you have been struggling to complete your Tutor Marked Assignments (TMA) on time, we have a major update for you.
+
+The university has officially announced an extension for the assignment submission deadline. This update provides a much-needed window for thousands of students enrolled in ODL and Online programs to finish their coursework without the stress of missing the original cutoff.
+
+---
+
+## What is the New Last Date for IGNOU Assignment Submission?
+In a recent official notification from the Student Evaluation Division (SED), IGNOU has extended the deadline for all Academic Programs (including ODL, Online, GOAL, and EVBB).
+
+* **Original Deadline:** March 31, 2026
+* **New Extended Deadline:** April 30, 2026
+
+This extension applies to all assignments, including Projects, Dissertations, Field Work Journals, and Internship Reports required for the June 2026 session.
+
+---
+
+## Download the Official IGNOU Extension Notification PDF
+To ensure you have the correct information for your records or to show your Study Center coordinator, you can download the official notification PDF using the link below:
+
+👉 **Click Here to Download:** [Official IGNOU Extension Notification PDF](#)
+
+---
+
+## Step-by-Step Guide: How to Submit IGNOU Assignments
+Depending on your Regional Center (RC), you generally have three ways to submit your work:
+
+### 1. Offline Submission (At Your Study Center)
+Most students visit their assigned Study Center in person.
+
+* **Check Timings:** Most centers are open for IGNOU work on Saturdays (afternoons) and Sundays (full day).
+* **Get a Receipt:** Always ask for a signed and stamped acknowledgment slip. This is your only proof of submission if your marks are not updated later.
+
+### 2. Online Submission (Google Forms or Email)
+Many Regional Centers (such as Delhi-1, Patna, or Kolkata) use dedicated Google Forms for digital submissions.
+
+* **Scan Quality:** Use a high-quality scanner app (like Adobe Scan or Microsoft Lens).
+* **File Naming:** Follow the standard format: \`EnrollmentNumber_CourseCode.pdf\` (e.g., \`2201234567_BECC131.pdf\`).
+
+### 3. Submission via LMS Portal
+For students enrolled in IGNOU Online Programs (IOP), assignments must be uploaded directly to the Learning Management System (LMS) dashboard using your student login credentials.
+
+---
+
+## Why Is This Assignment Deadline So Important?
+Assignments are a core part of the IGNOU grading system and are mandatory for the following reasons:
+
+* **30% Final Weightage:** Your final grade is calculated as 70% from the theory exam and 30% from these assignments.
+* **Exam Eligibility:** You are technically not allowed to sit for the Term End Exam if you haven't submitted the assignments for those specific courses.
+* **Degree Completion:** You must pass both the assignment and the theory paper separately to successfully clear a subject.
+
+---
+
+## Common Mistakes to Avoid During Submission
+To ensure your work is accepted and you score high marks, avoid these common errors:
+
+* **Typed Assignments:** IGNOU strictly requires handwritten assignments. Typed or printed copies will likely be rejected.
+* **Missing Front Page:** Your first page must clearly state your Name, Enrollment Number, Program Code, Course Code, and Study Center Code.
+* **Using Old Question Papers:** Ensure you are answering the questions for the 2025-26 session. Using outdated versions will result in a "Resubmit" status.
+
+---
+
+## FAQ: Frequently Asked Questions (June 2026 TEE)
+
+**Q1: Can I submit my assignment after April 30, 2026?** **A:** Generally, no. This is usually the final cutoff. Missing this date may force you to wait until the next exam cycle (December TEE), which could delay your degree.
+
+**Q2: My Study Center is closed on weekdays. When should I go?** **A:** Most centers operate within local colleges and handle IGNOU tasks only on weekends. It is best to visit on a Sunday to be safe.
+
+**Q3: Where can I find the official IGNOU Assignment Front Page?** **A:** You can download it from your Regional Center's website or purchase a printed version from stationary shops near your Study Center.
+
+**Q4: Do I need to submit both hard copies and soft copies?** **A:** No. Usually, you only submit one format. If you submit via Google Form, keep the hard copy for your records unless the center specifically requests it for verification.
+
+**Q5: What if my marks are not updated on the Grade Card?** **A:** It can take 2–4 months after the exams for marks to reflect. If they don't appear, visit your Study Center with your Submission Receipt to request a manual update.
+
+**Q6: Can I change my Study Center just for assignment submission?** **A:** No. You must submit assignments only to the Study Center you are officially mapped to in the IGNOU student database.
+
+**Q7: Can I submit assignments from the previous year?** **A:** No. You must always use the question papers relevant to the current academic session (2025-26).
+
+---
+
+### Pro-Tip for June 2026 TEE Students
+Do not wait until April 29 to submit. Online portals often crash due to high traffic, and offline centers get extremely crowded on the last day. Aim to finish your writing by **April 20** to ensure a smooth, stress-free process.
+
+For the latest official updates, keep checking the main website: [ignou.ac.in](https://www.ignou.ac.in).
+`
+  },
+  {
     slug: "ssc-gd-2026-latest-updates-exam-dates-admit-card",
     title: "SSC GD 2026 Latest Updates: Exam Dates, Admit Card, and New Rules Explained",
     excerpt: "The SSC GD 2026 exam has been postponed to April. Read about the cancelled self-slot booking, admit card release stages, and the complete selection process.",
