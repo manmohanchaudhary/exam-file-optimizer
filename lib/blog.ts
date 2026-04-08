@@ -2671,14 +2671,7 @@ For filling the June 2026 TEE exam form, always use official channels only:
 
 The BPSC has released a revised annual calendar and short notices to provide a roadmap for aspirants. The recruitment process is scheduled to conclude within the 2026 calendar year to ensure new teachers are stationed before the next academic session.
 
-| Event Milestone                  | Date / Timeline                  |
-|----------------------------------|----------------------------------|
-| Short Press Notice Release       | February 11–12, 2026            |
-| Official Detailed Notification (PDF) | Expected March 2026             |
-| Online Application Window        | March – April 2026              |
-| Admit Card Availability          | September 2026 (2-3 weeks before exam) |
-| BPSC TRE 4.0 Written Exam Date   | September 22nd to 27th, 2026    |
-| Final Result Declaration         | November 2026                   |
+<div class="custom-responsive-table" data-headers='["Event Milestone", "Date / Timeline"]' data-rows='[["Short Press Notice Release", "February 11–12, 2026"], ["Official Detailed Notification (PDF)", "Expected March 2026"], ["Online Application Window", "March – April 2026"], ["Admit Card Availability", "September 2026 (2-3 weeks before exam)"], ["BPSC TRE 4.0 Written Exam Date", "September 22nd to 27th, 2026"], ["Final Result Declaration", "November 2026"]]'></div>
 
 **Official Notification & Application Links:**
 - Official BPSC Website: [bpsc.bih.nic.in](https://bpsc.bih.nic.in)
@@ -2688,13 +2681,7 @@ The BPSC has released a revised annual calendar and short notices to provide a r
 
 The recruitment drive covers 46,595 approved posts, categorized by school levels and administrative departments. While the Education Department holds the majority of vacancies (approx. 44,500), specialized welfare departments (SC/ST, BC/EBC) also contribute significant numbers.
 
-| School Category       | Teaching Level              | Estimated Vacancies | Core Requirement                          |
-|-----------------------|-----------------------------|---------------------|-------------------------------------------|
-| Primary Teacher (PRT) | Classes 1 to 5              | 10,500             | D.El.Ed + CTET/BTET Paper 1              |
-| Middle School Teacher | Classes 6 to 8              | 9,500              | Grad + B.Ed/D.El.Ed + CTET/BTET 2        |
-| Secondary Teacher (TGT) | Classes 9 to 10           | 12,000             | Grad + B.Ed + STET Paper 1               |
-| Senior Secondary (PGT)| Classes 11 to 12            | 13,000             | PG + B.Ed + STET Paper 2                 |
-| **Total Aggregated**  |                             | **46,595**         |                                           |
+<div class="custom-responsive-table" data-headers='["School Category", "Teaching Level", "Estimated Vacancies", "Core Requirement"]' data-rows='[["Primary Teacher (PRT)", "Classes 1 to 5", "10,500", "D.El.Ed + CTET/BTET Paper 1"], ["Middle School Teacher", "Classes 6 to 8", "9,500", "Grad + B.Ed/D.El.Ed + CTET/BTET 2"], ["Secondary Teacher (TGT)", "Classes 9 to 10", "12,000", "Grad + B.Ed + STET Paper 1"], ["Senior Secondary (PGT)", "Classes 11 to 12", "13,000", "PG + B.Ed + STET Paper 2"], ["Total Aggregated", "-", "46,595", "-"]]'></div>
 
 ## Eligibility Criteria for BPSC TRE 4.0 2026
 
@@ -2717,11 +2704,7 @@ Candidates must meet specific educational and professional standards set by the 
 
 Age eligibility is calculated as of **August 01, 2025**. The Bihar government provides significant relaxations for reserved categories and female candidates.
 
-| Candidate Category              | Minimum Age       | Maximum Age (General) |
-|---------------------------------|-------------------|-----------------------|
-| General (Male)                  | 18 (PRT) / 21 (TGT/PGT) | 37 Years             |
-| General (Female) / BC / EBC     | 18 / 21 Years     | 40 Years             |
-| SC / ST (Male & Female)         | 18 / 21 Years     | 42 Years             |
+<div class="custom-responsive-table" data-headers='["Candidate Category", "Minimum Age", "Maximum Age (General)"]' data-rows='[["General (Male)", "18 (PRT) / 21 (TGT/PGT)", "37 Years"], ["General (Female) / BC / EBC", "18 / 21 Years", "40 Years"], ["SC / ST (Male & Female)", "18 / 21 Years", "42 Years"]]'></div>
 
 > The mandatory retirement age for all recruited teachers is 60 years.
 
@@ -2729,23 +2712,13 @@ Age eligibility is calculated as of **August 01, 2025**. The Bihar government pr
 
 The examination is conducted in an offline (OMR-based) mode. A major highlight for this cycle is the **"No Negative Marking"** policy, encouraging candidates to attempt all questions.
 
-| Exam Part | Subject Focus                          | Questions | Marks | Status          |
-|-----------|----------------------------------------|-----------|-------|-----------------|
-| Part I    | Language (English + Hindi/Urdu/Bangla) | 30        | 30    | Qualifying (30% req.) |
-| Part II   | General Studies (Math, GS, EVS)        | 40        | 40    | Merit-Based     |
-| Part III  | Concerned Subject (Domain Knowledge)   | 80        | 80    | Merit-Based     |
-| **Total** |                                        | **150**   | **150** | **150 Minutes** |
+<div class="custom-responsive-table" data-headers='["Exam Part", "Subject Focus", "Questions", "Marks", "Status"]' data-rows='[["Part I", "Language (English + Hindi/Urdu/Bangla)", "30", "30", "Qualifying (30% req.)"], ["Part II", "General Studies (Math, GS, EVS)", "40", "40", "Merit-Based"], ["Part III", "Concerned Subject (Domain Knowledge)", "80", "80", "Merit-Based"], ["Total", "-", "150", "150", "150 Minutes"]]'></div>
 
 ## BPSC Teacher Salary Structure (7th Pay Commission)
 
 Teachers recruited under TRE 4.0 benefit from a structured pay scale with a recently revised Dearness Allowance (DA) of 53% (effective late 2024/early 2025).
 
-| Teaching Category       | Basic Pay (INR) | Net In-Hand Salary (Urban) |
-|-------------------------|-----------------|----------------------------|
-| Primary Teacher (PRT)   | 25,000          | ~₹48,880                  |
-| Middle School Teacher   | 28,000          | ~₹54,370                  |
-| Secondary Teacher (TGT) | 31,000          | ~₹59,860                  |
-| Senior Secondary (PGT)  | 32,000          | ~₹61,690                  |
+<div class="custom-responsive-table" data-headers='["Teaching Category", "Basic Pay (INR)", "Net In-Hand Salary (Urban)"]' data-rows='[["Primary Teacher (PRT)", "25,000", "~₹48,880"], ["Middle School Teacher", "28,000", "~₹54,370"], ["Secondary Teacher (TGT)", "31,000", "~₹59,860"], ["Senior Secondary (PGT)", "32,000", "~₹61,690"]]'></div>
 
 > Allowances include HRA (10%-30% based on city), Medical (₹1,000), and CTA.
 
