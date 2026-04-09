@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FileUp, Settings, Download, CheckCircle2, AlertTriangle, Image as ImageIcon, FileText } from 'lucide-react';
 import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
+import AdBanner from '@/components/AdBanner';
 
 export const metadata: Metadata = {
   title: 'OTET 2026 Photo Resizer | Resize for Exam Form',
@@ -132,6 +133,10 @@ export default function OTETPhotoResize() {
             <div className="p-6 md:p-8">
               <AppContainer initialExamId="otet-2026" />
             </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto my-8">
+            <AdBanner dataAdSlot="YOUR_AD_SLOT_ID" />
           </div>
         </section>
 

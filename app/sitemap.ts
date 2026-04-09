@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/otet-photo-resize-2026',
     '/document-compressor',
     '/dsssb-image-optimizer',
+    '/ssb-odisha-image-resizer',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: lastModifiedDate,
@@ -33,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [];
     
     // Only add dynamic resizer route if it doesn't have a static equivalent
-    if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb') {
+    if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha') {
       routes.push({
         url: `${baseUrl}/${exam.id}-photo-resizer`,
         lastModified: lastModifiedDate,

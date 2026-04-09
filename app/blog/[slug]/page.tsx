@@ -387,11 +387,6 @@ export default async function BlogPostPage({
                           ]}
                           rehypePlugins={[rehypeRaw, rehypeSlug]}
                           components={{
-                            h1: ({ node, children, ...props }: any) => (
-                              <IconHeading level={2} {...props}>
-                                {children}
-                              </IconHeading>
-                            ),
                             h2: ({ node, children, ...props }: any) => (
                               <IconHeading level={2} {...props}>
                                 {children}

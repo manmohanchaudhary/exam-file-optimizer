@@ -367,5 +367,13 @@ export const EXAMS: Exam[] = [
     photo: { width: 200, height: 230, minSizeKb: 20, maxSizeKb: 50, format: 'jpg', description: 'Photo: 200x230 px (20-50 KB)' },
     signature: { width: 140, height: 60, minSizeKb: 10, maxSizeKb: 20, format: 'jpg', description: 'Signature: 140x60 px (10-20 KB)' },
     left_thumb: { width: 240, height: 240, minSizeKb: 20, maxSizeKb: 50, format: 'jpg', description: 'Thumb Impression: 240x240 px (20-50 KB)' }
+  },
+  {
+    id: 'ssb-odisha',
+    name: 'SSB Odisha (Jr Asst/Clerk)',
+    category: 'State Exams',
+    photo: { width: 390, height: 470, minSizeKb: 30, maxSizeKb: 100, format: 'jpg', description: 'Photo: 390x470 px (30-100 KB)' },
+    signature: { width: 455, height: 210, minSizeKb: 20, maxSizeKb: 50, format: 'jpg', description: 'Signature: 455x210 px (20-50 KB)' },
+    left_thumb: { width: 455, height: 210, minSizeKb: 20, maxSizeKb: 50, format: 'jpg', description: 'Left Thumb: 455x210 px (20-50 KB)' }
   }
 ];

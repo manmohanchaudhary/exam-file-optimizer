@@ -22,4 +22,5 @@ app/[slug]/page.tsx:    description: `Automatically resize and compress your pho
 app/dsssb-image-optimizer/page.tsx:  description: 'Resize and compress your photo, signature, and thumb impressions for DSSSB exams. Ensure exactly 96 DPI and correct dimensions for DSSSB applications.',
 app/otet-photo-resize-2026/page.tsx:  description: 'Resize photo and signature for OTET 2026 form using correct size, format and aspect ratio as per latest guidelines.',
 app/passport-photo-for-exam-forms/page.tsx:  description: 'Create a standard passport photo for exam forms. Automatically crop, resize, and compress your photo to 3.5cm x 4.5cm at 300 DPI.',
+app/ssb-odisha-image-resizer/page.tsx:  description: 'Free online tool to resize photo, signature, and left thumb impression for SSB Odisha Junior Assistant & Junior Clerk 2026. Auto-resize to exact pixels and KB.',
 app/page.tsx:  description: 'The fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms like SSC, UPSC, Banking, NEET, and JEE.',

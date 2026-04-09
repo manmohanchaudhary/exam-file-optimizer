@@ -1,6 +1,7 @@
 import { FileUp, Image as ImageIcon, FileText, Settings, Download, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import AppContainer from '@/components/AppContainer';
+import AdBanner from '@/components/AdBanner';
 import { Header, Footer } from '@/components/Navigation';
 
 export default function LandingPageTemplate({
@@ -95,9 +96,9 @@ export default function LandingPageTemplate({
             </div>
           </div>
 
-          {/* AdSense Placeholder */}
-          <div className="max-w-4xl mx-auto bg-slate-100 border border-slate-200 rounded-lg h-24 flex items-center justify-center text-slate-400 text-sm">
-            Advertisement Space (Google AdSense)
+          {/* AdSense Banner */}
+          <div className="max-w-4xl mx-auto my-8">
+            <AdBanner dataAdSlot="YOUR_AD_SLOT_ID" />
           </div>
         </section>
 
