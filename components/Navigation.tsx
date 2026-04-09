@@ -81,6 +81,7 @@ export function Header() {
                             if (exam.id === 'ssc') href = '/photo-resize-for-ssc-form';
                             if (exam.id === 'otet-2026') href = '/otet-photo-resize-2026';
                             if (exam.id === 'dsssb') href = '/dsssb-image-optimizer';
+                            if (exam.id === 'ssb-odisha') href = '/ssb-odisha-image-resizer';
                             
                             return (
                               <Link 
@@ -163,6 +164,7 @@ export function Header() {
                       if (exam.id === 'ssc') href = '/photo-resize-for-ssc-form';
                       if (exam.id === 'otet-2026') href = '/otet-photo-resize-2026';
                       if (exam.id === 'dsssb') href = '/dsssb-image-optimizer';
+                      if (exam.id === 'ssb-odisha') href = '/ssb-odisha-image-resizer';
 
                       return (
                         <Link 

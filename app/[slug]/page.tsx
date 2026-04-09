@@ -17,8 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
-  const exam = EXAMS.find(e => e.id === examId);
+  
+  // Prevent matching exams that have static pages
+  const staticExams = ['ssc', 'otet-2026', 'dsssb', 'ssb-odisha'];
+  if (isResizer && staticExams.includes(examId)) {
+    return {};
+  }
 
+  const exam = EXAMS.find(e => e.id === examId);
   if (!exam) {
     return {};
   }
@@ -55,8 +61,14 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
   }
 
   const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
-  const exam = EXAMS.find(e => e.id === examId);
 
+  // Prevent matching exams that have static pages
+  const staticExams = ['ssc', 'otet-2026', 'dsssb', 'ssb-odisha'];
+  if (isResizer && staticExams.includes(examId)) {
+    notFound();
+  }
+
+  const exam = EXAMS.find(e => e.id === examId);
   if (!exam) {
     notFound();
   }
@@ -139,6 +151,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
                     exam.id === 'ssc' ? '/photo-resize-for-ssc-form' :
                     exam.id === 'otet-2026' ? '/otet-photo-resize-2026' :
                     exam.id === 'dsssb' ? '/dsssb-image-optimizer' :
+                    exam.id === 'ssb-odisha' ? '/ssb-odisha-image-resizer' :
                     `/${exam.id}-photo-resizer`
                   }
                   className="inline-flex items-center justify-center gap-2 bg-[#0056b3] hover:bg-[#004494] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors shadow-md"
@@ -314,7 +327,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
 
 export function generateStaticParams() {
   const resizerParams = EXAMS
-    .filter(exam => exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb')
+    .filter(exam => exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha')
     .map(exam => ({
       slug: `${exam.id}-photo-resizer`,
     }));

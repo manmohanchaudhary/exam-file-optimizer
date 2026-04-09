@@ -19,6 +19,7 @@ export default function Home() {
   const tools = [
     { title: 'Document Compressor', desc: 'Compress PDF files to specific KB sizes.', link: '/document-compressor' },
     { title: 'OTET 2026 Resizer', desc: 'Resize photo and signature for OTET 2026.', link: '/otet-photo-resize-2026' },
+    { title: 'SSB Odisha Resizer', desc: 'Resize photo & signature for SSB Odisha.', link: '/ssb-odisha-image-resizer' },
     { title: 'DSSSB Image Optimizer', desc: 'Resize photo, signature & thumb for DSSSB form.', link: '/dsssb-image-optimizer' },
     { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/photo-resize-for-ssc-form' },
     { title: 'UPSC Photo Resizer', desc: 'Format images for UPSC civil services.', link: '/upsc-photo-resizer' },
