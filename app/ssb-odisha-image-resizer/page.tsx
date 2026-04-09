@@ -201,7 +201,7 @@ export default function SSBOdishaImageResizer() {
                   <Download className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">3. Check & Download</h3>
-                <p className="text-sm text-slate-600">Check the preview and click "Download".</p>
+                <p className="text-sm text-slate-600">Check the preview and click &quot;Download&quot;.</p>
               </div>
               <div className="bg-white text-center p-6 rounded-xl shadow-sm border border-slate-200">
                 <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -260,7 +260,7 @@ export default function SSBOdishaImageResizer() {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <h3 className="text-lg font-bold text-slate-900 mb-2">How to resize signature for SSB Odisha 2026?</h3>
-                <p className="text-slate-600">You can use our free online tool. Just select the "Signature" option, upload your raw image, and it will automatically resize it to 455px × 210px and compress it to 20KB - 50KB.</p>
+                <p className="text-slate-600">You can use our free online tool. Just select the &quot;Signature&quot; option, upload your raw image, and it will automatically resize it to 455px × 210px and compress it to 20KB - 50KB.</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <h3 className="text-lg font-bold text-slate-900 mb-2">What is the thumb impression size for SSB Odisha?</h3>

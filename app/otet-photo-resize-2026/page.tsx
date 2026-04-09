@@ -82,7 +82,7 @@ export default function OTETPhotoResize() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section */}
+{/* Hero Section */}
         <section className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
           <nav className="flex justify-center text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -121,6 +121,18 @@ export default function OTETPhotoResize() {
               <p className="text-blue-900 font-medium text-sm md:text-base">
                 This tool follows official OTET 2026 upload guidelines (10KB–40KB, JPG/PNG). No fixed dimensions are specified.
               </p>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-300 rounded-xl p-4 flex items-start gap-3 mb-6">
+              <span className="text-xl shrink-0 mt-0.5" aria-hidden="true">🔔</span>
+              <div>
+                <p className="text-amber-900 font-bold text-sm md:text-base">
+                  OTET 2026 Last Date Extended to 09 May 2026 <span className="hidden sm:inline text-amber-400 mx-1">|</span> <a href="https://bseodisha.ac.in/" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900 underline decoration-2 underline-offset-2">Apply Online Now</a> <span className="hidden sm:inline text-amber-400 mx-1">|</span> Exam Date To Be Announced
+                </p>
+                <p className="text-amber-800 text-xs md:text-sm mt-1 font-medium">
+                  Ensure correct photo & signature upload to avoid rejection.
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-2 text-slate-700 bg-slate-100 p-3 rounded-lg border border-slate-200">
               <FileText className="w-5 h-5 text-blue-600" />
