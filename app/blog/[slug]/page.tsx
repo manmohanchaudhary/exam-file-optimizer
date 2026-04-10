@@ -334,6 +334,7 @@ export default async function BlogPostPage({
                         year: "numeric",
                         month: "long",
                         day: "numeric",
+                        timeZone: "UTC",
                       })}
                     </time>
                   </div>
@@ -718,7 +719,7 @@ export default async function BlogPostPage({
                         <Calendar className="w-3.5 h-3.5" />
                         {new Date(relatedPost.date).toLocaleDateString(
                           "en-US",
-                          { year: "numeric", month: "short", day: "numeric" },
+                          { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" },
                         )}
                       </p>
                       <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">

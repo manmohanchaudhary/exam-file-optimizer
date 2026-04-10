@@ -204,7 +204,7 @@ export default function Home() {
               {blogPosts.slice(0, 3).map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
                   <article className="bg-slate-50 rounded-2xl border border-slate-200 p-6 h-full transition-shadow hover:shadow-md">
-                    <p className="text-sm text-slate-500 mb-2">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <p className="text-sm text-slate-500 mb-2">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
                     <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#0056b3] transition-colors line-clamp-2">{post.title}</h3>
                     <p className="text-slate-600 line-clamp-3">{post.excerpt}</p>
                   </article>

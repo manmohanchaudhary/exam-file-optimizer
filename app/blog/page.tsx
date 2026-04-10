@@ -89,7 +89,7 @@ export default function BlogIndex() {
                   <div className="flex items-center gap-2 text-sm text-slate-500 mb-4 font-medium">
                     <Calendar className="w-4 h-4" />
                     <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
                     </time>
                   </div>
                   

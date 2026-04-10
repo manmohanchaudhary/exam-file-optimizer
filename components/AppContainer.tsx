@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { sendGAEvent } from '@next/third-parties/google';
 import { EXAMS, Exam, FileType } from '@/lib/presets';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -88,6 +89,8 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
     setFile(fileToUse);
     setResult(null);
+    
+    sendGAEvent({ event: 'file_uploaded', value: { fileType: fileToUse.type, size: fileToUse.size } });
 
     // Auto-detect file type
     if (fileToUse.type === 'application/pdf') {
@@ -209,6 +212,8 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
         format: blob.type === 'application/pdf' ? 'pdf' : 'jpg'
       });
       
+      sendGAEvent({ event: 'file_processed', value: { examId: selectedExamId, fileType, format: blob.type } });
+      
       toast.success('File optimized successfully!');
       
       setTimeout(() => {
@@ -217,6 +222,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
     } catch (error) {
       console.error(error);
+      sendGAEvent({ event: 'processing_error', value: { error: error instanceof Error ? error.message : 'Unknown error' } });
       toast.error(error instanceof Error ? error.message : 'An error occurred');
     } finally {
       setIsProcessing(false);
@@ -490,6 +496,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                                           onClick={() => {
                                             setSelectedExamId(exam.id);
                                             setIsPresetMenuOpen(false);
+                                            sendGAEvent({ event: 'preset_selected', value: { examId: exam.id } });
                                             if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
                                             if ((fileType === 'left_thumb' || fileType === 'right_thumb') && exam.id !== 'dsssb') setFileType('photo');
                                             
@@ -512,6 +519,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                                     onClick={() => {
                                       setSelectedExamId('custom');
                                       setIsPresetMenuOpen(false);
+                                      sendGAEvent({ event: 'preset_selected', value: { examId: 'custom' } });
                                     }}
                                     className={`relative flex w-full cursor-default items-center rounded-md py-2 px-2 text-sm font-bold outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === 'custom' ? 'bg-slate-100 text-slate-900' : 'text-slate-900'}`}
                                   >
@@ -670,6 +678,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     <a 
                       href={result.url} 
                       download={result.filename}
+                      onClick={() => sendGAEvent({ event: 'file_downloaded', value: { examId: selectedExamId, fileType, format: result.format, size: result.size } })}
                       className="w-full bg-[#28a745] hover:bg-green-700 text-white h-12 text-lg inline-flex items-center justify-center rounded-md font-medium transition-colors"
                     >
                       <Download className="w-5 h-5 mr-2" /> Download File

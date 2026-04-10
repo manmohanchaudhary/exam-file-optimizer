@@ -3,13 +3,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EXAMS, Exam } from '@/lib/presets';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isExamsMenuOpen, setIsExamsMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsExamsMenuOpen(false);
+      }
+    };
+
+    if (isExamsMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isExamsMenuOpen]);
 
   const groupedExams = EXAMS.reduce((acc, exam) => {
     const category = exam.category || 'Other';
@@ -48,10 +67,26 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-6">
           <div 
             className="relative"
-            onMouseEnter={() => setIsExamsMenuOpen(true)}
-            onMouseLeave={() => setIsExamsMenuOpen(false)}
+            ref={dropdownRef}
+            onPointerEnter={(e) => {
+              if (e.pointerType === 'mouse') {
+                setIsExamsMenuOpen(true);
+              }
+            }}
+            onPointerLeave={(e) => {
+              if (e.pointerType === 'mouse') {
+                setIsExamsMenuOpen(false);
+              }
+            }}
           >
-            <button className="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1 py-2">
+            <button 
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1 py-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsExamsMenuOpen(!isExamsMenuOpen);
+              }}
+              aria-expanded={isExamsMenuOpen ? "true" : "false"}
+            >
               Exams 
               <motion.div
                 animate={{ rotate: isExamsMenuOpen ? 180 : 0 }}

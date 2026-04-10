@@ -53,11 +53,12 @@ export const metadata: Metadata = {
   }
 };
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
       <head>
         {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
           <script
@@ -66,19 +67,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             crossOrigin="anonymous"
           ></script>
         )}
-        {/* Google Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-LYXYW6ZM7K`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-LYXYW6ZM7K');
-          `}
-        </Script>
       </head>
       <body suppressHydrationWarning>
         <TooltipProvider>
@@ -86,6 +74,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <Analytics />
           <Toaster position="top-center" />
         </TooltipProvider>
+        <GoogleAnalytics gaId="G-LYXYW6ZM7K" />
       </body>
     </html>
   );
