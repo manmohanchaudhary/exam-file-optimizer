@@ -144,17 +144,18 @@ export async function POST(req: NextRequest) {
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`
         ];
 
-        // If no maxSizeKb is provided, just run ebook pass to compress it reasonably
-        if (!maxSizeKb) {
-          await runGsPass(passes[2]); // Ebook pass
-        } else {
-          // If maxSizeKb is provided, try passes progressively until we are under the limit
+        if (maxSizeKb) {
+          // If a max size is specified, try passes progressively until we are under the limit
           for (const pass of passes) {
             if (bestBuffer.length <= maxSizeKb * 1024) {
               break; // We met the target size!
             }
             await runGsPass(pass);
           }
+        } else {
+          // Always run a default compression pass first to see if we can reduce it.
+          // We use /ebook (150 dpi) as a good default for general use that maintains readability.
+          await runGsPass(passes[3]); // Ebook pass
         }
         
         // If it's STILL too large, try rasterizing the PDF (nuclear option)

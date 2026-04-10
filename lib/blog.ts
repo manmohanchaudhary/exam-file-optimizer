@@ -12,6 +12,212 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "bseb-matric-compartment-special-exam-2026",
+    title: "BSEB Matric Compartment and Special Exam 2026: Complete Guide to Application, Dates, and Fees",
+    metaTitle: "BSEB Matric Compartment & Special Exam 2026 Guide",
+    metaDescription: "Complete guide to BSEB Matric Compartment and Special Exam 2026. Check eligibility, fee structure, important dates, and how to apply online.",
+    excerpt: "The Bihar School Examination Board (BSEB) has opened the application window for the Class 10 (Matric) Special and Compartmental Examinations 2026. Learn about eligibility, fees, and dates.",
+    date: "2026-04-10",
+    faq: [
+      {
+        question: "How many attempts do I have to clear the compartmental exam?",
+        answer: "Students are generally given three consecutive opportunities to pass the Class 10 subjects: the initial Compartmental Exam in 2026, the Annual Exam in 2027, and finally, the Compartmental Exam in 2027."
+      },
+      {
+        question: "What is the minimum passing mark for the compartment papers?",
+        answer: "For the Class 10 Matric exams, students must secure at least 30% of the aggregate marks in each subject and a total of 150 marks overall to be declared a 'Pass'."
+      },
+      {
+        question: "Can I apply for more than two subjects in the compartmental exam?",
+        answer: "No, the compartmental exam is restricted to students who failed in a maximum of two subjects. If you have failed in three or more subjects, you must repeat the entire academic year."
+      },
+      {
+        question: "What is the scrutiny process and how much does it cost?",
+        answer: "Scrutiny is a re-evaluation process where your answer sheet is re-checked for calculation errors or unchecked answers. The fee for applying for scrutiny is Rs. 120 per subject."
+      },
+      {
+        question: "Will I get a separate marksheet for the compartment exam?",
+        answer: "After successfully passing the compartment exam, the board typically provides a consolidated marksheet so that students do not need to carry multiple documents for admission or employment."
+      }
+    ],
+    content: `The Bihar School Examination Board (BSEB) has officially opened the application window for the **Class 10 (Matric) Special and Compartmental Examinations 2026**. This initiative serves as a vital second chance for students to save their academic year and progress to higher secondary education without delay.
+
+Whether you missed the annual exams due to technical issues or need to clear subjects you failed, this guide provides all the essential information regarding the 2026 remedial cycle.
+
+---
+
+## **Latest Updates: Registration Deadline Extended**
+
+In a recent move to support students, the BSEB has extended the registration deadline for the Matric Special and Compartment exams. Initially set to close earlier, school heads can now submit online applications for eligible students until **April 10, 2026**.
+
+---
+
+## **Key Dates for BSEB Matric Remedial Exams 2026**
+
+The examination cycle is designed to be completed quickly to ensure results are declared in time for intermediate (Class 11) admissions.
+
+<div class="custom-responsive-table" data-headers='["Event", "Important Dates (Expected)"]' data-rows='[["Online Application Start", "April 1, 2026"], ["Application Last Date (Extended)", "April 10, 2026"], ["Admit Card Release", "Late April 2026"], ["Theory Examination Dates", "May 2 to May 7, 2026"], ["Declaration of Results", "By May 31, 2026"]]'></div>
+
+---
+
+## **Eligibility Criteria: Special vs. Compartment Exam**
+
+The Bihar Board distinguishes between two types of examinations based on the student's circumstances.
+
+### **1. Matric Compartmental Examination**
+
+This exam is for students who appeared in the 2026 Annual Matric Exams but did not secure passing marks.
+
+*   **Failed Subjects:** Students who failed in one or two subjects.
+*   **The English Exception:** If a student fails in three subjects but one of them is English, they are still eligible to appear for the compartment exam because English is not a mandatory passing subject for the overall division.
+*   **Single Subject English:** Students who passed the main exam but failed only in English can appear for this specific paper to improve their credentials.
+
+### **2. Matric Special Examination**
+
+This is a corrective mechanism for students who were eligible but could not take the main exams.
+
+*   **Technical/Medical Issues:** Students who missed the February exams due to technical errors in registration, medical emergencies, or school negligence (e.g., the school failed to submit the form despite the student passing the "Sent-up" exam).
+*   **Division Eligibility:** Unlike compartmental candidates, special exam candidates are eligible to receive divisions (First, Second, Third) and all benefits equivalent to the annual examination.
+
+---
+
+## **BSEB Matric Compartment Fee Structure 2026**
+
+Fees must be paid at the respective school office. The total fee varies based on the student's category and the subjects chosen.
+
+<div class="custom-responsive-table" data-headers='["Fee Component", "General Category (Rs.)", "Reserved (SC/ST/EBC/BC) (Rs.)"]' data-rows='[["Online Application Fee", "70", "70"], ["Examination Fee", "115", "Nil"], ["Miscellaneous Fee", "430", "430"], ["Mark Sheet Fee", "170", "170"], ["Provisional Certificate Fee", "110", "110"], ["Science Internal Fee", "55", "55"], ["Online Processing (School)", "30", "30"], ["Total Base Fee", "1,010", "895"]]'></div>
+
+**Additional Charges:**
+*   **Practical Exam Fee:** Rs. 30 for subjects like Home Science, Music, Dance, or Fine Arts.
+*   **Betterment/Single Subject Permission Fee:** Rs. 200 for candidates appearing for "Betterment" or only English.
+
+---
+
+## **Syllabus and Examination Pattern**
+
+The syllabus for the compartmental and special exams remains identical to the 2025-26 Annual Matric Examination.
+
+*   **Passing Marks:** Candidates must score at least 30% in language papers and 33% in core subjects like Mathematics, Science, and Social Science.
+*   **Question Type:** The pattern consists of 50% objective Multiple Choice Questions (MCQs) and 50% subjective questions.
+*   **Duration:** Each paper is 3 hours and 15 minutes long (including "cool-off" time).
+
+---
+
+## **How to Apply**
+
+**Important Note:** Students cannot apply individually on the BSEB website. Applications must be processed through the school principal using their institutional login credentials.
+
+1.  Contact your school principal immediately to express your intent to appear.
+2.  Provide the necessary documents: Registration Card, Aadhaar Card, Fail Web-Marksheet, and passport-size photographs.
+3.  Ensure your **Unique ID** (13 digits) is correctly entered on the form.
+4.  The school will fill out the form on [exam.biharboardonline.org](https://exam.biharboardonline.org) and process the fee payment.
+
+---
+
+## **Official BSEB Helpdesk and Links**
+
+For technical issues or fee payment queries, the following resources are available:
+
+*   **Helpline Numbers:** 0612-2232074, 0612-2232239, 9430429722
+*   **Email Support:** bsebsehelpdesk@gmail.com
+
+### **Important Links**
+*   **Application Portal:** [exam.biharboardonline.org](https://exam.biharboardonline.org)
+*   **Secondary Education Admin Portal:** [secondary.biharboardonline.com](https://secondary.biharboardonline.com)
+*   **Scrutiny and Objection Portal:** [objmatric.biharboardonline.com](http://objmatric.biharboardonline.com)
+
+:::cta{title="Resize Your Exam Photos Instantly" link="/" button="Resize Now"}
+:::
+`
+  },
+  {
+    slug: "ignou-june-2026-tee-registration-deadline-extended",
+    title: "IGNOU June 2026 TEE Registration Deadline Extended till April 26: How to Apply Online",
+    metaTitle: "IGNOU June 2026 TEE Registration Deadline Extended to April 26",
+    metaDescription: "The IGNOU June 2026 TEE registration deadline has been extended to April 26, 2026. Check the revised schedule, fees, and step-by-step application guide.",
+    excerpt: "The IGNOU June 2026 Term-End Examination (TEE) registration deadline has been extended to April 26, 2026. Learn about the revised schedule, fees, and step-by-step application process.",
+    date: "2026-04-10",
+    faq: [
+      {
+        question: "Can I still apply if I miss the April 26 deadline?",
+        answer: "Yes, students who miss the April 26 deadline can still submit their forms between April 27 and April 30, 2026, by paying a late fee of Rs 1,100."
+      },
+      {
+        question: "What happens if I miss an exam after filling the form?",
+        answer: "If you skip an exam, you can appear for it in any subsequent semester. However, you will need to fill out a fresh examination form and pay the exam fee again for that specific session."
+      },
+      {
+        question: "Are the examination fees refundable?",
+        answer: "No, IGNOU examination fees are generally non-refundable and cannot be adjusted for future sessions. Refunds are only processed in cases of successful double payments for the same course."
+      },
+      {
+        question: "Is the ABC ID compulsory for all students?",
+        answer: "Yes, the university has made the Academic Bank of Credits (ABC) ID mandatory for the 2026 session to ensure marks and grades are properly reflected in the DigiLocker system."
+      },
+      {
+        question: "Can I change my exam centre or courses after submitting the form?",
+        answer: "No, the university does not allow any changes to the selected courses or the examination centre once the final submission is made."
+      }
+    ],
+    content: `The Indira Gandhi National Open University (IGNOU) has officially extended the registration deadline for the **June 2026 Term-End Examination (TEE)**. In a major relief for students, the deadline to submit the online examination form without a late fee has been pushed to **April 26, 2026**. This extension applies to learners enrolled in both Open and Distance Learning (ODL) and online programs.
+
+If you are planning to appear for the upcoming examinations starting June 1, 2026, here is everything you need to know about the revised schedule, fee structure, and the step-by-step application process.
+
+---
+
+## **IGNOU June 2026 TEE: Revised Important Dates**
+
+The University's Student Evaluation Division (SED) revised the timeline to accommodate students who may have faced technical difficulties or were awaiting previous results.
+
+<div class="custom-responsive-table" data-headers='["Event", "Original Deadline", "Revised Deadline"]' data-rows='[["Form Submission (No Late Fee)", "April 10, 2026", "April 26, 2026"], ["Form Submission (With Rs 1,100 Late Fee)", "April 11 – April 24, 2026", "April 27 – April 30, 2026"], ["Assignment Submission Deadline", "March 31, 2026", "April 30, 2026"], ["TEE Examination Commencement", "June 1, 2026", "No Change"]]'></div>
+
+---
+
+## **How to Apply for IGNOU June 2026 TEE**
+
+Students must submit their examination forms through the official **Samarth portal**. Follow these steps to complete your registration:
+
+1. **Visit the Portal**: Go to the official IGNOU Examination Management System at [ignou.samarth.edu.in](https://ignou.samarth.edu.in).
+2. **Login/Register**: Enter your 10-digit enrollment number and password. If you are a first-time user, click on "New Registration" to create your profile.
+3. **Course Selection**: Select the specific theory and practical courses you intend to appear for in the June session.
+4. **Choose Exam Centre**: Select your preferred exam centre region. Note that centres are allotted on a "first-come, first-served" basis.
+5. **Enter ABC ID**: Linking or creating an **Academic Bank of Credits (ABC) ID** is mandatory this year. This ensures your marks are accurately reflected in your DigiLocker.
+6. **Pay Exam Fee**: Complete the payment using a debit card, credit card, net banking, or UPI.
+7. **Submit and Save**: Download the acknowledgement receipt for future reference and hall ticket issuance.
+
+---
+
+## **IGNOU Examination Fee Structure 2026**
+
+The fee depends on the nature of the course (theory vs. practical) and the number of credits.
+
+<div class="custom-responsive-table" data-headers='["Course Type", "Fee Amount"]' data-rows='[["Theory Course", "Rs 200 per subject"], ["Practical/Lab Course (Up to 4 Credits)", "Rs 300 per subject"], ["Practical/Lab Course (Above 4 Credits)", "Rs 500 per subject"], ["Project Evaluation (Up to 4 Credits)", "Rs 300 per subject"], ["Project Evaluation (Above 4 Credits)", "Rs 500 per subject"]]'></div>
+
+---
+
+## **Mandatory Prerequisites for Eligibility**
+
+To ensure your hall ticket is generated, you must meet the following conditions:
+
+* **Assignment Submission**: You must submit all required assignments for your courses by **April 30, 2026**. Failure to do so will result in the withholding of your results.
+* **Program Validity**: Ensure your minimum duration for the course is complete and your maximum registration period has not expired.
+* **ABC ID Linking**: Without a valid ABC ID, your grades may not be processed through the national credit system.
+
+---
+
+## **Important Links for Students**
+
+* **Official Examination Portal**: [https://ignou.samarth.edu.in](https://ignou.samarth.edu.in)
+* **IGNOU Official Website**: [https://www.ignou.ac.in/](https://www.ignou.ac.in/)
+* **Grievance Portal (iGRAM)**: [https://igram.ignou.ac.in](https://igram.ignou.ac.in)
+
+For further assistance, students can contact the Exam Branch at **termendexam@ignou.ac.in** or call the helpline at **011-29572209**.
+
+:::cta{title="Resize Your Exam Photos Instantly" link="/" button="Resize Now"}
+:::
+`
+  },
+  {
     slug: "ssc-je-2025-tier-2-admit-card-out",
     title: "SSC JE 2025 Tier 2 Admit Card Out: Download Link, Exam Guidelines, and Result Timeline",
     metaTitle: "SSC JE 2025 Tier 2 Admit Card Out - Download Link & Guidelines",

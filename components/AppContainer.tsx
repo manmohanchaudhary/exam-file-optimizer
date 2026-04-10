@@ -279,7 +279,10 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
           }
 
           if (b.size < minBytes) {
-            const paddingSize = minBytes - b.size + 1024;
+            let paddingSize = minBytes - b.size + 1024;
+            if (maxBytes !== Infinity && b.size + paddingSize > maxBytes) {
+                paddingSize = maxBytes - b.size;
+            }
             const padding = new Uint8Array(paddingSize);
             const newBlob = new Blob([b, padding], { type: 'image/jpeg' });
             resolve(newBlob);
