@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
   
   // Prevent matching exams that have static pages
-  const staticExams = ['ssc', 'otet-2026', 'dsssb', 'ssb-odisha'];
+  const staticExams = ['ssc', 'otet-2026', 'dsssb'];
   if (isResizer && staticExams.includes(examId)) {
     return {};
   }
@@ -63,7 +63,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
   const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
 
   // Prevent matching exams that have static pages
-  const staticExams = ['ssc', 'otet-2026', 'dsssb', 'ssb-odisha'];
+  const staticExams = ['ssc', 'otet-2026', 'dsssb'];
   if (isResizer && staticExams.includes(examId)) {
     notFound();
   }
