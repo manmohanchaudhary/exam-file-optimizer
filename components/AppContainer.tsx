@@ -15,6 +15,7 @@ import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo' }: { initialExamId?: string, initialFileType?: FileType }) {
+  const [isMounted, setIsMounted] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [fileType, setFileType] = useState<FileType>(initialFileType);
@@ -32,14 +33,22 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (isPresetMenuOpen && selectedExamId) {
-      // Small timeout to allow the dropdown to render before scrolling
       setTimeout(() => {
         const container = document.getElementById('preset-menu-container');
-        const el = document.getElementById(`preset-${selectedExamId}`);
-        if (container && el) {
-          // Scroll container to the element, minus some padding to show the category header
-          container.scrollTop = el.offsetTop - 30;
+        if (!container) return;
+        
+        if (selectedExamId === 'custom') {
+          container.scrollTop = 0;
+        } else {
+          const el = document.getElementById(`preset-${selectedExamId}`);
+          if (el) {
+            container.scrollTop = el.offsetTop - 30;
+          }
         }
       }, 50);
     }
@@ -135,6 +144,43 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
       const isCustom = selectedExamId === 'custom';
       const exam = EXAMS.find(e => e.id === selectedExamId);
 
+      if (fileToProcess.type === 'application/pdf') {
+        let minSizeKb: number | undefined;
+        let maxSizeKb: number | undefined;
+
+        if (isCustom || (fileType === 'document' && exam && !exam.document)) {
+           minSizeKb = customMinSize ? parseInt(customMinSize) : undefined;
+           maxSizeKb = customMaxSize ? parseInt(customMaxSize) : undefined;
+        } else if (exam) {
+           const req = fileType === 'document' ? exam.document : null;
+           if (req) {
+             minSizeKb = req.minSizeKb;
+             maxSizeKb = req.maxSizeKb;
+           }
+        }
+
+        toast.loading('Compressing PDF locally...', { id: 'pdf-compress' });
+        try {
+          const compressedBlob = await compressPdfClientSide(fileToProcess, minSizeKb, maxSizeKb);
+          toast.dismiss('pdf-compress');
+          
+          const downloadUrl = URL.createObjectURL(compressedBlob);
+          setResult({
+            url: downloadUrl,
+            filename: `document.pdf`,
+            size: compressedBlob.size,
+            format: 'pdf'
+          });
+          toast.success('PDF optimized successfully!');
+          setIsProcessing(false);
+          return;
+        } catch (err) {
+          toast.dismiss('pdf-compress');
+          console.error('Client-side PDF compression failed:', err);
+          throw new Error('Failed to compress PDF locally. Please try a different file.');
+        }
+      }
+
       if (isCustom || (fileType === 'document' && exam && !exam.document)) {
         formData.append('type', fileType);
         formData.append('format', customFormat);
@@ -198,7 +244,6 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
       }
 
       const downloadUrl = URL.createObjectURL(blob);
-      const contentDisposition = response.headers.get('Content-Disposition');
       let filename = `${fileType}.${blob.type === 'application/pdf' ? 'pdf' : 'jpg'}`;
       if (selectedExamId === 'upsc') {
         if (fileType === 'photo') filename = 'photo.jpg';
@@ -243,52 +288,182 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
+  const compressPdfClientSide = async (file: File, minSizeKb?: number, maxSizeKb?: number): Promise<Blob> => {
+    let pdfjsLib: any;
+    try {
+      // Dynamically load pdfjs-dist from CDN to avoid Next.js Turbopack bundling issues
+      // which cause "Object.defineProperty called on non-object" errors.
+      if (!(window as any).pdfjsLib) {
+        await new Promise<void>((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+          script.onload = () => resolve();
+          script.onerror = () => reject(new Error('Failed to load pdf.js script'));
+          document.head.appendChild(script);
+        });
+      }
+      
+      pdfjsLib = (window as any).pdfjsLib;
+
+      if (pdfjsLib.GlobalWorkerOptions && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      }
+    } catch (e) {
+      console.error("Failed to setup pdfjsLib worker:", e);
+      throw new Error("Failed to initialize PDF processing library.");
+    }
+
+    if (!pdfjsLib || !pdfjsLib.getDocument) {
+      throw new Error("PDF library loaded incorrectly.");
+    }
+
+    const { PDFDocument } = await import('pdf-lib');
+
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+    const numPages = pdf.numPages;
+
+    const tryPass = async (scale: number, quality: number): Promise<Uint8Array> => {
+      const newPdf = await PDFDocument.create();
+      for (let i = 1; i <= numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        if (ctx) {
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          await page.render({ canvasContext: ctx, viewport, canvasFactory: undefined } as any).promise;
+        }
+
+        const imgDataUrl = canvas.toDataURL('image/jpeg', quality);
+        const imgBytes = await fetch(imgDataUrl).then(res => res.arrayBuffer());
+        const image = await newPdf.embedJpg(imgBytes);
+        const newPage = newPdf.addPage([image.width, image.height]);
+        newPage.drawImage(image, { x: 0, y: 0, width: image.width, height: image.height });
+      }
+      return await newPdf.save({ useObjectStreams: true });
+    };
+
+    const passes = [
+      { scale: 2.0, quality: 0.95 }, // High
+      { scale: 1.5, quality: 0.85 }, // Medium-High
+      { scale: 1.0, quality: 0.75 }, // Medium
+      { scale: 0.8, quality: 0.60 }, // Low
+      { scale: 0.5, quality: 0.50 }, // Very Low
+    ];
+
+    let bestBytes: Uint8Array | null = null;
+    const maxBytes = maxSizeKb ? maxSizeKb * 1024 : Infinity;
+    const minBytes = minSizeKb ? minSizeKb * 1024 : 0;
+
+    if (maxSizeKb) {
+      for (const pass of passes) {
+        const bytes = await tryPass(pass.scale, pass.quality);
+        if (bytes.length <= maxBytes) {
+          bestBytes = bytes;
+          break;
+        }
+      }
+      if (!bestBytes) {
+         bestBytes = await tryPass(0.3, 0.3);
+      }
+    } else {
+      let found = false;
+      for (let i = 2; i >= 0; i--) {
+        const bytes = await tryPass(passes[i].scale, passes[i].quality);
+        if (bytes.length >= minBytes) {
+          bestBytes = bytes;
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        bestBytes = await tryPass(passes[2].scale, passes[2].quality);
+      }
+    }
+
+    if (bestBytes && bestBytes.length < minBytes) {
+      let paddingSize = minBytes - bestBytes.length + 1024;
+      if (maxBytes !== Infinity && bestBytes.length + paddingSize > maxBytes) {
+        paddingSize = maxBytes - bestBytes.length;
+      }
+      if (paddingSize > 0) {
+        const padding = new Uint8Array(paddingSize);
+        const combined = new Uint8Array(bestBytes.length + padding.length);
+        combined.set(bestBytes);
+        combined.set(padding, bestBytes.length);
+        bestBytes = combined;
+      }
+    }
+
+    return new Blob([bestBytes || await file.arrayBuffer()] as any, { type: 'application/pdf' });
+  };
+
   const processImage = async (blob: Blob, minSizeKb?: number, maxSizeKb?: number): Promise<Blob> => {
     return new Promise((resolve) => {
       const img = new Image();
       img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx?.drawImage(img, 0, 0);
-
-        const tryBlob = (quality: number): Promise<Blob> => {
+        const tryEncode = (scale: number, quality: number): Promise<Blob> => {
           return new Promise((res) => {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = Math.max(10, Math.floor(img.width * scale));
+            canvas.height = Math.max(10, Math.floor(img.height * scale));
+            if (ctx) {
+              ctx.fillStyle = "#FFFFFF";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            }
             canvas.toBlob((b) => res(b!), "image/jpeg", quality);
           });
         };
 
         const adjust = async () => {
           let quality = 0.9;
-          let b = await tryBlob(quality);
+          let scale = 1.0;
+          let b = await tryEncode(scale, quality);
           
           const minBytes = minSizeKb ? minSizeKb * 1024 : 0;
           const maxBytes = maxSizeKb ? maxSizeKb * 1024 : Infinity;
 
-          for (let i = 0; i < 10; i++) {
+          // 1. Adjust quality first
+          for (let i = 0; i < 15; i++) {
             if (b.size < minBytes && quality < 0.95) {
               quality = Math.min(quality + 0.05, 0.95);
-              b = await tryBlob(quality);
-            } else if (b.size > maxBytes && quality > 0.15) {
-              quality = Math.max(quality - 0.05, 0.15);
-              b = await tryBlob(quality);
+              b = await tryEncode(scale, quality);
+            } else if (b.size > maxBytes && quality > 0.1) {
+              quality = Math.max(quality - 0.1, 0.1);
+              b = await tryEncode(scale, quality);
             } else {
               break;
             }
           }
 
+          // 2. If STILL too large, scale down dimensions
+          while (b.size > maxBytes && scale > 0.1) {
+            scale -= 0.1;
+            b = await tryEncode(scale, quality);
+          }
+
+          // 3. If STILL too small, add invisible padding bytes
           if (b.size < minBytes) {
             let paddingSize = minBytes - b.size + 1024;
             if (maxBytes !== Infinity && b.size + paddingSize > maxBytes) {
                 paddingSize = maxBytes - b.size;
             }
-            const padding = new Uint8Array(paddingSize);
-            const newBlob = new Blob([b, padding], { type: 'image/jpeg' });
-            resolve(newBlob);
-          } else {
-            resolve(b);
+            if (paddingSize > 0) {
+              const padding = new Uint8Array(paddingSize);
+              const newBlob = new Blob([b, padding], { type: 'image/jpeg' });
+              resolve(newBlob);
+              return;
+            }
           }
+          
+          resolve(b);
         };
         adjust();
       };
@@ -331,6 +506,17 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
     if (catB === 'Other') return -1;
     return catA.localeCompare(catB);
   });
+
+  if (!isMounted) {
+    return (
+      <Card className="w-full border-none shadow-none bg-slate-50/50">
+        <CardContent className="p-12 flex flex-col items-center justify-center space-y-4">
+          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <p className="text-slate-500 font-medium">Loading resizer...</p>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -436,11 +622,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       <TabsList className="flex flex-wrap !h-auto min-h-[48px] w-full justify-start gap-2 p-1.5 bg-slate-100/80 rounded-xl">
                         <TabsTrigger value="photo" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Photo</TabsTrigger>
                         <TabsTrigger value="signature" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Signature</TabsTrigger>
-                        {selectedExamId === 'dsssb' && (
-                          <>
-                            <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">L. Thumb</TabsTrigger>
-                            <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">R. Thumb</TabsTrigger>
-                          </>
+                        {(currentExam?.left_thumb || selectedExamId === 'custom') && (
+                          <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">L. Thumb</TabsTrigger>
+                        )}
+                        {(currentExam?.right_thumb || selectedExamId === 'custom') && (
+                          <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">R. Thumb</TabsTrigger>
                         )}
                         <TabsTrigger value="document" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Document</TabsTrigger>
                         {(currentExam?.declaration || selectedExamId === 'custom') && (
@@ -501,7 +687,8 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                                             setIsPresetMenuOpen(false);
                                             sendGAEvent({ event: 'preset_selected', value: { examId: exam.id } });
                                             if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
-                                            if ((fileType === 'left_thumb' || fileType === 'right_thumb') && exam.id !== 'dsssb') setFileType('photo');
+                                            if (fileType === 'left_thumb' && !exam.left_thumb) setFileType('photo');
+                                            if (fileType === 'right_thumb' && !exam.right_thumb) setFileType('photo');
                                             
                                             // Initialize custom format from preset for selectable exams like OTET
                                             if (exam.id === 'otet-2026') {

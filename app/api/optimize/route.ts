@@ -60,28 +60,17 @@ export async function POST(req: NextRequest) {
       try {
         await fs.writeFile(inputPath, buffer);
         
-        let bestBuffer = buffer;
+        let bestBuffer: any = buffer;
         
         // Helper function to run GS and check output
-        const runGsPass = async (gsCommand: string) => {
-          try {
-            await fs.unlink(outputPath);
-          } catch (e) {
-            // Ignore if it doesn't exist
-          }
-          try {
-            await execAsync(gsCommand);
-          } catch (err) {
-            console.warn('Ghostscript pass returned error/warning, checking if output exists...', err);
-          }
+        const runGsPassAndGetBuffer = async (gsCommand: string): Promise<Buffer | null> => {
+          try { await fs.unlink(outputPath); } catch (e) {}
+          try { await execAsync(gsCommand); } catch (err) {}
           try {
             const outBuffer = await fs.readFile(outputPath);
-            if (outBuffer.length > 0 && outBuffer.length < bestBuffer.length) {
-              bestBuffer = outBuffer;
-            }
-          } catch (readErr) {
-            // File doesn't exist or can't be read, pass failed
-          }
+            if (outBuffer.length > 0) return Buffer.from(outBuffer);
+          } catch (e) {}
+          return null;
         };
 
         // Helper function to rasterize PDF pages to JPEG and rebuild PDF
@@ -130,32 +119,49 @@ export async function POST(req: NextRequest) {
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
           // 2. Printer (300 dpi)
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
-          // 3. Ebook (150 dpi)
+          // 3. Custom (225 dpi)
+          `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dDownsampleGrayImages=true -dDownsampleMonoImages=true -dColorImageDownsampleType=/Bicubic -dColorImageResolution=225 -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleType=/Bicubic -dGrayImageResolution=225 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleType=/Bicubic -dMonoImageResolution=225 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
+          // 4. Ebook (150 dpi)
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
-          // 4. Screen (72 dpi)
+          // 5. Custom (100 dpi)
+          `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dDownsampleGrayImages=true -dDownsampleMonoImages=true -dColorImageDownsampleType=/Bicubic -dColorImageResolution=100 -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleType=/Bicubic -dGrayImageResolution=100 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleType=/Bicubic -dMonoImageResolution=100 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
+          // 6. Screen (72 dpi)
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
-          // 5. Extreme custom (36 dpi)
+          // 7. Extreme custom (36 dpi)
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dDownsampleGrayImages=true -dDownsampleMonoImages=true -dColorImageDownsampleType=/Bicubic -dColorImageResolution=36 -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleType=/Bicubic -dGrayImageResolution=36 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleType=/Bicubic -dMonoImageResolution=36 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
-          // 6. Ultra-extreme custom (10 dpi)
+          // 8. Ultra-extreme custom (10 dpi)
           `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dDownsampleGrayImages=true -dDownsampleMonoImages=true -dColorImageDownsampleType=/Bicubic -dColorImageResolution=10 -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleType=/Bicubic -dGrayImageResolution=10 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleType=/Bicubic -dMonoImageResolution=10 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
-          // 7. Remove embedded fonts
-          `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dEmbedAllFonts=false -dSubsetFonts=true -dCompressFonts=true -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`,
-          // 8. Grayscale
-          `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dColorImageDownsampleThreshold=1.0 -dGrayImageDownsampleThreshold=1.0 -dMonoImageDownsampleThreshold=1.0 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${outputPath}" "${inputPath}" > /dev/null 2>&1`
         ];
 
+        const maxBytes = maxSizeKb ? maxSizeKb * 1024 : Infinity;
+        const minBytes = minSizeKb ? minSizeKb * 1024 : 0;
+
         if (maxSizeKb) {
-          // If a max size is specified, try passes progressively until we are under the limit
+          // Find the HIGHEST quality pass that fits under maxSizeKb
           for (const pass of passes) {
-            if (bestBuffer.length <= maxSizeKb * 1024) {
-              break; // We met the target size!
+            const outBuffer = await runGsPassAndGetBuffer(pass);
+            if (outBuffer && outBuffer.length <= maxBytes) {
+              bestBuffer = outBuffer;
+              break; // We found the highest quality that fits!
             }
-            await runGsPass(pass);
           }
         } else {
-          // Always run a default compression pass first to see if we can reduce it.
-          // We use /ebook (150 dpi) as a good default for general use that maintains readability.
-          await runGsPass(passes[3]); // Ebook pass
+          // If no maxSizeKb, we want to compress it, but ideally stay above minSizeKb
+          // We'll try passes starting from a good default (Ebook - index 4)
+          let found = false;
+          for (let i = 4; i >= 0; i--) {
+            const outBuffer = await runGsPassAndGetBuffer(passes[i]);
+            if (outBuffer && outBuffer.length >= minBytes) {
+              bestBuffer = outBuffer;
+              found = true;
+              break;
+            }
+          }
+          // If even the highest quality (Lossless) is below minSizeKb, just use Ebook and pad it
+          if (!found) {
+            const outBuffer = await runGsPassAndGetBuffer(passes[4]);
+            if (outBuffer) bestBuffer = outBuffer;
+          }
         }
         
         // If it's STILL too large, try rasterizing the PDF (nuclear option)
