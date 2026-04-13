@@ -10,9 +10,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown, AlertCircle } from 'lucide-react';
+import { Switch } from '@/components/ui/switch';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown, AlertCircle, Info } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
+import dynamic from 'next/dynamic';
+
+const SearchableExamSelect = dynamic(() => import('./SearchableExamSelect'), { ssr: false });
 
 export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo' }: { initialExamId?: string, initialFileType?: FileType }) {
   const [isMounted, setIsMounted] = useState(false);
@@ -27,7 +32,6 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
   const [customMaxSize, setCustomMaxSize] = useState<string>('50');
   const [customFormat, setCustomFormat] = useState<string>(initialFileType === 'document' ? 'pdf' : 'jpg');
   const [isGovExamMode, setIsGovExamMode] = useState<boolean>(false);
-  const [isPresetMenuOpen, setIsPresetMenuOpen] = useState<boolean>(false);
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
@@ -35,24 +39,6 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (isPresetMenuOpen && selectedExamId) {
-      setTimeout(() => {
-        const container = document.getElementById('preset-menu-container');
-        if (!container) return;
-        
-        if (selectedExamId === 'custom') {
-          container.scrollTop = 0;
-        } else {
-          const el = document.getElementById(`preset-${selectedExamId}`);
-          if (el) {
-            container.scrollTop = el.offsetTop - 30;
-          }
-        }
-      }, 50);
-    }
-  }, [isPresetMenuOpen, selectedExamId]);
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const selectedFile = acceptedFiles[0];
@@ -172,6 +158,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
             format: 'pdf'
           });
           toast.success('PDF optimized successfully!');
+          
+          setTimeout(() => {
+            document.getElementById('results-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+          
           setIsProcessing(false);
           return;
         } catch (err) {
@@ -490,23 +481,6 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
     (!maxSizeKb || result.size <= maxSizeKb * 1024)
   ) : false;
 
-  const groupedExams = EXAMS.reduce((acc, exam) => {
-    const category = exam.category || 'Other';
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(exam);
-    return acc;
-  }, {} as Record<string, Exam[]>);
-
-  const sortedCategories = Object.entries(groupedExams).sort(([catA], [catB]) => {
-    if (catA === 'All India Exams') return -1;
-    if (catB === 'All India Exams') return 1;
-    if (catA === 'Other') return 1;
-    if (catB === 'Other') return -1;
-    return catA.localeCompare(catB);
-  });
-
   if (!isMounted) {
     return (
       <Card className="w-full border-none shadow-none bg-slate-50/50">
@@ -639,90 +613,26 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                   {/* Exam Selection Section */}
                   <div className="flex flex-col gap-3 pt-2">
                     <Label htmlFor="exam" className="text-sm font-medium text-slate-700">Select Exam</Label>
-                      <div className="relative">
-                        <button
-                          type="button"
-                          onClick={() => setIsPresetMenuOpen(!isPresetMenuOpen)}
-                          className="flex min-h-10 w-full items-center justify-between gap-2 rounded-lg border border-input bg-transparent py-2 pr-3 pl-3 text-sm transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 text-left"
-                        >
-                          <span className="line-clamp-2 flex-1">
-                            {selectedExamId === 'custom' ? 'Custom' : EXAMS.find(e => e.id === selectedExamId)?.name || 'Select an exam'}
-                          </span>
-                          <motion.div
-                            animate={{ rotate: isPresetMenuOpen ? 180 : 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="shrink-0"
-                          >
-                            <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                          </motion.div>
-                        </button>
-                        <AnimatePresence>
-                          {isPresetMenuOpen && (
-                            <>
-                              <div 
-                                className="fixed inset-0 z-40" 
-                                onClick={() => setIsPresetMenuOpen(false)} 
-                              />
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                className="absolute left-0 top-full z-50 mt-1 w-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md"
-                              >
-                                <div id="preset-menu-container" className="flex max-h-60 flex-col overflow-y-auto p-1 relative z-50">
-                                  {sortedCategories.map(([category, exams]) => (
-                                    <div key={category} className="mb-2">
-                                      <div className="px-2 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider bg-white sticky top-0 z-10">
-                                        {category.replace(/_/g, ' ')}
-                                      </div>
-                                      {exams.map(exam => (
-                                        <div
-                                          key={exam.id}
-                                          id={`preset-${exam.id}`}
-                                          role="button"
-                                          tabIndex={0}
-                                          onClick={() => {
-                                            setSelectedExamId(exam.id);
-                                            setIsPresetMenuOpen(false);
-                                            sendGAEvent({ event: 'preset_selected', value: { examId: exam.id } });
-                                            if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
-                                            if (fileType === 'left_thumb' && !exam.left_thumb) setFileType('photo');
-                                            if (fileType === 'right_thumb' && !exam.right_thumb) setFileType('photo');
-                                            
-                                            // Initialize custom format from preset for selectable exams like OTET
-                                            if (exam.id === 'otet-2026') {
-                                              setCustomFormat(fileType === 'photo' ? exam.photo.format : exam.signature.format);
-                                            }
-                                          }}
-                                          className={`relative flex w-full cursor-default items-start rounded-md py-2 px-2 text-sm outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === exam.id ? 'bg-slate-100 text-slate-900 font-medium' : 'text-slate-700'}`}
-                                        >
-                                          <span className="text-left break-words">{exam.name}</span>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  ))}
-                                  <div className="my-1 h-px bg-slate-100" />
-                                  <button
-                                    type="button"
-                                    id="preset-custom"
-                                    onClick={() => {
-                                      setSelectedExamId('custom');
-                                      setIsPresetMenuOpen(false);
-                                      sendGAEvent({ event: 'preset_selected', value: { examId: 'custom' } });
-                                    }}
-                                    className={`relative flex w-full cursor-default items-center rounded-md py-2 px-2 text-sm font-bold outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 ${selectedExamId === 'custom' ? 'bg-slate-100 text-slate-900' : 'text-slate-900'}`}
-                                  >
-                                    Custom
-                                  </button>
-                                </div>
-                              </motion.div>
-                            </>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                      
-                      {selectedExamId !== 'custom' && currentExam && (
+                    <SearchableExamSelect
+                      exams={EXAMS}
+                      value={selectedExamId}
+                      onChange={(value, exam) => {
+                        setSelectedExamId(value);
+                        sendGAEvent({ event: 'preset_selected', value: { examId: value } });
+                        if (exam) {
+                          if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
+                          if (fileType === 'left_thumb' && !exam.left_thumb) setFileType('photo');
+                          if (fileType === 'right_thumb' && !exam.right_thumb) setFileType('photo');
+                          
+                          // Initialize custom format from preset for selectable exams like OTET
+                          if (exam.id === 'otet-2026') {
+                            setCustomFormat(fileType === 'photo' ? exam.photo.format : exam.signature.format);
+                          }
+                        }
+                      }}
+                    />
+                    
+                    {selectedExamId !== 'custom' && currentExam && (
                         <div className="text-sm text-slate-700 bg-blue-50 p-4 sm:p-5 rounded-xl border border-blue-100 space-y-2">
                           <p className="font-semibold text-blue-900">{currentExam.name} Requirements</p>
                           <ul className="list-disc pl-4 space-y-1">
@@ -747,18 +657,25 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     </div>
 
                   <div className="space-y-6 pt-6 border-t border-slate-100">
-                    <div className="bg-blue-50/50 border border-blue-100 p-4 sm:p-5 rounded-xl space-y-2">
-                      <div className="flex items-start sm:items-center space-x-3">
-                        <input 
-                          type="checkbox" 
-                          id="govExamMode" 
-                          checked={isGovExamMode} 
-                          onChange={(e) => setIsGovExamMode(e.target.checked)}
-                          className="w-5 h-5 mt-0.5 sm:mt-0 text-blue-600 rounded border-slate-300 focus:ring-blue-500 shrink-0"
-                        />
-                        <Label htmlFor="govExamMode" className="font-semibold text-slate-900 cursor-pointer text-sm sm:text-base">Fix Upload Error (Gov Exam Mode)</Label>
+                    <div className="flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded-lg">
+                      <div className="flex items-center space-x-2">
+                        <Label htmlFor="govExamMode" className="font-medium text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger type="button" className="cursor-help">
+                              <Info className="w-4 h-4 text-slate-400 hover:text-slate-600 transition-colors" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs text-sm">
+                              <p>Automatically fixes image/PDF upload issues by removing hidden metadata and correcting encoding for government exam forms.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       </div>
-                      <p className="text-sm text-slate-600 pl-8 leading-relaxed">Automatically converts your image into exam-compatible format (like MS Paint) by removing hidden metadata and fixing encoding issues.</p>
+                      <Switch 
+                        id="govExamMode" 
+                        checked={isGovExamMode} 
+                        onCheckedChange={setIsGovExamMode} 
+                      />
                     </div>
 
                     <div className="space-y-5 pt-2">

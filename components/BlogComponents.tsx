@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Info, AlertTriangle, CheckCircle2, Lightbulb } from "lucide-react";
+import { Info, AlertTriangle, CheckCircle2, Lightbulb, MessageSquare } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 export const BlogChart = ({
@@ -241,6 +241,39 @@ export const ResponsiveTable = ({
               </div>
             </div>
           ))}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+export const FAQSection = ({
+  faqs,
+}: {
+  faqs: { question: string; answer: string }[];
+}) => (
+  <div className="mt-16 bg-slate-50 rounded-3xl p-6 md:p-10 border border-slate-200">
+    <div className="flex items-center gap-3 mb-8">
+      <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">
+        <MessageSquare className="w-5 h-5 text-white" />
+      </div>
+      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 m-0">
+        Frequently Asked Questions
+      </h2>
+    </div>
+    <div className="space-y-6">
+      {faqs.map((faq, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:border-blue-200 transition-colors"
+        >
+          <h3 className="text-lg font-bold text-slate-900 mb-3 flex gap-3">
+            <span className="text-blue-600">Q.</span>
+            {faq.question}
+          </h3>
+          <p className="text-slate-700 leading-relaxed pl-7">
+            {faq.answer}
+          </p>
         </div>
       ))}
     </div>

@@ -44,6 +44,7 @@ import {
   CTABlock,
   ResponsiveTable,
   BlogChart,
+  FAQSection,
 } from "@/components/BlogComponents";
 
 const emojiMap: Record<string, any> = {
@@ -634,6 +635,11 @@ export default async function BlogPostPage({
               </div>
 
               <ShareButtons url={url} title={post.title} />
+
+              {/* FAQ Section */}
+              {post.faq && post.faq.length > 0 && (
+                <FAQSection faqs={post.faq} />
+              )}
 
               {/* In-Article CTA */}
               <div className="mt-16 pt-8 border-t border-slate-200">
