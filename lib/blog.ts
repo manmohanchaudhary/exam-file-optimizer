@@ -1708,6 +1708,8 @@ Different exam boards have different "sweet spots" for file sizes. Here is a qui
 ### Step 1: Use a Dedicated Exam Compressor
 Standard PDF compressors often make the text too blurry to read. For government forms, you need a tool that balances size and clarity.
 
+👉 **Quick Links:** [Compress PDF to 50KB](/compress-pdf-to-50kb) | [Compress PDF to 100KB](/compress-pdf-to-100kb) | [Compress PDF to 200KB](/compress-pdf-to-200kb) | [Compress PDF for Exam Forms](/compress-pdf-for-exam-forms)
+
 1. Visit **[ExamResize.online](https://examresize.online)**.
 2. Upload your scanned document (Aadhaar, Degree, or Caste Certificate).
 3. Choose the **"Government Exam / High Clarity"** compression level.
@@ -2329,7 +2331,7 @@ Get a recent photo (within 10 days) with your name and date printed at the botto
 Go to our [UPSC Photo Resizer](/upsc-photo-resizer). Upload your photo and signature. The tool is specifically programmed to force the dimensions to fit within the 350px - 1000px range while keeping the file size between 20 KB and 300 KB. 
 
 **Step 3: Convert ID Proof to PDF**
-Take a photo of your ID card. Use a [PDF / Document Compressor](/document-compressor) tool to convert that JPG into a PDF file that is strictly under 300 KB.
+Take a photo of your ID card. Use a [PDF Document Compressor](/document-compressor) tool to convert that JPG into a PDF file that is strictly under 300 KB. (Need a specific size? Try our [Compress PDF to 100KB](/compress-pdf-to-100kb) or [Compress PDF to 200KB](/compress-pdf-to-200kb) tools).
 
 ## Best Practices Before Final Submit
 *   **Appearance Match:** UPSC strictly notes that your appearance on the day of the exam (e.g., beard, spectacles) must match the photograph uploaded.

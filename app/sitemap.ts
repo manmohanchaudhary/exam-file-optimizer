@@ -23,6 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/document-compressor',
     '/dsssb-image-optimizer',
     '/ssb-odisha-image-resizer',
+    '/compress-pdf-to-50kb',
+    '/compress-pdf-to-100kb',
+    '/compress-pdf-to-200kb',
+    '/compress-pdf-for-exam-forms',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: lastModifiedDate,

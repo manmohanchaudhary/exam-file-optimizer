@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/compress-pdf-to-:size',
+        destination: '/compress-pdf-to/:size',
+      },
+    ];
+  },
   async redirects() {
     return [
       {

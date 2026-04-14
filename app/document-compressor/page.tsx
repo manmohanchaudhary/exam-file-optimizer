@@ -2,11 +2,12 @@ import { FileUp, Settings, Download, ShieldCheck, Zap, Smartphone, CheckCircle }
 import AdBanner from '@/components/AdBanner';
 import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
+import Link from 'next/link';
 
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Free Document Compressor | Reduce PDF Size for Exam Forms Online',
+  title: 'PDF Compressor for Exact KB Size | 50KB, 100KB, 200KB for Exam Forms',
   description: 'Compress PDF files and reduce document sizes to 50KB, 100KB, or 200KB instantly. The perfect online document compressor for government exam applications. 100% secure and free.',
   alternates: {
     canonical: '/document-compressor',
@@ -17,8 +18,8 @@ export default function DocumentCompressorPage() {
   const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Document Compressor",
-    "description": "Compress PDF files and reduce document sizes to 50KB, 100KB, or 200KB instantly. The perfect online document compressor for government exam applications.",
+    "name": "PDF Compressor for Exact Size",
+    "description": "Compress PDF to exact size like 50KB, 100KB, 200KB for exam forms",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "All",
     "url": "https://examresize.online/document-compressor",
@@ -27,6 +28,25 @@ export default function DocumentCompressorPage() {
       "price": "0",
       "priceCurrency": "USD"
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://examresize.online"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Document Compressor",
+        "item": "https://examresize.online/document-compressor"
+      }
+    ]
   };
 
   const faqSchema = {
@@ -71,13 +91,26 @@ export default function DocumentCompressorPage() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
       <main className="flex-grow">
         <section className="pt-16 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+          <div className="flex justify-center gap-4 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium">
+              <ShieldCheck className="w-4 h-4" /> Secure SSL upload
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">
+              <Zap className="w-4 h-4" /> Files are auto-deleted after processing
+            </span>
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-sm font-medium">
+              <CheckCircle className="w-4 h-4" /> No file stored on server
+            </span>
+          </div>
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-            Free Online Document Compressor - Reduce PDF Size for Exam Forms
+            Compress PDF to Exact Size (50KB, 100KB, 200KB)
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
             Compress PDF online to exact KB sizes. The ultimate PDF size reducer for students and job applicants.
@@ -94,7 +127,34 @@ export default function DocumentCompressorPage() {
           </div>
         </section>
         
-        <section id="how-it-works" className="py-16 bg-white border-t border-slate-200">
+        <section className="py-16 bg-white border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Popular Compression Targets</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">Quickly access our dedicated tools for specific file size requirements.</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/compress-pdf-to-50kb" className="block p-6 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Compress PDF to 50KB</h3>
+                <p className="text-sm text-slate-600">Perfect for strict ID proofs and small document uploads.</p>
+              </Link>
+              <Link href="/compress-pdf-to-100kb" className="block p-6 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Compress PDF to 100KB</h3>
+                <p className="text-sm text-slate-600">The most common requirement for mark sheets and certificates.</p>
+              </Link>
+              <Link href="/compress-pdf-to-200kb" className="block p-6 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Compress PDF to 200KB</h3>
+                <p className="text-sm text-slate-600">Ideal for multi-page documents and detailed forms.</p>
+              </Link>
+              <Link href="/compress-pdf-for-exam-forms" className="block p-6 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Compress PDF for Exam Forms</h3>
+                <p className="text-sm text-slate-600">Tailored for SSC, UPSC, RRB, and other government portals.</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section id="how-it-works" className="py-16 bg-slate-50 border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">How to Compress PDF Documents to KB Instantly</h2>

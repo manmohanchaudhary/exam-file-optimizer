@@ -19,7 +19,7 @@ import dynamic from 'next/dynamic';
 
 const SearchableExamSelect = dynamic(() => import('./SearchableExamSelect'), { ssr: false });
 
-export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo' }: { initialExamId?: string, initialFileType?: FileType }) {
+export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo', initialTargetSize, initialMinSize }: { initialExamId?: string, initialFileType?: FileType, initialTargetSize?: string, initialMinSize?: string }) {
   const [isMounted, setIsMounted] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -28,8 +28,8 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
   
   const [customWidth, setCustomWidth] = useState<string>('');
   const [customHeight, setCustomHeight] = useState<string>('');
-  const [customMinSize, setCustomMinSize] = useState<string>('');
-  const [customMaxSize, setCustomMaxSize] = useState<string>('50');
+  const [customMinSize, setCustomMinSize] = useState<string>(initialMinSize || '');
+  const [customMaxSize, setCustomMaxSize] = useState<string>(initialTargetSize || '50');
   const [customFormat, setCustomFormat] = useState<string>(initialFileType === 'document' ? 'pdf' : 'jpg');
   const [isGovExamMode, setIsGovExamMode] = useState<boolean>(false);
 
