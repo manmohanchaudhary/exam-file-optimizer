@@ -85,7 +85,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
     setFile(fileToUse);
     setResult(null);
     
-    sendGAEvent({ event: 'file_uploaded', value: { fileType: fileToUse.type, size: fileToUse.size } });
+    sendGAEvent('event', 'file_uploaded', { fileType: fileToUse.type, size: fileToUse.size });
 
     // Auto-detect file type
     if (fileToUse.type === 'application/pdf') {
@@ -248,7 +248,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
         format: blob.type === 'application/pdf' ? 'pdf' : 'jpg'
       });
       
-      sendGAEvent({ event: 'file_processed', value: { examId: selectedExamId, fileType, format: blob.type } });
+      sendGAEvent('event', 'file_processed', { examId: selectedExamId, fileType, format: blob.type });
       
       toast.success('File optimized successfully!');
       
@@ -258,7 +258,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
     } catch (error) {
       console.error(error);
-      sendGAEvent({ event: 'processing_error', value: { error: error instanceof Error ? error.message : 'Unknown error' } });
+      sendGAEvent('event', 'processing_error', { error: error instanceof Error ? error.message : 'Unknown error' });
       toast.error(error instanceof Error ? error.message : 'An error occurred');
     } finally {
       setIsProcessing(false);
@@ -618,7 +618,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       value={selectedExamId}
                       onChange={(value, exam) => {
                         setSelectedExamId(value);
-                        sendGAEvent({ event: 'preset_selected', value: { examId: value } });
+                        sendGAEvent('event', 'preset_selected', { examId: value });
                         if (exam) {
                           if (fileType === 'declaration' && !exam.declaration) setFileType('photo');
                           if (fileType === 'left_thumb' && !exam.left_thumb) setFileType('photo');
@@ -785,7 +785,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     <a 
                       href={result.url} 
                       download={result.filename}
-                      onClick={() => sendGAEvent({ event: 'file_downloaded', value: { examId: selectedExamId, fileType, format: result.format, size: result.size } })}
+                      onClick={() => sendGAEvent('event', 'file_downloaded', { examId: selectedExamId, fileType, format: result.format, size: result.size })}
                       className="w-full bg-[#28a745] hover:bg-green-700 text-white h-12 text-lg inline-flex items-center justify-center rounded-md font-medium transition-colors"
                     >
                       <Download className="w-5 h-5 mr-2" /> Download File
