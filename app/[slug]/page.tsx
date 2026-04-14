@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
   
   // Prevent matching exams that have static pages
-  const staticExams = ['ssc', 'otet-2026', 'dsssb'];
+  const staticExams = ['ssc', 'otet-2026', 'dsssb', 'rrb', 'rrb-ntpc', 'rrb-alp', 'rrb-group-d'];
   if (isResizer && staticExams.includes(examId)) {
     return {};
   }
@@ -63,7 +63,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
   const examId = isResizer ? slug.replace('-photo-resizer', '') : slug.replace('-photo-size-guide', '');
 
   // Prevent matching exams that have static pages
-  const staticExams = ['ssc', 'otet-2026', 'dsssb'];
+  const staticExams = ['ssc', 'otet-2026', 'dsssb', 'rrb', 'rrb-ntpc', 'rrb-alp', 'rrb-group-d'];
   if (isResizer && staticExams.includes(examId)) {
     notFound();
   }
@@ -327,7 +327,7 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
 
 export function generateStaticParams() {
   const resizerParams = EXAMS
-    .filter(exam => exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha')
+    .filter(exam => exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha' && exam.id !== 'rrb' && exam.id !== 'rrb-ntpc' && exam.id !== 'rrb-alp' && exam.id !== 'rrb-group-d')
     .map(exam => ({
       slug: `${exam.id}-photo-resizer`,
     }));

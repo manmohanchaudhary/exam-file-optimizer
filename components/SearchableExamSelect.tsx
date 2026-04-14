@@ -128,6 +128,7 @@ export default function SearchableExamSelect({ exams, value, onChange }: Searcha
         }),
         option: (base, state) => ({
           ...base,
+          paddingLeft: '1.5rem', // Indent options under categories
           backgroundColor: state.isSelected ? '#f1f5f9' : state.isFocused ? '#f8fafc' : 'transparent',
           color: state.isSelected ? '#0f172a' : '#334155',
           fontWeight: state.isSelected ? 600 : 400,
@@ -136,14 +137,22 @@ export default function SearchableExamSelect({ exams, value, onChange }: Searcha
             backgroundColor: '#e2e8f0',
           }
         }),
+        group: (base) => ({
+          ...base,
+          paddingTop: 0,
+          paddingBottom: '0.5rem',
+        }),
         groupHeading: (base) => ({
           ...base,
-          fontWeight: 600,
-          color: '#64748b',
-          fontSize: '0.75rem',
+          fontWeight: 700,
+          color: '#1e293b',
+          fontSize: '0.8rem',
           textTransform: 'uppercase',
           letterSpacing: '0.05em',
-          paddingBottom: '0.25rem',
+          padding: '0.5rem 0.75rem',
+          backgroundColor: '#f1f5f9',
+          borderBottom: '1px solid #e2e8f0',
+          marginBottom: '0.25rem',
         })
       }}
     />

@@ -83,16 +83,16 @@ export const EXAMS: Exam[] = [
     }
   },
   {
-    id: 'rrb',
-    name: 'RRB (NTPC / Group-D / ALP)',
-    category: 'All India Exams',
+    id: 'rrb-ntpc',
+    name: 'RRB NTPC',
+    category: 'Railway',
     photo: {
-      width: 320,
-      height: 240,
+      width: 240,
+      height: 320,
       minSizeKb: 30,
       maxSizeKb: 70,
       format: 'jpg',
-      description: 'Photo: 35 × 45 mm or 320 × 240 px (30–70 KB)',
+      description: 'Photo: 240(W) × 320(H) px (30–70 KB)',
     },
     signature: {
       width: 140,
@@ -101,6 +101,66 @@ export const EXAMS: Exam[] = [
       maxSizeKb: 70,
       format: 'jpg',
       description: 'Signature: 140 × 60 px (30–70 KB)',
+    },
+    document: {
+      format: 'pdf',
+      minSizeKb: 10,
+      maxSizeKb: 500,
+      description: 'Document: PDF (Max 500 KB)'
+    }
+  },
+  {
+    id: 'rrb-alp',
+    name: 'RRB ALP',
+    category: 'Railway',
+    photo: {
+      width: 240,
+      height: 320,
+      minSizeKb: 30,
+      maxSizeKb: 70,
+      format: 'jpg',
+      description: 'Photo: 240(W) × 320(H) px (30–70 KB)',
+    },
+    signature: {
+      width: 140,
+      height: 60,
+      minSizeKb: 30,
+      maxSizeKb: 70,
+      format: 'jpg',
+      description: 'Signature: 140 × 60 px (30–70 KB)',
+    },
+    document: {
+      format: 'pdf',
+      minSizeKb: 10,
+      maxSizeKb: 500,
+      description: 'Document: PDF (Max 500 KB)'
+    }
+  },
+  {
+    id: 'rrb-group-d',
+    name: 'RRB Group D',
+    category: 'Railway',
+    photo: {
+      width: 240,
+      height: 320,
+      minSizeKb: 30,
+      maxSizeKb: 70,
+      format: 'jpg',
+      description: 'Photo: Live capture (Not uploaded normally)',
+    },
+    signature: {
+      width: 140,
+      height: 60,
+      minSizeKb: 30,
+      maxSizeKb: 49,
+      format: 'jpg',
+      description: 'Signature: 140 × 60 px (30–49 KB)',
+    },
+    document: {
+      format: 'pdf',
+      minSizeKb: 10,
+      maxSizeKb: 500,
+      description: 'Document: PDF (Max 500 KB)'
     }
   },
   {

@@ -11,7 +11,8 @@ export default function LandingPageTemplate({
   faqs,
   initialExamId = 'custom',
   initialFileType = 'photo',
-  relatedTools = []
+  relatedTools = [],
+  children
 }: {
   title: string;
   description: string;
@@ -20,10 +21,11 @@ export default function LandingPageTemplate({
   initialExamId?: string;
   initialFileType?: any;
   relatedTools?: { title: string; link: string; desc: string }[];
+  children?: React.ReactNode;
 }) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
     "name": title,
     "description": description,
     "applicationCategory": "UtilitiesApplication",
@@ -135,6 +137,8 @@ export default function LandingPageTemplate({
             </div>
           </div>
         </section>
+
+        {children}
 
         {/* FAQ Section */}
         <section id="faq" className="py-20 bg-slate-50 border-t border-slate-200">

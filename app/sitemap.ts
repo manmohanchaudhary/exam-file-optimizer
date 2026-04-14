@@ -27,6 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/compress-pdf-to-100kb',
     '/compress-pdf-to-200kb',
     '/compress-pdf-for-exam-forms',
+    '/rrb-photo-resizer',
+    '/rrb-ntpc-photo-resizer',
+    '/rrb-alp-photo-resizer',
+    '/rrb-group-d-photo-resizer',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: lastModifiedDate,
@@ -38,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [];
     
     // Only add dynamic resizer route if it doesn't have a static equivalent
-    if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha') {
+    if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha' && exam.id !== 'rrb' && exam.id !== 'rrb-ntpc' && exam.id !== 'rrb-alp' && exam.id !== 'rrb-group-d') {
       routes.push({
         url: `${baseUrl}/${exam.id}-photo-resizer`,
         lastModified: lastModifiedDate,
