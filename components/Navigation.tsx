@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Instagram } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EXAMS, Exam } from '@/lib/presets';
@@ -230,72 +230,108 @@ export function Header() {
   );
 }
 
+const XIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-        <div className="lg:col-span-2">
-          <div className="flex items-center mb-4">
-            <Image 
-              src="/logo.png" 
-              alt="ExamResize Logo" 
-              width={540} 
-              height={120} 
-              className="h-9 md:h-10 w-auto brightness-0 invert"
-            />
+    <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12">
+          <div className="col-span-2 md:col-span-4 lg:col-span-2">
+            <div className="flex items-center mb-6">
+              <Image 
+                src="/logo.png" 
+                alt="ExamResize Logo" 
+                width={540} 
+                height={120} 
+                className="h-9 md:h-10 w-auto brightness-0 invert opacity-90"
+              />
+            </div>
+            <p className="text-sm leading-relaxed max-w-sm mb-8 text-slate-400">
+              The fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms.
+            </p>
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://x.com/ExamResize" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-500 hover:text-white transition-all duration-300"
+                aria-label="Follow us on X (Twitter)"
+              >
+                <XIcon className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/examresize.online/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all duration-300"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
           </div>
-          <p className="text-sm max-w-md">
-            The fastest and most secure way to resize and compress photos, signatures, and documents for online exam forms.
+          
+          <div className="col-span-1">
+            <h4 className="text-slate-100 font-semibold mb-6 text-sm uppercase tracking-wider">Tools</h4>
+            <ul className="space-y-4 text-sm">
+              <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC Photo Resizer</Link></li>
+              <li><Link href="/signature-resize-for-exam" className="hover:text-white transition-colors">Signature Optimizer</Link></li>
+              <li><Link href="/20kb-photo-converter" className="hover:text-white transition-colors">20KB Photo Resizer</Link></li>
+              <li><Link href="/passport-photo-for-exam-forms" className="hover:text-white transition-colors">Passport Photo Maker</Link></li>
+              <li><Link href="/document-compressor" className="hover:text-white transition-colors">Document Compressor</Link></li>
+            </ul>
+          </div>
+          
+          <div className="col-span-1">
+            <h4 className="text-slate-100 font-semibold mb-6 text-sm uppercase tracking-wider">Popular Exams</h4>
+            <ul className="space-y-4 text-sm">
+              <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC</Link></li>
+              <li><Link href="/rrb-photo-resizer" className="hover:text-white transition-colors">RRB</Link></li>
+              <li><Link href="/ibps-photo-resizer" className="hover:text-white transition-colors">IBPS</Link></li>
+              <li><Link href="/sbi-photo-resizer" className="hover:text-white transition-colors">SBI</Link></li>
+              <li><Link href="/rbi-photo-resizer" className="hover:text-white transition-colors">RBI</Link></li>
+              <li><Link href="/upsc-photo-resizer" className="hover:text-white transition-colors">UPSC</Link></li>
+              <li><Link href="/neet-photo-resizer" className="hover:text-white transition-colors">NEET</Link></li>
+              <li><Link href="/jee-photo-resizer" className="hover:text-white transition-colors">JEE</Link></li>
+            </ul>
+          </div>
+          
+          <div className="col-span-1">
+            <h4 className="text-slate-100 font-semibold mb-6 text-sm uppercase tracking-wider">Exam Guides</h4>
+            <ul className="space-y-4 text-sm">
+              <li><Link href="/ssc-photo-size-guide" className="hover:text-white transition-colors">SSC Guide</Link></li>
+              <li><Link href="/rrb-photo-size-guide" className="hover:text-white transition-colors">RRB Guide</Link></li>
+              <li><Link href="/ibps-photo-size-guide" className="hover:text-white transition-colors">IBPS Guide</Link></li>
+              <li><Link href="/neet-photo-size-guide" className="hover:text-white transition-colors">NEET Guide</Link></li>
+              <li><Link href="/jee-photo-size-guide" className="hover:text-white transition-colors">JEE Guide</Link></li>
+            </ul>
+          </div>
+          
+          <div className="col-span-1">
+            <h4 className="text-slate-100 font-semibold mb-6 text-sm uppercase tracking-wider">Support & Legal</h4>
+            <ul className="space-y-4 text-sm">
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog & Updates</Link></li>
+              <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="mt-16 pt-8 border-t border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+          <p>&copy; {new Date().getFullYear()} ExamResize.online. All rights reserved.</p>
+          <p className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            Files processed securely & locally
           </p>
         </div>
-        <div>
-          <h4 className="text-white font-semibold mb-4">Tools</h4>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC Photo Resizer</Link></li>
-            <li><Link href="/signature-resize-for-exam" className="hover:text-white transition-colors">Signature Optimizer</Link></li>
-            <li><Link href="/20kb-photo-converter" className="hover:text-white transition-colors">20KB Photo Resizer</Link></li>
-            <li><Link href="/passport-photo-for-exam-forms" className="hover:text-white transition-colors">Passport Photo Maker</Link></li>
-            <li><Link href="/document-compressor" className="hover:text-white transition-colors">Document Compressor</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-white font-semibold mb-4">Popular Exams</h4>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC</Link></li>
-            <li><Link href="/rrb-photo-resizer" className="hover:text-white transition-colors">RRB</Link></li>
-            <li><Link href="/ibps-photo-resizer" className="hover:text-white transition-colors">IBPS</Link></li>
-            <li><Link href="/sbi-photo-resizer" className="hover:text-white transition-colors">SBI</Link></li>
-            <li><Link href="/rbi-photo-resizer" className="hover:text-white transition-colors">RBI</Link></li>
-            <li><Link href="/upsc-photo-resizer" className="hover:text-white transition-colors">UPSC</Link></li>
-            <li><Link href="/neet-photo-resizer" className="hover:text-white transition-colors">NEET</Link></li>
-            <li><Link href="/jee-photo-resizer" className="hover:text-white transition-colors">JEE</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-white font-semibold mb-4">Exam Guides</h4>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/ssc-photo-size-guide" className="hover:text-white transition-colors">SSC Photo Size Guide</Link></li>
-            <li><Link href="/rrb-photo-size-guide" className="hover:text-white transition-colors">RRB Photo Size Guide</Link></li>
-            <li><Link href="/ibps-photo-size-guide" className="hover:text-white transition-colors">IBPS Photo Size Guide</Link></li>
-            <li><Link href="/neet-photo-size-guide" className="hover:text-white transition-colors">NEET Photo Size Guide</Link></li>
-            <li><Link href="/jee-photo-size-guide" className="hover:text-white transition-colors">JEE Photo Size Guide</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-white font-semibold mb-4">Support & Legal</h4>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/blog" className="hover:text-white transition-colors">Blog & Updates</Link></li>
-            <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-            <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-            <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-            <li><Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link></li>
-          </ul>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-sm text-center">
-        <p className="mb-4 text-slate-300">Images are processed securely and are not stored on our servers.</p>
-        <p>&copy; 2026 ExamResize.online — Free photo and signature resizing tool for exam applications.</p>
       </div>
     </footer>
   );

@@ -105,13 +105,17 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {tools.map((tool, idx) => (
-                <div key={idx} className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow flex flex-col">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{tool.title}</h3>
+                <Link 
+                  key={idx} 
+                  href={tool.link}
+                  className="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:shadow-md hover:border-blue-200 transition-all flex flex-col focus:outline-none focus:ring-2 focus:ring-[#0056b3] focus:ring-offset-2"
+                >
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#0056b3] transition-colors">{tool.title}</h3>
                   <p className="text-sm text-slate-600 mb-6 flex-grow">{tool.desc}</p>
-                  <Link href={tool.link} className="inline-flex items-center text-sm font-semibold text-[#0056b3] hover:text-[#004494]">
-                    Open Tool <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
-                </div>
+                  <span className="inline-flex items-center text-sm font-semibold text-[#0056b3] group-hover:text-[#004494]">
+                    Open Tool <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

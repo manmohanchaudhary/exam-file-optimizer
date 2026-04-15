@@ -157,6 +157,9 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
             size: compressedBlob.size,
             format: 'pdf'
           });
+          
+          sendGAEvent('event', 'file_processed', { examId: selectedExamId, fileType, format: compressedBlob.type || 'application/pdf' });
+          
           toast.success('PDF optimized successfully!');
           
           setTimeout(() => {
@@ -421,23 +424,38 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
           const minBytes = minSizeKb ? minSizeKb * 1024 : 0;
           const maxBytes = maxSizeKb ? maxSizeKb * 1024 : Infinity;
 
-          // 1. Adjust quality first
-          for (let i = 0; i < 15; i++) {
-            if (b.size < minBytes && quality < 0.95) {
-              quality = Math.min(quality + 0.05, 0.95);
+          // 1. Binary search for optimal quality
+          if (b.size > maxBytes || b.size < minBytes) {
+            let lowQ = 0.1;
+            let highQ = 1.0;
+            for (let i = 0; i < 6; i++) {
+              quality = (lowQ + highQ) / 2;
               b = await tryEncode(scale, quality);
-            } else if (b.size > maxBytes && quality > 0.1) {
-              quality = Math.max(quality - 0.1, 0.1);
-              b = await tryEncode(scale, quality);
-            } else {
-              break;
+              if (b.size > maxBytes) {
+                highQ = quality;
+              } else if (b.size < minBytes) {
+                lowQ = quality;
+              } else {
+                break;
+              }
             }
           }
 
-          // 2. If STILL too large, scale down dimensions
-          while (b.size > maxBytes && scale > 0.1) {
-            scale -= 0.1;
-            b = await tryEncode(scale, quality);
+          // 2. Binary search for scale if STILL too large
+          if (b.size > maxBytes) {
+            let lowS = 0.1;
+            let highS = 1.0;
+            for (let i = 0; i < 6; i++) {
+              scale = (lowS + highS) / 2;
+              b = await tryEncode(scale, quality);
+              if (b.size > maxBytes) {
+                highS = scale;
+              } else if (b.size < minBytes) {
+                lowS = scale;
+              } else {
+                break;
+              }
+            }
           }
 
           // 3. If STILL too small, add invisible padding bytes

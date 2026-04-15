@@ -3,7 +3,6 @@ import './globals.css';
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
-import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/next";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -55,20 +54,14 @@ export const metadata: Metadata = {
 
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { TooltipProvider } from "@/components/ui/tooltip";
+import AdSenseInit from '@/components/AdSenseInit';
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
-      <head>
-        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
-            crossOrigin="anonymous"
-          ></script>
-        )}
-      </head>
+      <head />
       <body suppressHydrationWarning>
+        <AdSenseInit />
         <TooltipProvider>
           {children}
           <Analytics />
