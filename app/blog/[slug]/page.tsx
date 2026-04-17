@@ -141,6 +141,7 @@ export async function generateMetadata({
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
+    keywords: post.keywords || [],
     alternates: {
       canonical: `/blog/${slug}`,
     },
@@ -378,8 +379,7 @@ export default async function BlogPostPage({
                         prose-strong:text-slate-900 prose-strong:font-bold
                         prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-10 prose-img:max-w-full
                         prose-hr:hidden
-                        prose-pre:max-w-full prose-pre:overflow-x-auto
-                        prose-table:max-w-full prose-table:overflow-x-auto prose-table:block"
+                        prose-pre:max-w-full prose-pre:overflow-x-auto"
                       >
                         <Markdown
                           remarkPlugins={[
@@ -624,6 +624,26 @@ export default async function BlogPostPage({
                                 </figure>
                               );
                             },
+                            table: ({ node, ...props }: any) => (
+                              <div className="not-prose my-8 w-full overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                                <table className="w-full text-left border-collapse min-w-[600px]" {...props} />
+                              </div>
+                            ),
+                            thead: ({ node, ...props }: any) => (
+                              <thead className="bg-slate-50 border-b border-slate-200" {...props} />
+                            ),
+                            th: ({ node, ...props }: any) => (
+                              <th className="!px-6 !py-4 text-sm font-bold !text-slate-900 uppercase tracking-wider whitespace-nowrap" {...props} />
+                            ),
+                            tbody: ({ node, ...props }: any) => (
+                              <tbody className="bg-white divide-y divide-slate-100" {...props} />
+                            ),
+                            tr: ({ node, ...props }: any) => (
+                              <tr className="hover:bg-slate-50/50 transition-colors" {...props} />
+                            ),
+                            td: ({ node, ...props }: any) => (
+                              <td className="!px-6 !py-4 text-sm !text-slate-700 leading-relaxed" {...props} />
+                            ),
                           }}
                         >
                           {section}

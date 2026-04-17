@@ -1,22 +1,49 @@
 ---
-title: "SSC Selection Post Phase 14 Notification 2026: Complete Guide to Vacancies, Eligibility, and New Rules"
-metaTitle: "SSC Selection Post Phase 14 2026 Guide & Vacancies"
-metaDescription: "Get all details on SSC Selection Post Phase 14 2026. Explore 3,003 vacancies, new 15-minute sectional timing, eligibility, and how to apply at ssc.gov.in."
-excerpt: "The Staff Selection Commission has released the Phase 14 notification for 3,003 vacancies. Learn about the new sectional timer, live photo requirements, and eligibility."
-date: "2026-04-15"
+title: >-
+  SSC Selection Post Phase 14 Notification 2026: Complete Guide to Vacancies,
+  Eligibility, and New Rules
+metaTitle: 'SSC Selection Post Phase 14 2026: Vacancies & Rules'
+metaDescription: >-
+  Get all details on SSC Selection Post Phase 14 2026. Explore 3,003 vacancies,
+  new 15-minute sectional timing, eligibility, and how to apply at ssc.gov.in.
+excerpt: >-
+  The Staff Selection Commission has released the Phase 14 notification for
+  3,003 vacancies. Learn about the new sectional timer, live photo requirements,
+  and eligibility.
+date: '2026-04-15'
 faq:
-  - question: "What is the new sectional timing rule in SSC Phase 14?"
-    answer: "In the 2026 exam, each of the four sections (Reasoning, GK, Maths, English) is locked after 15 minutes. You cannot jump between sections or save time from one section for another."
-  - question: "Can I apply for multiple posts in the Phase 14 recruitment?"
-    answer: "Yes, but you must submit a separate application and fee for each post category you wish to apply for."
-  - question: "Is there negative marking in the Phase 14 exam?"
-    answer: "Yes. There is a negative marking of 0.50 marks for every incorrect answer across all levels."
-  - question: "What is the name of the app for live photo capture?"
-    answer: "The official app is called 'mySSC', available on the Google Play Store. It is mandatory for capturing the live photograph required for your application."
-  - question: "What are the minimum qualifying marks?"
-    answer: "The minimum marks required are 30% for UR, 25% for OBC/EWS, and 20% for all other categories."
-  - question: "When will the SSC Phase 14 exam be conducted?"
-    answer: "The Computer-Based Examination is tentatively scheduled to take place in June 2026."
+  - question: What is the new sectional timing rule in SSC Phase 14?
+    answer: >-
+      In the 2026 exam, each of the four sections (Reasoning, GK, Maths,
+      English) is locked after 15 minutes. You cannot jump between sections or
+      save time from one section for another.
+  - question: Can I apply for multiple posts in the Phase 14 recruitment?
+    answer: >-
+      Yes, but you must submit a separate application and fee for each post
+      category you wish to apply for.
+  - question: Is there negative marking in the Phase 14 exam?
+    answer: >-
+      Yes. There is a negative marking of 0.50 marks for every incorrect answer
+      across all levels.
+  - question: What is the name of the app for live photo capture?
+    answer: >-
+      The official app is called 'mySSC', available on the Google Play Store. It
+      is mandatory for capturing the live photograph required for your
+      application.
+  - question: What are the minimum qualifying marks?
+    answer: >-
+      The minimum marks required are 30% for UR, 25% for OBC/EWS, and 20% for
+      all other categories.
+  - question: When will the SSC Phase 14 exam be conducted?
+    answer: >-
+      The Computer-Based Examination is tentatively scheduled to take place in
+      June 2026.
+keywords:
+  - SSC Selection Post Phase 14
+  - SSC 2026 vacancies
+  - SSC sectional timing rule
+  - SSC graduation post jobs
+  - SSC Phase 14 syllabus
 ---
 
 The Union Government of India has officially opened the doors for one of the most diverse recruitment drives of the year. The **SSC Selection Post Phase 14 2026 notification** was released on April 13, 2026, offering a massive **3,003 vacancies** across various central ministries and departments.

@@ -1,7 +1,20 @@
 ---
-title: "RRB ALP 2026 Recruitment: Eligibility, Dates & Photo Size Guide"
-excerpt: "Railway Recruitment Board announced a major technical recruitment drive. The RRB ALP Notification 2026 CEN 01/2026 is out for 11,127 Assistant Loco Pilot vacancies."
-date: "2026-03-16"
+title: 'RRB ALP 2026 Recruitment: Eligibility, Dates & Photo Size Guide'
+excerpt: >-
+  Railway Recruitment Board announced a major technical recruitment drive. The
+  RRB ALP Notification 2026 CEN 01/2026 is out for 11,127 Assistant Loco Pilot
+  vacancies.
+date: '2026-03-16'
+metaTitle: 'RRB ALP Recruitment 2026 CEN 01/2026: Vacancies & Apply'
+metaDescription: >-
+  Get the complete breakdown of RRB ALP Recruitment 2026 (CEN 01/2026). Check
+  loco pilot vacancies, medical standards, CBT stages, and age limit.
+keywords:
+  - RRB ALP recruitment 2026
+  - Loco Pilot notification CEN 01/2026
+  - RRB Assistant Loco Pilot
+  - railway ALP vacancies
+  - RRB CBT exam pattern
 ---
 
 The Railway Recruitment Board has announced one of the biggest technical recruitment drives in Indian Railways. The RRB ALP Notification 2026 CEN 01/2026 has been released on 16th March 2026 for **11,127 Assistant Loco Pilot vacancies**, making this an exceptional opportunity for aspiring railway professionals. 

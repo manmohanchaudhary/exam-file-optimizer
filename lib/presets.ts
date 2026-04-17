@@ -329,6 +329,15 @@ export const EXAMS: Exam[] = [
   },
   // Teaching Eligibility
   {
+    id: 'bpsc-tre-4-0-2026',
+    name: 'BPSC TRE 4.0 2026',
+    category: 'Teaching',
+    notes: 'Photo is captured live via webcam. Resize Signature & Document only.',
+    photo: { minSizeKb: 0, maxSizeKb: 100, format: 'jpg', description: 'Photo: Upload not required (Live Capture)' },
+    signature: { width: 220, height: 320, minSizeKb: 1, maxSizeKb: 20, format: 'jpg', description: 'Signature: 150-220px (W) x 250-320px (H) (Under 20 KB)' },
+    document: { minSizeKb: 50, maxSizeKb: 100, format: 'pdf', description: 'Document: 50–100 KB' }
+  },
+  {
     id: 'otet-2026',
     name: 'OTET 2026',
     category: 'Teaching',

@@ -1,9 +1,22 @@
 ---
-title: "IGNOU Assignment Submission Date Extended for June 2026 TEE: Check New Deadline & Official PDF"
-metaTitle: "IGNOU Assignment Submission Date Extended for June 2026 TEE"
-metaDescription: "The IGNOU assignment submission deadline for the June 2026 Term End Examination has been officially extended to April 30, 2026. Check the new dates and guidelines."
-excerpt: "The IGNOU assignment submission deadline for the June 2026 Term End Examination has been officially extended to April 30, 2026. Check the new dates, submission guidelines, and download the official PDF."
-date: "2026-04-05"
+title: >-
+  IGNOU Assignment Submission Date Extended for June 2026 TEE: Check New
+  Deadline & Official PDF
+metaTitle: IGNOU Assignment Deadline Extended for June 2026 TEE
+metaDescription: >-
+  Good news for IGNOU students: The assignment submission deadline for June 2026
+  TEE has been extended. Ensure timely online submission of your assignments.
+excerpt: >-
+  The IGNOU assignment submission deadline for the June 2026 Term End
+  Examination has been officially extended to April 30, 2026. Check the new
+  dates, submission guidelines, and download the official PDF.
+date: '2026-04-05'
+keywords:
+  - IGNOU assignment last date 2026
+  - IGNOU June TEE assignments
+  - submit IGNOU assignment online
+  - IGNOU deadline extension
+  - IGNOU study portal
 ---
 
 Are you an Indira Gandhi National Open University (IGNOU) student currently preparing for the **June 2026 Term End Examination (TEE)**? If you have been struggling to complete your Tutor Marked Assignments (TMA) on time, we have a major update for you.

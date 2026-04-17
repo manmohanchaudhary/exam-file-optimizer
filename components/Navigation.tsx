@@ -117,6 +117,7 @@ export function Header() {
                             if (exam.id === 'otet-2026') href = '/otet-photo-resize-2026';
                             if (exam.id === 'dsssb') href = '/dsssb-image-optimizer';
                             if (exam.id === 'ssb-odisha') href = '/ssb-odisha-image-resizer';
+                            if (exam.id === 'bpsc-tre-4-0-2026') href = '/bpsc-tre-4-0-signature-document-resizer';
                             
                             return (
                               <Link 
@@ -200,6 +201,7 @@ export function Header() {
                       if (exam.id === 'otet-2026') href = '/otet-photo-resize-2026';
                       if (exam.id === 'dsssb') href = '/dsssb-image-optimizer';
                       if (exam.id === 'ssb-odisha') href = '/ssb-odisha-image-resizer';
+                      if (exam.id === 'bpsc-tre-4-0-2026') href = '/bpsc-tre-4-0-signature-document-resizer';
 
                       return (
                         <Link 

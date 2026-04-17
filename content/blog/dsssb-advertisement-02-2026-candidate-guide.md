@@ -1,7 +1,20 @@
 ---
-title: "DSSSB Advertisement No. 02/2026: Application & Photo Guide"
-excerpt: "DSSSB released Advertisement No. 02/2026 on 25 February 2026, inviting online applications for 20 post codes across different departments. Read our complete guide."
-date: "2026-03-18"
+title: 'DSSSB Advertisement No. 02/2026: Application & Photo Guide'
+excerpt: >-
+  DSSSB released Advertisement No. 02/2026 on 25 February 2026, inviting online
+  applications for 20 post codes across different departments. Read our complete
+  guide.
+date: '2026-03-18'
+metaTitle: 'DSSSB Advertisement 02/2026: Vacancies & Application Guide'
+metaDescription: >-
+  Everything you need to know about DSSSB Advertisement 02/2026. Check the post
+  list, eligibility criteria, exam pattern, and how to apply online.
+keywords:
+  - DSSSB 02/2026 notification
+  - Delhi DSSSB recruitment 2026
+  - DSSSB application process
+  - DSSSB exam pattern
+  - DSSSB vacancies 2026
 ---
 
 Delhi Subordinate Services Selection Board (DSSSB) released **Advertisement No. 02/2026** on **25 February 2026**, inviting **online applications** for **20 post codes** across different departments, local bodies, and autonomous bodies of the Govt. of NCT of Delhi. 

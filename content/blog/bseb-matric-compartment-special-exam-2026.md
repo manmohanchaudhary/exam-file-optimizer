@@ -1,20 +1,48 @@
 ---
-title: "BSEB Matric Compartment and Special Exam 2026: Complete Guide to Application, Dates, and Fees"
-metaTitle: "BSEB Matric Compartment & Special Exam 2026 Guide"
-metaDescription: "Complete guide to BSEB Matric Compartment and Special Exam 2026. Check eligibility, fee structure, important dates, and how to apply online."
-excerpt: "The Bihar School Examination Board (BSEB) has opened the application window for the Class 10 (Matric) Special and Compartmental Examinations 2026. Learn about eligibility, fees, and dates."
-date: "2026-04-10"
+title: >-
+  BSEB Matric Compartment and Special Exam 2026: Complete Guide to Application,
+  Dates, and Fees
+metaTitle: BSEB Matric Compartment & Special Exam 2026 Dates
+metaDescription: >-
+  Get the complete schedule for the BSEB Matric Compartment and Special Exam
+  2026. Know how to apply, eligibility, and important dates for Bihar board.
+excerpt: >-
+  The Bihar School Examination Board (BSEB) has opened the application window
+  for the Class 10 (Matric) Special and Compartmental Examinations 2026. Learn
+  about eligibility, fees, and dates.
+date: '2026-04-10'
 faq:
-  - question: "How many attempts do I have to clear the compartmental exam?"
-    answer: "Students are generally given three consecutive opportunities to pass the Class 10 subjects: the initial Compartmental Exam in 2026, the Annual Exam in 2027, and finally, the Compartmental Exam in 2027."
-  - question: "What is the minimum passing mark for the compartment papers?"
-    answer: "For the Class 10 Matric exams, students must secure at least 30% of the aggregate marks in each subject and a total of 150 marks overall to be declared a 'Pass'."
-  - question: "Can I apply for more than two subjects in the compartmental exam?"
-    answer: "No, the compartmental exam is restricted to students who failed in a maximum of two subjects. If you have failed in three or more subjects, you must repeat the entire academic year."
-  - question: "What is the scrutiny process and how much does it cost?"
-    answer: "Scrutiny is a re-evaluation process where your answer sheet is re-checked for calculation errors or unchecked answers. The fee for applying for scrutiny is Rs. 120 per subject."
-  - question: "Will I get a separate marksheet for the compartment exam?"
-    answer: "After successfully passing the compartment exam, the board typically provides a consolidated marksheet so that students do not need to carry multiple documents for admission or employment."
+  - question: How many attempts do I have to clear the compartmental exam?
+    answer: >-
+      Students are generally given three consecutive opportunities to pass the
+      Class 10 subjects: the initial Compartmental Exam in 2026, the Annual Exam
+      in 2027, and finally, the Compartmental Exam in 2027.
+  - question: What is the minimum passing mark for the compartment papers?
+    answer: >-
+      For the Class 10 Matric exams, students must secure at least 30% of the
+      aggregate marks in each subject and a total of 150 marks overall to be
+      declared a 'Pass'.
+  - question: Can I apply for more than two subjects in the compartmental exam?
+    answer: >-
+      No, the compartmental exam is restricted to students who failed in a
+      maximum of two subjects. If you have failed in three or more subjects, you
+      must repeat the entire academic year.
+  - question: What is the scrutiny process and how much does it cost?
+    answer: >-
+      Scrutiny is a re-evaluation process where your answer sheet is re-checked
+      for calculation errors or unchecked answers. The fee for applying for
+      scrutiny is Rs. 120 per subject.
+  - question: Will I get a separate marksheet for the compartment exam?
+    answer: >-
+      After successfully passing the compartment exam, the board typically
+      provides a consolidated marksheet so that students do not need to carry
+      multiple documents for admission or employment.
+keywords:
+  - BSEB matric compartment 2026
+  - Bihar Board 10th special exam
+  - BSEB supplementary exam form
+  - Bihar compartmental admit card
+  - BSEB 10th exam date
 ---
 
 The Bihar School Examination Board (BSEB) has officially opened the application window for the **Class 10 (Matric) Special and Compartmental Examinations 2026**. This initiative serves as a vital second chance for students to save their academic year and progress to higher secondary education without delay.

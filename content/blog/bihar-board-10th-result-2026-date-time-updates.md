@@ -1,7 +1,20 @@
 ---
-title: "Bihar Board 10th Result 2026: Check Result Online & Updates"
-excerpt: "The Bihar Board Class 10 Result 2026 is expected to be released very soon. Stay updated with the latest news on result date, time, and how to check your marksheet online."
-date: "2026-03-24"
+title: 'Bihar Board 10th Result 2026: Check Result Online & Updates'
+excerpt: >-
+  The Bihar Board Class 10 Result 2026 is expected to be released very soon.
+  Stay updated with the latest news on result date, time, and how to check your
+  marksheet online.
+date: '2026-03-24'
+metaTitle: 'Bihar Board 10th Result 2026: Date, Time & Live Updates'
+metaDescription: >-
+  Get the latest updates on Bihar Board 10th Result 2026. Learn where and how to
+  check your BSEB Matric scorecard online when the results drop.
+keywords:
+  - Bihar Board 10th Result 2026
+  - BSEB Matric Result date
+  - check Bihar board result online
+  - BSEB 10th scorecard
+  - Bihar board marking scheme
 ---
 
 The Bihar Board Class 10 Result 2026 is expected to be released very soon, and students across the state are eagerly waiting for the official announcement.

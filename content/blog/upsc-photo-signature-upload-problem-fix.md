@@ -1,7 +1,20 @@
 ---
-title: "UPSC Photo & Signature Size Guide: Exact Dimensions & Format"
-excerpt: "Getting an invalid format or dimension error on your UPSC application? Learn how to resize your photo and signature to meet the strict 350x350 pixel and 20KB-300KB limits."
-date: "2026-03-19"
+title: 'UPSC Photo & Signature Size Guide: Exact Dimensions & Format'
+excerpt: >-
+  Getting an invalid format or dimension error on your UPSC application? Learn
+  how to resize your photo and signature to meet the strict 350x350 pixel and
+  20KB-300KB limits.
+date: '2026-03-19'
+metaTitle: Fix UPSC Photo & Signature Upload Rejection 2026
+metaDescription: >-
+  Fix your UPSC OTR and application image upload errors. Quick fixes for Bit
+  Depth limit, DPI mismatches, and pixel dimensional mismatch on upsc.gov.in.
+keywords:
+  - fix UPSC image rejection
+  - UPSC DPI mismatch error
+  - UPSC pixel dimensions
+  - resize for UPSC OTR
+  - UPSC upload troubleshooting
 ---
 
 You are applying for one of the most prestigious exams in the country—the UPSC Civil Services Examination (CSE), NDA, or CDS. You’ve carefully filled out Part-I of the registration, but when you reach Part-II to upload your photo and signature, the portal blocks you. 

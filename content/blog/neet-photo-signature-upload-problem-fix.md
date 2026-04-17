@@ -1,7 +1,20 @@
 ---
-title: "NTA NEET Photo & Signature Upload Guide: Avoid Rejection"
-excerpt: "Struggling with NTA NEET image uploads? Learn the exact size, format, and background rules for passport photos, postcard photos, signatures, and thumb impressions to avoid form rejection."
-date: "2026-03-19"
+title: 'NTA NEET Photo & Signature Upload Guide: Avoid Rejection'
+excerpt: >-
+  Struggling with NTA NEET image uploads? Learn the exact size, format, and
+  background rules for passport photos, postcard photos, signatures, and thumb
+  impressions to avoid form rejection.
+date: '2026-03-19'
+metaTitle: Fix NEET Photo & Signature Upload Problems Fast
+metaDescription: >-
+  Eliminate NEET UG photo and signature upload errors with our guide. Check NTA
+  dimension guidelines, file sizes, format requirements, and resolution.
+keywords:
+  - NEET photo specifications 2026
+  - NTA NEET signature size
+  - fix NEET upload error
+  - NEET passport size photo
+  - NEET image format rules
 ---
 
 You’ve spent countless hours studying physics, chemistry, and biology, but right now, the hardest part of clearing NEET seems to be uploading your documents. You try to upload your passport photo, and the portal says *"File size must be between 10 KB and 200 KB."* You try your signature, and it says *"Invalid Image Format."* 

@@ -1,7 +1,19 @@
 ---
-title: "IGNOU June TEE 2026 Exam Form: Dates, Fees & Complete Guide"
-excerpt: "Complete guide to IGNOU June TEE 2026 exam form. Check important dates, last date, fees, eligibility, and step-by-step application process."
-date: "2026-03-27"
+title: 'IGNOU June TEE 2026 Exam Form: Dates, Fees & Complete Guide'
+excerpt: >-
+  Complete guide to IGNOU June TEE 2026 exam form. Check important dates, last
+  date, fees, eligibility, and step-by-step application process.
+date: '2026-03-27'
+metaTitle: 'IGNOU June TEE 2026 Exam Form: Step-by-Step Guide'
+metaDescription: >-
+  A straightforward guide on filling out the IGNOU June TEE 2026 exam form.
+  Check eligibility, subject selection, payment methods, and common issues.
+keywords:
+  - IGNOU exam form June 2026
+  - fill IGNOU TEE form
+  - IGNOU exam fee payment
+  - IGNOU subject code 2026
+  - IGNOU student portal
 ---
 
 

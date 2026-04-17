@@ -1,7 +1,20 @@
 ---
-title: "Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet"
-excerpt: "The Bihar Board Class 12 Result 2026 is out. Students from Science, Commerce, and Arts streams can now check their results online using their roll number and code."
-date: "2026-03-24"
+title: Bihar Board Class 12 Result 2026 – Check Result Online & Download Marksheet
+excerpt: >-
+  The Bihar Board Class 12 Result 2026 is out. Students from Science, Commerce,
+  and Arts streams can now check their results online using their roll number
+  and code.
+date: '2026-03-24'
+metaTitle: 'Bihar Board 12th Result 2026: Check Intermediate Scorecard'
+metaDescription: >-
+  Check your Bihar Board 12th Result 2026 directly here. Discover the exact
+  steps to access your BSEB Intermediate score and download the marksheet.
+keywords:
+  - Bihar Board 12th Result 2026
+  - BSEB Inter result check
+  - Bihar board class 12 marksheet
+  - BSEB 12th scorecard download
+  - Bihar Board intermediate
 ---
 
 The Bihar Board Class 12 Result 2026 has been announced, bringing relief and excitement to lakhs of students across the state. Students who appeared for the Intermediate exams can now check their results online through official websites.

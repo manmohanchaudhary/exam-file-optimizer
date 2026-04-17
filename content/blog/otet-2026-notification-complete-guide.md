@@ -1,7 +1,21 @@
 ---
-title: "OTET 2026 Notification: Eligibility, Dates & Complete Guide"
-excerpt: "The OTET 2026 notification is finally here. Get a clear, no-nonsense guide to what this exam is, who can apply, and how to prepare for a teaching career in Odisha."
-date: "2026-03-25"
+title: 'OTET 2026 Notification: Eligibility, Dates & Complete Guide'
+excerpt: >-
+  The OTET 2026 notification is finally here. Get a clear, no-nonsense guide to
+  what this exam is, who can apply, and how to prepare for a teaching career in
+  Odisha.
+date: '2026-03-25'
+metaTitle: 'OTET 2026 Notification: Eligibility, Syllabus & Dates'
+metaDescription: >-
+  Dive into the OTET 2026 notification by BSE Odisha. Find complete details
+  about the eligibility criteria, papers, syllabus, mark distribution, and
+  dates.
+keywords:
+  - OTET notification 2026
+  - Odisha TET syllabus
+  - OTET exam date
+  - OTET qualifying marks
+  - BSE Odisha updates
 ---
 
 

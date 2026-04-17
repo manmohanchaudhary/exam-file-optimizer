@@ -1,7 +1,20 @@
 ---
-title: "UP Police Constable 2026: Official Photo & Signature Requirements"
-excerpt: "With a massive vacancy count announced for the UP Police Constable 2026 recruitment, find out why 15% of forms get rejected due to incorrect image uploads and how to fix them."
-date: "2026-03-23"
+title: 'UP Police Constable 2026: Official Photo & Signature Requirements'
+excerpt: >-
+  With a massive vacancy count announced for the UP Police Constable 2026
+  recruitment, find out why 15% of forms get rejected due to incorrect image
+  uploads and how to fix them.
+date: '2026-03-23'
+metaTitle: UP Police Constable Photo Strategy & Upload Guide 2026
+metaDescription: >-
+  Master the photo and signature upload for the UP Police Constable 2026 exam.
+  Learn dimension requirements, DPI configurations, and avoid form rejection.
+keywords:
+  - UP Police UPPRPB photo size
+  - UP Constable signature format
+  - UP police application 2026
+  - Uttar Pradesh police recruitment
+  - fix UPPRPB upload
 ---
 
 With a massive vacancy count announced for the UP Police Constable 2026 recruitment, millions of aspirants are gearing up to apply. However, did you know that nearly 15% of application forms get rejected simply due to incorrect image uploads? Ensuring your photo and signature meet the exact official specifications is the most crucial step before submitting your form.

@@ -1,7 +1,20 @@
 ---
-title: "CUET UG 2026: Complete Guide, Exam Pattern, Fees, Eligibility & Strategy"
-excerpt: "Master the CUET UG 2026 with our comprehensive guide. Explore the new exam pattern, subject reduction, marking scheme, and a winning preparation strategy for India's biggest entrance test."
-date: "2026-04-01"
+title: 'CUET UG 2026: Complete Guide, Exam Pattern, Fees, Eligibility & Strategy'
+excerpt: >-
+  Master the CUET UG 2026 with our comprehensive guide. Explore the new exam
+  pattern, subject reduction, marking scheme, and a winning preparation strategy
+  for India's biggest entrance test.
+date: '2026-04-01'
+metaTitle: 'CUET UG 2026 Guide: Registration, Syllabus & Exam Pattern'
+metaDescription: >-
+  Master the CUET UG 2026 with our complete guide. Get updates on registration
+  dates, syllabus changes, normalized scoring, and NTA updates.
+keywords:
+  - CUET UG 2026 registration
+  - CUET UG syllabus
+  - NTA CUET exam date
+  - central university entrance test
+  - CUET passing marks
 ---
 
 The Common University Entrance Test (CUET UG 2026) has become the backbone of undergraduate admissions in India. Conducted by the National Testing Agency (NTA), it provides a single, standardized platform for students seeking admission to Central, State, Private, and Deemed universities.

@@ -1,7 +1,22 @@
 ---
-title: "The Ultimate Guide to UPSC Photo and Signature Uploads (Updated 2026 Guidelines)"
-excerpt: "Applying for UPSC? Avoid application rejection by following the new 2026 guidelines for photo and signature uploads, including the mandatory triple-signature rule."
-date: "2026-04-02"
+title: >-
+  The Ultimate Guide to UPSC Photo and Signature Uploads (Updated 2026
+  Guidelines)
+excerpt: >-
+  Applying for UPSC? Avoid application rejection by following the new 2026
+  guidelines for photo and signature uploads, including the mandatory
+  triple-signature rule.
+date: '2026-04-02'
+metaTitle: 'UPSC Photo & Signature Guidelines 2026: 10-Day Rule'
+metaDescription: >-
+  Understand the strict UPSC Photo and Signature guidelines for 2026
+  applications. Learn about the 10-day name/date rule and correct DPI settings.
+keywords:
+  - UPSC photo guidelines 2026
+  - UPSC 10-day photo rule
+  - UPSC signature dimensions
+  - UPSC civil services upload
+  - UPSC application photo
 ---
 
 Applying for the Union Public Service Commission (UPSC) examinations is a rigorous process, and the application form itself requires strict attention to detail. One of the most common reasons for application rejection or delays is the incorrect uploading of photographs and signatures. 

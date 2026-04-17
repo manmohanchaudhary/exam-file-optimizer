@@ -11,6 +11,7 @@ export default function LandingPageTemplate({
   faqs,
   initialExamId = 'custom',
   initialFileType = 'photo',
+  hiddenTabs = [],
   relatedTools = [],
   children
 }: {
@@ -20,6 +21,7 @@ export default function LandingPageTemplate({
   faqs: { q: string; a: string }[];
   initialExamId?: string;
   initialFileType?: any;
+  hiddenTabs?: string[];
   relatedTools?: { title: string; link: string; desc: string }[];
   children?: React.ReactNode;
 }) {
@@ -94,7 +96,7 @@ export default function LandingPageTemplate({
           {/* Main App Container */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-4xl mx-auto overflow-hidden mb-12">
             <div className="p-6 md:p-8">
-              <AppContainer initialExamId={initialExamId} initialFileType={initialFileType} />
+              <AppContainer initialExamId={initialExamId} initialFileType={initialFileType} hiddenTabs={hiddenTabs} />
             </div>
           </div>
 

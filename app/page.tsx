@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const tools = [
+    { title: 'BPSC TRE 4.0 Resizer', desc: 'Resize signature & documents for BPSC.', link: '/bpsc-tre-4-0-signature-document-resizer' },
     { title: 'Document Compressor', desc: 'Compress PDF files to specific KB sizes.', link: '/document-compressor' },
     { title: 'OTET 2026 Resizer', desc: 'Resize photo and signature for OTET 2026.', link: '/otet-photo-resize-2026' },
     { title: 'SSB Odisha Resizer', desc: 'Resize photo & signature for SSB Odisha.', link: '/ssb-odisha-image-resizer' },

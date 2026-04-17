@@ -1,7 +1,20 @@
 ---
-title: "Rajasthan Board 10th Result 2026: Latest Updates & Guide"
-excerpt: "The Rajasthan Board Class 10 Result 2026 is officially announced. Students who appeared for the exam can now check their results online easily without any hassle."
-date: "2026-03-24"
+title: 'Rajasthan Board 10th Result 2026: Latest Updates & Guide'
+excerpt: >-
+  The Rajasthan Board Class 10 Result 2026 is officially announced. Students who
+  appeared for the exam can now check their results online easily without any
+  hassle.
+date: '2026-03-24'
+metaTitle: Rajasthan Board 10th Result 2026 is Out Today | Check RBSE
+metaDescription: >-
+  RBSE 10th Result 2026 has been declared! Get the direct link to check your
+  Rajasthan Board marksheet, latest pass percentages, and topper list.
+keywords:
+  - RBSE 10th Result 2026
+  - Rajasthan board matric scorecard
+  - check RBSE 10th marks
+  - RBSE topper list
+  - rajeduboard result
 ---
 
 Good news for students! The Rajasthan Board Class 10 Result 2026 has been officially announced today. Lakhs of students who appeared for the exam can now check their results online without any hassle.

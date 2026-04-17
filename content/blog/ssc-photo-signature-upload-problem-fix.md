@@ -1,7 +1,20 @@
 ---
-title: "SSC Photo & Signature Upload Guide: How to Avoid Rejection"
-excerpt: "Getting an upload error on your SSC form? Learn the exact SSC image size requirements and how to resize your photo and signature to 10-20KB without blurring."
-date: "2026-03-19"
+title: 'SSC Photo & Signature Upload Guide: How to Avoid Rejection'
+excerpt: >-
+  Getting an upload error on your SSC form? Learn the exact SSC image size
+  requirements and how to resize your photo and signature to 10-20KB without
+  blurring.
+date: '2026-03-19'
+metaTitle: Fix SSC Photo & Signature Upload Error Instantly
+metaDescription: >-
+  Solve SSC live photo and signature upload issues easily. Follow the official
+  mySSC app guidelines, correct dimensions, and background color rules.
+keywords:
+  - SSC photo signature size
+  - mySSC app live photo
+  - fix SSC upload fail
+  - SSC CGL photo requirements
+  - SSC selection post signature
 ---
 
 You’ve spent months preparing for your SSC exams, filled out all your educational details in the One Time Registration (OTR) portal, and you are finally on the last step. But when you try to upload your signature, the portal throws a red error: *"File size must be between 10 KB and 20 KB."* 

@@ -1,7 +1,20 @@
 ---
-title: "SSC GD 2026 Latest Updates: Exam Dates, Admit Card, and New Rules Explained"
-excerpt: "The SSC GD 2026 exam has been postponed to April. Read about the cancelled self-slot booking, admit card release stages, and the complete selection process."
-date: "2026-04-03"
+title: 'SSC GD 2026 Latest Updates: Exam Dates, Admit Card, and New Rules Explained'
+excerpt: >-
+  The SSC GD 2026 exam has been postponed to April. Read about the cancelled
+  self-slot booking, admit card release stages, and the complete selection
+  process.
+date: '2026-04-03'
+metaTitle: 'SSC GD 2026 Constable: Exam Dates & Admit Card Guide'
+metaDescription: >-
+  Stay on top of SSC GD 2026 latest updates. Get info on exam dates, admit card
+  downloads, force-wise vacancies, and CBT preparation tips.
+keywords:
+  - SSC GD exam dates 2026
+  - SSC GD Constable admit card
+  - CAPF vacancies GD
+  - SSC GD syllabus 2026
+  - SSC GD CBT details
 ---
 
 The **Staff Selection Commission (SSC) General Duty (GD)** exam is a massive opportunity for candidates looking to join India's paramilitary forces like the **BSF, CISF, and CRPF**. For the 2026 recruitment cycle, there are **25,487 open positions** up for grabs.

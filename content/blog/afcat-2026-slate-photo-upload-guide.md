@@ -1,7 +1,20 @@
 ---
-title: "AFCAT 1/2026 Image Upload Guide: How to Take the Slate Photo"
-excerpt: "AFCAT has the most unique photo requirement in India—the Slate Photo. Learn why it is mandatory and how to capture and resize it perfectly for your 2026 application."
-date: "2026-03-23"
+title: 'AFCAT 1/2026 Image Upload Guide: How to Take the Slate Photo'
+excerpt: >-
+  AFCAT has the most unique photo requirement in India—the Slate Photo. Learn
+  why it is mandatory and how to capture and resize it perfectly for your 2026
+  application.
+date: '2026-03-23'
+metaTitle: AFCAT 2026 Slate Photo Upload Guide | Correct Format
+metaDescription: >-
+  Master the AFCAT 2026 slate photo upload process. Learn correct dimensions,
+  format, and common mistakes to avoid rejection of your IAF application.
+keywords:
+  - AFCAT 2026 photo upload
+  - AFCAT slate photo format
+  - IAF application photo
+  - AFCAT photo guidelines 2026
+  - resize image for AFCAT
 ---
 
 The Air Force Common Admission Test (AFCAT) is one of the most prestigious defense exams in India. It also has one of the most unique image upload requirements: the mandatory "Slate Photo." Failing to follow the strict guidelines for this specific photograph is a surefire way to get your application rejected.

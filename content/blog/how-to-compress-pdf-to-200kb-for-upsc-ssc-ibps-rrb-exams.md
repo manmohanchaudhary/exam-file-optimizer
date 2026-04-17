@@ -1,7 +1,20 @@
 ---
-title: "How to Compress PDF to 200KB for UPSC, SSC, and IBPS Exams"
-excerpt: "Struggling with document upload limits for government exams? Learn how to shrink your PDF to under 200KB or 500KB while keeping it legible for official verification."
-date: "2026-03-22"
+title: 'How to Compress PDF to 200KB for UPSC, SSC, and IBPS Exams'
+excerpt: >-
+  Struggling with document upload limits for government exams? Learn how to
+  shrink your PDF to under 200KB or 500KB while keeping it legible for official
+  verification.
+date: '2026-03-22'
+metaTitle: 'Compress PDF to 200KB for UPSC, SSC, IBPS & RRB Exams'
+metaDescription: >-
+  Learn how to instantly compress your PDF files to under 200KB for UPSC, SSC,
+  IBPS, and RRB exam applications. Optimize documents without losing quality.
+keywords:
+  - compress PDF under 200KB
+  - PDF resizer for SSC
+  - reduce PDF size for UPSC
+  - IBPS document upload size
+  - RRB PDF compression tool
 ---
 
 Struggling with the strict document upload limits for government exams? Whether you are applying for **UPSC Civil Services**, **SSC CGL**, **IBPS PO**, or **Railway (RRB)** exams, you will face a common challenge: your Aadhaar Card, Caste Certificate, or Marksheets must be in **PDF format** and strictly under **200KB or 500KB**.

@@ -1,20 +1,46 @@
 ---
-title: "IGNOU June 2026 TEE Registration Deadline Extended till April 26: How to Apply Online"
-metaTitle: "IGNOU June 2026 TEE Registration Deadline Extended to April 26"
-metaDescription: "The IGNOU June 2026 TEE registration deadline has been extended to April 26, 2026. Check the revised schedule, fees, and step-by-step application guide."
-excerpt: "The IGNOU June 2026 Term-End Examination (TEE) registration deadline has been extended to April 26, 2026. Learn about the revised schedule, fees, and step-by-step application process."
-date: "2026-04-10"
+title: >-
+  IGNOU June 2026 TEE Registration Deadline Extended till April 26: How to Apply
+  Online
+metaTitle: IGNOU June 2026 TEE Registration Deadline Extended
+metaDescription: >-
+  IGNOU has extended the registration deadline for the June 2026 Term End
+  Examination. Find out late fee details and how to fill the TEE form online.
+excerpt: >-
+  The IGNOU June 2026 Term-End Examination (TEE) registration deadline has been
+  extended to April 26, 2026. Learn about the revised schedule, fees, and
+  step-by-step application process.
+date: '2026-04-10'
 faq:
-  - question: "Can I still apply if I miss the April 26 deadline?"
-    answer: "Yes, students who miss the April 26 deadline can still submit their forms between April 27 and April 30, 2026, by paying a late fee of Rs 1,100."
-  - question: "What happens if I miss an exam after filling the form?"
-    answer: "If you skip an exam, you can appear for it in any subsequent semester. However, you will need to fill out a fresh examination form and pay the exam fee again for that specific session."
-  - question: "Are the examination fees refundable?"
-    answer: "No, IGNOU examination fees are generally non-refundable and cannot be adjusted for future sessions. Refunds are only processed in cases of successful double payments for the same course."
-  - question: "Is the ABC ID compulsory for all students?"
-    answer: "Yes, the university has made the Academic Bank of Credits (ABC) ID mandatory for the 2026 session to ensure marks and grades are properly reflected in the DigiLocker system."
-  - question: "Can I change my exam centre or courses after submitting the form?"
-    answer: "No, the university does not allow any changes to the selected courses or the examination centre once the final submission is made."
+  - question: Can I still apply if I miss the April 26 deadline?
+    answer: >-
+      Yes, students who miss the April 26 deadline can still submit their forms
+      between April 27 and April 30, 2026, by paying a late fee of Rs 1,100.
+  - question: What happens if I miss an exam after filling the form?
+    answer: >-
+      If you skip an exam, you can appear for it in any subsequent semester.
+      However, you will need to fill out a fresh examination form and pay the
+      exam fee again for that specific session.
+  - question: Are the examination fees refundable?
+    answer: >-
+      No, IGNOU examination fees are generally non-refundable and cannot be
+      adjusted for future sessions. Refunds are only processed in cases of
+      successful double payments for the same course.
+  - question: Is the ABC ID compulsory for all students?
+    answer: >-
+      Yes, the university has made the Academic Bank of Credits (ABC) ID
+      mandatory for the 2026 session to ensure marks and grades are properly
+      reflected in the DigiLocker system.
+  - question: Can I change my exam centre or courses after submitting the form?
+    answer: >-
+      No, the university does not allow any changes to the selected courses or
+      the examination centre once the final submission is made.
+keywords:
+  - IGNOU TEE registration 2026
+  - IGNOU June exam form
+  - IGNOU late fee TEE
+  - IGNOU distance learning exams
+  - IGNOU admit card 2026
 ---
 
 The Indira Gandhi National Open University (IGNOU) has officially extended the registration deadline for the **June 2026 Term-End Examination (TEE)**. In a major relief for students, the deadline to submit the online examination form without a late fee has been pushed to **April 26, 2026**. This extension applies to learners enrolled in both Open and Distance Learning (ODL) and online programs.

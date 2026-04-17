@@ -1,7 +1,22 @@
 ---
-title: "A Complete Guide to the CTET February 2026 Results: Performance, Trends, and What's Next"
-excerpt: "The CTET February 2026 results are out. Explore a detailed analysis of pass percentages, performance trends between Paper 1 and Paper 2, and what aspiring teachers should expect next."
-date: "2026-04-01"
+title: >-
+  A Complete Guide to the CTET February 2026 Results: Performance, Trends, and
+  What's Next
+excerpt: >-
+  The CTET February 2026 results are out. Explore a detailed analysis of pass
+  percentages, performance trends between Paper 1 and Paper 2, and what aspiring
+  teachers should expect next.
+date: '2026-04-01'
+metaTitle: 'CTET Feb 2026 Results Guide: Download Marksheet & Certificate'
+metaDescription: >-
+  A complete guide on checking your CTET February 2026 results. Learn to
+  download your Digital Marksheet and Certificate via the DigiLocker app easily.
+keywords:
+  - CTET results Feb 2026
+  - CTET CBSE nic in result
+  - DigiLocker CTET certificate
+  - CTET marksheet download
+  - CTET passing marks 2026
 ---
 
 The Central Teacher Eligibility Test (CTET) is India’s biggest gateway for aspiring teachers. Set up under the Right to Education (RTE) Act, it ensures that anyone applying to teach Classes 1 through 8 in central government schools (like Kendriya Vidyalayas and Navodaya Vidyalayas) meets a minimum standard of quality.

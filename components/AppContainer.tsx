@@ -19,7 +19,7 @@ import dynamic from 'next/dynamic';
 
 const SearchableExamSelect = dynamic(() => import('./SearchableExamSelect'), { ssr: false });
 
-export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo', initialTargetSize, initialMinSize }: { initialExamId?: string, initialFileType?: FileType, initialTargetSize?: string, initialMinSize?: string }) {
+export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo', initialTargetSize, initialMinSize, hiddenTabs = [] }: { initialExamId?: string, initialFileType?: FileType, initialTargetSize?: string, initialMinSize?: string, hiddenTabs?: string[] }) {
   const [isMounted, setIsMounted] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -92,7 +92,11 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
       setFileType('document');
       setCustomFormat('pdf');
     } else {
-      setFileType('photo');
+      if (hiddenTabs.includes('photo')) {
+        setFileType('signature');
+      } else {
+        setFileType('photo');
+      }
       setSelectedExamId(prev => prev === 'custom' ? initialExamId : prev);
       const objectUrl = URL.createObjectURL(fileToUse);
       setPreviewUrl(objectUrl);
@@ -612,16 +616,16 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       }
                     }}>
                       <TabsList className="flex flex-wrap !h-auto min-h-[48px] w-full justify-start gap-2 p-1.5 bg-slate-100/80 rounded-xl">
-                        <TabsTrigger value="photo" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Photo</TabsTrigger>
-                        <TabsTrigger value="signature" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Signature</TabsTrigger>
-                        {(currentExam?.left_thumb || selectedExamId === 'custom') && (
+                        {!hiddenTabs.includes('photo') && <TabsTrigger value="photo" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Photo</TabsTrigger>}
+                        {!hiddenTabs.includes('signature') && <TabsTrigger value="signature" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Signature</TabsTrigger>}
+                        {!hiddenTabs.includes('left_thumb') && (currentExam?.left_thumb || selectedExamId === 'custom') && (
                           <TabsTrigger value="left_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">L. Thumb</TabsTrigger>
                         )}
-                        {(currentExam?.right_thumb || selectedExamId === 'custom') && (
+                        {!hiddenTabs.includes('right_thumb') && (currentExam?.right_thumb || selectedExamId === 'custom') && (
                           <TabsTrigger value="right_thumb" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">R. Thumb</TabsTrigger>
                         )}
-                        <TabsTrigger value="document" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Document</TabsTrigger>
-                        {(currentExam?.declaration || selectedExamId === 'custom') && (
+                        {!hiddenTabs.includes('document') && <TabsTrigger value="document" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Document</TabsTrigger>}
+                        {!hiddenTabs.includes('declaration') && (currentExam?.declaration || selectedExamId === 'custom') && (
                           <TabsTrigger value="declaration" className="flex-1 min-w-[80px] !h-auto py-2.5 text-sm rounded-lg data-[state=active]:shadow-sm">Declaration</TabsTrigger>
                         )}
                       </TabsList>
@@ -711,7 +715,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       <div className="grid grid-cols-2 gap-4 sm:gap-6">
                         <div className="space-y-2.5">
                           <Label htmlFor="minSize" className="text-slate-700 text-sm">Min Size (KB)</Label>
-                          <Input id="minSize" type="number" placeholder="e.g. 20" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMinSize : currentReq?.minSizeKb || ''} onChange={e => setCustomMinSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
+                          <Input id="minSize" type="number" placeholder="e.g. 50" className="h-11" value={isCustom || (fileType === 'document' && !currentExam?.document) ? customMinSize : currentReq?.minSizeKb || ''} onChange={e => setCustomMinSize(e.target.value)} disabled={!isCustom && !(fileType === 'document' && !currentExam?.document)} />
                         </div>
                         <div className="space-y-2.5">
                           <Label htmlFor="maxSize" className="text-slate-700 text-sm">Max Size (KB)</Label>

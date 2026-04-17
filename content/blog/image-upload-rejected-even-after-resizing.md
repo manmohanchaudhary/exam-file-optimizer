@@ -1,7 +1,19 @@
 ---
-title: "Why Your Image Upload Gets Rejected Even After Resizing"
-excerpt: "You resized your image, but it still gets rejected by the online form. Learn the hidden reasons why this happens and how to fix it instantly."
-date: "2026-03-21"
+title: Why Your Image Upload Gets Rejected Even After Resizing
+excerpt: >-
+  You resized your image, but it still gets rejected by the online form. Learn
+  the hidden reasons why this happens and how to fix it instantly.
+date: '2026-03-21'
+metaTitle: Why Is Your Re-Sized Image Upload Still Getting Rejected?
+metaDescription: >-
+  Struggling with a rejected image upload despite resizing? Learn the hidden
+  reasons like metadata, DPI, aspect ratios, and color profiles for govt exams.
+keywords:
+  - image upload rejected
+  - fix DPI for exam photos
+  - photo aspects ratio gov exams
+  - image metadata issues
+  - form photo format rules
 ---
 
 You have spent hours carefully filling out a crucial exam application or job portal form. You finally reach the last step: uploading your passport-sized photograph and signature. You check the strict requirements, use a basic tool on your phone to shrink the file, and confidently click the upload button. 

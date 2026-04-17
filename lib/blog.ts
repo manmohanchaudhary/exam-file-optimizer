@@ -7,6 +7,7 @@ export interface BlogPost {
   title: string;
   metaTitle?: string;
   metaDescription?: string;
+  keywords?: string[];
   excerpt: string;
   date: string;
   content: string;
@@ -34,6 +35,7 @@ export function getAllPosts(): BlogPost[] {
         title: data.title,
         metaTitle: data.metaTitle,
         metaDescription: data.metaDescription,
+        keywords: data.keywords,
         excerpt: data.excerpt,
         date: data.date,
         image: data.image,

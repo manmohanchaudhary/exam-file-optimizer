@@ -1,7 +1,23 @@
 ---
-title: "How to Upload Photo, Signature, and Left Thumb Impression for IBPS & SBI Bank Exams"
-excerpt: "Bank exam form rejecting your thumb impression or handwritten declaration? Discover the exact KB size and dimensions needed for IBPS and SBI application forms."
-date: "2026-03-19"
+title: >-
+  How to Upload Photo, Signature, and Left Thumb Impression for IBPS & SBI Bank
+  Exams
+excerpt: >-
+  Bank exam form rejecting your thumb impression or handwritten declaration?
+  Discover the exact KB size and dimensions needed for IBPS and SBI application
+  forms.
+date: '2026-03-19'
+metaTitle: Fix IBPS & SBI Photo/Signature Upload Errors Instantly
+metaDescription: >-
+  Having trouble uploading your photo and signature for IBPS or SBI
+  applications? Discover the exact dimensions, format rules, and fixes for
+  upload failures.
+keywords:
+  - IBPS photo size guide
+  - SBI signature upload error
+  - bank exam photo resizer
+  - IBPS upload guidelines 2026
+  - fix SBI application errors
 ---
 
 Applying for a bank job through IBPS (PO, Clerk, RRB) or SBI can be a stressful experience, especially when the application portal keeps rejecting your documents. 

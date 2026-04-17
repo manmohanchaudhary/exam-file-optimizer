@@ -1,7 +1,21 @@
 ---
-title: "RRB Group D Recruitment 2026: Latest Updates & Photo Requirements"
-excerpt: "Indian Railways has released the RRB Group D Recruitment Notification 2026 under Centralised Employment Notice (CEN) 09/2025. This recruitment drive offers thousands of vacancies in Level-1 posts across multiple railway zones in India."
-date: "2026-03-15"
+title: 'RRB Group D Recruitment 2026: Latest Updates & Photo Requirements'
+excerpt: >-
+  Indian Railways has released the RRB Group D Recruitment Notification 2026
+  under Centralised Employment Notice (CEN) 09/2025. This recruitment drive
+  offers thousands of vacancies in Level-1 posts across multiple railway zones
+  in India.
+date: '2026-03-15'
+metaTitle: 'RRB Group D Recruitment 2026: Level 1 Post Notification'
+metaDescription: >-
+  Explore RRB Group D Recruitment 2026 for Level 1 posts in Indian Railways.
+  Everything on eligibility, CBT exam pattern, PET guidelines, and applying.
+keywords:
+  - RRB Group D notification 2026
+  - Railway Group D jobs
+  - RRC Level 1 recruitment
+  - RRB Group D PET
+  - Railway recruitment physical test
 ---
 
 Indian Railways has released the **RRB Group D Recruitment Notification 2026 under Centralised Employment Notice (CEN) 09/2025**. This recruitment drive offers thousands of vacancies in Level-1 posts across multiple railway zones in India.

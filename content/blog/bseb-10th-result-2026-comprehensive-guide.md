@@ -1,7 +1,22 @@
 ---
-title: "BSEB 10th Result 2026: Comprehensive Guide to Bihar Board Matric Results Released Today"
-excerpt: "The Bihar School Examination Board (BSEB) has officially declared the Class 10 Matric results for 2026 today, March 29. Check your results, toppers list, and pass percentage."
-date: "2026-03-29"
+title: >-
+  BSEB 10th Result 2026: Comprehensive Guide to Bihar Board Matric Results
+  Released Today
+excerpt: >-
+  The Bihar School Examination Board (BSEB) has officially declared the Class 10
+  Matric results for 2026 today, March 29. Check your results, toppers list, and
+  pass percentage.
+date: '2026-03-29'
+metaTitle: BSEB 10th Result 2026 Comprehensive Guide & Marksheet
+metaDescription: >-
+  Your complete guide to the BSEB 10th Result 2026. Steps to check, marking
+  schemes, and how to apply for scrutiny or compartment exams in Bihar.
+keywords:
+  - BSEB 10th result guide 2026
+  - Bihar matric marksheet
+  - BSEB scrutiny 2026
+  - Bihar Board 10th compartment
+  - BSEB matric passing marks
 ---
 
 The Bihar School Examination Board (BSEB) has officially declared the Class 10 Matric results for 2026 today, March 29, at approximately 1:15 PM IST following a press conference in Patna. This announcement marks the culmination of exams held in February, affecting over 15 lakh students across the state. With an impressive overall pass percentage of 81.79%, the results highlight strong academic performance amid rigorous evaluations.
