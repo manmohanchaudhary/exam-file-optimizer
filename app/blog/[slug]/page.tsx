@@ -481,23 +481,6 @@ export default async function BlogPostPage({
                                 </a>
                               );
                             },
-                            table: ({ node, children, ...props }: any) => (
-                              <div className="w-full overflow-x-auto my-8 rounded-xl border border-slate-200 shadow-sm bg-white">
-                                <table className="w-full text-left border-collapse min-w-[600px] !m-0" {...props}>
-                                  {children}
-                                </table>
-                              </div>
-                            ),
-                            th: ({ node, children, ...props }: any) => (
-                              <th className="bg-slate-50 border-b border-slate-200 p-4 font-bold text-slate-900 whitespace-nowrap" {...props}>
-                                {children}
-                              </th>
-                            ),
-                            td: ({ node, children, ...props }: any) => (
-                              <td className="border-b border-slate-100 p-4 text-slate-700 break-words" {...props}>
-                                {children}
-                              </td>
-                            ),
                             div: ({
                               node,
                               className,

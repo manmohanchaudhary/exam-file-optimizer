@@ -101,7 +101,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
       const objectUrl = URL.createObjectURL(fileToUse);
       setPreviewUrl(objectUrl);
     }
-  }, [initialExamId]);
+  }, [initialExamId, hiddenTabs]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
