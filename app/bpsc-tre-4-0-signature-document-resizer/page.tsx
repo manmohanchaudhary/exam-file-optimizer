@@ -7,8 +7,8 @@ import { CheckCircle2, XCircle, FileUp, Settings, Download } from 'lucide-react'
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Resize Signature & Document for BPSC TRE 4.0 2026 | Free Tool',
-  description: 'Easily resize your signature to under 20KB (150-220px X 250-320px) and compress documents to under 100KB for the BPSC TRE 4.0 2026 application form online.',
+  title: 'BPSC TRE Signature & Document Resizer | TRE 4.0, TRE 3.0 & All BPSC Teacher Exams 2026',
+  description: 'Free tool to resize your BPSC TRE signature and documents instantly. Works for TRE 4.0, TRE 3.0 and all BPSC teacher recruitment forms — signature under 20KB, documents under 100KB. No signup required.',
   keywords: [
     'BPSC TRE 4.0 2026',
     'BPSC TRE 4.0 signature size 2026',
@@ -36,16 +36,24 @@ export const metadata: Metadata = {
 export default function BPSCTRE40Page() {
   const faqs = [
     {
-      q: "What is the signature size for BPSC TRE 4.0 2026?",
-      a: "The correct signature size for the BPSC TRE 4.0 2026 application form must be less than 20 KB. The mandatory dimensions are between 150-220 pixels in width and 250-320 pixels in height."
+      q: "What is the signature size for BPSC TRE exams?",
+      a: "For all BPSC TRE rounds including TRE 4.0 and TRE 3.0, the signature must be under 20KB in file size, between 150–220 pixels wide and 250–320 pixels tall, in JPG/JPEG format, signed on a white background with a black pen."
     },
     {
-      q: "Why is my signature not uploading in BPSC TRE 4.0?",
-      a: "Your signature upload may be failing because the file size is exactly at or larger than 20 KB, or the dimensions do not fall exactly within the expected pixel limits (150-220px width and 250-320px height). Use our preset tool above to perfectly resize it."
+      q: "Why is my signature not uploading in the BPSC TRE form?",
+      a: "Your BPSC TRE signature upload may be failing because the file size exceeds 20KB, or the dimensions are outside the required 150–220px width and 250–320px height range. This applies to TRE 4.0, TRE 3.0 and all BPSC teacher exam rounds. Use the preset tool above to fix it in one click."
     },
     {
       q: "What is the document size limit for BPSC TRE 4.0?",
       a: "All documents (such as educational certificates, category proofs, or IDs) uploaded in the 2026 exam form must be less than 100 KB in size."
+    },
+    {
+      q: "Do I need to resize a photo for the BPSC TRE 4.0 application?",
+      a: "No. The BPSC TRE 4.0 form uses live webcam capture for your photo — you do not upload a photo file at any stage. However, if you are applying for another BPSC teacher exam round that requires a photo upload, the required size is 3.5×4.5cm, JPEG, 20–50KB."
+    },
+    {
+      q: "What is the photo size for BPSC teacher exam application forms?",
+      a: "For BPSC teacher exam rounds that require a photo upload (not TRE 4.0 which uses webcam), the standard BPSC photo and signature size is: photo dimensions 3.5cm × 4.5cm, JPEG format, 20–50KB file size, white or light background. The signature should be 3.5cm × 1.5cm, JPEG, under 20KB."
     },
     {
       q: "Is photo upload needed here?",
@@ -112,18 +120,21 @@ export default function BPSCTRE40Page() {
               <li aria-current="page">
                 <div className="flex items-center">
                   <span className="mx-2 text-slate-400">/</span>
-                  <span className="text-slate-900 font-medium">BPSC TRE 4.0 Resizer</span>
+                  <span className="text-slate-900 font-medium">BPSC TRE Resizer</span>
                 </div>
               </li>
             </ol>
           </nav>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-            Resize Signature & Document for <br className="hidden md:block" />
-            <span className="text-[#28a745]">BPSC TRE 4.0 2026</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">
+            BPSC TRE Signature & Document Resizer — <br className="hidden md:block" />
+            <span className="text-[#28a745]">All BPSC Teacher Exams 2026</span>
           </h1>
+          <p className="text-xl text-slate-700 font-medium max-w-3xl mx-auto mb-4">
+            Covers TRE 4.0, TRE 3.0 and all upcoming BPSC school teacher recruitment rounds.
+          </p>
           <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
-            Select the &apos;BPSC TRE 4.0 2026&apos; preset below to automatically resize your signature (under 20KB) and compress your documents (under 100KB) quickly.
+            Use this BPSC TRE resizer below to automatically resize your signature (under 20KB) and compress your documents (under 100KB) quickly for your application.
           </p>
           
           {/* Main App Container */}
@@ -233,6 +244,55 @@ export default function BPSCTRE40Page() {
               </div>
             </div>
 
+            {/* Photo Clarification Section */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 shadow-sm">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">
+                What About the BPSC TRE Photo? (Important Note for Candidates)
+              </h2>
+              <div className="text-slate-700 space-y-4 text-lg">
+                <p>
+                  Many candidates search for a BPSC TRE photo resizer — which is completely understandable. However, the BPSC TRE 4.0 application form does NOT require a photo upload. Your photo is captured live via webcam directly on the BPSC portal during the application.
+                </p>
+                <div className="bg-white p-6 rounded-lg border border-slate-200 my-6">
+                  <p className="font-semibold text-slate-900 mb-3">This means:</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span>You do <strong>NOT</strong> need to resize or compress a photo file for TRE 4.0</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span>There is no photo KB limit or pixel requirement to meet for this exam</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span>Simply ensure good lighting, a clear face, and a plain background when the webcam activates on the portal</span>
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  If you are filling a different BPSC teacher exam or an earlier TRE round that does require a photo upload, the standard BPSC photo and signature size requirement is: photo 3.5cm × 4.5cm, JPEG format, between 20KB and 50KB. Use the button below for those exams.
+                </p>
+                <div className="pt-4">
+                  <Link href="/" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Resize Photo for Other BPSC Exams →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Works For All BPSC Section */}
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4">
+                Works for All BPSC Teacher Exams — Not Just TRE 4.0
+              </h2>
+              <div className="text-slate-600 bg-slate-50 p-8 rounded-xl border border-slate-100 text-lg">
+                <p>
+                  Whether you are filling the BPSC TRE 4.0 form, TRE 3.0, or any future BPSC teacher recruitment form, this tool applies the correct signature dimensions and file size limits automatically. The BPSC teacher exam signature requirements have stayed consistent across all rounds — under 20KB, 150–220px wide, 250–320px tall, JPG format.
+                </p>
+              </div>
+            </div>
+
             {/* Why Uploads Fail Section */}
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4">
@@ -240,7 +300,7 @@ export default function BPSCTRE40Page() {
               </h2>
               <div className="text-slate-600 bg-slate-50 p-8 rounded-xl border border-slate-100">
                 <p className="mb-4 text-lg">
-                  Candidates frequently face challenges when trying to apply online for BPSC TRE 4.0 2026 because strict web validations reject improperly formatted files. Common upload issues include:
+                  Candidates frequently face challenges when trying to apply online for the BPSC teacher exam because strict web validations reject improperly formatted files. Common upload issues include:
                 </p>
                 <ul className="grid sm:grid-cols-2 gap-4 mt-6">
                   <li className="bg-white px-5 py-4 rounded-lg border border-slate-200 shadow-sm flex items-start gap-3">

@@ -119,6 +119,8 @@ For the 2026 cycle, BPSC has made One-Time Registration (OTR) mandatory to creat
 5. **Fee Payment**: Pay the application fee (typically ₹100 for Bihar categories; up to ₹750 for others).
 6. **Confirmation**: Download and print the final application form for document verification.
 
+Before submitting, use our [BPSC TRE resizer tool](/bpsc-tre-4-0-signature-document-resizer) to ensure your signature and documents meet the exact file size requirements.
+
 ## Frequently Asked Questions (FAQs)
 
 **Q1:** Is there any negative marking in BPSC TRE 4.0?  
