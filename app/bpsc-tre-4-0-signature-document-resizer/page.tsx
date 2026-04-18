@@ -37,11 +37,11 @@ export default function BPSCTRE40Page() {
   const faqs = [
     {
       q: "What is the signature size for BPSC TRE exams?",
-      a: "For all BPSC TRE rounds including TRE 4.0 and TRE 3.0, the signature must be under 20KB in file size, between 150–220 pixels wide and 250–320 pixels tall, in JPG/JPEG format, signed on a white background with a black pen."
+      a: "For all BPSC TRE rounds including TRE 4.0 and TRE 3.0, the signature must be under 20KB in file size, between 150–220 pixels tall and 250–320 pixels wide, in JPG/JPEG format, signed on a white background with a black pen."
     },
     {
       q: "Why is my signature not uploading in the BPSC TRE form?",
-      a: "Your BPSC TRE signature upload may be failing because the file size exceeds 20KB, or the dimensions are outside the required 150–220px width and 250–320px height range. This applies to TRE 4.0, TRE 3.0 and all BPSC teacher exam rounds. Use the preset tool above to fix it in one click."
+      a: "Your BPSC TRE signature upload may be failing because the file size exceeds 20KB, or the dimensions are outside the required 150–220px height and 250–320px width range. This applies to TRE 4.0, TRE 3.0 and all BPSC teacher exam rounds. Use the preset tool above to fix it in one click."
     },
     {
       q: "What is the document size limit for BPSC TRE 4.0?",
@@ -206,11 +206,11 @@ export default function BPSCTRE40Page() {
                       <span className="font-semibold text-slate-900">Less than 20 KB</span>
                     </li>
                     <li className="flex justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-500">Width</span>
+                      <span className="text-slate-500">Height</span>
                       <span className="font-semibold text-slate-900">150–220 px</span>
                     </li>
                     <li className="flex justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-500">Height</span>
+                      <span className="text-slate-500">Width</span>
                       <span className="font-semibold text-slate-900">250–320 px</span>
                     </li>
                     <li className="flex justify-between border-b border-slate-200 pb-2">
@@ -288,7 +288,7 @@ export default function BPSCTRE40Page() {
               </h2>
               <div className="text-slate-600 bg-slate-50 p-8 rounded-xl border border-slate-100 text-lg">
                 <p>
-                  Whether you are filling the BPSC TRE 4.0 form, TRE 3.0, or any future BPSC teacher recruitment form, this tool applies the correct signature dimensions and file size limits automatically. The BPSC teacher exam signature requirements have stayed consistent across all rounds — under 20KB, 150–220px wide, 250–320px tall, JPG format.
+                  Whether you are filling the BPSC TRE 4.0 form, TRE 3.0, or any future BPSC teacher recruitment form, this tool applies the correct signature dimensions and file size limits automatically. The BPSC teacher exam signature requirements have stayed consistent across all rounds — under 20KB, 150–220px tall, 250–320px wide, JPG format.
                 </p>
               </div>
             </div>
@@ -314,7 +314,7 @@ export default function BPSCTRE40Page() {
                     <XCircle className="w-5 h-5 text-red-500 mt-0.5 shrink-0" />
                     <div>
                       <strong className="block text-slate-900">Wrong dimensions</strong> 
-                      The signature size in pixels must align with the 150-220px width and 250-320px height limits or the server rejects it.
+                      The signature size in pixels must align with the 150-220px height and 250-320px width limits or the server rejects it.
                     </div>
                   </li>
                   <li className="bg-white px-5 py-4 rounded-lg border border-slate-200 shadow-sm flex items-start gap-3">
