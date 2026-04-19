@@ -27,6 +27,27 @@ export interface Exam {
 export const EXAMS: Exam[] = [
   // Existing Exams
   {
+    id: 'ugc-net',
+    name: 'UGC-NET',
+    category: 'All India Exams',
+    photo: {
+      width: 413,
+      height: 531,
+      minSizeKb: 10,
+      maxSizeKb: 200,
+      format: 'jpg',
+      description: 'Photo: Passport size (10–200 KB)',
+    },
+    signature: {
+      width: 256,
+      height: 64,
+      minSizeKb: 4,
+      maxSizeKb: 30,
+      format: 'jpg',
+      description: 'Signature: (4–30 KB)',
+    }
+  },
+  {
     id: 'dsssb',
     name: 'DSSSB',
     category: 'Other',

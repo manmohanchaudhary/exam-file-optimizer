@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/compress-pdf-to-100kb',
     '/compress-pdf-to-200kb',
     '/compress-pdf-for-exam-forms',
+    '/ugc-net-photo-resizer',
     '/rrb-photo-resizer',
     '/rrb-ntpc-photo-resizer',
     '/rrb-alp-photo-resizer',
