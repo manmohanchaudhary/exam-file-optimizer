@@ -229,12 +229,12 @@ export default function UGCNetPhotoResizer() {
               <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                 <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border border-emerald-200">1</div>
                 <h3 className="font-bold text-slate-900 mb-2">Upload Your Photo</h3>
-                <p className="text-slate-600 text-sm">Click "Upload Photo" and select your photograph or signature from your phone or computer. Accepted formats: JPG, JPEG, PNG.</p>
+                <p className="text-slate-600 text-sm">Click &quot;Upload Photo&quot; and select your photograph or signature from your phone or computer. Accepted formats: JPG, JPEG, PNG.</p>
               </div>
               <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                 <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border border-emerald-200">2</div>
                 <h3 className="font-bold text-slate-900 mb-2">Auto-Resize to NTA Specs</h3>
-                <p className="text-slate-600 text-sm">Our tool automatically detects whether you're uploading a photo or signature and resizes it to match NTA's official UGC NET requirements — no manual settings needed.</p>
+                <p className="text-slate-600 text-sm">Our tool automatically detects whether you&apos;re uploading a photo or signature and resizes it to match NTA&apos;s official UGC NET requirements — no manual settings needed.</p>
               </div>
               <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                 <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border border-emerald-200">3</div>
@@ -277,7 +277,7 @@ export default function UGCNetPhotoResizer() {
                     <tr className="border-b border-slate-100"><td className="py-3 font-semibold">Format</td><td className="py-3">JPG / JPEG</td></tr>
                     <tr className="border-b border-slate-100"><td className="py-3 font-semibold">Background</td><td className="py-3">White background</td></tr>
                     <tr className="border-b border-slate-100"><td className="py-3 font-semibold">Ink</td><td className="py-3">Black or blue pen on white paper</td></tr>
-                    <tr><td className="py-3 font-semibold">Content</td><td className="py-3">Candidate's own signature only</td></tr>
+                    <tr><td className="py-3 font-semibold">Content</td><td className="py-3">Candidate&apos;s own signature only</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -309,11 +309,11 @@ export default function UGCNetPhotoResizer() {
               </div>
               <div className="bg-slate-50 p-5 rounded-xl border border-slate-100">
                 <h4 className="font-bold text-slate-800 mb-1">UGC NET June 2026 Application Form</h4>
-                <p className="text-slate-600 text-sm">Searches for June 2026 applications are up 120%+ in India. Don't scramble at the last minute — resize now.</p>
+                <p className="text-slate-600 text-sm">Searches for June 2026 applications are up 120%+ in India. Don&apos;t scramble at the last minute — resize now.</p>
               </div>
               <div className="bg-slate-50 p-5 rounded-xl border border-slate-100">
                 <h4 className="font-bold text-slate-800 mb-1">UGC NET Revised Result Dec 2025</h4>
-                <p className="text-slate-600 text-sm">If you're applying again after checking your revised result, your documents must still meet current NTA specs.</p>
+                <p className="text-slate-600 text-sm">If you&apos;re applying again after checking your revised result, your documents must still meet current NTA specs.</p>
               </div>
               <div className="bg-slate-50 p-5 rounded-xl border border-slate-100">
                 <h4 className="font-bold text-slate-800 mb-1">UGC NET Registration</h4>
