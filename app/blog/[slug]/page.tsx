@@ -516,11 +516,13 @@ export default async function BlogPostPage({
                                 );
                               }
                               if (className === "custom-cta-block") {
+                                const isTargetPage = post.slug === 'icse-isc-results-2026-guide' || post.slug === 'neet-pg-2026-registration-guide';
                                 return (
                                   <CTABlock
                                     title={props["data-title"]}
                                     link={props["data-link"]}
                                     buttonText={props["data-button"]}
+                                    description={isTargetPage ? "" : undefined}
                                   />
                                 );
                               }

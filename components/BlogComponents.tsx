@@ -161,17 +161,21 @@ export const CTABlock = ({
   title,
   link,
   buttonText,
+  description = "Free, fast, and secure online tool. No registration required.",
 }: {
   title: string;
   link: string;
   buttonText: string;
+  description?: string;
 }) => (
   <div className="not-prose bg-slate-900 rounded-2xl p-8 my-10 text-center sm:text-left sm:flex sm:items-center sm:justify-between shadow-xl shadow-slate-900/10 overflow-hidden">
     <div className="mb-6 sm:mb-0 sm:mr-8 min-w-0">
       <h4 className="text-xl font-bold !text-white mb-2 break-words">{title}</h4>
-      <p className="!text-slate-300 text-sm md:text-base leading-relaxed break-words">
-        Free, fast, and secure online tool. No registration required.
-      </p>
+      {description && (
+        <p className="!text-slate-300 text-sm md:text-base leading-relaxed break-words">
+          {description}
+        </p>
+      )}
     </div>
     <a
       href={link}
