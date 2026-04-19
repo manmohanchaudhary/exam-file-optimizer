@@ -6,7 +6,7 @@ import { Header, Footer } from '@/components/Navigation';
 import AdBanner from '@/components/AdBanner';
 
 export const metadata: Metadata = {
-  title: 'SSB Odisha Junior Assistant & Clerk Photo, Signature & Thumb Resize Tool',
+  title: 'SSB Odisha Jr Assistant Photo & Signature Resizer',
   description: 'Free online tool to resize photo, signature, and left thumb impression for SSB Odisha Junior Assistant & Junior Clerk 2026. Auto-resize to exact pixels and KB.',
   alternates: {
     canonical: '/ssb-odisha-image-resizer',

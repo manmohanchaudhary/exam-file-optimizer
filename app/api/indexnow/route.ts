@@ -7,7 +7,11 @@ const HOST = 'https://examresize.online';
 
 export async function POST(req: Request) {
   try {
+    const HOST = 'https://examresize.online';
+    
     // 1. Gather all URLs (matching sitemap logic)
+    const allUrlsSet = new Set<string>();
+
     const staticRoutes = [
       '',
       '/about',
@@ -24,20 +28,43 @@ export async function POST(req: Request) {
       '/otet-photo-resize-2026',
       '/document-compressor',
       '/dsssb-image-optimizer',
-    ].map(route => `${HOST}${route}`);
+      '/ssb-odisha-image-resizer',
+      '/compress-pdf-to-50kb',
+      '/compress-pdf-to-100kb',
+      '/compress-pdf-to-200kb',
+      '/compress-pdf-for-exam-forms',
+      '/rrb-photo-resizer',
+      '/rrb-ntpc-photo-resizer',
+      '/rrb-alp-photo-resizer',
+      '/rrb-group-d-photo-resizer',
+      '/bpsc-tre-4-0-signature-document-resizer',
+    ];
 
-    const examRoutes = EXAMS.flatMap(exam => {
-      const routes = [];
-      if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb') {
-        routes.push(`${HOST}/${exam.id}-photo-resizer`);
-      }
-      routes.push(`${HOST}/${exam.id}-photo-size-guide`);
-      return routes;
+    staticRoutes.forEach(route => {
+      let cleanRoute = route.startsWith('/') ? route : `/${route}`;
+      cleanRoute = cleanRoute.replace(/\/+/g, '/').replace(/\/$/, '');
+      if (cleanRoute === '') cleanRoute = '/';
+      if (route === '') cleanRoute = '';
+      allUrlsSet.add(`${HOST}${cleanRoute}`);
     });
 
-    const blogRoutes = blogPosts.map(post => `${HOST}/blog/${post.slug}`);
+    const staticExams = [
+      'ssc', 'otet-2026', 'dsssb', 'ssb-odisha', 'rrb', 'rrb-ntpc', 
+      'rrb-alp', 'rrb-group-d', 'bpsc-tre-4-0-2026'
+    ];
 
-    const allUrls = [...staticRoutes, ...examRoutes, ...blogRoutes];
+    EXAMS.forEach(exam => {
+      if (!staticExams.includes(exam.id)) {
+        allUrlsSet.add(`${HOST}/${exam.id}-photo-resizer`);
+      }
+      allUrlsSet.add(`${HOST}/${exam.id}-photo-size-guide`);
+    });
+
+    blogPosts.forEach(post => {
+      allUrlsSet.add(`${HOST}/blog/${post.slug}`);
+    });
+
+    const allUrls = Array.from(allUrlsSet);
 
     // 2. Submit to IndexNow (Bing is the main endpoint, it shares with others)
     const response = await fetch('https://www.bing.com/indexnow', {

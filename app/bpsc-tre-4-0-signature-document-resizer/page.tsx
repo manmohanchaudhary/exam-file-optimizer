@@ -7,7 +7,7 @@ import { CheckCircle2, XCircle, FileUp, Settings, Download } from 'lucide-react'
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'BPSC TRE Signature & Document Resizer | TRE 4.0, TRE 3.0 & All BPSC Teacher Exams 2026',
+  title: 'BPSC TRE Signature & Document Resizer | Free Tool 2026',
   description: 'Free tool to resize your BPSC TRE signature and documents instantly. Works for TRE 4.0, TRE 3.0 and all BPSC teacher recruitment forms — signature under 20KB, documents under 100KB. No signup required.',
   keywords: [
     'BPSC TRE 4.0 2026',

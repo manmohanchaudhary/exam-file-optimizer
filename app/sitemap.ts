@@ -6,6 +6,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://examresize.online'
   const lastModifiedDate = new Date().toISOString().split('T')[0]
   
+  // Use a map to prevent duplicates, maintaining the highest priority items
+  const allUrls = new Map<string, MetadataRoute.Sitemap[number]>();
+
+  const addRoute = (
+    route: string, 
+    priority: number, 
+    changeFrequency: 'monthly' | 'yearly' | 'always' | 'hourly' | 'daily' | 'weekly' | 'never', 
+    lastModified: string
+  ) => {
+    // Clean up double slashes and ensure it starts with a slash
+    let cleanRoute = route.startsWith('/') ? route : `/${route}`;
+    cleanRoute = cleanRoute.replace(/\/+/g, '/').replace(/\/$/, '');
+    
+    // Explicitly handle root
+    if (cleanRoute === '') cleanRoute = '/';
+    if (route === '') cleanRoute = '';
+
+    const fullUrl = `${baseUrl}${cleanRoute}`;
+    
+    // Prevent duplicates
+    if (!allUrls.has(fullUrl)) {
+      allUrls.set(fullUrl, {
+        url: fullUrl,
+        lastModified,
+        changeFrequency,
+        priority,
+      });
+    }
+  };
+
   const staticRoutes = [
     '',
     '/about',
@@ -31,43 +61,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/rrb-ntpc-photo-resizer',
     '/rrb-alp-photo-resizer',
     '/rrb-group-d-photo-resizer',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: lastModifiedDate,
-    changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1 : 0.8,
-  }))
+    '/bpsc-tre-4-0-signature-document-resizer',
+  ];
 
-  const examRoutes = EXAMS.flatMap((exam) => {
-    const routes = [];
+  staticRoutes.forEach(route => {
+    addRoute(route, route === '' ? 1 : 0.8, 'monthly', lastModifiedDate);
+  });
+
+  EXAMS.forEach((exam) => {
+    // Exclude static destinations
+    const staticExams = [
+      'ssc', 'otet-2026', 'dsssb', 'ssb-odisha', 'rrb', 'rrb-ntpc', 
+      'rrb-alp', 'rrb-group-d', 'bpsc-tre-4-0-2026'
+    ];
     
-    // Only add dynamic resizer route if it doesn't have a static equivalent
-    if (exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha' && exam.id !== 'rrb' && exam.id !== 'rrb-ntpc' && exam.id !== 'rrb-alp' && exam.id !== 'rrb-group-d') {
-      routes.push({
-        url: `${baseUrl}/${exam.id}-photo-resizer`,
-        lastModified: lastModifiedDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.9,
-      });
+    if (!staticExams.includes(exam.id)) {
+      addRoute(`/${exam.id}-photo-resizer`, 0.9, 'monthly', lastModifiedDate);
     }
 
     // Always add the guide route
-    routes.push({
-      url: `${baseUrl}/${exam.id}-photo-size-guide`,
-      lastModified: lastModifiedDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    });
+    addRoute(`/${exam.id}-photo-size-guide`, 0.8, 'monthly', lastModifiedDate);
+  });
 
-    return routes;
-  })
+  blogPosts.forEach((post) => {
+    addRoute(`/blog/${post.slug}`, 0.7, 'monthly', post.date || lastModifiedDate);
+  });
 
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.date,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
-
-  return [...staticRoutes, ...examRoutes, ...blogRoutes]
+  return Array.from(allUrls.values());
 }
