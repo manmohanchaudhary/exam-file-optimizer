@@ -30,113 +30,8 @@ export const metadata: Metadata = {
 };
 
 export default function UGCNetPhotoResizer() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "name": "UGC NET Photo Resizer",
-        "url": "https://examresize.online/ugc-net-photo-resizer",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        },
-        "description": "Free online tool to resize photos and signatures as per NTA UGC NET official specifications for the application form."
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the photo size requirement for UGC NET 2026 application form?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "According to NTA's official UGC NET Information Bulletin, the photograph must be between 10 KB and 200 KB in file size. It should be a recent passport-size photo with at least 80% face visible, taken against a white background, with both ears visible. The format must be JPG or JPEG."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the signature size for UGC NET application?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The signature file must be between 4 KB and 30 KB in size, in JPG or JPEG format. It should be your own signature on white paper using a black or blue pen, scanned or photographed clearly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I resize my photo for UGC NET if it's too large?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Use ExamResize's free UGC NET Photo Resizer. Upload your photo, and the tool will automatically compress and resize it to fit within the 10 KB–200 KB limit required by NTA. No app download or registration is needed."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use a selfie for UGC NET application form?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. NTA requires a formal passport-size photograph with a plain white background, 80% face visible including ears, and taken in good lighting. A casual selfie is likely to get rejected. Use ExamResize to check and resize your photo after clicking it properly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What happens if my photo is rejected on the NTA portal?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "If your photo or signature doesn't meet the file size or format specifications, the NTA portal will show an error and prevent you from completing your application. You'll need to resize and re-upload. ExamResize ensures your file is within the accepted range before you upload."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is ExamResize free to use for UGC NET photo resizing?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, completely free. There is no registration, no subscription, and no hidden fee. Simply upload your photo or signature, download the resized version, and upload it to the NTA portal."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the last date for UGC NET June 2026 application form?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Based on the trend from past cycles, the UGC NET June 2026 application form is expected to open approximately in March–April 2026. The exact dates will be announced on the official NTA website at ugcnet.nta.nic.in. Based on current Google search trends, aspirants are already searching for \"ugc net june 2026 application form last date\" — bookmark ExamResize to stay ready."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does ExamResize store my photo or personal files?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ExamResize processes all files directly in your browser. No image, document, or personal data is transmitted to or stored on our servers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use this tool on my mobile phone?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. ExamResize is fully mobile-responsive. You can upload your photo directly from your phone gallery, resize it, and download the result — all without a laptop."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "I need to resize a photo for UGC NET revised answer key or result form. Does this help?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "If you're re-uploading or re-applying after checking the UGC NET revised result or revised answer key, you may need to resubmit documents. ExamResize ensures your photo and signature always meet NTA's exact specifications."
-            }
-          }
-        ]
-      }
-    ]
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <LandingPageTemplate
         title="UGC NET Photo & Signature Resizer – Free Online Tool for 2026 Application"
         description="Applying for UGC NET June 2026? Don't let a photo upload error reject your application. ExamResize automatically resizes your photograph to 10KB–200KB and your signature to 4KB–30KB, exactly as required by NTA's official UGC-NET Information Bulletin. Works on mobile and desktop. Upload, resize, download — done."
@@ -145,11 +40,11 @@ export default function UGCNetPhotoResizer() {
         faqs={[
           {
             q: "What is the photo size requirement for UGC NET 2026 application form?",
-            a: "According to NTA's official UGC NET Information Bulletin, the photograph must be between **10 KB and 200 KB** in file size. It should be a recent passport-size photo with at least 80% face visible, taken against a white background, with both ears visible. The format must be JPG or JPEG."
+            a: "According to NTA's official UGC NET Information Bulletin, the photograph must be between 10 KB and 200 KB in file size. It should be a recent passport-size photo with at least 80% face visible, taken against a white background, with both ears visible. The format must be JPG or JPEG."
           },
           {
             q: "What is the signature size for UGC NET application?",
-            a: "The signature file must be between **4 KB and 30 KB** in size, in JPG or JPEG format. It should be your own signature on white paper using a black or blue pen, scanned or photographed clearly."
+            a: "The signature file must be between 4 KB and 30 KB in size, in JPG or JPEG format. It should be your own signature on white paper using a black or blue pen, scanned or photographed clearly."
           },
           {
             q: "How do I resize my photo for UGC NET if it's too large?",
