@@ -156,28 +156,9 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
       if (applyBackgroundRemoval && fileToProcess.type.startsWith('image/') && fileType !== 'document') {
         const bgToastId = toast.loading('Cooking up some AI… this may take a moment');
         
-        // Suppress expected onnxruntime-web multi-threading warnings
-        const originalWarn = console.warn;
-        console.warn = (...args) => {
-          const msg = args[0] ? String(args[0]) : '';
-          if (
-            msg.includes('wasm.numThreads is set to') ||
-            msg.includes('WebAssembly multi-threading is not supported') ||
-            msg.includes('Falling back to single-threading')
-          ) {
-            return;
-          }
-          originalWarn(...args);
-        };
-
         try {
-          // @ts-ignore
-          const ort = await import('onnxruntime-web');
-          ort.env.wasm.numThreads = 1;
-          
           const { removeBackground } = await import('@imgly/background-removal');
           const bgRemovedBlob = await removeBackground(fileToProcess, {
-             proxyToWorker: false,
              progress: (key, current, total) => {
                // Only for logging, could update toast here if desired
              }
@@ -188,9 +169,6 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
         } catch (err) {
           console.error('Background removal failed:', err);
           toast.error('Failed to remove background. Proceeding with original file.', { id: bgToastId });
-        } finally {
-          // Restore console.warn
-          console.warn = originalWarn;
         }
       }
 
@@ -747,39 +725,46 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
                   <div className="space-y-6 pt-6 border-t border-slate-100">
                     <div className="flex flex-col gap-3">
-                      <div className="flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded-lg">
-                        <div className="flex items-center space-x-2">
-                          <Label htmlFor="govExamMode" className="font-medium text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger type="button" className="cursor-help">
-                                <Info className="w-4 h-4 text-slate-400 hover:text-slate-600 transition-colors" />
-                              </TooltipTrigger>
-                              <TooltipContent className="max-w-xs text-sm">
-                                <p>Automatically fixes image/PDF upload issues by removing hidden metadata and correcting encoding for government exam forms.</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
+                      {/* Toggle 1: Gov Exam Mode */}
+                      <div className={`group relative flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border transition-all duration-300 ease-out ${isGovExamMode ? 'bg-[#f0f7ff] border-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 hover:bg-slate-50'}`}>
+                        <div className="flex flex-col gap-1 pr-12 sm:pr-4">
+                          <div className="flex items-center gap-2">
+                            <Label htmlFor="govExamMode" className="font-semibold text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
+                            <TooltipProvider delayDuration={200}>
+                              <Tooltip>
+                                <TooltipTrigger type="button" className="cursor-help inline-flex items-center justify-center rounded-full transition-colors focus:ring-2 focus:ring-blue-200 focus:outline-none shrink-0 outline-none">
+                                  <Info className={`w-[18px] h-[18px] transition-colors duration-200 ${isGovExamMode ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
+                                </TooltipTrigger>
+                                <TooltipContent side="top" sideOffset={8} className="bg-white border border-slate-200 text-slate-700 shadow-lg rounded-xl max-w-[280px] p-3 text-sm font-medium z-50">
+                                  <p className="leading-relaxed">Automatically fixes image/PDF upload issues by removing hidden metadata and correcting encoding for government exam forms.</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         </div>
-                        <Switch 
-                          id="govExamMode" 
-                          checked={isGovExamMode} 
-                          onCheckedChange={setIsGovExamMode} 
-                        />
+                        <div className="absolute top-4 right-4 sm:relative sm:top-auto sm:right-auto shrink-0 flex items-center">
+                          <Switch 
+                            id="govExamMode" 
+                            checked={isGovExamMode} 
+                            onCheckedChange={setIsGovExamMode} 
+                            className="data-[state=checked]:bg-[#0056b3] transition-all duration-300 shadow-sm"
+                          />
+                        </div>
                       </div>
                       
+                      {/* Toggle 2: AI Background Removal */}
                       {fileType !== 'document' && (
-                        <div className="flex flex-col gap-1.5 bg-slate-50 border border-slate-200 p-3 rounded-lg">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                              <Label htmlFor="applyBackgroundRemoval" className="font-medium text-slate-800 cursor-pointer text-sm">Apply official white background</Label>
-                              <TooltipProvider>
+                        <div className={`group relative flex flex-col p-4 rounded-xl border transition-all duration-300 ease-out ${applyBackgroundRemoval ? 'bg-[#f0f7ff] border-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 hover:bg-slate-50'}`}>
+                          <div className="flex items-center justify-between w-full">
+                            <div className="flex items-center gap-2">
+                              <Label htmlFor="applyBackgroundRemoval" className="font-semibold text-slate-800 cursor-pointer text-sm leading-none m-0 p-0">Apply White Background</Label>
+                              <TooltipProvider delayDuration={200}>
                                 <Tooltip>
-                                  <TooltipTrigger type="button" className="cursor-help">
-                                    <Info className="w-4 h-4 text-slate-400 hover:text-slate-600 transition-colors" />
+                                  <TooltipTrigger type="button" className="cursor-help inline-flex items-center justify-center rounded-full transition-colors focus:ring-2 focus:ring-blue-200 focus:outline-none shrink-0 outline-none">
+                                    <Info className={`w-[18px] h-[18px] transition-colors duration-200 ${applyBackgroundRemoval ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
                                   </TooltipTrigger>
-                                  <TooltipContent className="max-w-xs text-sm">
-                                    <p>Uses AI to detect the person and replace the background with a pure white background as required by most NTA and RRB exams.</p>
+                                  <TooltipContent side="top" sideOffset={8} className="bg-white border border-slate-200 text-slate-700 shadow-lg rounded-xl max-w-[280px] p-3 text-sm font-medium z-50">
+                                    <p className="leading-relaxed">Uses AI to detect the person and replace the background with a pure white background as required by most NTA and RRB exams.</p>
                                   </TooltipContent>
                                 </Tooltip>
                               </TooltipProvider>
@@ -788,9 +773,12 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                               id="applyBackgroundRemoval" 
                               checked={applyBackgroundRemoval} 
                               onCheckedChange={setApplyBackgroundRemoval} 
+                              className="data-[state=checked]:bg-[#0056b3] transition-all duration-300 shadow-sm shrink-0 ml-4"
                             />
                           </div>
-                          <p className="text-xs text-slate-500 italic">Uses AI. May take 10-20 seconds on the first click.</p>
+                          <p className={`text-[11.5px] sm:text-xs whitespace-nowrap tracking-tight mt-1.5 transition-colors duration-300 ${applyBackgroundRemoval ? 'text-blue-600/80' : 'text-slate-500'}`}>
+                            Uses AI. May take 10-20 seconds on the first click.
+                          </p>
                         </div>
                       )}
                     </div>
