@@ -66,7 +66,7 @@ export default function UnifiedCropper({ isOpen, onClose, imageUrl, onCropComple
   function onStandardImageLoad(img: HTMLImageElement) {
     const { width, height } = img;
     const initialCrop = centerCrop(
-      makeAspectCrop({ width: 80 }, width / height, width, height),
+      makeAspectCrop({ unit: '%', width: 80 }, width / height, width, height),
       width,
       height
     );
