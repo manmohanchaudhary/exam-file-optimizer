@@ -171,6 +171,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
         };
 
         try {
+          // @ts-ignore
           const ort = await import('onnxruntime-web');
           ort.env.wasm.numThreads = 1;
           
