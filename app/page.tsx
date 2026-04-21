@@ -86,7 +86,7 @@ export default function Home() {
           
           {/* Main App Container */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-4xl mx-auto overflow-hidden mb-12">
-            <div className="p-6 md:p-8">
+            <div className="p-3 sm:p-6 md:p-8">
               <AppContainer />
             </div>
           </div>

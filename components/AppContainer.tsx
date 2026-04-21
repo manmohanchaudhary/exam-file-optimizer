@@ -632,9 +632,9 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     <span className="font-medium text-slate-500">{file.name}</span>
                   </div>
                 )}
-                <div className="mt-4 flex justify-between text-sm text-slate-600 bg-slate-50 p-3 rounded-md">
-                  <span className="truncate max-w-[200px]" title={file.name}>{file.name}</span>
-                  <span className="font-medium">{formatBytes(file.size)}</span>
+                <div className="mt-4 flex justify-between items-center text-sm text-slate-600 bg-slate-50 p-3 rounded-md">
+                  <span className="truncate flex-1 min-w-0 mr-3" title={file.name}>{file.name}</span>
+                  <span className="font-medium shrink-0">{formatBytes(file.size)}</span>
                 </div>
               </CardContent>
             </Card>
@@ -726,14 +726,14 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                   <div className="space-y-6 pt-6 border-t border-slate-100">
                     <div className="flex flex-col gap-3">
                       {/* Toggle 1: Gov Exam Mode */}
-                      <div className={`group relative flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border transition-all duration-300 ease-out ${isGovExamMode ? 'bg-[#f0f7ff] border-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 hover:bg-slate-50'}`}>
+                      <div className={`group relative flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 rounded-xl border transition-all duration-300 ease-out ${isGovExamMode ? 'bg-[#f0f7ff] border-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 hover:bg-slate-50'}`}>
                         <div className="flex flex-col gap-1 pr-12 sm:pr-4">
-                          <div className="flex items-center gap-2">
-                            <Label htmlFor="govExamMode" className="font-semibold text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <Label htmlFor="govExamMode" className="font-semibold text-slate-800 cursor-pointer text-[13px] sm:text-sm">Fix Upload Errors</Label>
                             <TooltipProvider delay={200}>
                               <Tooltip>
                                 <TooltipTrigger type="button" className="cursor-help inline-flex items-center justify-center rounded-full transition-colors focus:ring-2 focus:ring-blue-200 focus:outline-none shrink-0 outline-none">
-                                  <Info className={`w-[18px] h-[18px] transition-colors duration-200 ${isGovExamMode ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
+                                  <Info className={`w-4 sm:w-[18px] h-4 sm:h-[18px] transition-colors duration-200 ${isGovExamMode ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
                                 </TooltipTrigger>
                                 <TooltipContent side="top" sideOffset={8} className="bg-white border border-slate-200 text-slate-700 shadow-lg rounded-xl max-w-[280px] p-3 text-sm font-medium z-50">
                                   <p className="leading-relaxed">Automatically fixes image/PDF upload issues by removing hidden metadata and correcting encoding for government exam forms.</p>
@@ -742,7 +742,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                             </TooltipProvider>
                           </div>
                         </div>
-                        <div className="absolute top-4 right-4 sm:relative sm:top-auto sm:right-auto shrink-0 flex items-center">
+                        <div className="absolute top-3 right-3 sm:relative sm:top-auto sm:right-auto shrink-0 flex items-center">
                           <Switch 
                             id="govExamMode" 
                             checked={isGovExamMode} 
@@ -754,14 +754,14 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                       
                       {/* Toggle 2: AI Background Removal */}
                       {fileType !== 'document' && (
-                        <div className={`group relative flex flex-col p-4 rounded-xl border transition-all duration-300 ease-out ${applyBackgroundRemoval ? 'bg-[#f0f7ff] border-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 hover:bg-slate-50'}`}>
-                          <div className="flex items-center justify-between w-full">
-                            <div className="flex items-center gap-2">
-                              <Label htmlFor="applyBackgroundRemoval" className="font-semibold text-slate-800 cursor-pointer text-sm leading-none m-0 p-0">Apply White Background</Label>
+                        <div className={`group relative flex flex-col p-3 sm:p-4 rounded-xl border transition-all duration-300 ease-out ${applyBackgroundRemoval ? 'bg-[#f0f7ff] border-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 hover:bg-slate-50'}`}>
+                          <div className="flex items-center justify-between w-full pr-1">
+                            <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden mr-2">
+                              <Label htmlFor="applyBackgroundRemoval" className="font-semibold text-slate-800 cursor-pointer text-[13px] sm:text-sm leading-tight m-0 p-0 break-words line-clamp-2">Apply White Background</Label>
                               <TooltipProvider delay={200}>
                                 <Tooltip>
                                   <TooltipTrigger type="button" className="cursor-help inline-flex items-center justify-center rounded-full transition-colors focus:ring-2 focus:ring-blue-200 focus:outline-none shrink-0 outline-none">
-                                    <Info className={`w-[18px] h-[18px] transition-colors duration-200 ${applyBackgroundRemoval ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
+                                    <Info className={`w-4 sm:w-[18px] h-4 sm:h-[18px] transition-colors duration-200 ${applyBackgroundRemoval ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
                                   </TooltipTrigger>
                                   <TooltipContent side="top" sideOffset={8} className="bg-white border border-slate-200 text-slate-700 shadow-lg rounded-xl max-w-[280px] p-3 text-sm font-medium z-50">
                                     <p className="leading-relaxed">Uses AI to detect the person and replace the background with a pure white background as required by most NTA and RRB exams.</p>
@@ -773,10 +773,10 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                               id="applyBackgroundRemoval" 
                               checked={applyBackgroundRemoval} 
                               onCheckedChange={setApplyBackgroundRemoval} 
-                              className="data-[state=checked]:bg-[#0056b3] transition-all duration-300 shadow-sm shrink-0 ml-4"
+                              className="data-[state=checked]:bg-[#0056b3] transition-all duration-300 shadow-sm shrink-0"
                             />
                           </div>
-                          <p className={`text-[11.5px] sm:text-xs whitespace-nowrap tracking-tight mt-1.5 transition-colors duration-300 ${applyBackgroundRemoval ? 'text-blue-600/80' : 'text-slate-500'}`}>
+                          <p className={`text-[11px] sm:text-xs whitespace-nowrap tracking-tight mt-1.5 sm:mt-1.5 transition-colors duration-300 overflow-visible ${applyBackgroundRemoval ? 'text-blue-600/80' : 'text-slate-500'}`}>
                             Uses AI. May take 10-20 seconds on the first click.
                           </p>
                         </div>
