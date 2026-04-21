@@ -730,7 +730,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                         <div className="flex flex-col gap-1 pr-12 sm:pr-4">
                           <div className="flex items-center gap-2">
                             <Label htmlFor="govExamMode" className="font-semibold text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
-                            <TooltipProvider delayDuration={200}>
+                            <TooltipProvider delay={200}>
                               <Tooltip>
                                 <TooltipTrigger type="button" className="cursor-help inline-flex items-center justify-center rounded-full transition-colors focus:ring-2 focus:ring-blue-200 focus:outline-none shrink-0 outline-none">
                                   <Info className={`w-[18px] h-[18px] transition-colors duration-200 ${isGovExamMode ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
@@ -758,7 +758,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                           <div className="flex items-center justify-between w-full">
                             <div className="flex items-center gap-2">
                               <Label htmlFor="applyBackgroundRemoval" className="font-semibold text-slate-800 cursor-pointer text-sm leading-none m-0 p-0">Apply White Background</Label>
-                              <TooltipProvider delayDuration={200}>
+                              <TooltipProvider delay={200}>
                                 <Tooltip>
                                   <TooltipTrigger type="button" className="cursor-help inline-flex items-center justify-center rounded-full transition-colors focus:ring-2 focus:ring-blue-200 focus:outline-none shrink-0 outline-none">
                                     <Info className={`w-[18px] h-[18px] transition-colors duration-200 ${applyBackgroundRemoval ? 'text-blue-500 hover:text-blue-700' : 'text-slate-400 hover:text-blue-500'}`} />
