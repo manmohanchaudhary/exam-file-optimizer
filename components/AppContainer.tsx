@@ -32,6 +32,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
   const [customMaxSize, setCustomMaxSize] = useState<string>(initialTargetSize || '50');
   const [customFormat, setCustomFormat] = useState<string>(initialFileType === 'document' ? 'pdf' : 'jpg');
   const [isGovExamMode, setIsGovExamMode] = useState<boolean>(false);
+  const [applyBackgroundRemoval, setApplyBackgroundRemoval] = useState<boolean>(false);
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
@@ -115,6 +116,31 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
     maxFiles: 1,
   });
 
+  const applyWhiteBackground = (blob: Blob): Promise<Blob> => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        if (ctx) {
+          ctx.fillStyle = "#FFFFFF";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+          canvas.toBlob((b) => {
+            if (b) resolve(b);
+            else reject(new Error("Failed to create blob from canvas"));
+          }, "image/jpeg", 0.95);
+        } else {
+          reject(new Error("Failed to get canvas 2D context"));
+        }
+      };
+      img.onerror = () => reject(new Error("Failed to load image for applying white background"));
+      img.src = URL.createObjectURL(blob);
+    });
+  };
+
   const handleProcess = async () => {
     if (!file) {
       toast.error('Please upload a file first');
@@ -126,6 +152,46 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
 
     try {
       let fileToProcess = file;
+
+      if (applyBackgroundRemoval && fileToProcess.type.startsWith('image/') && fileType !== 'document') {
+        const bgToastId = toast.loading('Cooking up some AI… this may take a moment');
+        
+        // Suppress expected onnxruntime-web multi-threading warnings
+        const originalWarn = console.warn;
+        console.warn = (...args) => {
+          const msg = args[0] ? String(args[0]) : '';
+          if (
+            msg.includes('wasm.numThreads is set to') ||
+            msg.includes('WebAssembly multi-threading is not supported') ||
+            msg.includes('Falling back to single-threading')
+          ) {
+            return;
+          }
+          originalWarn(...args);
+        };
+
+        try {
+          const ort = await import('onnxruntime-web');
+          ort.env.wasm.numThreads = 1;
+          
+          const { removeBackground } = await import('@imgly/background-removal');
+          const bgRemovedBlob = await removeBackground(fileToProcess, {
+             proxyToWorker: false,
+             progress: (key, current, total) => {
+               // Only for logging, could update toast here if desired
+             }
+          });
+          const whiteBgBlob = await applyWhiteBackground(bgRemovedBlob);
+          fileToProcess = new File([whiteBgBlob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", { type: "image/jpeg" });
+          toast.success('Background changed successfully!', { id: bgToastId });
+        } catch (err) {
+          console.error('Background removal failed:', err);
+          toast.error('Failed to remove background. Proceeding with original file.', { id: bgToastId });
+        } finally {
+          // Restore console.warn
+          console.warn = originalWarn;
+        }
+      }
 
       const formData = new FormData();
       formData.append('file', fileToProcess);
@@ -149,7 +215,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
            }
         }
 
-        toast.loading('Compressing PDF locally...', { id: 'pdf-compress' });
+        toast.loading('Compressing your PDF… this can take a few seconds', { id: 'pdf-compress' });
         try {
           const compressedBlob = await compressPdfClientSide(fileToProcess, minSizeKb, maxSizeKb);
           toast.dismiss('pdf-compress');
@@ -175,7 +241,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
         } catch (err) {
           toast.dismiss('pdf-compress');
           console.error('Client-side PDF compression failed:', err);
-          throw new Error('Failed to compress PDF locally. Please try a different file.');
+          throw new Error('Failed to compress PDF. Please try a different file.');
         }
       }
 
@@ -679,25 +745,53 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                     </div>
 
                   <div className="space-y-6 pt-6 border-t border-slate-100">
-                    <div className="flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded-lg">
-                      <div className="flex items-center space-x-2">
-                        <Label htmlFor="govExamMode" className="font-medium text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger type="button" className="cursor-help">
-                              <Info className="w-4 h-4 text-slate-400 hover:text-slate-600 transition-colors" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs text-sm">
-                              <p>Automatically fixes image/PDF upload issues by removing hidden metadata and correcting encoding for government exam forms.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                    <div className="flex flex-col gap-3">
+                      <div className="flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded-lg">
+                        <div className="flex items-center space-x-2">
+                          <Label htmlFor="govExamMode" className="font-medium text-slate-800 cursor-pointer text-sm">Fix Upload Errors</Label>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger type="button" className="cursor-help">
+                                <Info className="w-4 h-4 text-slate-400 hover:text-slate-600 transition-colors" />
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs text-sm">
+                                <p>Automatically fixes image/PDF upload issues by removing hidden metadata and correcting encoding for government exam forms.</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                        <Switch 
+                          id="govExamMode" 
+                          checked={isGovExamMode} 
+                          onCheckedChange={setIsGovExamMode} 
+                        />
                       </div>
-                      <Switch 
-                        id="govExamMode" 
-                        checked={isGovExamMode} 
-                        onCheckedChange={setIsGovExamMode} 
-                      />
+                      
+                      {fileType !== 'document' && (
+                        <div className="flex flex-col gap-1.5 bg-slate-50 border border-slate-200 p-3 rounded-lg">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <Label htmlFor="applyBackgroundRemoval" className="font-medium text-slate-800 cursor-pointer text-sm">Apply official white background</Label>
+                              <TooltipProvider>
+                                <Tooltip>
+                                  <TooltipTrigger type="button" className="cursor-help">
+                                    <Info className="w-4 h-4 text-slate-400 hover:text-slate-600 transition-colors" />
+                                  </TooltipTrigger>
+                                  <TooltipContent className="max-w-xs text-sm">
+                                    <p>Uses AI to detect the person and replace the background with a pure white background as required by most NTA and RRB exams.</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </TooltipProvider>
+                            </div>
+                            <Switch 
+                              id="applyBackgroundRemoval" 
+                              checked={applyBackgroundRemoval} 
+                              onCheckedChange={setApplyBackgroundRemoval} 
+                            />
+                          </div>
+                          <p className="text-xs text-slate-500 italic">Uses AI. May take 10-20 seconds on the first click.</p>
+                        </div>
+                      )}
                     </div>
 
                     <div className="space-y-5 pt-2">

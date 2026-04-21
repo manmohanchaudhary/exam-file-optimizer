@@ -13,6 +13,7 @@
     "@base-ui/react": "^1.2.0",
     "@google/genai": "^1.45.0",
     "@hookform/resolvers": "^5.2.2",
+    "@imgly/background-removal": "^1.7.0",
     "@next/third-parties": "^16.2.3",
     "@vercel/analytics": "^2.0.1",
     "autoprefixer": "^10.4.21",
