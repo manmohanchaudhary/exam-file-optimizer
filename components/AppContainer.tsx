@@ -12,12 +12,13 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown, AlertCircle, Info } from 'lucide-react';
+import { UploadCloud, FileImage, FileText, Download, Loader2, CheckCircle2, RefreshCw, ChevronDown, AlertCircle, Info, Crop } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 import dynamic from 'next/dynamic';
 
 const SearchableExamSelect = dynamic(() => import('./SearchableExamSelect'), { ssr: false });
+const UnifiedCropper = dynamic(() => import('./UnifiedCropper'), { ssr: false });
 
 export default function AppContainer({ initialExamId = 'custom', initialFileType = 'photo', initialTargetSize, initialMinSize, hiddenTabs = [] }: { initialExamId?: string, initialFileType?: FileType, initialTargetSize?: string, initialMinSize?: string, hiddenTabs?: string[] }) {
   const [isMounted, setIsMounted] = useState(false);
@@ -35,6 +36,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
   const [applyBackgroundRemoval, setApplyBackgroundRemoval] = useState<boolean>(false);
 
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isCropperOpen, setIsCropperOpen] = useState(false);
   const [result, setResult] = useState<{ url: string; filename: string; size: number; format: string } | null>(null);
 
   useEffect(() => {
@@ -608,10 +610,10 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
           </div>
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {/* Left Column: Preview & File Info */}
-          <div className="space-y-4">
-            <Card>
+          <div className="space-y-4 min-w-0 w-full">
+            <Card className="w-full overflow-hidden">
               <CardHeader className="pb-4">
                 <CardTitle className="text-lg flex items-center justify-between">
                   Original File
@@ -622,17 +624,30 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
               </CardHeader>
               <CardContent>
                 {previewUrl ? (
-                  <div className="aspect-square relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center">
+                  <div className="aspect-square relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center w-full group">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={previewUrl} alt="Preview" className="max-w-full max-h-full object-contain" loading="lazy" />
+                    {fileType !== 'document' && (
+                      <div className="absolute top-2 right-2 z-10 transition-transform hover:scale-105 active:scale-95">
+                        <Button 
+                          variant="secondary" 
+                          size="sm" 
+                          className="shadow-md bg-white hover:bg-slate-50 text-slate-800 gap-1.5 h-8 px-3 rounded-md font-medium"
+                          onClick={() => setIsCropperOpen(true)}
+                        >
+                          <Crop className="w-4 h-4" />
+                          <span className="text-xs font-semibold">Crop</span>
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 ) : (
-                  <div className="aspect-square rounded-lg bg-slate-100 border border-slate-200 flex flex-col items-center justify-center text-slate-400">
+                  <div className="aspect-square rounded-lg bg-slate-100 border border-slate-200 flex flex-col items-center justify-center text-slate-400 w-full">
                     <FileText className="w-16 h-16 mb-4 text-slate-300" />
-                    <span className="font-medium text-slate-500">{file.name}</span>
+                    <span className="font-medium text-slate-500 text-center px-4 w-full truncate border-none">{file.name}</span>
                   </div>
                 )}
-                <div className="mt-4 flex justify-between items-center text-sm text-slate-600 bg-slate-50 p-3 rounded-md">
+                <div className="mt-4 flex justify-between items-center text-sm text-slate-600 bg-slate-50 p-3 rounded-md w-full overflow-hidden">
                   <span className="truncate flex-1 min-w-0 mr-3" title={file.name}>{file.name}</span>
                   <span className="font-medium shrink-0">{formatBytes(file.size)}</span>
                 </div>
@@ -640,10 +655,24 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
             </Card>
           </div>
 
+          {previewUrl && (
+            <UnifiedCropper 
+              isOpen={isCropperOpen}
+              onClose={() => setIsCropperOpen(false)}
+              imageUrl={previewUrl}
+              originalFileName={file.name}
+              onCropComplete={(croppedFile) => {
+                setFile(croppedFile);
+                setPreviewUrl(URL.createObjectURL(croppedFile));
+                toast.success('Image cropped successfully');
+              }}
+            />
+          )}
+
           {/* Right Column: Settings & Actions */}
-          <div className="space-y-6">
+          <div className="space-y-6 min-w-0 w-full">
             {!result ? (
-              <Card>
+              <Card className="w-full overflow-hidden">
                 <CardHeader>
                   <CardTitle>Optimization Settings</CardTitle>
                   <CardDescription>Select a preset or enter custom requirements</CardDescription>
@@ -845,7 +874,7 @@ export default function AppContainer({ initialExamId = 'custom', initialFileType
                 </CardFooter>
               </Card>
             ) : (
-              <Card id="results-section" className={`border ${isSizeValid ? 'border-green-200 bg-green-50/50' : 'border-amber-200 bg-amber-50/50'}`}>
+              <Card id="results-section" className={`w-full overflow-hidden border ${isSizeValid ? 'border-green-200 bg-green-50/50' : 'border-amber-200 bg-amber-50/50'}`}>
                 <CardHeader>
                   <CardTitle className={`flex items-center gap-2 ${isSizeValid ? 'text-green-800' : 'text-amber-800'}`}>
                     {isSizeValid ? (

@@ -13,6 +13,7 @@ export default function LandingPageTemplate({
   initialFileType = 'photo',
   hiddenTabs = [],
   relatedTools = [],
+  toolHelperText,
   children
 }: {
   title: string;
@@ -23,6 +24,7 @@ export default function LandingPageTemplate({
   initialFileType?: any;
   hiddenTabs?: string[];
   relatedTools?: { title: string; link: string; desc: string }[];
+  toolHelperText?: React.ReactNode;
   children?: React.ReactNode;
 }) {
   const schema = {
@@ -94,11 +96,16 @@ export default function LandingPageTemplate({
           </p>
           
           {/* Main App Container */}
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-4xl mx-auto overflow-hidden mb-12">
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-4xl mx-auto overflow-hidden mb-6">
             <div className="p-6 md:p-8">
               <AppContainer initialExamId={initialExamId} initialFileType={initialFileType} hiddenTabs={hiddenTabs} />
             </div>
           </div>
+          {toolHelperText && (
+            <div className="max-w-4xl mx-auto mb-12 px-4 text-sm text-slate-500 text-center">
+              {toolHelperText}
+            </div>
+          )}
 
           {/* AdSense Banner */}
           <div className="max-w-4xl mx-auto my-8">
