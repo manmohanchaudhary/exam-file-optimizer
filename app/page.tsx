@@ -25,6 +25,7 @@ export default function Home() {
     { title: 'SSC Photo Resizer', desc: 'Resize photo and signature for SSC exams.', link: '/photo-resize-for-ssc-form' },
     { title: 'UPSC Photo Resizer', desc: 'Format images for UPSC civil services.', link: '/upsc-photo-resizer' },
     { title: 'NEET Photo Resizer', desc: 'Prepare your NEET application photos.', link: '/neet-photo-resizer' },
+    { title: 'III Exam Resizer', desc: 'Resize photo & signature for III exams.', link: '/iii-exam-photo-signature-resizer' },
     { title: 'IBPS Photo Resizer', desc: 'Resize photos for banking exams.', link: '/ibps-photo-resizer' },
     { title: 'RRB Photo Resizer', desc: 'Optimize images for Railway exams.', link: '/rrb-photo-resizer' },
     { title: '20KB Photo Converter', desc: 'Compress any photo to under 20KB.', link: '/20kb-photo-converter' },

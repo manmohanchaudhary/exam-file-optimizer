@@ -58,6 +58,7 @@ export function Header() {
               width={540} 
               height={120} 
               className="h-9 md:h-10 w-auto"
+              referrerPolicy="no-referrer"
               priority
             />
           </div>
@@ -251,6 +252,7 @@ export function Footer() {
                 width={540} 
                 height={120} 
                 className="h-9 md:h-10 w-auto brightness-0 invert opacity-90"
+                referrerPolicy="no-referrer"
               />
             </div>
             <p className="text-sm leading-relaxed max-w-sm mb-8 text-slate-400">
@@ -294,6 +296,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm">
               <li><Link href="/photo-resize-for-ssc-form" className="hover:text-white transition-colors">SSC</Link></li>
               <li><Link href="/rrb-photo-resizer" className="hover:text-white transition-colors">RRB</Link></li>
+              <li><Link href="/iii-exam-photo-signature-resizer" className="hover:text-white transition-colors">III Exam</Link></li>
               <li><Link href="/ibps-photo-resizer" className="hover:text-white transition-colors">IBPS</Link></li>
               <li><Link href="/sbi-photo-resizer" className="hover:text-white transition-colors">SBI</Link></li>
               <li><Link href="/rbi-photo-resizer" className="hover:text-white transition-colors">RBI</Link></li>

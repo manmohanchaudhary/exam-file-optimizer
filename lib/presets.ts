@@ -25,6 +25,25 @@ export interface Exam {
 }
 
 export const EXAMS: Exam[] = [
+  {
+    id: "iii",
+    name: "III Exam",
+    category: "Banking & Insurance",
+    photo: {
+      width: 133,
+      height: 152,
+      maxSizeKb: 25,
+      format: "jpg",
+      description: "Photograph (Max 25 KB, 133x152)"
+    },
+    signature: {
+      width: 152,
+      height: 140,
+      maxSizeKb: 25,
+      format: "jpg",
+      description: "Signature (Max 25 KB, 152x140)"
+    }
+  },
   // Existing Exams
   {
     id: 'ugc-net',

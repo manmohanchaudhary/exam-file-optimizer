@@ -1,4 +1,5 @@
 import React from "react";
+export const dynamic = 'force-dynamic';
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import Link from "next/link";
@@ -121,11 +122,7 @@ function IconHeading({ level, children }: { level: number; children: any }) {
   );
 }
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+// Removed generateStaticParams to prevent OOM during build time
 
 export async function generateMetadata({
   params,

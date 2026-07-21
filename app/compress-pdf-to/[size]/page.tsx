@@ -1,4 +1,5 @@
 import { FileUp, Settings, Download, ShieldCheck, Zap, Smartphone, CheckCircle, AlertCircle } from 'lucide-react';
+export const dynamic = 'force-dynamic';
 import AdBanner from '@/components/AdBanner';
 import AppContainer from '@/components/AppContainer';
 import { Header, Footer } from '@/components/Navigation';
@@ -6,13 +7,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export async function generateStaticParams() {
-  return [
-    { size: '50kb' },
-    { size: '100kb' },
-    { size: '200kb' },
-  ];
-}
+// generateStaticParams removed to prevent OOM
 
 export async function generateMetadata({ params }: { params: Promise<{ size: string }> }): Promise<Metadata> {
   const { size } = await params;

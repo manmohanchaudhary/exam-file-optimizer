@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+export const dynamic = 'force-dynamic';
 import { FileUp, Settings, Download, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '@/components/AdBanner';
@@ -326,14 +327,4 @@ export default async function ExamPresetPage({ params }: { params: Promise<{ slu
   );
 }
 
-export function generateStaticParams() {
-  const resizerParams = EXAMS
-    .filter(exam => exam.id !== 'ssc' && exam.id !== 'otet-2026' && exam.id !== 'dsssb' && exam.id !== 'ssb-odisha' && exam.id !== 'rrb' && exam.id !== 'rrb-ntpc' && exam.id !== 'rrb-alp' && exam.id !== 'rrb-group-d' && exam.id !== 'bpsc-tre-4-0-2026')
-    .map(exam => ({
-      slug: `${exam.id}-photo-resizer`,
-    }));
-  const guideParams = EXAMS.map(exam => ({
-    slug: `${exam.id}-photo-size-guide`,
-  }));
-  return [...resizerParams, ...guideParams];
-}
+// generateStaticParams removed to prevent OOM

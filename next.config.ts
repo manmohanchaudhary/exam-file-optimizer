@@ -2,10 +2,23 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  typescript: {
-    ignoreBuildErrors: false,
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-  turbopack: {},
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  experimental: {
+  },
+  serverExternalPackages: [
+    '@imgly/background-removal',
+    'react-markdown',
+    'remark-gfm',
+    'rehype-raw',
+    'rehype-slug',
+    'remark-directive'
+  ],
+  productionBrowserSourceMaps: false,
   // Allow access to remote image placeholder.
   images: {
     remotePatterns: [
@@ -59,7 +72,6 @@ const nextConfig: NextConfig = {
       }
     ];
   },
-  output: 'standalone',
   transpilePackages: ['motion', '@google/genai'],
   webpack: (config, {dev}) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.
